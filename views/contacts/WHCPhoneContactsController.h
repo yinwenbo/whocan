@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WHCABUtils.h"
+#import "AddressBookUtil.h"
+#import "AppContact.h"
 
 @interface WHCPhoneContactsController : UITableViewController<UINavigationControllerDelegate, UINavigationBarDelegate>{
 

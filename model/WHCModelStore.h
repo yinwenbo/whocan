@@ -17,6 +17,9 @@
 
 - (void)saveContext;
 
++ (void)saveContext;
 + (WHCModelStore *) getInstance;
++ (id)insertEntity:(NSString*)entityName;
++ (NSArray *)queryEntitys:(NSString*)entityName predicate:(NSPredicate*)predicate sort:(NSArray*)sort;
 
 @end

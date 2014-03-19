@@ -20,6 +20,37 @@ static WHCModelStore *modelStore = nil;
 
 @synthesize managedObjectModel=_managedObjectModel, managedObjectContext=_managedObjectContext, persistentStoreCoordinator=_persistentStoreCoordinator;
 
+#pragma utils
+
++ (id)insertEntity:(NSString*)entityName
+{
+    NSManagedObjectContext *context = [WHCModelStore getInstance].managedObjectContext;
+    return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+}
+
++ (NSArray *)queryEntitys:(NSString*)entityName predicate:(NSPredicate*)predicate sort:(NSArray*)sort
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSManagedObjectContext * context = [WHCModelStore getInstance].managedObjectContext;
+    NSEntityDescription *myEntityQuery = [NSEntityDescription
+                                          entityForName:entityName
+                                          inManagedObjectContext:context];
+    [request setEntity:myEntityQuery];
+    if (predicate != nil){
+        [request setPredicate:predicate];
+    }
+    if (sort != nil){
+        [request setSortDescriptors:sort];
+    }
+    NSError *error = nil;
+    NSArray * result = [context executeFetchRequest:request error:&error];
+    if(error){
+        NSLog(@"query entity %@ error: %@", entityName, error);
+    }
+    return result;
+}
+
 + (WHCModelStore *)getInstance
 {
     if (modelStore == nil){
@@ -28,6 +59,10 @@ static WHCModelStore *modelStore = nil;
     return modelStore;
 }
 
++ (void)saveContext
+{
+    [[WHCModelStore getInstance] saveContext];
+}
 
 - (void)saveContext
 {
@@ -43,6 +78,7 @@ static WHCModelStore *modelStore = nil;
         }
     }
 }
+
 
 #pragma mark - Core Data stack
 

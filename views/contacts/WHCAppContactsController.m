@@ -18,6 +18,8 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 @implementation WHCAppContactsController
 
+@synthesize appContacts = _appContacts;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -44,11 +46,18 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     // Dispose of any resources that can be recreated.
 }
 
+- (NSArray*)appContacts
+{
+    if(_appContacts == nil){
+        _appContacts = [WHCFriendAPI getFriends];
+    }
+    return _appContacts;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [xx length] + 1;
+    return 2;
 }
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
@@ -65,7 +74,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     if(section == 0){
         return 1;
     }
-    return 2;
+    return [self.appContacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +85,10 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    [cell textLabel].text = [NSString stringWithFormat:@"%@ %lu", [self getSectionTitle:section], [indexPath row]];
+//    [cell textLabel].text = [NSString stringWithFormat:@"%@ %lu", [self getSectionTitle:section], [indexPath row]];
+    WHCFriendAPI *friend = [self.appContacts objectAtIndex:[indexPath row]];
+    [cell textLabel].text = friend.userName;
+    [cell detailTextLabel].text = @"";
     return cell;
 }
 /*

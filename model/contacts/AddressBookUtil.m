@@ -6,63 +6,57 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCABUtils.h"
+#import "AddressBookUtil.h"
 
-@implementation WHCABUtils
+@implementation AddressBookUtil
 
 static bool abAccessPerission;
 
-
-
-+ (BOOL)hasPermission
++ (ABAddressBookRef)getAddressBookRef
 {
     CFErrorRef error = nil;
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, &error);
+    if(error){
+        NSLog(@"get phone address book error: %@", error);
+    }
+    return addressBook;
+}
+
++ (void)releaseRef:(ABAddressBookRef)addressBook
+{
+    if(addressBook != nil){
+        CFRelease(addressBook);
+    }
+}
+
++ (BOOL)hasPermission
+{
+    ABAddressBookRef addressBook = [AddressBookUtil getAddressBookRef];
     ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
         abAccessPerission = granted;
         if(error){
-            NSLog(@"ABAddressBookRequestAccessWithCompletion %@", error);
+            NSLog(@"get address book granted error %@", error);
         }
+        [AddressBookUtil releaseRef:addressBook];
     });
 
     return abAccessPerission;
 }
 
-+ (NSInteger) getCount
++ (NSInteger) getPhoneABCount
 {
-    CFErrorRef error = nil;
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, &error);
-    if(error){
-        NSLog(@"get address book count error: %@", error);
-    }
+    ABAddressBookRef addressBook = [AddressBookUtil getAddressBookRef];
     NSInteger result = ABAddressBookGetPersonCount(addressBook);
-    if(addressBook != nil){
-        CFRelease(addressBook);
-    }
+    [AddressBookUtil releaseRef:addressBook];
     return result;
 }
 
-+ (void) exportPhoneABToAppContacts
++ (NSArray*) getPhoneABRecords
 {
-    CFErrorRef error = nil;
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(nil, &error);
-    NSArray * phoneContacts = (NSArray *)CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
-    if(addressBook != nil){
-        CFRelease(addressBook);
-    }
-    WHCAppContactsStore *store = [WHCAppContactsStore getInstance];
-    for (int i = 0; i < phoneContacts.count; i ++){
-        ABRecordRef record = (ABRecordRef)CFBridgingRetain([phoneContacts objectAtIndex:i]);
-        ABRecordID recordId = ABRecordGetRecordID(record);
-        AppContact * contact = [store findAppContactByABId:recordId];
-        if (contact == nil){
-            contact = [store createAppContact];
-            contact.phoneABName = [WHCABUtils getDisplayName:record];
-            contact.phoneABId = recordId;
-        }
-        CFRelease(record);
-    }
-    [store saveContext];
+    ABAddressBookRef addressBook = [AddressBookUtil getAddressBookRef];
+    NSArray * result = (NSArray *)CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
+    [AddressBookUtil releaseRef:addressBook];
+    return result;
 }
 
 + (NSString *) getDisplayName: (ABRecordRef)record

@@ -16,8 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [WHCABUtils hasPermission];
-    [WHCABUtils exportPhoneABToAppContacts];
+    [AddressBookUtil hasPermission];
+    [AppContact exportPhoneABToAppContacts];
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     return YES;

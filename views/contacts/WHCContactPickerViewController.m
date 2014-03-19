@@ -50,8 +50,8 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-    NSString * phoneNo = [WHCABUtils getMobilePhoneNo:indexPath.row];
-    NSString * mail = [WHCABUtils getEmail:indexPath.row];
+    NSString * phoneNo = [AddressBookUtil getMobilePhoneNo:indexPath.row];
+    NSString * mail = [AddressBookUtil getEmail:indexPath.row];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", phoneNo, mail];
     return cell;
 }

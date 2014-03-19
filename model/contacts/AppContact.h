@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "WHCModelStore.h"
+#import "AddressBookUtil.h"
 
 @interface AppContact : NSManagedObject
 
@@ -16,10 +18,19 @@
 @property (nonatomic, retain) NSString * phoneABName;
 @property (nonatomic, retain) NSString * appId;
 @property (nonatomic, retain) NSString * appName;
+@property (nonatomic, retain) NSString * appMobileNo;
+@property (nonatomic, retain) NSString * appMail;
 @property (nonatomic) BOOL isAppFriend;
 @property (nonatomic) BOOL isAppUser;
 @property (nonatomic, retain) NSString * contactId;
-@property (nonatomic, retain) NSString * appMobileNo;
-@property (nonatomic, retain) NSString * appMail;
 
+
++ (AppContact *)createAppContact;
++ (AppContact *)findAppContactByABId:(int32_t)recordId;
+
++ (NSArray *)getAppContacts;
++ (void)saveContext;
+
++ (void)saveAppUser:(NSString*)appId appName:(NSString*)appName appMobileNo:(NSString*)mobile appMail:(NSString *)mail;
++ (void)exportPhoneABToAppContacts;
 @end

@@ -42,10 +42,11 @@
 - (NSArray *)appContacts
 {
     if(_appContacts == nil){
-        _appContacts = [[WHCAppContactsStore getInstance] getAppContacts];
+        _appContacts = [AppContact getAppContacts];
     }
     return _appContacts;
 }
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -10,15 +10,14 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
-#import "WHCAppContactsStore.h"
-#import "PhoneAB.h"
+#import "AppContact.h"
 
-@interface WHCABUtils : NSObject
+@interface AddressBookUtil : NSObject
 
 + (BOOL) hasPermission;
-+ (void) exportPhoneABToAppContacts;
 
-+ (NSInteger) getCount;
++ (NSInteger) getPhoneABCount;
++ (NSArray *) getPhoneABRecords;
 + (NSString *) getDisplayName: (ABRecordRef)index;
 + (NSString *) getMobilePhoneNo: (ABRecordRef)index;
 + (NSString *) getEmail: (ABRecordRef)index;
