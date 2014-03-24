@@ -18,6 +18,7 @@
 
 + (NSInteger) getPhoneABCount;
 + (NSArray *) getPhoneABRecords;
++ (NSArray *) getAllMobileNo: (ABRecordRef)record;
 + (NSString *) getDisplayName: (ABRecordRef)index;
 + (NSString *) getMobilePhoneNo: (ABRecordRef)index;
 + (NSString *) getEmail: (ABRecordRef)index;

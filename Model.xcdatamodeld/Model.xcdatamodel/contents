@@ -2,12 +2,11 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AppContact" representedClassName="AppContact" syncable="YES">
         <attribute name="appId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="appMail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="appMobileNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="appName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contactId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAppFriend" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isAppUser" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mobileNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneABId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="phoneABName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -23,8 +22,8 @@
         <attribute name="unread" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MessageGroup" positionX="-6813" positionY="-666" width="128" height="103"/>
-        <element name="AppUser" positionX="-6606" positionY="-513" width="128" height="90"/>
-        <element name="AppContact" positionX="-6687" positionY="-549" width="128" height="178"/>
+        <element name="AppContact" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AppUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MessageGroup" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

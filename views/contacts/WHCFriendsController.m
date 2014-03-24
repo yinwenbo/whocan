@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCAppContactsController.h"
+#import "WHCFriendsController.h"
 
-@interface WHCAppContactsController (){
+@interface WHCFriendsController (){
 
 }
 
@@ -16,7 +16,7 @@
 
 static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
-@implementation WHCAppContactsController
+@implementation WHCFriendsController
 
 @synthesize appContacts = _appContacts;
 
@@ -38,6 +38,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[WHCGetFriendsAPI getInstance:self] asynchronize];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,10 +47,23 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onFinished:(WHCHttpAPI *)api
+{
+    if([api isKindOfClass:[WHCGetFriendsAPI class]]){
+        WHCGetFriendsAPI *friendsApi = (WHCGetFriendsAPI *)api;
+        for (AppFriend *friend in friendsApi.getFriends){
+            [AppContact saveAppUser:friend.userId name:friend.userName mobileNo:friend.mobileNo];
+        }
+        [AppContact saveContext];
+        _appContacts = nil;
+        [self.tableView reloadData];
+    }
+}
+
 - (NSArray*)appContacts
 {
     if(_appContacts == nil){
-        _appContacts = [WHCFriendAPI getFriends];
+        _appContacts = [AppContact getFriends];
     }
     return _appContacts;
 }
@@ -85,9 +99,14 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-//    [cell textLabel].text = [NSString stringWithFormat:@"%@ %lu", [self getSectionTitle:section], [indexPath row]];
-    WHCFriendAPI *friend = [self.appContacts objectAtIndex:[indexPath row]];
-    [cell textLabel].text = friend.userName;
+    AppContact *contact = [self.appContacts objectAtIndex:[indexPath row]];
+    if (contact.phoneABName == nil) {
+        [cell textLabel].text = contact.appName;
+    } else if (![contact.phoneABName isEqualToString:contact.appName]) {
+        [cell textLabel].text = [NSString stringWithFormat:@"%@(%@)", contact.appName, contact.phoneABName];
+    } else {
+        [cell textLabel].text = contact.appName;
+    }
     [cell detailTextLabel].text = @"";
     return cell;
 }

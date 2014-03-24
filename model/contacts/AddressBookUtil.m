@@ -37,9 +37,8 @@ static bool abAccessPerission;
         if(error){
             NSLog(@"get address book granted error %@", error);
         }
-        [AddressBookUtil releaseRef:addressBook];
     });
-
+//    [AddressBookUtil releaseRef:addressBook];
     return abAccessPerission;
 }
 
@@ -47,7 +46,7 @@ static bool abAccessPerission;
 {
     ABAddressBookRef addressBook = [AddressBookUtil getAddressBookRef];
     NSInteger result = ABAddressBookGetPersonCount(addressBook);
-    [AddressBookUtil releaseRef:addressBook];
+//    [AddressBookUtil releaseRef:addressBook];
     return result;
 }
 
@@ -55,7 +54,6 @@ static bool abAccessPerission;
 {
     ABAddressBookRef addressBook = [AddressBookUtil getAddressBookRef];
     NSArray * result = (NSArray *)CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(addressBook));
-    [AddressBookUtil releaseRef:addressBook];
     return result;
 }
 
@@ -69,14 +67,41 @@ static bool abAccessPerission;
     if(lastname == nil){
         lastname = @"";
     }
-    return [NSString stringWithFormat:@"%@ %@", firstname, lastname];
+    NSString *middlename = (NSString *) CFBridgingRelease(ABRecordCopyValue(record, kABPersonMiddleNameProperty));
+    if(middlename == nil){
+        middlename = @"";
+    }
 
+    if (kABPersonCompositeNameFormatFirstNameFirst == ABPersonGetCompositeNameFormatForRecord(record)){
+        return [NSString stringWithFormat:@"%@%@%@", firstname, middlename, lastname];
+    }else{
+        return [NSString stringWithFormat:@"%@%@%@", lastname, middlename, firstname];
+    }
+}
+
++ (NSArray *)getAllMobileNo: (ABRecordRef)record
+{
+    ABMultiValueRef phones = ABRecordCopyValue(record, kABPersonPhoneProperty);
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    for(long i = 0; i < ABMultiValueGetCount(phones); i++){
+        CFStringRef value = ABMultiValueCopyValueAtIndex(phones, i);
+        CFStringRef label = ABMultiValueCopyLabelAtIndex(phones, i);
+        NSString *localLabel = (NSString *)CFBridgingRelease(ABAddressBookCopyLocalizedLabel(label));
+        NSLog(@"phone %@ %@", value, localLabel);
+        if([localLabel isEqualToString:@"mobile"] || [localLabel isEqualToString:@"iPhone"]){
+            [result addObject:(NSString *)CFBridgingRelease(value)];
+        }
+        if(value) CFRelease(value);
+        if(label) CFRelease(label);
+    }
+
+    return result;
 }
 
 + (NSString *) getMobilePhoneNo: (ABRecordRef)record
 {
     NSString *phone = nil;
-    ABMultiValueRef phones = ABRecordCopyValue(record, kABPersonPhoneProperty);
+    CFTypeRef phones = ABRecordCopyValue(record, kABPersonPhoneProperty);
     for(long i = 0; i < ABMultiValueGetCount(phones); i++){
         CFStringRef value = ABMultiValueCopyValueAtIndex(phones, i);
         CFStringRef label = ABMultiValueCopyLabelAtIndex(phones, i);

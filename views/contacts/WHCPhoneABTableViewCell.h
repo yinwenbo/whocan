@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel * titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton * actionButton;
+@property (nonatomic, weak) NSString * mobileNo;
 
 -(void)setCellText:(NSString*)titleText actionText:(NSString*)actionText;
 @end

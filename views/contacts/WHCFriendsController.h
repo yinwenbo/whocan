@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WHCFriendAPI.h"
+#import "WHCGetFriendsAPI.h"
+#import "AppContact.h"
 
-@interface WHCAppContactsController : UITableViewController
+@interface WHCFriendsController : UITableViewController<WHCHttpAPIDelegate>
 
 @property (nonatomic, retain) NSArray * appContacts;
 

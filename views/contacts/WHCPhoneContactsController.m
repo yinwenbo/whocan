@@ -9,6 +9,8 @@
 #import "WHCPhoneContactsController.h"
 #import "WHCPhoneABTableViewCell.h"
 
+#import "WHCViewUtils.h"
+
 @interface WHCPhoneContactsController () {
     ABPersonViewController* persionView;
 }
@@ -42,7 +44,7 @@
 - (NSArray *)appContacts
 {
     if(_appContacts == nil){
-        _appContacts = [AppContact getAppContacts];
+        _appContacts = [AppContact getAppContactsInPhone];
     }
     return _appContacts;
 }
@@ -56,29 +58,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = nil;
-    NSString *actionText = nil;
-    if([indexPath row] == [self.appContacts count]) {
-        CellIdentifier = @"SumCell";
-    }else if([indexPath row] <= 10){
-        CellIdentifier = @"AddCell";
-        actionText = @"添加";
-    } else if([indexPath row] <= 20){
-        CellIdentifier = @"InviteCell";
-        actionText = @"邀请";
-    } else {
-        CellIdentifier = @"FriendCell";
-        actionText = @"已添加";
-    }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if( [cell isKindOfClass:[WHCPhoneABTableViewCell class]]){
-        WHCPhoneABTableViewCell *viewCell = (WHCPhoneABTableViewCell *)cell;
-        AppContact *appContact = (AppContact*)[self.appContacts objectAtIndex:[indexPath row]];
-        [viewCell setCellText:appContact.phoneABName actionText:actionText];
-    }else{
+    NSInteger row = [indexPath row];
+
+    if(row == [self.appContacts count]){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SumCell" forIndexPath:indexPath];
         cell.textLabel.text = [NSString stringWithFormat:@"通讯录共 %lu 条记录", [self.appContacts count]];
+        return cell;
+    }else{
+        AppContact *appContact = (AppContact*)[self.appContacts objectAtIndex:[indexPath row]];
+        WHCPhoneABTableViewCell *cell = nil;
+        if(appContact.isAppFriend){
+            cell = (WHCPhoneABTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FriendCell" forIndexPath:indexPath];
+            [cell setCellText:appContact.phoneABName actionText:@"已添加"];
+        } else if(appContact.isAppUser){
+            cell = (WHCPhoneABTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"AddCell" forIndexPath:indexPath];
+            [cell setCellText:appContact.phoneABName actionText:@"添加"];
+        } else {
+            cell = (WHCPhoneABTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"InviteCell" forIndexPath:indexPath];
+            cell.mobileNo = appContact.mobileNo;
+            [cell setCellText:appContact.phoneABName actionText:@"邀请"];
+            [WHCViewUtils setButton:cell.actionButton];
+        }
+        return cell;
     }
     
 //    cell.textLabel.text = ab.name;
@@ -88,7 +89,6 @@
 //    [button addTarget:self action:@selector(checkButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
 //    cell.accessoryView = button;
 
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,6 +134,14 @@
     UIButton *btn = (UIButton*)sender;
     [btn titleLabel].text = @"等待批准";
     [btn setEnabled:NO];
+}
+
+- (IBAction)sendInvite:(id)sender
+{
+    UIButton *btn = (UIButton*)sender;
+    WHCPhoneABTableViewCell *cell = (WHCPhoneABTableViewCell*)[[[btn superview] superview] superview];
+    WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:cell.mobileNo];
+    [self presentViewController:smsView animated:YES completion:nil];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 #import "AddressBookUtil.h"
 #import "AppContact.h"
@@ -20,4 +21,5 @@
 @property (nonatomic, retain) NSArray * appContacts;
 
 - (IBAction)addToFriend:(id)sender;
+- (IBAction)sendInvite:(id)sender;
 @end

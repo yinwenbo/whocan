@@ -7,10 +7,11 @@
 //
 
 #import "WHCPhoneABTableViewCell.h"
+#import "WHCViewUtils.h"
 
 @implementation WHCPhoneABTableViewCell
 
-@synthesize titleLabel, actionButton;
+@synthesize titleLabel, actionButton, mobileNo;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
