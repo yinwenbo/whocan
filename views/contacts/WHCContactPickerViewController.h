@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WHCPhoneContactsController.h"
+#import "WHCAddressBookController.h"
 
-@interface WHCContactPickerViewController : WHCPhoneContactsController
+@interface WHCContactPickerViewController : WHCAddressBookController
 
 @property (nonatomic, retain) NSMutableArray * selectedContacts;
 

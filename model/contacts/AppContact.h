@@ -16,22 +16,30 @@
 
 @property (nonatomic) int32_t phoneABId;
 @property (nonatomic, retain) NSString * phoneABName;
+@property (nonatomic, retain) NSString * phoneABNameIndex;
 @property (nonatomic, retain) NSString * appId;
 @property (nonatomic, retain) NSString * appName;
+@property (nonatomic, retain) NSString * appNameIndex;
 @property (nonatomic, retain) NSString * mobileNo;
-@property (nonatomic) BOOL isAppFriend;
-@property (nonatomic) BOOL isAppUser;
+@property (nonatomic, retain) NSString * status;
 
 
 + (AppContact *)createAppContact;
 + (AppContact *)findAppContactByABId:(int32_t)recordId;
++ (AppContact *)findAppContactByMobileNo:(NSString*)mobileNo;
 
++ (NSArray *)getAppUsers;
++ (NSArray *)getNotAppUser;
 + (NSArray *)getAppContactsInPhone;
 + (NSArray *)getFriends;
 + (void)saveContext;
 
-+ (void)saveAppUser:(NSString*)appId name:(NSString*)appName mobileNo:(NSString*)mobile;
 + (void)savePhoneAB:(NSString*)name mobileNo:(NSString*)mobile recordId:(int32_t)recordId;
 
 + (void)exportPhoneABToAppContacts;
+
+- (BOOL)isMyFriend;
+- (BOOL)isMyInvite;
+- (BOOL)isInviteMe;
+- (BOOL)isAppUser;
 @end

@@ -13,7 +13,7 @@
 @interface WHCSignInAPI : WHCJsonAPI
 
 
-+ (WHCSignInAPI*) getInstance:(id<WHCHttpAPIDelegate>)delegate
++ (WHCSignInAPI*) getInstance:(id<WHCJsonAPIDelegate>)delegate
                      mobileNo:(NSString*)mobileNo
                    verifyCode:(NSString*)verifyCode;
 

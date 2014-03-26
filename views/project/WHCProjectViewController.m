@@ -81,7 +81,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController *viewController = [segue destinationViewController];
-    if([viewController isKindOfClass:[WHCPhoneContactsController class]]){
+    if([viewController isKindOfClass:[WHCAddressBookController class]]){
         WHCContactPickerViewController * pickerView = (WHCContactPickerViewController *) viewController;
         pickerView.selectedContacts = contacts;
     }

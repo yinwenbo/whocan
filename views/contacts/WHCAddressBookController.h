@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
+#import "WHCAddressBookCell.h"
+
+#import "WHCContactViewController.h"
 #import "AddressBookUtil.h"
 #import "AppContact.h"
+#import "WHCViewUtils.h"
 
-@interface WHCPhoneContactsController : UITableViewController<UINavigationControllerDelegate, UINavigationBarDelegate>{
+@interface WHCAddressBookController : UITableViewController<UINavigationControllerDelegate, UINavigationBarDelegate>{
 
 }
 

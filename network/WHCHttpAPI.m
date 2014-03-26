@@ -12,15 +12,16 @@
 
 @interface WHCHttpAPI(){
     ASIFormDataRequest *_request;
+    id<WHCHttpAPIDelegate> _delegate;
 }
 
 @end
 
 @implementation WHCHttpAPI
 
-@synthesize delegate = _delegate;
+@synthesize hasError;
 
-- (id)init:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCHttpAPIDelegate>)delegate
+- (id)initWithHttpDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCHttpAPIDelegate>)delegate
 {
     self = [super init];
     if(self){
@@ -47,15 +48,20 @@
 {
     [_request startAsynchronous];
 }
-
+- (NSString*)getErrorMessage
+{
+    return [_request responseStatusMessage];
+}
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    [_delegate onFinished:self];
+    self.hasError = ([_request responseStatusCode] != 200);
+    [_delegate onHttpRequestFinished:self];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [_delegate onFinished:self];
+    self.hasError = ([_request responseStatusCode] != 200);
+    [_delegate onHttpRequestFinished:self];
 }
 
 - (NSString *)getResponseText

@@ -116,7 +116,7 @@
     [signInApi synchronize];
 }
 
-- (void)onFinished:(WHCHttpAPI *)api
+- (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
     if ([api isKindOfClass: [WHCSignInAPI class]]){
         [self onSignInFinished:(WHCSignInAPI*)api];

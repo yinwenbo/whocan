@@ -12,7 +12,7 @@
 #import "WHCSignInAPI.h"
 
 
-@interface WHCSignInController : UITableViewController<WHCHttpAPIDelegate>
+@interface WHCSignInController : UITableViewController<WHCJsonAPIDelegate>
 
 @property IBOutlet UIButton * btnSignIn;
 @property IBOutlet UIButton * btnSendVerifyCode;

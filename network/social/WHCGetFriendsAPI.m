@@ -7,36 +7,45 @@
 //
 
 #import "WHCGetFriendsAPI.h"
-@implementation AppFriend
 
-@synthesize userId, userName, mobileNo;
+@interface WHCGetFriendsAPI(){
 
+}
 @end
 
 @implementation WHCGetFriendsAPI
 
-+(WHCGetFriendsAPI *)getInstance:(id<WHCHttpAPIDelegate>)delegate
++(WHCGetFriendsAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
 {
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[ClientInfo getToken], @"token", nil];
-    return [[WHCGetFriendsAPI alloc] init:@"userRelationAction/findFriendByUserId" params:params delegate:delegate];
+    return [[WHCGetFriendsAPI alloc] initWithJsonDelegate:@"userRelationAction/findAllRelationByUserId"
+                                                   params:params
+                                                 delegate:delegate];
 }
 
--(void)onFinished:(WHCHttpAPI *)api
+-(void)onHttpRequestFinished:(WHCHttpAPI *)api
 {
-    
-}
-
--(NSArray*)getFriends
-{
-    NSMutableArray *result = [[NSMutableArray alloc]init];
-    for (NSDictionary *contact in self.data){
-        AppFriend * friend = [[AppFriend alloc]init];
-        friend.userId = [contact valueForKey:@"userId"];
-        friend.userName = [contact valueForKey:@"userName"];
-        friend.mobileNo = [contact valueForKey:@"phoneNo"];
-        [result addObject:friend];
+    [self parseResponseJson];
+    if (self.hasException){
+        return;
     }
-    return result;
+    NSLog(@"%@", self.data);
+    for (NSDictionary *dict in self.data){
+        NSString * mobileNo = [dict valueForKey:@"phoneNo"];
+        AppContact *contact = [AppContact findAppContactByMobileNo:mobileNo];
+        if (contact == nil){
+            contact = [AppContact createAppContact];
+            contact.mobileNo = mobileNo;
+        }
+        contact.appId = [dict valueForKey:@"userId"];
+        NSString * name = [dict valueForKey:@"userName"];
+        if (![name isKindOfClass:[NSNull class]]){
+            contact.appName = [dict valueForKey:@"userName"];
+        }
+        contact.status = [dict valueForKey:@"status"];
+    }
+    [AppContact saveContext];
+
 }
 
 @end

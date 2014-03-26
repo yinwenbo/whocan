@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCPhoneABTableViewCell : UITableViewCell
+@interface WHCAddressBookCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel * titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton * actionButton;

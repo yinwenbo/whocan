@@ -13,9 +13,9 @@
 + (void)setButton:(UIButton* )button
 {
     [button.layer setBorderWidth:1];
-    [button.layer setCornerRadius:10];
+    [button.layer setCornerRadius:4];
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.83f, 0.83f, 0.83f, 1.0f});
+    CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.83f, 0.83f, 0.83f, 0.8f});
     [button.layer setBorderColor:beginColor];
 }
 

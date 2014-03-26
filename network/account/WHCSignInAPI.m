@@ -12,14 +12,16 @@
 
 @implementation WHCSignInAPI
 
-+ (WHCSignInAPI*)getInstance:(id<WHCHttpAPIDelegate>)delegate
++ (WHCSignInAPI*)getInstance:(id<WHCJsonAPIDelegate>)delegate
                     mobileNo:(NSString *)mobileNo
                   verifyCode:(NSString *)verifyCode
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             mobileNo, @"phoneNo",
                             verifyCode, @"authCode", nil];
-    return [[WHCSignInAPI alloc] init:SIGN_IN_PATH params:params delegate:delegate];
+    return [[WHCSignInAPI alloc] initWithJsonDelegate:SIGN_IN_PATH
+                                               params:params
+                                             delegate:delegate];
 }
 
 - (NSString*)getToken

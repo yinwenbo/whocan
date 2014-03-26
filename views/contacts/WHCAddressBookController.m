@@ -6,18 +6,17 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCPhoneContactsController.h"
-#import "WHCPhoneABTableViewCell.h"
+#import "WHCAddressBookController.h"
 
-#import "WHCViewUtils.h"
 
-@interface WHCPhoneContactsController () {
-    ABPersonViewController* persionView;
+@interface WHCAddressBookController () {
+    ABPersonViewController * persionView;
+    AppContact * _selectedContact;
 }
 
 @end
 
-@implementation WHCPhoneContactsController
+@implementation WHCAddressBookController
 
 @synthesize barBtnRight, appContacts = _appContacts;
 
@@ -66,15 +65,15 @@
         return cell;
     }else{
         AppContact *appContact = (AppContact*)[self.appContacts objectAtIndex:[indexPath row]];
-        WHCPhoneABTableViewCell *cell = nil;
-        if(appContact.isAppFriend){
-            cell = (WHCPhoneABTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FriendCell" forIndexPath:indexPath];
+        WHCAddressBookCell *cell = nil;
+        if(appContact.isMyFriend){
+            cell = (WHCAddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"FriendCell" forIndexPath:indexPath];
             [cell setCellText:appContact.phoneABName actionText:@"已添加"];
         } else if(appContact.isAppUser){
-            cell = (WHCPhoneABTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"AddCell" forIndexPath:indexPath];
+            cell = (WHCAddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"AddCell" forIndexPath:indexPath];
             [cell setCellText:appContact.phoneABName actionText:@"添加"];
         } else {
-            cell = (WHCPhoneABTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"InviteCell" forIndexPath:indexPath];
+            cell = (WHCAddressBookCell *)[tableView dequeueReusableCellWithIdentifier:@"InviteCell" forIndexPath:indexPath];
             cell.mobileNo = appContact.mobileNo;
             [cell setCellText:appContact.phoneABName actionText:@"邀请"];
             [WHCViewUtils setButton:cell.actionButton];
@@ -91,10 +90,11 @@
 
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    [self showABPersonView:indexPath.row];
+    _selectedContact = [self.appContacts objectAtIndex:[indexPath row]];
+    return indexPath;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,6 +124,17 @@
 
 }
  */
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UIViewController * vc = [segue destinationViewController];
+    if ([vc isKindOfClass:[WHCContactViewController class]]) {
+        WHCContactViewController * contactVC = (WHCContactViewController*)vc;
+        contactVC.appContact = _selectedContact;
+    }
+}
+
 - (void)returnFromPersonView
 {
     [persionView dismissViewControllerAnimated:YES completion:nil];
@@ -139,7 +150,7 @@
 - (IBAction)sendInvite:(id)sender
 {
     UIButton *btn = (UIButton*)sender;
-    WHCPhoneABTableViewCell *cell = (WHCPhoneABTableViewCell*)[[[btn superview] superview] superview];
+    WHCAddressBookCell *cell = (WHCAddressBookCell*)[[[btn superview] superview] superview];
     WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:cell.mobileNo];
     [self presentViewController:smsView animated:YES completion:nil];
 }

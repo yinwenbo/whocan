@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCPhoneABTableViewCell.h"
+#import "WHCAddressBookCell.h"
 #import "WHCViewUtils.h"
 
-@implementation WHCPhoneABTableViewCell
+@implementation WHCAddressBookCell
 
 @synthesize titleLabel, actionButton, mobileNo;
 

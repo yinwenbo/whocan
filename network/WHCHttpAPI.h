@@ -14,13 +14,16 @@
 
 @interface WHCHttpAPI : NSObject
 
-@property (nonatomic, readonly) id<WHCHttpAPIDelegate> delegate;
 
-- (id)init:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCHttpAPIDelegate>)delegate;
+@property (nonatomic) BOOL hasError;
+
+- (id)initWithHttpDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCHttpAPIDelegate>)delegate;
+
 - (void)synchronize;
 - (void)asynchronize;
 
 - (NSString *)getResponseText;
+- (NSString *)getErrorMessage;
 
 @end
 

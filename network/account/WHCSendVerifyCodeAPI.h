@@ -12,7 +12,7 @@
 
 @interface WHCSendVerifyCodeAPI : WHCJsonAPI
 
-+ (WHCSendVerifyCodeAPI*) getInstance:(id<WHCHttpAPIDelegate>)delegate
++ (WHCSendVerifyCodeAPI*) getInstance:(id<WHCJsonAPIDelegate>)delegate
                              mobileNo:(NSString*)mobileNo;
 
 @end

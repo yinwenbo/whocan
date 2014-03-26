@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if([self hasToken]){
+        [[WHCUploadContactsAPI getInstance:self] asynchronize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -36,7 +39,6 @@
     if(![self hasToken]){
         UIViewController *signInVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
         [self presentViewController:signInVc animated:YES completion:nil];
-
     }
 }
 
@@ -49,6 +51,11 @@
 {
     NSString *token = [ClientInfo getToken];
     return token != nil;
+}
+
+- (void)onJsonParseFinished:(WHCJsonAPI *)api
+{
+    
 }
 /*
 #pragma mark - Navigation

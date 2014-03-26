@@ -12,11 +12,13 @@
 
 @implementation WHCSendVerifyCodeAPI
 
-+ (WHCSendVerifyCodeAPI *)getInstance:(id<WHCHttpAPIDelegate>)delegate
++ (WHCSendVerifyCodeAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
                              mobileNo:(NSString *)mobileNo
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:mobileNo, @"phoneNo", nil];
-    return [[WHCSendVerifyCodeAPI alloc] init:SEND_VERIFY_CODE_PATH params:params delegate:delegate];
+    return [[WHCSendVerifyCodeAPI alloc] initWithJsonDelegate:SEND_VERIFY_CODE_PATH
+                                                       params:params
+                                                     delegate:delegate];
 }
 
 @end

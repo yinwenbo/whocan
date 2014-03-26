@@ -14,6 +14,8 @@
 
 @implementation WHCContactViewController
 
+@synthesize appContact, btnMainAction, lblName, lblId, lblMobileNo, lblNickname;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -32,6 +34,27 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (self.appContact.isMyFriend) {
+        btnMainAction.titleLabel.text = @"发送消息";
+    } else if (self.appContact.isAppUser) {
+        btnMainAction.titleLabel.text = @"加为好友";
+    } else {
+        btnMainAction.titleLabel.text = @"发送邀请";
+    }
+    lblName.text = self.appContact.phoneABName;
+    if (self.appContact.appId == nil) {
+        lblId.text = @"";
+    }else{
+        lblId.text = [NSString stringWithFormat:@"互看id: %@", self.appContact.appId];
+    }
+    lblMobileNo.text = self.appContact.mobileNo;
+    if (self.appContact.appName == nil){
+        lblNickname.text = @"";
+    }else{
+        lblNickname.text = [NSString stringWithFormat:@"昵称: %@", self.appContact.appName];
+    }
+    [WHCViewUtils setButton:btnMainAction];
+    [self.tableView setSectionHeaderHeight:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,32 +64,48 @@
 }
 
 #pragma mark - Table view data source
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 3;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = nil;
+    switch ([indexPath row]) {
+        case 0:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:indexPath];
+            break;
+        case 1:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
+            break;
+        case 2:
+            if (self.appContact.isAppFriend) {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"SendMessage" forIndexPath:indexPath];
+            } else if (self.appContact.isAppUser) {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"AddFriend" forIndexPath:indexPath];
+            } else {
+                cell = [tableView dequeueReusableCellWithIdentifier:@"SendInvite" forIndexPath:indexPath];
+            }
+            break;
+        default:
+            return nil;
+    }
+
+    return cell;
     
     // Configure the cell...
     
-    return cell;
 }
-*/
 
+*/
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,4 +155,17 @@
 }
 */
 
+- (IBAction)onMainAction:(id)sender
+{
+    if (self.appContact.isMyFriend) {
+//        btnMainAction.titleLabel.text = @"发送消息";
+    } else if (self.appContact.isAppUser) {
+//        btnMainAction.titleLabel.text = @"加为好友";
+    } else {
+        WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:self.appContact.mobileNo];
+        [self presentViewController:smsView animated:YES completion:nil];
+
+    }
+
+}
 @end

@@ -10,20 +10,10 @@
 
 #import "WHCJsonAPI.h"
 #import "AppContact.h"
-#import "ClientInfo.h"
-
-@interface AppFriend : NSObject
-
-@property (nonatomic, retain) NSString * userId;
-@property (nonatomic, retain) NSString * userName;
-@property (nonatomic, retain) NSString * mobileNo;
-
-@end
 
 @interface WHCGetFriendsAPI : WHCJsonAPI
 
-+ (WHCGetFriendsAPI*) getInstance:(id<WHCHttpAPIDelegate>)delegate;
++ (WHCGetFriendsAPI*) getInstance:(id<WHCJsonAPIDelegate>)delegate;
 
-- (NSArray *) getFriends;
 @end
 

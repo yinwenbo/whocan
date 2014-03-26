@@ -10,7 +10,8 @@
 #import "ClientInfo.h"
 #import "WHCSignInController.h"
 #import "WHCSignInAPI.h"
+#import "WHCUploadContactsAPI.h"
 
-@interface WHCMainController : UITabBarController
+@interface WHCMainController : UITabBarController<WHCJsonAPIDelegate>
 
 @end
