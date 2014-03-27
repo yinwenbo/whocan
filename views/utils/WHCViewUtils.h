@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "WHCSmsSendController.h"
+#import "WHCSaveBarButton.h"
 
 @interface WHCViewUtils : NSObject
 
-+ (void)setButton:(UIButton* )button;
++ (UIView *)findSuperView:(UIView *)view type:(Class)type;
+
++ (UIView *)findSubView:(UIView *)view type:(Class)type;
+
++ (void)setButton:(UIButton *)button;
 
 + (WHCSmsSendController *)getInviteSMSView:(NSString*)mobileNo;
 

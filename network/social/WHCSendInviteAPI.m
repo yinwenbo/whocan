@@ -16,7 +16,7 @@
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [ClientInfo getToken], @"token",
                             mobileNo, @"phoneNo", nil];
-    return [[WHCSendInviteAPI alloc] initWithJsonDelegate:@"userRelationAction/findAllRelationByUserId"
+    return [[WHCSendInviteAPI alloc] initWithJsonDelegate:@"userRelationAction/addFriendNoRegister"
                                                    params:params
                                                  delegate:delegate];
    

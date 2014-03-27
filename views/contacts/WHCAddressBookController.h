@@ -7,23 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
 
-#import "WHCAddressBookCell.h"
+#import "WHCContactsController.h"
 
-#import "WHCContactViewController.h"
-#import "AddressBookUtil.h"
-#import "AppContact.h"
-#import "WHCViewUtils.h"
+@interface WHCAddressBookController : WHCContactsController
 
-@interface WHCAddressBookController : UITableViewController<UINavigationControllerDelegate, UINavigationBarDelegate>{
-
-}
-
-@property (nonatomic, weak) IBOutlet UIBarButtonItem * barBtnRight;
-
-@property (nonatomic, retain) NSArray * appContacts;
-
-- (IBAction)addToFriend:(id)sender;
-- (IBAction)sendInvite:(id)sender;
 @end

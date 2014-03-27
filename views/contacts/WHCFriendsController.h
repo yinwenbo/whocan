@@ -1,18 +1,15 @@
 //
-//  WHCContactsTableViewController.h
+//  WHCNewFriendsController.h
 //  whocan
 //
-//  Created by Yin Wenbo on 14-3-17.
+//  Created by Yin Wenbo on 14-3-25.
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "WHCGetFriendsAPI.h"
-#import "WHCContactViewController.h"
-#import "AppContact.h"
 
-@interface WHCFriendsController : UITableViewController<WHCJsonAPIDelegate>
+#import "WHCContactsController.h"
 
-@property (nonatomic, retain) NSArray * appContacts;
+@interface WHCFriendsController : WHCContactsController
 
 @end

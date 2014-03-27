@@ -34,6 +34,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initView];
+}
+
+- (void)initView
+{
     if (self.appContact.isMyFriend) {
         btnMainAction.titleLabel.text = @"发送消息";
     } else if (self.appContact.isAppUser) {
@@ -55,6 +60,7 @@
     }
     [WHCViewUtils setButton:btnMainAction];
     [self.tableView setSectionHeaderHeight:0];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,109 +69,45 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 3;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = nil;
-    switch ([indexPath row]) {
-        case 0:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:indexPath];
-            break;
-        case 1:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
-            break;
-        case 2:
-            if (self.appContact.isAppFriend) {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"SendMessage" forIndexPath:indexPath];
-            } else if (self.appContact.isAppUser) {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"AddFriend" forIndexPath:indexPath];
-            } else {
-                cell = [tableView dequeueReusableCellWithIdentifier:@"SendInvite" forIndexPath:indexPath];
-            }
-            break;
-        default:
-            return nil;
-    }
-
-    return cell;
-    
-    // Configure the cell...
-    
-}
-
-*/
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)onMainAction:(id)sender
 {
     if (self.appContact.isMyFriend) {
 //        btnMainAction.titleLabel.text = @"发送消息";
+        
     } else if (self.appContact.isAppUser) {
 //        btnMainAction.titleLabel.text = @"加为好友";
+//            [[WHCAddFriendAPI getInstance:self userId:appContact.appId] asynchronize];
     } else {
         WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:self.appContact.mobileNo];
         [self presentViewController:smsView animated:YES completion:nil];
 
     }
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UINavigationController * nc = (UINavigationController*)[segue destinationViewController];
+    for (UIViewController * vc in [nc childViewControllers]){
+        if ([vc isKindOfClass:[WHCContactEditController class]]){
+            WHCContactEditController *editView = (WHCContactEditController*)vc;
+            editView.appContact = appContact;
+        }
+    }
+}
+
+- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
+{
+}
+
+- (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
+{
+    if ( [fromViewController isKindOfClass:[WHCContactEditController class]]
+        && [sender isKindOfClass:[WHCSaveBarButton class]]){
+        WHCContactEditController *editView = (WHCContactEditController*)fromViewController;
+        appContact.phoneABName = editView.txtName.text;
+        [AppContact saveContext];
+        [self initView];
+    }
+    return YES;
 }
 @end

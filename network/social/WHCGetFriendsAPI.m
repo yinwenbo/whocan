@@ -23,7 +23,7 @@
                                                  delegate:delegate];
 }
 
--(void)onHttpRequestFinished:(WHCHttpAPI *)api
+-(void)afterJsonParsed
 {
     [self parseResponseJson];
     if (self.hasException){
@@ -45,7 +45,6 @@
         contact.status = [dict valueForKey:@"status"];
     }
     [AppContact saveContext];
-
 }
 
 @end

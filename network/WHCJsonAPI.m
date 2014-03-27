@@ -58,12 +58,13 @@
 - (void)onHttpRequestFinished:(WHCHttpAPI *)api
 {
     [self parseResponseJson];
-    [self doDelegate];
+    [self afterJsonParsed];
+    [_delegate onJsonParseFinished:self];
 }
 
-- (void)doDelegate
+- (void)afterJsonParsed
 {
-    [_delegate onJsonParseFinished:self];
+    
 }
 
 - (NSString*)getString:(NSString *)key
