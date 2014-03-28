@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3E7DDFDF-3144-4301-80EB-D2137A056D2B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>whocan</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7A08C2EC-711A-4D9B-85F8-5BA28CCEE36F</key>
+		<string>https://github.com/yinwenbo/whocan.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>whocan.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7A08C2EC-711A-4D9B-85F8-5BA28CCEE36F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yinwenbo/whocan.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7A08C2EC-711A-4D9B-85F8-5BA28CCEE36F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7A08C2EC-711A-4D9B-85F8-5BA28CCEE36F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>whocan</string>
+		</dict>
+	</array>
+</dict>
+</plist>

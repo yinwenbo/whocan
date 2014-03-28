@@ -11,20 +11,15 @@
         <attribute name="phoneABNameIndex" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="AppUser" representedClassName="AppUser" syncable="YES">
-        <attribute name="mobileNo" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="MessageGroup" representedClassName="MessageGroup" syncable="YES">
+    <entity name="MessageSession" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="unread" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastupdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sessionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unread" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
         <element name="AppContact" positionX="0" positionY="0" width="128" height="180"/>
-        <element name="AppUser" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="MessageGroup" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="MessageSession" positionX="0" positionY="72" width="128" height="118"/>
     </elements>
 </model>

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WHCSmsSendController.h"
-#import "WHCSaveBarButton.h"
+#import "WHCBarButtonSave.h"
 
 @interface WHCViewUtils : NSObject
 

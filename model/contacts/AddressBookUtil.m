@@ -89,7 +89,7 @@ static bool abAccessPerission;
         NSString *localLabel = (NSString *)CFBridgingRelease(ABAddressBookCopyLocalizedLabel(label));
         NSLog(@"phone %@ %@", value, localLabel);
         if([localLabel isEqualToString:@"mobile"] || [localLabel isEqualToString:@"iPhone"]){
-            [result addObject:(NSString *)CFBridgingRelease(value)];
+            [result addObject:[AddressBookUtil formatMobileNo:(NSString *)CFBridgingRelease(value)]];
         }
         if(value) CFRelease(value);
         if(label) CFRelease(label);
@@ -125,9 +125,17 @@ static bool abAccessPerission;
     }
     if(phone == nil){
         phone = @"";
+    } else {
+        phone = [AddressBookUtil formatMobileNo:phone];
     }
     return phone;
 
+}
+
++ (NSString *) formatMobileNo: (NSString*)mobleNo
+{
+    NSMutableString * result = [NSMutableString stringWithString:mobleNo];
+    return [result stringByReplacingOccurrencesOfString:@"-" withString:@""];
 }
 
 + (NSString *) getEmail: (ABRecordRef)record

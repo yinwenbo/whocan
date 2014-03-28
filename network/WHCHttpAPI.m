@@ -50,8 +50,15 @@
 }
 - (NSString*)getErrorMessage
 {
-    return [_request responseStatusMessage];
+    if ([_request responseStatusMessage] != nil){
+        return [_request responseStatusMessage];
+    }
+    if ([_request error] != nil){
+        return [[_request error] localizedDescription];
+    }
+    return @"网络错误";
 }
+
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     self.hasError = ([_request responseStatusCode] != 200);

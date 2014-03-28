@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCSaveBarButton : UIBarButtonItem
+@interface WHCBarButtonSave : UIBarButtonItem
 
 @end

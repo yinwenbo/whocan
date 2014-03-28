@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCSaveBarButton.h"
+#import "WHCBarButtonSave.h"
 
-@implementation WHCSaveBarButton
+@implementation WHCBarButtonSave
 
 @end
