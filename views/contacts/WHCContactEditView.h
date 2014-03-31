@@ -14,4 +14,5 @@
 @property (nonatomic, retain) IBOutlet UITextField * txtName;
 
 @property (nonatomic, retain) AppContact *appContact;
+
 @end

@@ -19,6 +19,13 @@
 @interface WHCContactsView : UITableViewController<WHCJsonAPIDelegate, UINavigationControllerDelegate>
 
 - (NSArray *)getAppContacts;
-- (UITableViewCell*)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
+- (UITableViewCell *)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
+- (UITableViewCell *)getTotalCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
+
+- (BOOL)hasRefesh;
+- (BOOL)hasTotalCell;
+
+- (NSInteger)topFixCellCount;
+- (UITableViewCell *)getTopFixCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
 
 @end

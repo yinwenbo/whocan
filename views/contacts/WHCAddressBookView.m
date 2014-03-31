@@ -24,26 +24,18 @@
     return _appContacts;
 }
 
-#pragma mark - Table view data source
+- (BOOL)hasTotalCell{
+    return YES;
+}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)topFixCellCount
 {
-    return 1;
+    return 0;
 }
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     return nil;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [[self getAppContacts] count] + 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [super getContactCell:tableView cellForRowAtIndexPath:indexPath];
 }
 
 @end

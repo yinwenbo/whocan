@@ -10,6 +10,6 @@
 
 #import "WHCContactsView.h"
 
-@interface WHCAddressBookView : WHCContactsController
+@interface WHCAddressBookView : WHCContactsView
 
 @end

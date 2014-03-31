@@ -33,12 +33,9 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self initRefreshControl];
+    if ([self hasRefesh]){
+        [self initRefreshControl];
+    }
     self.navigationController.delegate = self;
     [[WHCGetFriendsAPI getInstance:self] asynchronize];
 }
@@ -47,13 +44,6 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if (viewController == self){
-        [self.tableView reloadData];
-    }
 }
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
@@ -65,6 +55,26 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
         [self.tableView reloadData];
     }
 }
+
+- (NSArray*)getAppContacts
+{
+    if(_appContacts == nil){
+        _appContacts = [AppContact getFriends];
+    }
+    return _appContacts;
+}
+
+- (BOOL)hasRefesh
+{
+    return YES;
+}
+
+- (BOOL)hasTotalCell
+{
+    return NO;
+}
+
+#pragma mark - Refresh Control
 
 - (void)initRefreshControl
 {
@@ -81,21 +91,14 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     [[WHCGetFriendsAPI getInstance:self] asynchronize];
 }
 
-
-- (NSArray*)getAppContacts
-{
-    if(_appContacts == nil){
-        _appContacts = [AppContact getFriends];
-    }
-    return _appContacts;
-}
-
 #pragma mark - Table view data source
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if ([self hasTopFixCellSection]){
+        return 2;
+    }
+    return 1;
 }
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
@@ -109,43 +112,57 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0){
-        return 1;
+    if ([self hasTopFixCellSection] && section == 0) {
+        return [self topFixCellCount];
+    }
+    if ([self hasTotalCell]){
+        return [[self getAppContacts] count] + 1;
     }
     return [[self getAppContacts] count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = [indexPath section];
-    if (section == 0){
-        return [tableView dequeueReusableCellWithIdentifier:@"NewFriendCell" forIndexPath:indexPath];
+    if ([self hasTopFixCellSection] && section == 0){
+        return [self getTopFixCell:tableView cellForRowAtIndexPath:indexPath];
+    }
+    if ([self hasTotalCell] && [indexPath row] == [[self getAppContacts] count]) {
+        return [self getTotalCell:tableView cellForRowAtIndexPath:indexPath];
     }
     return [self getContactCell:tableView cellForRowAtIndexPath:indexPath];
 }
 
-- (UITableViewCell*)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+#pragma mark - Cell Init
+
+- (BOOL)hasTopFixCellSection{
+    return [self topFixCellCount] > 0;
+}
+
+- (NSInteger)topFixCellCount
 {
-    if([indexPath row] == [[self getAppContacts] count]){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SumCell" forIndexPath:indexPath];
-        cell.textLabel.text = [NSString stringWithFormat:@"通讯录共 %lu 条记录", [[self getAppContacts] count]];
-        return cell;
-    }
+    return 1;
+}
+
+- (UITableViewCell *)getTopFixCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView dequeueReusableCellWithIdentifier:@"NewFriendCell" forIndexPath:indexPath];
+}
+
+- (UITableViewCell *)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
+{
     WHCContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
     AppContact *contact = [[self getAppContacts] objectAtIndex:[indexPath row]];
     cell.appContact = contact;
     return cell;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)getTotalCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell setSelected:NO];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SumCell" forIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"通讯录共 %lu 条记录", [[self getAppContacts] count]];
     return cell;
 }
-*/
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -156,6 +173,8 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     }
     return indexPath;
 }
+
+#pragma mark - Section Title
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -175,15 +194,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return [NSString stringWithFormat:@"%c",[xx characterAtIndex:(section - 1)]];
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    if([indexPath section] == 0){
-        return NO;
-    }
-    return YES;
-}
+#pragma mark - Accessory Button Event
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
@@ -212,13 +223,22 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 - (void)addToFriend:(AppContact*)appContact;
 {
-    //    UIButton *btn = (UIButton*)sender;
-    //    [btn titleLabel].text = @"等待批准";
-    //    [btn setEnabled:NO];
     [[WHCAddFriendAPI getInstance:self userId:appContact.appId] asynchronize];
 }
 
+#pragma mark - Table Edit
 /*
+ 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    if([indexPath section] == 0){
+        return NO;
+    }
+    return YES;
+}
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -256,6 +276,13 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     if ([vc isKindOfClass:[WHCContactShowView class]]) {
         WHCContactShowView * contactVC = (WHCContactShowView*)vc;
         contactVC.appContact = _selectedContact;
+    }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (viewController == self){
+        [self.tableView reloadData];
     }
 }
 
