@@ -1004,11 +1004,11 @@
             </objects>
             <point key="canvasLocation" x="652" y="-828"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Contact Picker View - 创建群组-->
         <scene sceneID="Caw-Fj-Vlv">
             <objects>
-                <tableViewController id="XX1-0s-uft" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="H82-Hh-xvz">
+                <tableViewController id="XX1-0s-uft" customClass="WHCContactPickerView" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="H82-Hh-xvz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1027,7 +1027,7 @@
                             <outlet property="delegate" destination="XX1-0s-uft" id="9Fq-tt-wmC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9uI-Ij-ZJs"/>
+                    <navigationItem key="navigationItem" title="创建群组" id="9uI-Ij-ZJs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fv8-Qs-zLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1319,6 +1319,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GD2-dq-hSp"/>
+        <segue reference="oFM-qo-KZm"/>
     </inferredMetricsTieBreakers>
 </document>

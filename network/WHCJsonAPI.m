@@ -20,7 +20,8 @@
 
 - (id)initWithJsonDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCJsonAPIDelegate>)delegate
 {
-    self = [super initWithHttpDelegate:path params:params delegate:self];
+    self = [super initWithHttpDelegate:[NSString stringWithFormat:@"%@.json", path]
+                                params:params delegate:self];
     if(self){
         _delegate = delegate;
     }

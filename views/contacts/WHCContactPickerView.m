@@ -11,32 +11,59 @@
 
 @implementation WHCContactPickerView
 
+@synthesize selectedContacts;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    selectedContacts = [NSMutableArray array];
+    [self.tableView registerClass:[WHCContactCell class] forCellReuseIdentifier:@"ContactCell"];
+}
+
+- (NSInteger)topFixCellCount
+{
+    return 0;
+}
+
+- (BOOL)hasTotalCell
+{
+    return NO;
+}
+
+- (BOOL)hasRefesh
+{
+    return NO;
+}
+
+- (BOOL)showAccessoryButton
+{
+    return NO;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
 
-//    ABRecordRef person = (ABRecordRef)CFBridgingRetain([self.phoneContacts objectAtIndex:indexPath.row]);
-//    if([self inSelectContacts:person]){
-//        [cell setSelected:YES];
-//    }
     if(cell.isSelected){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-//    NSString * phoneNo = [AddressBookUtil getMobilePhoneNo:[indexPath row]];
-//    NSString * mail = [AddressBookUtil getEmail:indexPath.row];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", phoneNo, mail];
     return cell;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return indexPath;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    [self selectContact:indexPath.row];
+    AppContact * contact = [[self getAppContacts] objectAtIndex:[indexPath row]];
+    [selectedContacts addObject:contact];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -44,6 +71,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryNone;
     [self unSelectContact:indexPath.row];
+    AppContact * contact = [[self getAppContacts] objectAtIndex:[indexPath row]];
+    [selectedContacts removeObject:contact];
 }
 
 - (void)selectContact:(NSInteger)index

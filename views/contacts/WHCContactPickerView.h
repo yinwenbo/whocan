@@ -12,4 +12,6 @@
 
 @interface WHCContactPickerView : WHCContactsView
 
+@property (nonatomic, readwrite) NSMutableArray * selectedContacts;
+
 @end

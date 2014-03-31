@@ -8,7 +8,7 @@
 
 #import "WHCSignInAPI.h"
 
-#define SIGN_IN_PATH @"loginByAuthCode"
+#define SIGN_IN_PATH @"security/loginAuthCode"
 
 @implementation WHCSignInAPI
 

@@ -17,7 +17,7 @@
                             [ClientInfo getToken], @"token",
                             sessionId, @"roomId",
                             content, @"content", nil];
-    return [[WHCSendMessageAPI alloc] initWithJsonDelegate:@"chatService/findPrivateRoom"
+    return [[WHCSendMessageAPI alloc] initWithJsonDelegate:@"session/sendMessage"
                                                           params:params
                                                         delegate:delegate];
 }

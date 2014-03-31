@@ -64,6 +64,11 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return _appContacts;
 }
 
+- (BOOL)showAccessoryButton
+{
+    return YES;
+}
+
 - (BOOL)hasRefesh
 {
     return YES;
@@ -153,6 +158,9 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 {
     WHCContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
     AppContact *contact = [[self getAppContacts] objectAtIndex:[indexPath row]];
+    if (![self showAccessoryButton]){
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     cell.appContact = contact;
     return cell;
 }

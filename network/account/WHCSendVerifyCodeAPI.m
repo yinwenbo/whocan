@@ -8,7 +8,7 @@
 
 #import "WHCSendVerifyCodeAPI.h"
 
-#define SEND_VERIFY_CODE_PATH @"sendAuthCode"
+#define SEND_VERIFY_CODE_PATH @"security/sendAuthCode"
 
 @implementation WHCSendVerifyCodeAPI
 

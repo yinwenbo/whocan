@@ -19,7 +19,7 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                    [ClientInfo getToken], @"token",
                                    phones, @"phones", nil];
-    return [[WHCUploadContactsAPI alloc] initWithJsonDelegate:@"userRelationAction/uploadLinkMan"
+    return [[WHCUploadContactsAPI alloc] initWithJsonDelegate:@"social/uploadLinkman"
                                                    params:params
                                                  delegate:delegate];
 

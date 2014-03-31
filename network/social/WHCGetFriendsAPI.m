@@ -18,7 +18,7 @@
 +(WHCGetFriendsAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
 {
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[ClientInfo getToken], @"token", nil];
-    return [[WHCGetFriendsAPI alloc] initWithJsonDelegate:@"userRelationAction/findAllRelationByUserId"
+    return [[WHCGetFriendsAPI alloc] initWithJsonDelegate:@"social/findAll"
                                                    params:params
                                                  delegate:delegate];
 }

@@ -17,8 +17,8 @@
 {
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [ClientInfo getToken], @"token",
-                            appContact.appId, @"userIds", nil];
-    return [[WHCAddUserToSessionAPI alloc] initWithJsonDelegate:@"chatService/addPeopleToChatRoom"
+                            appContact.appId, @"friendId", nil];
+    return [[WHCAddUserToSessionAPI alloc] initWithJsonDelegate:@"session/findPrivate"
                                                          params:params
                                                        delegate:delegate];
 }
@@ -31,7 +31,7 @@
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [ClientInfo getToken], @"token",
                             userIds, @"userIds", nil];
-    return [[WHCAddUserToSessionAPI alloc] initWithJsonDelegate:@"chatService/addPeopleToChatRoom"
+    return [[WHCAddUserToSessionAPI alloc] initWithJsonDelegate:@"session/addUser"
                                                       params:params
                                                     delegate:delegate];
 }

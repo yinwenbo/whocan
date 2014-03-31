@@ -17,7 +17,7 @@
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [ClientInfo getToken], @"token",
                             toUserId, @"friendId", nil];
-    return [[WHCGetMessageSessionAPI alloc] initWithJsonDelegate:@"chatService/findPrivateRoom"
+    return [[WHCGetMessageSessionAPI alloc] initWithJsonDelegate:@"session/findPrivate"
                                                    params:params
                                                  delegate:delegate];
 }
