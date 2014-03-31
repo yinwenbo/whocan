@@ -84,6 +84,41 @@
     return nil;
 }
 
++ (NSString*)buildAppIdParam:(NSArray *)appContacts
+{
+    if ([appContacts count] == 0){
+        return @"";
+    }
+    NSMutableString *ids = [NSMutableString string];
+    AppContact * first = [appContacts objectAtIndex:0];
+    for(AppContact * contact in appContacts){
+        if(contact == first){
+            [ids appendString:contact.appId];
+        }else{
+            [ids appendFormat:@",%@", contact.appId];
+        }
+    }
+    return [NSString stringWithString:ids];
+
+}
+
++ (NSString*)buildMobileNoParam:(NSArray *)appContacts
+{
+    if ([appContacts count] == 0){
+        return @"";
+    }
+    NSMutableString *mobiles = [NSMutableString string];
+    AppContact * first = [appContacts objectAtIndex:0];
+    for(AppContact * contact in appContacts){
+        if(contact == first){
+            [mobiles appendString:contact.mobileNo];
+        }else{
+            [mobiles appendFormat:@",%@", contact.mobileNo];
+        }
+    }
+    return [NSString stringWithString:mobiles];
+}
+
 + (void) savePhoneAB:(NSString*)name mobileNo:(NSString*)mobile recordId:(int32_t)recordId
 {
     AppContact * contact = [AppContact findAppContactByMobileNo:mobile];

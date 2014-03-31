@@ -20,6 +20,8 @@
 
 - (id)initWithJsonDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCJsonAPIDelegate>)delegate;
 - (NSString *)getString:(NSString*)key;
+- (NSString *)getString:(NSDictionary*)dict key:(NSString *)key;
+
 
 - (void)parseResponseJson;
 - (void)successJsonResult;

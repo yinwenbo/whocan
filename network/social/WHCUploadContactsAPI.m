@@ -14,21 +14,11 @@
 
 + (WHCUploadContactsAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
 {
-    
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[ClientInfo getToken], @"token", nil];
-    NSMutableString *phones = [NSMutableString string];
     NSArray *contacts = [AppContact getNotAppUser];
-    if ([contacts count] > 0){
-        AppContact * first = [contacts objectAtIndex:0];
-        for(AppContact * contact in contacts){
-            if(contact == first){
-                [phones appendString:contact.mobileNo];
-            }else{
-                [phones appendFormat:@",%@", contact.mobileNo];
-            }
-        }
-        [params setValue:phones forKey:@"phones"];
-    }
+    NSString *phones = [AppContact buildMobileNoParam:contacts];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                   [ClientInfo getToken], @"token",
+                                   phones, @"phones", nil];
     return [[WHCUploadContactsAPI alloc] initWithJsonDelegate:@"userRelationAction/uploadLinkMan"
                                                    params:params
                                                  delegate:delegate];

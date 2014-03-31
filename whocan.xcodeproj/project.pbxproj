@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C174F0C18D6F21E00DFFDC7 /* WHCContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F0918D6F21E00DFFDC7 /* WHCContactsController.m */; };
-		4C174F0D18D6F21E00DFFDC7 /* WHCAddressBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F0B18D6F21E00DFFDC7 /* WHCAddressBookController.m */; };
-		4C174F1018D6F2C600DFFDC7 /* WHCContactPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F0F18D6F2C600DFFDC7 /* WHCContactPickerViewController.m */; };
+		4C174F0C18D6F21E00DFFDC7 /* WHCContactsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F0918D6F21E00DFFDC7 /* WHCContactsView.m */; };
+		4C174F0D18D6F21E00DFFDC7 /* WHCAddressBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F0B18D6F21E00DFFDC7 /* WHCAddressBookView.m */; };
+		4C174F1018D6F2C600DFFDC7 /* WHCContactPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F0F18D6F2C600DFFDC7 /* WHCContactPickerView.m */; };
 		4C174F6018D70FA900DFFDC7 /* AddressBookUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F5F18D70FA900DFFDC7 /* AddressBookUtil.m */; };
 		4C174F6518D71C0C00DFFDC7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */; };
 		4C174F6718D71C4F00DFFDC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6618D71C4F00DFFDC7 /* SystemConfiguration.framework */; };
@@ -44,7 +44,7 @@
 		4C174FCD18D9893000DFFDC7 /* WHCGetFriendsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FCC18D9893000DFFDC7 /* WHCGetFriendsAPI.m */; };
 		4C174FDA18D9902000DFFDC7 /* WHCIconLabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FD718D9902000DFFDC7 /* WHCIconLabelViewCell.m */; };
 		4C174FDB18D9902000DFFDC7 /* WHCProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FD918D9902000DFFDC7 /* WHCProjectViewController.m */; };
-		4C174FDE18DAD15300DFFDC7 /* WHCContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FDD18DAD15300DFFDC7 /* WHCContactViewController.m */; };
+		4C174FDE18DAD15300DFFDC7 /* WHCContactShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FDD18DAD15300DFFDC7 /* WHCContactShowView.m */; };
 		4C174FE118DAD66000DFFDC7 /* WHCMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FE018DAD66000DFFDC7 /* WHCMainController.m */; };
 		4C174FE418DAD6AA00DFFDC7 /* WHCSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FE318DAD6AA00DFFDC7 /* WHCSignInController.m */; };
 		4C174FE918DAE1E300DFFDC7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174FE818DAE1E300DFFDC7 /* CoreTelephony.framework */; };
@@ -56,11 +56,11 @@
 		4C17500C18E044AE00DFFDC7 /* WHCSmsSendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500918E044AE00DFFDC7 /* WHCSmsSendController.m */; };
 		4C17500D18E044AE00DFFDC7 /* WHCViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500B18E044AE00DFFDC7 /* WHCViewUtils.m */; };
 		4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500F18E1130B00DFFDC7 /* pinyin.c */; };
-		4C17501518E18CF800DFFDC7 /* WHCFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17501418E18CF800DFFDC7 /* WHCFriendsController.m */; };
+		4C17501518E18CF800DFFDC7 /* WHCFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17501418E18CF800DFFDC7 /* WHCFriendsView.m */; };
 		4C17501B18E1953B00DFFDC7 /* WHCUploadContactsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17501A18E1953B00DFFDC7 /* WHCUploadContactsAPI.m */; };
 		4C17501E18E1A3B000DFFDC7 /* WHCSendInviteAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17501D18E1A3B000DFFDC7 /* WHCSendInviteAPI.m */; };
 		4C17502118E1A3F800DFFDC7 /* WHCAddFriendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502018E1A3F800DFFDC7 /* WHCAddFriendAPI.m */; };
-		4C17502418E2F6EE00DFFDC7 /* WHCContactEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502318E2F6EE00DFFDC7 /* WHCContactEditController.m */; };
+		4C17502418E2F6EE00DFFDC7 /* WHCContactEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502318E2F6EE00DFFDC7 /* WHCContactEditView.m */; };
 		4C17502718E2FCAF00DFFDC7 /* WHCBarButtonSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502618E2FCAF00DFFDC7 /* WHCBarButtonSave.m */; };
 		4C17502E18E4077800DFFDC7 /* WHCMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502D18E4077800DFFDC7 /* WHCMessageCell.m */; };
 		4C17503118E407A900DFFDC7 /* WHCMessageSessionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17503018E407A900DFFDC7 /* WHCMessageSessionView.m */; };
@@ -71,7 +71,7 @@
 		4C2BE1A918E55C0E008E1FEB /* WHCMessageSessionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1A818E55C0E008E1FEB /* WHCMessageSessionListView.m */; };
 		4C2BE1AC18E90B6C008E1FEB /* WHCSendMessageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */; };
 		4C2BE1AF18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1AE18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m */; };
-		4C2BE1B218E90EC0008E1FEB /* WHCAddUserToSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSession.m */; };
+		4C2BE1B218E90EC0008E1FEB /* WHCAddUserToSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSessionAPI.m */; };
 		4C3282B618C44EA1007F69B7 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3282B518C44EA1007F69B7 /* JavaScriptCore.framework */; };
 		4C3282C418C45EFA007F69B7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C3282C218C45EFA007F69B7 /* Model.xcdatamodeld */; };
 		4C3282C818C46F33007F69B7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3282C718C46F33007F69B7 /* CoreData.framework */; };
@@ -104,12 +104,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C174F0818D6F21E00DFFDC7 /* WHCContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactsController.h; path = views/contacts/WHCContactsController.h; sourceTree = "<group>"; };
-		4C174F0918D6F21E00DFFDC7 /* WHCContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactsController.m; path = views/contacts/WHCContactsController.m; sourceTree = "<group>"; };
-		4C174F0A18D6F21E00DFFDC7 /* WHCAddressBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAddressBookController.h; path = views/contacts/WHCAddressBookController.h; sourceTree = "<group>"; };
-		4C174F0B18D6F21E00DFFDC7 /* WHCAddressBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAddressBookController.m; path = views/contacts/WHCAddressBookController.m; sourceTree = "<group>"; };
-		4C174F0E18D6F2C600DFFDC7 /* WHCContactPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactPickerViewController.h; path = views/contacts/WHCContactPickerViewController.h; sourceTree = "<group>"; };
-		4C174F0F18D6F2C600DFFDC7 /* WHCContactPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactPickerViewController.m; path = views/contacts/WHCContactPickerViewController.m; sourceTree = "<group>"; };
+		4C174F0818D6F21E00DFFDC7 /* WHCContactsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactsView.h; path = views/contacts/WHCContactsView.h; sourceTree = "<group>"; };
+		4C174F0918D6F21E00DFFDC7 /* WHCContactsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactsView.m; path = views/contacts/WHCContactsView.m; sourceTree = "<group>"; };
+		4C174F0A18D6F21E00DFFDC7 /* WHCAddressBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAddressBookView.h; path = views/contacts/WHCAddressBookView.h; sourceTree = "<group>"; };
+		4C174F0B18D6F21E00DFFDC7 /* WHCAddressBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAddressBookView.m; path = views/contacts/WHCAddressBookView.m; sourceTree = "<group>"; };
+		4C174F0E18D6F2C600DFFDC7 /* WHCContactPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactPickerView.h; path = views/contacts/WHCContactPickerView.h; sourceTree = "<group>"; };
+		4C174F0F18D6F2C600DFFDC7 /* WHCContactPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactPickerView.m; path = views/contacts/WHCContactPickerView.m; sourceTree = "<group>"; };
 		4C174F5E18D70FA900DFFDC7 /* AddressBookUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddressBookUtil.h; path = model/contacts/AddressBookUtil.h; sourceTree = "<group>"; };
 		4C174F5F18D70FA900DFFDC7 /* AddressBookUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressBookUtil.m; path = model/contacts/AddressBookUtil.m; sourceTree = "<group>"; };
 		4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -179,8 +179,8 @@
 		4C174FD718D9902000DFFDC7 /* WHCIconLabelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCIconLabelViewCell.m; path = views/project/WHCIconLabelViewCell.m; sourceTree = "<group>"; };
 		4C174FD818D9902000DFFDC7 /* WHCProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCProjectViewController.h; path = views/project/WHCProjectViewController.h; sourceTree = "<group>"; };
 		4C174FD918D9902000DFFDC7 /* WHCProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCProjectViewController.m; path = views/project/WHCProjectViewController.m; sourceTree = "<group>"; };
-		4C174FDC18DAD15300DFFDC7 /* WHCContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactViewController.h; path = views/contacts/WHCContactViewController.h; sourceTree = "<group>"; };
-		4C174FDD18DAD15300DFFDC7 /* WHCContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactViewController.m; path = views/contacts/WHCContactViewController.m; sourceTree = "<group>"; };
+		4C174FDC18DAD15300DFFDC7 /* WHCContactShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactShowView.h; path = views/contacts/WHCContactShowView.h; sourceTree = "<group>"; };
+		4C174FDD18DAD15300DFFDC7 /* WHCContactShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactShowView.m; path = views/contacts/WHCContactShowView.m; sourceTree = "<group>"; };
 		4C174FDF18DAD66000DFFDC7 /* WHCMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCMainController.h; sourceTree = "<group>"; };
 		4C174FE018DAD66000DFFDC7 /* WHCMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCMainController.m; sourceTree = "<group>"; };
 		4C174FE218DAD6AA00DFFDC7 /* WHCSignInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCSignInController.h; sourceTree = "<group>"; };
@@ -204,16 +204,16 @@
 		4C17500F18E1130B00DFFDC7 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pinyin.c; path = 3rd/utils/pinyin.c; sourceTree = "<group>"; };
 		4C17501018E1130B00DFFDC7 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pinyin.h; path = 3rd/utils/pinyin.h; sourceTree = "<group>"; };
 		4C17501218E16C6300DFFDC7 /* WHCJsonAPIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHCJsonAPIDelegate.h; path = network/WHCJsonAPIDelegate.h; sourceTree = "<group>"; };
-		4C17501318E18CF800DFFDC7 /* WHCFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCFriendsController.h; path = views/contacts/WHCFriendsController.h; sourceTree = "<group>"; };
-		4C17501418E18CF800DFFDC7 /* WHCFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCFriendsController.m; path = views/contacts/WHCFriendsController.m; sourceTree = "<group>"; };
+		4C17501318E18CF800DFFDC7 /* WHCFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCFriendsView.h; path = views/contacts/WHCFriendsView.h; sourceTree = "<group>"; };
+		4C17501418E18CF800DFFDC7 /* WHCFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCFriendsView.m; path = views/contacts/WHCFriendsView.m; sourceTree = "<group>"; };
 		4C17501918E1953B00DFFDC7 /* WHCUploadContactsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCUploadContactsAPI.h; path = network/social/WHCUploadContactsAPI.h; sourceTree = "<group>"; };
 		4C17501A18E1953B00DFFDC7 /* WHCUploadContactsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCUploadContactsAPI.m; path = network/social/WHCUploadContactsAPI.m; sourceTree = "<group>"; };
 		4C17501C18E1A3B000DFFDC7 /* WHCSendInviteAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCSendInviteAPI.h; path = network/social/WHCSendInviteAPI.h; sourceTree = "<group>"; };
 		4C17501D18E1A3B000DFFDC7 /* WHCSendInviteAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCSendInviteAPI.m; path = network/social/WHCSendInviteAPI.m; sourceTree = "<group>"; };
 		4C17501F18E1A3F800DFFDC7 /* WHCAddFriendAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAddFriendAPI.h; path = network/social/WHCAddFriendAPI.h; sourceTree = "<group>"; };
 		4C17502018E1A3F800DFFDC7 /* WHCAddFriendAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAddFriendAPI.m; path = network/social/WHCAddFriendAPI.m; sourceTree = "<group>"; };
-		4C17502218E2F6EE00DFFDC7 /* WHCContactEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactEditController.h; path = views/contacts/WHCContactEditController.h; sourceTree = "<group>"; };
-		4C17502318E2F6EE00DFFDC7 /* WHCContactEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactEditController.m; path = views/contacts/WHCContactEditController.m; sourceTree = "<group>"; };
+		4C17502218E2F6EE00DFFDC7 /* WHCContactEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCContactEditView.h; path = views/contacts/WHCContactEditView.h; sourceTree = "<group>"; };
+		4C17502318E2F6EE00DFFDC7 /* WHCContactEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactEditView.m; path = views/contacts/WHCContactEditView.m; sourceTree = "<group>"; };
 		4C17502518E2FCAF00DFFDC7 /* WHCBarButtonSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCBarButtonSave.h; path = views/utils/WHCBarButtonSave.h; sourceTree = "<group>"; };
 		4C17502618E2FCAF00DFFDC7 /* WHCBarButtonSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCBarButtonSave.m; path = views/utils/WHCBarButtonSave.m; sourceTree = "<group>"; };
 		4C17502C18E4077800DFFDC7 /* WHCMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCMessageCell.h; path = views/message/WHCMessageCell.h; sourceTree = "<group>"; };
@@ -234,8 +234,8 @@
 		4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCSendMessageAPI.m; path = network/message/WHCSendMessageAPI.m; sourceTree = "<group>"; };
 		4C2BE1AD18E90E9D008E1FEB /* WHCAllMessageSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAllMessageSessionAPI.h; path = network/message/WHCAllMessageSessionAPI.h; sourceTree = "<group>"; };
 		4C2BE1AE18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAllMessageSessionAPI.m; path = network/message/WHCAllMessageSessionAPI.m; sourceTree = "<group>"; };
-		4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAddUserToSession.h; path = network/message/WHCAddUserToSession.h; sourceTree = "<group>"; };
-		4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAddUserToSession.m; path = network/message/WHCAddUserToSession.m; sourceTree = "<group>"; };
+		4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAddUserToSessionAPI.h; path = network/message/WHCAddUserToSessionAPI.h; sourceTree = "<group>"; };
+		4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAddUserToSessionAPI.m; path = network/message/WHCAddUserToSessionAPI.m; sourceTree = "<group>"; };
 		4C3282B518C44EA1007F69B7 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		4C3282B818C44F59007F69B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = whocan/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C3282C318C45EFA007F69B7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -300,20 +300,20 @@
 		4C174F0218D6C6AD00DFFDC7 /* contacts */ = {
 			isa = PBXGroup;
 			children = (
-				4C174F0E18D6F2C600DFFDC7 /* WHCContactPickerViewController.h */,
-				4C174F0F18D6F2C600DFFDC7 /* WHCContactPickerViewController.m */,
-				4C174FDC18DAD15300DFFDC7 /* WHCContactViewController.h */,
-				4C174FDD18DAD15300DFFDC7 /* WHCContactViewController.m */,
-				4C17502218E2F6EE00DFFDC7 /* WHCContactEditController.h */,
-				4C17502318E2F6EE00DFFDC7 /* WHCContactEditController.m */,
+				4C174F0818D6F21E00DFFDC7 /* WHCContactsView.h */,
+				4C174F0918D6F21E00DFFDC7 /* WHCContactsView.m */,
 				4C174F7418D8468400DFFDC7 /* WHCContactCell.h */,
 				4C174F7518D8468400DFFDC7 /* WHCContactCell.m */,
-				4C174F0818D6F21E00DFFDC7 /* WHCContactsController.h */,
-				4C174F0918D6F21E00DFFDC7 /* WHCContactsController.m */,
-				4C17501318E18CF800DFFDC7 /* WHCFriendsController.h */,
-				4C17501418E18CF800DFFDC7 /* WHCFriendsController.m */,
-				4C174F0A18D6F21E00DFFDC7 /* WHCAddressBookController.h */,
-				4C174F0B18D6F21E00DFFDC7 /* WHCAddressBookController.m */,
+				4C174F0E18D6F2C600DFFDC7 /* WHCContactPickerView.h */,
+				4C174F0F18D6F2C600DFFDC7 /* WHCContactPickerView.m */,
+				4C17501318E18CF800DFFDC7 /* WHCFriendsView.h */,
+				4C17501418E18CF800DFFDC7 /* WHCFriendsView.m */,
+				4C174F0A18D6F21E00DFFDC7 /* WHCAddressBookView.h */,
+				4C174F0B18D6F21E00DFFDC7 /* WHCAddressBookView.m */,
+				4C174FDC18DAD15300DFFDC7 /* WHCContactShowView.h */,
+				4C174FDD18DAD15300DFFDC7 /* WHCContactShowView.m */,
+				4C17502218E2F6EE00DFFDC7 /* WHCContactEditView.h */,
+				4C17502318E2F6EE00DFFDC7 /* WHCContactEditView.m */,
 			);
 			name = contacts;
 			sourceTree = "<group>";
@@ -539,8 +539,8 @@
 				4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */,
 				4C2BE1AD18E90E9D008E1FEB /* WHCAllMessageSessionAPI.h */,
 				4C2BE1AE18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m */,
-				4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSession.h */,
-				4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSession.m */,
+				4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSessionAPI.h */,
+				4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSessionAPI.m */,
 			);
 			name = message;
 			sourceTree = "<group>";
@@ -781,16 +781,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C17500018DC591D00DFFDC7 /* ClientInfo.m in Sources */,
-				4C17502418E2F6EE00DFFDC7 /* WHCContactEditController.m in Sources */,
+				4C17502418E2F6EE00DFFDC7 /* WHCContactEditView.m in Sources */,
 				4C2BE1A618E553FC008E1FEB /* MessageSession.m in Sources */,
-				4C174F1018D6F2C600DFFDC7 /* WHCContactPickerViewController.m in Sources */,
+				4C174F1018D6F2C600DFFDC7 /* WHCContactPickerView.m in Sources */,
 				4C17503118E407A900DFFDC7 /* WHCMessageSessionView.m in Sources */,
 				4C174FF418DAF3F900DFFDC7 /* WHCSignInAPI.m in Sources */,
 				4C3282C418C45EFA007F69B7 /* Model.xcdatamodeld in Sources */,
 				4C174FC518D963AF00DFFDC7 /* ASIS3BucketRequest.m in Sources */,
 				4C174FF018DAF3D700DFFDC7 /* WHCHttpAPI.m in Sources */,
 				4C174FF718DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m in Sources */,
-				4C17501518E18CF800DFFDC7 /* WHCFriendsController.m in Sources */,
+				4C17501518E18CF800DFFDC7 /* WHCFriendsView.m in Sources */,
 				4C17500D18E044AE00DFFDC7 /* WHCViewUtils.m in Sources */,
 				4C174FBB18D963AF00DFFDC7 /* ASICloudFilesCDNRequest.m in Sources */,
 				4C3282F118C73247007F69B7 /* WHCModelStore.m in Sources */,
@@ -798,14 +798,14 @@
 				4C17501B18E1953B00DFFDC7 /* WHCUploadContactsAPI.m in Sources */,
 				4C2BE1A918E55C0E008E1FEB /* WHCMessageSessionListView.m in Sources */,
 				4C174FBE18D963AF00DFFDC7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
-				4C174FDE18DAD15300DFFDC7 /* WHCContactViewController.m in Sources */,
+				4C174FDE18DAD15300DFFDC7 /* WHCContactShowView.m in Sources */,
 				4C174FE118DAD66000DFFDC7 /* WHCMainController.m in Sources */,
 				4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */,
 				4C174F7918D85E4200DFFDC7 /* AppContact.m in Sources */,
 				4C174FB318D963AF00DFFDC7 /* ASIDataCompressor.m in Sources */,
 				4C2BE1A018E553FC008E1FEB /* Message.m in Sources */,
 				4C174FC118D963AF00DFFDC7 /* ASICloudFilesRequest.m in Sources */,
-				4C174F0C18D6F21E00DFFDC7 /* WHCContactsController.m in Sources */,
+				4C174F0C18D6F21E00DFFDC7 /* WHCContactsView.m in Sources */,
 				4C174FBC18D963AF00DFFDC7 /* ASICloudFilesContainer.m in Sources */,
 				4C174F7618D8468400DFFDC7 /* WHCContactCell.m in Sources */,
 				4C174FB618D963AF00DFFDC7 /* ASIFormDataRequest.m in Sources */,
@@ -816,7 +816,7 @@
 				4C174FCD18D9893000DFFDC7 /* WHCGetFriendsAPI.m in Sources */,
 				4C174FBF18D963AF00DFFDC7 /* ASICloudFilesObject.m in Sources */,
 				4C71607A18BF534F00C02D99 /* main.m in Sources */,
-				4C2BE1B218E90EC0008E1FEB /* WHCAddUserToSession.m in Sources */,
+				4C2BE1B218E90EC0008E1FEB /* WHCAddUserToSessionAPI.m in Sources */,
 				4C71607E18BF534F00C02D99 /* WHCAppDelegate.m in Sources */,
 				4C2BE1A318E553FC008E1FEB /* MessageUser.m in Sources */,
 				4C174FB718D963AF00DFFDC7 /* ASIHTTPRequest.m in Sources */,
@@ -828,7 +828,7 @@
 				4C174F6018D70FA900DFFDC7 /* AddressBookUtil.m in Sources */,
 				4C174FBA18D963AF00DFFDC7 /* ASIWebPageRequest.m in Sources */,
 				4C174FB218D963AF00DFFDC7 /* ASIAuthenticationDialog.m in Sources */,
-				4C174F0D18D6F21E00DFFDC7 /* WHCAddressBookController.m in Sources */,
+				4C174F0D18D6F21E00DFFDC7 /* WHCAddressBookView.m in Sources */,
 				4C174FB818D963AF00DFFDC7 /* ASIInputStream.m in Sources */,
 				4C17502118E1A3F800DFFDC7 /* WHCAddFriendAPI.m in Sources */,
 				4C17501E18E1A3B000DFFDC7 /* WHCSendInviteAPI.m in Sources */,

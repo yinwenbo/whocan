@@ -13,6 +13,7 @@
 
 @interface WHCMessageSessionListView (){
     NSArray * _messageSessions;
+    MessageSession * _selectedSession;
 }
 
 @end
@@ -65,9 +66,10 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    _selectedSession = [_messageSessions objectAtIndex:[indexPath row]];
+    return indexPath;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -80,10 +82,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    UIViewController *viewController = [segue destinationViewController];
-//    if([viewController isKindOfClass:[WHCProjectViewController class]]){
-//        projectView = (WHCProjectViewController *) viewController;
-//    }
+    UIViewController *viewController = [segue destinationViewController];
+    if([viewController isKindOfClass:[WHCMessageSessionView class]]){
+        WHCMessageSessionView *sessionView = (WHCMessageSessionView *) viewController;
+        [sessionView setMessageSession:_selectedSession];
+    }
 }
 
 

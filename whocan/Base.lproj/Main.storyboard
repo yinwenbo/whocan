@@ -49,17 +49,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="项目" id="UUr-Wi-kMK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qqm-3R-vbl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qqm-3R-vbl">
+                            <connections>
+                                <segue destination="XX1-0s-uft" kind="push" id="M3I-Pz-SeD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHL-js-D6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1070" y="-129"/>
         </scene>
-        <!--Contacts Controller - 通讯录-->
+        <!--Contacts View - 通讯录-->
         <scene sceneID="U8H-Et-Aed">
             <objects>
-                <tableViewController id="1h7-hF-myc" customClass="WHCContactsController" sceneMemberID="viewController">
+                <tableViewController id="1h7-hF-myc" customClass="WHCContactsView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O2T-NC-gat">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -609,10 +613,10 @@
             </objects>
             <point key="canvasLocation" x="1895" y="-129"/>
         </scene>
-        <!--Friends Controller - 新的朋友-->
+        <!--Friends View - 新的朋友-->
         <scene sceneID="cZ3-Ou-gA7">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="L4F-PC-Mc4" customClass="WHCFriendsController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="L4F-PC-Mc4" customClass="WHCFriendsView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ij8-71-hte">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -667,10 +671,10 @@
             </objects>
             <point key="canvasLocation" x="1491" y="551"/>
         </scene>
-        <!--Address Book Controller - 手机联系人-->
+        <!--Address Book View - 手机联系人-->
         <scene sceneID="8oS-lR-rOH">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="3cn-tk-O7G" customClass="WHCAddressBookController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="3cn-tk-O7G" customClass="WHCAddressBookView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="j4p-kp-syG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -724,10 +728,10 @@
             </objects>
             <point key="canvasLocation" x="1895" y="551"/>
         </scene>
-        <!--Contact View Controller - 详细资料-->
+        <!--Contact Show View - 详细资料-->
         <scene sceneID="2x9-rl-WPg">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="L0t-9w-yNq" customClass="WHCContactViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="L0t-9w-yNq" customClass="WHCContactShowView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="xpx-Ro-Cpd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -844,10 +848,10 @@
             </objects>
             <point key="canvasLocation" x="2308" y="551"/>
         </scene>
-        <!--Contact Edit Controller - 修改资料-->
+        <!--Contact Edit View - 修改资料-->
         <scene sceneID="9Y3-EK-38m">
             <objects>
-                <tableViewController title="修改资料" id="TuK-ly-J2X" customClass="WHCContactEditController" sceneMemberID="viewController">
+                <tableViewController title="修改资料" id="TuK-ly-J2X" customClass="WHCContactEditView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1GU-dY-yWA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -906,10 +910,10 @@
             </objects>
             <point key="canvasLocation" x="3137" y="551"/>
         </scene>
-        <!--Contact Picker View Controller - 项目通信录-->
+        <!--Contact Picker View - 项目通信录-->
         <scene sceneID="kQy-5n-kzd">
             <objects>
-                <tableViewController id="wjB-43-Lbs" customClass="WHCContactPickerViewController" sceneMemberID="viewController">
+                <tableViewController id="wjB-43-Lbs" customClass="WHCContactPickerView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0KT-hd-Rew">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -978,9 +982,9 @@
                                         <rect key="frame" x="20" y="11" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="sendMessage:" destination="G8N-gq-agu" eventType="editingDidEnd" id="wrK-dg-TdX"/>
+                                            <action selector="sendMessage:" destination="G8N-gq-agu" eventType="editingDidEndOnExit" id="UqQ-S3-ZCn"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -991,14 +995,43 @@
                     </view>
                     <navigationItem key="navigationItem" title="消息" id="jeW-1u-c2Y"/>
                     <connections>
-                        <outlet property="inputBarView" destination="Zi8-b5-oe2" id="YEx-cv-fIo"/>
+                        <outlet property="_inputBarView" destination="Zi8-b5-oe2" id="RME-jv-RrZ"/>
+                        <outlet property="_tableView" destination="wAs-Kw-yDs" id="OKJ-nY-fNY"/>
                         <outlet property="inputText" destination="k7D-bj-hWU" id="IpF-1j-Juk"/>
-                        <outlet property="tableView" destination="wAs-Kw-yDs" id="lJt-MK-b7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NeE-AP-6Vw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-811"/>
+            <point key="canvasLocation" x="652" y="-828"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Caw-Fj-Vlv">
+            <objects>
+                <tableViewController id="XX1-0s-uft" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="H82-Hh-xvz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jEd-li-p83">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEd-li-p83" id="MXj-AM-dVx">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XX1-0s-uft" id="yy3-NI-N7K"/>
+                            <outlet property="delegate" destination="XX1-0s-uft" id="9Fq-tt-wmC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9uI-Ij-ZJs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fv8-Qs-zLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="-828"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ivk-sK-0G9">

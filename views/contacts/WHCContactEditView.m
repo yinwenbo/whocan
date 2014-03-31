@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCContactEditController.h"
+#import "WHCContactEditView.h"
 
-@interface WHCContactEditController ()
+@interface WHCContactEditView ()
 
 @end
 
-@implementation WHCContactEditController
+@implementation WHCContactEditView
 
 @synthesize txtName, appContact;
 

@@ -29,13 +29,13 @@
     MessageSession *session = [MessageSession createSession];
     session.sessionId = self.sessionId;
     session.title = self.title;
-    
+    /*
     for (NSDictionary *user in [self.data objectForKey:@"userList"]){
         MessageUser *messageUser = [MessageSession createUser];
         messageUser.userId = [user objectForKey:@"userId"];
         messageUser.userName = [user objectForKey:@"userName"];
     }
-    
+    */
     [MessageSession saveContext];
 }
 @end

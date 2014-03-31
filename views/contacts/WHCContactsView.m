@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCContactsController.h"
+#import "WHCContactsView.h"
 
-@interface WHCContactsController (){
+@interface WHCContactsView (){
     NSArray * _appContacts;
     AppContact * _selectedContact;
     UINavigationController * _messageNC;
@@ -18,7 +18,7 @@
 
 static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
-@implementation WHCContactsController
+@implementation WHCContactsView
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -253,8 +253,8 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController * vc = [segue destinationViewController];
-    if ([vc isKindOfClass:[WHCContactViewController class]]) {
-        WHCContactViewController * contactVC = (WHCContactViewController*)vc;
+    if ([vc isKindOfClass:[WHCContactShowView class]]) {
+        WHCContactShowView * contactVC = (WHCContactShowView*)vc;
         contactVC.appContact = _selectedContact;
     }
 }

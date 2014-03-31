@@ -6,15 +6,15 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCAddressBookController.h"
+#import "WHCAddressBookView.h"
 
-@interface WHCAddressBookController () {
+@interface WHCAddressBookView () {
     NSArray * _appContacts;
 }
 
 @end
 
-@implementation WHCAddressBookController
+@implementation WHCAddressBookView
 
 - (NSArray *)getAppContacts
 {

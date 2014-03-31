@@ -11,9 +11,6 @@
 @interface WHCMessageSessionView () {
     MessageSession * _session;
     NSMutableArray * _messages;
-    IBOutlet UITableView * _tableView;
-    IBOutlet UIView * _inputBarView;
-
 }
 
 @end
@@ -51,6 +48,9 @@
 {
     _session = session;
     _messages = [NSMutableArray arrayWithArray: [MessageSession getMessages:session.sessionId]];
+    if (_messages == nil){
+        _messages = [NSMutableArray array];
+    }
     [_tableView reloadData];
 }
 
@@ -83,6 +83,7 @@
     Message *message = [MessageSession createMessage];
     message.sessionId = _session.sessionId;
     message.content = inputText.text;
+    inputText.text = @"";
     [MessageSession saveContext];
     [_messages addObject:message];
     [_tableView reloadData];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppContact.h"
 
-@interface WHCContactEditController : UITableViewController
+@interface WHCContactEditView : UITableViewController
 
 @property (nonatomic, retain) IBOutlet UITextField * txtName;
 

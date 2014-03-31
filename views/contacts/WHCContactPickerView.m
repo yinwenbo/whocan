@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCContactPickerViewController.h"
+#import "WHCContactPickerView.h"
 
-@interface WHCContactPickerViewController ()
+@interface WHCContactPickerView ()
 
 @end
 
-@implementation WHCContactPickerViewController
+@implementation WHCContactPickerView
 
 @synthesize selectedContacts;
 

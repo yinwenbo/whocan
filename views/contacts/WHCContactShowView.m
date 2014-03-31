@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCContactViewController.h"
+#import "WHCContactShowView.h"
 
-@interface WHCContactViewController ()
+@interface WHCContactShowView ()
 
 @end
 
-@implementation WHCContactViewController
+@implementation WHCContactShowView
 
 @synthesize appContact, btnMainAction, lblName, lblId, lblMobileNo, lblNickname;
 
@@ -88,8 +88,8 @@
 {
     UINavigationController * nc = (UINavigationController*)[segue destinationViewController];
     for (UIViewController * vc in [nc childViewControllers]){
-        if ([vc isKindOfClass:[WHCContactEditController class]]){
-            WHCContactEditController *editView = (WHCContactEditController*)vc;
+        if ([vc isKindOfClass:[WHCContactEditView class]]){
+            WHCContactEditView *editView = (WHCContactEditView*)vc;
             editView.appContact = appContact;
         }
     }
@@ -101,9 +101,9 @@
 
 - (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
 {
-    if ( [fromViewController isKindOfClass:[WHCContactEditController class]]
+    if ( [fromViewController isKindOfClass:[WHCContactEditView class]]
         && [sender isKindOfClass:[WHCBarButtonSave class]]){
-        WHCContactEditController *editView = (WHCContactEditController*)fromViewController;
+        WHCContactEditView *editView = (WHCContactEditView*)fromViewController;
         appContact.phoneABName = editView.txtName.text;
         [AppContact saveContext];
         [self initView];

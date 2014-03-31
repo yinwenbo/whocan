@@ -71,7 +71,16 @@
 
 - (NSString*)getString:(NSString *)key
 {
-    return [self.data objectForKey:key];
+    return [self getString:self.data key:key];
+}
+
+- (NSString *)getString:(NSDictionary*)dict key:(NSString*)key
+{
+    NSString *result = [dict objectForKey:key];
+    if ([result isKindOfClass:[NSNull class]]){
+        return @"";
+    }
+    return result;
 }
 
 - (void)showSignInView

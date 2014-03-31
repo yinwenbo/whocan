@@ -81,8 +81,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController *viewController = [segue destinationViewController];
-    if([viewController isKindOfClass:[WHCAddressBookController class]]){
-        WHCContactPickerViewController * pickerView = (WHCContactPickerViewController *) viewController;
+    if([viewController isKindOfClass:[WHCAddressBookView class]]){
+        WHCContactPickerView * pickerView = (WHCContactPickerView *) viewController;
         pickerView.selectedContacts = contacts;
     }
 }
@@ -90,8 +90,8 @@
 - (IBAction)contactPicked:(UIStoryboardSegue *)unwindSegue
 {
     UIViewController *viewController = [unwindSegue sourceViewController];
-    if([viewController isKindOfClass:[WHCContactPickerViewController class]]){
-        WHCContactPickerViewController * pickerView = (WHCContactPickerViewController *) viewController;
+    if([viewController isKindOfClass:[WHCContactPickerView class]]){
+        WHCContactPickerView * pickerView = (WHCContactPickerView *) viewController;
         contacts = pickerView.selectedContacts;
         [contactsView reloadData];
     }

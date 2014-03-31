@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WHCContactsController.h"
+#import "WHCContactsView.h"
 
-@interface WHCAddressBookController : WHCContactsController
+@interface WHCAddressBookView : WHCContactsController
 
 @end

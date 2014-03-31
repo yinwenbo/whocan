@@ -33,6 +33,10 @@
 + (NSArray *)getNotAppUser;
 + (NSArray *)getAppContactsInPhone;
 + (NSArray *)getFriends;
+
++ (NSString *)buildMobileNoParam:(NSArray*)appContacts;
++ (NSString *)buildAppIdParam:(NSArray*)appContacts;
+
 + (void)saveContext;
 
 + (void)savePhoneAB:(NSString*)name mobileNo:(NSString*)mobile recordId:(int32_t)recordId;

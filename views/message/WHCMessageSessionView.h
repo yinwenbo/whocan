@@ -15,6 +15,9 @@
 
 @interface WHCMessageSessionView : UIViewController <UITableViewDataSource, UITableViewDelegate, WHCJsonAPIDelegate> {
     IBOutlet UITextField *inputText;
+    IBOutlet UITableView * _tableView;
+    IBOutlet UIView * _inputBarView;
+
 }
 
 

@@ -6,15 +6,15 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCFriendsController.h"
+#import "WHCFriendsView.h"
 
-@interface WHCFriendsController (){
+@interface WHCFriendsView (){
     NSArray * _appContacts;
 }
 
 @end
 
-@implementation WHCFriendsController
+@implementation WHCFriendsView
 
 - (NSArray *)getAppContacts
 {

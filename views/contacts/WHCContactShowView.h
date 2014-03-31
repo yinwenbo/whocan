@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "WHCViewUtils.h"
-#import "WHCContactEditController.h"
+#import "WHCContactEditView.h"
 #import "AppContact.h"
 
-@interface WHCContactViewController : UITableViewController
+@interface WHCContactShowView : UITableViewController
 
 @property (nonatomic, retain) IBOutlet UIButton * btnMainAction;
 @property (nonatomic, retain) IBOutlet UILabel * lblName;

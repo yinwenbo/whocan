@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WHCContactPickerViewController.h"
+#import "WHCContactPickerView.h"
 
 
 #import "WHCModelStore.h"
