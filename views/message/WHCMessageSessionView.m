@@ -6,13 +6,19 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageViewController.h"
+#import "WHCMessageSessionView.h"
 
-@interface WHCMessageViewController ()
+@interface WHCMessageSessionView () {
+    MessageSession * _session;
+    NSMutableArray * _messages;
+    IBOutlet UITableView * _tableView;
+    IBOutlet UIView * _inputBarView;
+
+}
 
 @end
 
-@implementation WHCMessageViewController
+@implementation WHCMessageSessionView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,14 +36,56 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(onKeyboardChangeFrame:)
                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
-    messageTableView.delegate = self;
-    messageTableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)setMessageSession:(MessageSession *)session
+{
+    _session = session;
+    _messages = [NSMutableArray arrayWithArray: [MessageSession getMessages:session.sessionId]];
+    [_tableView reloadData];
+}
+
+- (void)setAppContact:(AppContact *)appContact
+{
+    MessageSession *session = nil;
+    if (appContact.messageSessionId == nil){
+        WHCGetMessageSessionAPI * sessionApi =[WHCGetMessageSessionAPI getInstance:self
+                                                                          toUserId:appContact.appId];
+        [sessionApi synchronize];
+        appContact.messageSessionId = sessionApi.sessionId;
+        [AppContact saveContext];
+    }
+    
+    session = [MessageSession getSession:appContact.messageSessionId];
+    if (session == nil) {
+        
+    }
+    
+    [self setMessageSession:session];
+}
+
+- (void)onJsonParseFinished:(WHCJsonAPI *)api
+{
+    
+}
+
+- (IBAction)sendMessage:(id)sender
+{
+    Message *message = [MessageSession createMessage];
+    message.sessionId = _session.sessionId;
+    message.content = inputText.text;
+    [MessageSession saveContext];
+    [_messages addObject:message];
+    [_tableView reloadData];
 }
 
 /*
@@ -72,7 +120,7 @@
     [UIView animateWithDuration:0.4f
                      animations:^{
         [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY, self.view.frame.size.width, self.view.frame.size.height)];
-        [messageTableView setContentInset:UIEdgeInsetsMake(messageTableView.contentInset.top-deltaY, 0, 0, 0)];
+        [_tableView setContentInset:UIEdgeInsetsMake(_tableView.contentInset.top-deltaY, 0, 0, 0)];
         
     }
                      completion:^(BOOL finished) {
@@ -87,20 +135,20 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [_messages count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WHCMessageCell *cell = (WHCMessageCell*)[tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
-    NSString * text = @"    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@MessageCell forIndexPath:indexPath];";
-    cell.message = text;
+    Message * message = [_messages objectAtIndex:[indexPath row]];
+    cell.message = message.content;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * text = @"    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@MessageCell forIndexPath:indexPath];";
-    return [WHCMessageCell getCellHeight:text];
+    Message * message = [_messages objectAtIndex:[indexPath row]];
+    return [WHCMessageCell getCellHeight:message.content];
 }
 
 @end

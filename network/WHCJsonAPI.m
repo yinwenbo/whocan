@@ -58,11 +58,13 @@
 - (void)onHttpRequestFinished:(WHCHttpAPI *)api
 {
     [self parseResponseJson];
-    [self afterJsonParsed];
+    if (!self.hasException){
+        [self successJsonResult];
+    }
     [_delegate onJsonParseFinished:self];
 }
 
-- (void)afterJsonParsed
+- (void)successJsonResult
 {
     
 }

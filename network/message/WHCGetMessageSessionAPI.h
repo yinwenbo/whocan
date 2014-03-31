@@ -8,6 +8,13 @@
 
 #import "WHCJsonAPI.h"
 
+#import "MessageSession.h"
+
 @interface WHCGetMessageSessionAPI : WHCJsonAPI
+
+@property (nonatomic, retain) NSString * sessionId;
+@property (nonatomic, retain) NSString * title;
+
++ (WHCGetMessageSessionAPI*)getInstance:(id<WHCJsonAPIDelegate>)delegate toUserId:(NSString*)toUserId;
 
 @end

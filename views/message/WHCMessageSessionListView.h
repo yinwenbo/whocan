@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MessageSession.h"
 
-@interface WHCMessageGroupViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface WHCMessageSessionListView : UITableViewController
 
 @end

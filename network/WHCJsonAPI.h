@@ -22,5 +22,5 @@
 - (NSString *)getString:(NSString*)key;
 
 - (void)parseResponseJson;
-- (void)afterJsonParsed;
+- (void)successJsonResult;
 @end

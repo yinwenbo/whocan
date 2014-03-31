@@ -6,22 +6,18 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageGroupViewController.h"
+#import "WHCMessageSessionListView.h"
 #import "WHCProjectViewController.h"
-
-#import "MessageGroup.h"
 
 #import "WHCModelStore.h"
 
-@interface WHCMessageGroupViewController ()
+@interface WHCMessageSessionListView (){
+    NSArray * _messageSessions;
+}
 
 @end
 
-@implementation WHCMessageGroupViewController
-
-WHCProjectViewController *projectView;
-
-NSArray * groups;
+@implementation WHCMessageSessionListView
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,13 +41,7 @@ NSArray * groups;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-    NSError *error;
-    if(!(groups = [self getMessageGroups])){
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    }
-    [self.tableView reloadData];
-
+    [self initMessageSessions];
 }
 #pragma mark - Table view data source
 
@@ -62,14 +52,16 @@ NSArray * groups;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return groups.count;
+    return [_messageSessions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.textLabel.text = [(MessageGroup*)[groups objectAtIndex:indexPath.row] name];
+    MessageSession * session = [_messageSessions objectAtIndex:[indexPath row]];
+    [cell.textLabel setText:session.title];
+    [cell.detailTextLabel setText:session.detail];
     return cell;
 }
 
@@ -88,28 +80,18 @@ NSArray * groups;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UIViewController *viewController = [segue destinationViewController];
-    if([viewController isKindOfClass:[WHCProjectViewController class]]){
-        projectView = (WHCProjectViewController *) viewController;
-    }
+//    UIViewController *viewController = [segue destinationViewController];
+//    if([viewController isKindOfClass:[WHCProjectViewController class]]){
+//        projectView = (WHCProjectViewController *) viewController;
+//    }
 }
 
 
--(NSArray *) getMessageGroups{
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    NSManagedObjectContext * context = [WHCModelStore getInstance].managedObjectContext;
-    NSEntityDescription *myEntityQuery = [NSEntityDescription
-                                          entityForName:@"MessageGroup"
-                                          inManagedObjectContext:context];
-    [request setEntity:myEntityQuery];
-    
-    NSError *error = nil;
-    NSArray * result = [context executeFetchRequest:request error:&error];
-
-    return result;
+-(void)initMessageSessions
+{
+    _messageSessions = [MessageSession getAllSession];
+    [self.tableView reloadData];
 }
-
 
 
 @end

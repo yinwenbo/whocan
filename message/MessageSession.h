@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "WHCModelStore.h"
+
+#import "Message.h"
+#import "MessageUser.h"
+
 
 @interface MessageSession : NSManagedObject
 
@@ -18,4 +23,13 @@
 @property (nonatomic, retain) NSDate * lastupdate;
 @property (nonatomic, retain) NSNumber * unread;
 
++ (MessageSession *)createSession;
++ (MessageUser *)createUser;
++ (Message *)createMessage;
+
++ (MessageSession *) getSession:(NSString *)sessionId;
++ (NSArray *) getAllSession;
++ (NSArray *) getMessages:(NSString *)sessionId;
+
++ (void)saveContext;
 @end

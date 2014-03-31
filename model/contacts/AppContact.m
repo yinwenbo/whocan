@@ -27,6 +27,7 @@
 @dynamic appNameIndex;
 @dynamic mobileNo;
 @dynamic status;
+@dynamic messageSessionId;
 
 
 + (AppContact *) createAppContact

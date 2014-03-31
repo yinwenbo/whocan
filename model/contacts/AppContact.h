@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * appNameIndex;
 @property (nonatomic, retain) NSString * mobileNo;
 @property (nonatomic, retain) NSString * status;
+@property (nonatomic, retain) NSString * messageSessionId;
 
 
 + (AppContact *)createAppContact;

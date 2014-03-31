@@ -11,6 +11,7 @@
 @interface WHCContactsController (){
     NSArray * _appContacts;
     AppContact * _selectedContact;
+    UINavigationController * _messageNC;
 }
 
 @end
@@ -188,12 +189,19 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 {
     AppContact *appContact = [[self getAppContacts] objectAtIndex:[indexPath row]];
     if (appContact.isMyFriend) {
-
+        [self sendMessage:appContact];
     } else if (appContact.isAppUser) {
         [self addToFriend:appContact];
     } else {
         [self sendInvite:appContact];
     }
+}
+
+- (void)sendMessage:(AppContact*)appContact
+{
+    WHCMessageSessionView * view = [self.storyboard instantiateViewControllerWithIdentifier:@"MessageSession"];
+    [view setAppContact:appContact];
+    [self.navigationController pushViewController:view animated:YES];
 }
 
 - (void)sendInvite:(AppContact*)appContact

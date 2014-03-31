@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WHCContactPickerViewController.h"
 
-#import "MessageGroup.h"
 
 #import "WHCModelStore.h"
 

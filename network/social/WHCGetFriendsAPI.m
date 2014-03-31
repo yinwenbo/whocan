@@ -23,12 +23,8 @@
                                                  delegate:delegate];
 }
 
--(void)afterJsonParsed
+-(void)successJsonResult
 {
-    [self parseResponseJson];
-    if (self.hasException){
-        return;
-    }
     NSLog(@"%@", self.data);
     for (NSDictionary *dict in self.data){
         NSString * mobileNo = [dict valueForKey:@"phoneNo"];
