@@ -17,7 +17,7 @@
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [ClientInfo getToken], @"token",
                             appUserId, @"friendId", nil];
-    return [[WHCAddFriendAPI alloc] initWithJsonDelegate:@"social/addFriendAlreadyRegister"
+    return [[WHCAddFriendAPI alloc] initWithJsonDelegate:@"social/addFriendRegister"
                                                    params:params
                                                  delegate:delegate];
     

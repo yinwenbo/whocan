@@ -135,7 +135,11 @@ static bool abAccessPerission;
 + (NSString *) formatMobileNo: (NSString*)mobleNo
 {
     NSMutableString * result = [NSMutableString stringWithString:mobleNo];
-    return [result stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    return [result stringByReplacingOccurrencesOfString:@"[-()\\s]"
+                                             withString:@""
+                                                options:NSRegularExpressionSearch
+                                                  range:(NSRange){0, mobleNo.length}];
+//    return [result stringByReplacingOccurrencesOfString:@"-" withString:@""];
 }
 
 + (NSString *) getEmail: (ABRecordRef)record

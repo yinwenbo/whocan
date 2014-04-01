@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "MessageSession.h"
 
-@interface WHCMessageSessionListView : UITableViewController
+#import "WHCAllMessageSessionAPI.h"
+
+@interface WHCMessageSessionListView : UITableViewController<WHCJsonAPIDelegate>
 
 @end

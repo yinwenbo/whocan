@@ -52,6 +52,16 @@
     return [WHCModelStore queryEntitys:MESSAGE_SESSION_NAME predicate:nil sort:sort];
 }
 
++ (Message *)getMessage:(NSString *)sessionId messageId:(NSString *)messageId
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@ and messageId == %@", sessionId, messageId];
+    NSArray * list = [WHCModelStore queryEntitys:MESSAGE_NAME predicate:predicate sort:nil];
+    if ([list count] > 0) {
+        return [list objectAtIndex:0];
+    }
+    return nil;
+}
+
 + (NSArray *)getMessages:(NSString *)sessionId
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@", sessionId];
@@ -59,6 +69,22 @@
     NSArray *sort = [[NSArray alloc]initWithObjects:
                      [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO], nil];
     return [WHCModelStore queryEntitys:MESSAGE_NAME predicate:predicate sort:sort];
+}
+
++ (MessageUser *)getUser:(NSString *)sessionId userId:(NSString *)userId
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@ and userId == %@", sessionId, userId];
+    NSArray * list = [WHCModelStore queryEntitys:MESSAGE_USER_NAME predicate:predicate sort:nil];
+    if ([list count] > 0) {
+        return [list objectAtIndex:0];
+    }
+    return nil;
+}
+
++ (NSArray *)getAllUser:(NSString *)sessionId
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@", sessionId];
+    return [WHCModelStore queryEntitys:MESSAGE_USER_NAME predicate:predicate sort:nil];
 }
 
 + (void)saveContext

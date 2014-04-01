@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initRefreshControl];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +45,38 @@
 {
     [self initMessageSessions];
 }
+
+- (void)onJsonParseFinished:(WHCJsonAPI *)api
+{
+    if ([api isKindOfClass:[WHCAllMessageSessionAPI class]]) {
+        [self finishedRefresh];
+    }
+}
+#pragma mark - Refresh Control
+
+- (void)initRefreshControl
+{
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    refresh.tintColor = [UIColor blueColor];
+    [refresh addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+}
+
+- (void)pullToRefresh
+{
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新中"];
+    [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
+}
+
+- (void)finishedRefresh
+{
+    [self.refreshControl endRefreshing];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    [self initMessageSessions];
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

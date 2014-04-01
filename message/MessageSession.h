@@ -27,9 +27,14 @@
 + (MessageUser *)createUser;
 + (Message *)createMessage;
 
-+ (MessageSession *) getSession:(NSString *)sessionId;
-+ (NSArray *) getAllSession;
-+ (NSArray *) getMessages:(NSString *)sessionId;
++ (MessageSession *)getSession:(NSString *)sessionId;
++ (NSArray *)getAllSession;
+
++ (Message *)getMessage:(NSString *)sessionId messageId:(NSString *)messageId;
++ (NSArray *)getMessages:(NSString *)sessionId;
+
++ (MessageUser *)getUser:(NSString *)sessionId userId:(NSString *)userId;
++ (NSArray *)getAllUser:(NSString *)sessionId;
 
 + (void)saveContext;
 @end

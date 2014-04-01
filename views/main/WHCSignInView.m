@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCSignInController.h"
+#import "WHCSignInView.h"
 #import "WHCSignInAPI.h"
 #import "WHCSendVerifyCodeAPI.h"
 
-@interface WHCSignInController () {
+@interface WHCSignInView () {
     WHCSendVerifyCodeAPI * _sendVerifyCode;
     NSTimer * _timer;
     NSInteger _counter;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation WHCSignInController
+@implementation WHCSignInView
 
 @synthesize btnSignIn, btnSendVerifyCode, txtMobileNo, txtVerifyCode;
 

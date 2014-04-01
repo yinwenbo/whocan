@@ -10,15 +10,35 @@
 
 @implementation WHCSendMessageAPI
 
+@synthesize message;
+
 + (WHCSendMessageAPI*)getInstance:(id<WHCJsonAPIDelegate>)delegate
                         sessionId:(NSString*)sessionId
                           content:(NSString*)content {
+    Message *message = [MessageSession createMessage];
+    message.sessionId = sessionId;
+    message.content = content;
+    message.messageId = [[[NSUUID alloc] init] UUIDString];
+    message.status = MESSAGE_STATUS_SENDING;
+    [MessageSession saveContext];
+    
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
                             [ClientInfo getToken], @"token",
-                            sessionId, @"roomId",
-                            content, @"content", nil];
-    return [[WHCSendMessageAPI alloc] initWithJsonDelegate:@"session/sendMessage"
-                                                          params:params
-                                                        delegate:delegate];
+                            message.sessionId, @"sessionId",
+                            message.messageId, @"messageId",
+                            message.content, @"content", nil];
+    
+    WHCSendMessageAPI *result = [[WHCSendMessageAPI alloc] initWithJsonDelegate:@"session/sendMessage"
+                                                                         params:params
+                                                                        delegate:delegate];
+    result.message = message;
+    return result;
 }
+
+- (void)successJsonResult
+{
+    self.message.status = MESSAGE_STATUS_SUCCESS;
+    [MessageSession saveContext];
+}
+
 @end

@@ -49,10 +49,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
     if([api isKindOfClass:[WHCGetFriendsAPI class]]){
-        [self.refreshControl endRefreshing];
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
-        _appContacts = nil;
-        [self.tableView reloadData];
+        [self finishedRefresh];
     }
 }
 
@@ -94,6 +91,15 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 {
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新中"];
     [[WHCGetFriendsAPI getInstance:self] asynchronize];
+}
+
+- (void)finishedRefresh
+{
+    [self.refreshControl endRefreshing];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    _appContacts = nil;
+    [self.tableView reloadData];
+
 }
 
 #pragma mark - Table view data source
@@ -168,7 +174,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 - (UITableViewCell *)getTotalCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SumCell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"通讯录共 %lu 条记录", [[self getAppContacts] count]];
+    cell.textLabel.text = [NSString stringWithFormat:@"通讯录共 %li 条记录", (long)[[self getAppContacts] count]];
     return cell;
 }
 

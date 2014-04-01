@@ -11,6 +11,7 @@
 @interface WHCMessageSessionView () {
     MessageSession * _session;
     NSMutableArray * _messages;
+    NSTimer * _timer;
 }
 
 @end
@@ -35,6 +36,7 @@
                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [self beginReloadTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,12 +45,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
+
+- (void)loadMessages
+{
+    [[WHCGetMessagesAPI getInstance:self sessionId:_session.sessionId] asynchronize];
+}
 
 - (void)setMessageSession:(MessageSession *)session
 {
     _session = session;
-    _messages = [NSMutableArray arrayWithArray: [MessageSession getMessages:session.sessionId]];
-    if (_messages == nil){
+    [self refreshTableView];
+}
+
+- (void)refreshTableView
+{
+    NSArray *messages = [MessageSession getMessages:_session.sessionId];
+    if (messages) {
+        _messages = [NSMutableArray arrayWithArray:messages];
+    } else {
         _messages = [NSMutableArray array];
     }
     [_tableView reloadData];
@@ -75,18 +101,35 @@
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
+    if ([api isKindOfClass:[WHCGetMessagesAPI class]]) {
+        [self refreshTableView];
+        [self beginReloadTimer];
+    }
+}
+
+- (void)beginReloadTimer
+{
+    if (_timer) {
+        [_timer invalidate];
+    }
+    _timer = [NSTimer scheduledTimerWithTimeInterval:10
+                                              target:self
+                                            selector:@selector(loadMessages)
+                                            userInfo:nil
+                                             repeats:NO];
     
 }
 
 - (IBAction)sendMessage:(id)sender
 {
-    Message *message = [MessageSession createMessage];
-    message.sessionId = _session.sessionId;
-    message.content = inputText.text;
-    inputText.text = @"";
-    [MessageSession saveContext];
-    [_messages addObject:message];
+    WHCSendMessageAPI *sendMessage = [WHCSendMessageAPI getInstance:self
+                                                          sessionId:_session.sessionId
+                                                            content:inputText.text];
+    [_messages addObject:sendMessage.message];
+    [sendMessage synchronize];
+    
     [_tableView reloadData];
+    inputText.text = @"";
 }
 
 /*

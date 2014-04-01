@@ -8,7 +8,11 @@
 
 #import "WHCJsonAPI.h"
 
+#import "MessageSession.h"
+
 @interface WHCSendMessageAPI : WHCJsonAPI
+
+@property (nonatomic, retain) Message * message;
 
 + (WHCSendMessageAPI*)getInstance:(id<WHCJsonAPIDelegate>)delegate
                         sessionId:(NSString*)sessionId

@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "WHCMessageCell.h"
 
-#import "MessageSession.h"
-#import "WHCGetMessageSessionAPI.h"
 #import "AppContact.h"
+#import "MessageSession.h"
+
+#import "WHCGetMessageSessionAPI.h"
+#import "WHCGetMessagesAPI.h"
+#import "WHCSendMessageAPI.h"
 
 @interface WHCMessageSessionView : UIViewController <UITableViewDataSource, UITableViewDelegate, WHCJsonAPIDelegate> {
     IBOutlet UITextField *inputText;

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMainController.h"
+#import "WHCMainView.h"
 
-@interface WHCMainController ()
+@interface WHCMainView ()
 
 @end
 
-@implementation WHCMainController
+@implementation WHCMainView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

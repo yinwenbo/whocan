@@ -7,6 +7,7 @@
 //
 
 #import "WHCJsonAPI.h"
+#import "MessageSession.h"
 
 @interface WHCAllMessageSessionAPI : WHCJsonAPI
 
