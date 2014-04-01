@@ -24,8 +24,9 @@
                                              delegate:delegate];
 }
 
-- (NSString*)getToken
+- (void)successJsonResult
 {
-    return [self getString:@"userToken"];
+    [ClientInfo setToken:[self getString:@"userToken"]];
+
 }
 @end

@@ -119,7 +119,9 @@
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
     if ([api isKindOfClass: [WHCSignInAPI class]]){
-        [self onSignInFinished:(WHCSignInAPI*)api];
+        if ([ClientInfo getToken]) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     } else if([api isKindOfClass:[WHCSendVerifyCodeAPI class]]){
         [self onVerfyCodeSendFinished];
     }
@@ -136,12 +138,5 @@
     [self.btnSendVerifyCode setEnabled:NO];
 }
 
-- (void)onSignInFinished:(WHCSignInAPI*)signInApi
-{
-    if([signInApi getToken]){
-        [ClientInfo setToken:[signInApi getToken]];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
 
 @end

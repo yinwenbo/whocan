@@ -117,11 +117,34 @@
 {
     UIViewController *viewController = [segue destinationViewController];
     if([viewController isKindOfClass:[WHCMessageSessionView class]]){
-        WHCMessageSessionView *sessionView = (WHCMessageSessionView *) viewController;
+        WHCMessageSessionView *sessionView = (WHCMessageSessionView *)viewController;
         [sessionView setMessageSession:_selectedSession];
     }
 }
 
+- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
+{
+}
+
+- (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
+{
+    if ([fromViewController isKindOfClass:[WHCContactPickerView class]]) {
+        WHCContactPickerView *pickerView = (WHCContactPickerView *)fromViewController;
+        if (pickerView.selectedContacts.count == 0) {
+            return NO;
+        }
+        WHCAddUserToSessionAPI *sessionApi = [WHCAddUserToSessionAPI getInstance:self
+                                                                       sessionId:nil
+                                                                            list:pickerView.selectedContacts];
+        [sessionApi synchronize];
+        if ([sessionApi isSuccess]) {
+            [self initMessageSessions];
+            return YES;
+        }
+        return NO;
+    }
+    return YES;
+}
 
 -(void)initMessageSessions
 {

@@ -11,6 +11,7 @@
 #import "MessageSession.h"
 
 #import "WHCAllMessageSessionAPI.h"
+#import "WHCAddUserToSessionAPI.h"
 
 @interface WHCMessageSessionListView : UITableViewController<WHCJsonAPIDelegate>
 

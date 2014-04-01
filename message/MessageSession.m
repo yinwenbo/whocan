@@ -67,7 +67,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@", sessionId];
     
     NSArray *sort = [[NSArray alloc]initWithObjects:
-                     [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO], nil];
+                     [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES], nil];
     return [WHCModelStore queryEntitys:MESSAGE_NAME predicate:predicate sort:sort];
 }
 

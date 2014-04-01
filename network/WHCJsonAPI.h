@@ -19,6 +19,10 @@
 @property (nonatomic) BOOL hasException;
 
 - (id)initWithJsonDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCJsonAPIDelegate>)delegate;
+
+- (NSData *)getDate:(NSString *)key;
+- (NSDate *)getDate:(NSDictionary*)dict key:(NSString*)key;
+
 - (NSString *)getString:(NSString*)key;
 - (NSString *)getString:(NSDictionary*)dict key:(NSString *)key;
 

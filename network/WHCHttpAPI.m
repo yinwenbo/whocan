@@ -48,6 +48,12 @@
 {
     [_request startAsynchronous];
 }
+
+- (BOOL)isSuccess
+{
+    return !hasError;
+}
+
 - (NSString*)getErrorMessage
 {
     if ([_request responseStatusMessage] != nil){

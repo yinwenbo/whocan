@@ -38,8 +38,13 @@
             message.sessionId = self.sessionId;
             message.content = [self getString:dict key:@"content"];
             message.senderId = [self getString:dict key:@"userId"];
-        } else if (![message.status isEqualToString:MESSAGE_STATUS_SUCCESS]) {
+
+        }
+        if (![message.status isEqualToString:MESSAGE_STATUS_SUCCESS]) {
             message.status = MESSAGE_STATUS_SUCCESS;
+        }
+        if (message.time == nil){
+            message.time = [self getDate:dict key:@"createTime"];
         }
     }
     [MessageSession saveContext];

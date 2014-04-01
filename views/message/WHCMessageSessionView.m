@@ -36,7 +36,7 @@
                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [self beginReloadTimer];
+    [self loadMessages];
 }
 
 - (void)didReceiveMemoryWarning

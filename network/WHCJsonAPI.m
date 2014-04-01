@@ -56,6 +56,11 @@
     [self showAlert:[NSString stringWithFormat:@"%@(%@)", msg, code]];
 }
 
+- (BOOL)isSuccess
+{
+    return !hasException && !super.hasError;
+}
+
 - (void)onHttpRequestFinished:(WHCHttpAPI *)api
 {
     [self parseResponseJson];
@@ -70,18 +75,38 @@
     
 }
 
-- (NSString*)getString:(NSString *)key
+- (NSDate *)getDate:(NSString *)key
+{
+    return [self getDate:self.data key:key];
+}
+
+- (NSDate *)getDate:(NSDictionary*)dict key:(NSString*)key
+{
+    NSString *value = [self getString:dict key:key];
+    NSDate *result = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]/1000];
+    /*
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"'公元前/后:'G  '年份:'u'='yyyy'='yy '季度:'q'='qqq'='qqqq '月份:'M'='MMM'='MMMM '今天是今年第几周:'w '今天是本月第几周:'W  '今天是今天第几天:'D '今天是本月第几天:'d '星期:'c'='ccc'='cccc '上午/下午:'a '小时:'h'='H '分钟:'m '秒:'s '毫秒:'SSS  '这一天已过多少毫秒:'A  '时区名称:'zzzz'='vvvv '时区编号:'Z "];
+    NSLog(@"%@", [dateFormatter stringFromDate:result]);
+    */
+    return result;
+}
+
+- (NSString *)getString:(NSString *)key
 {
     return [self getString:self.data key:key];
 }
 
 - (NSString *)getString:(NSDictionary*)dict key:(NSString*)key
 {
-    NSString *result = [dict objectForKey:key];
+    id result = [dict objectForKey:key];
     if ([result isKindOfClass:[NSNull class]]){
         return @"";
     }
-    return result;
+    if ([result isKindOfClass:[NSString class]]){
+        return (NSString*)result;
+    }
+    return [result stringValue];
 }
 
 - (void)showSignInView

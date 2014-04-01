@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "WHCJsonAPI.h"
+#import "ClientInfo.h"
 
 @interface WHCSignInAPI : WHCJsonAPI
-
 
 + (WHCSignInAPI*) getInstance:(id<WHCJsonAPIDelegate>)delegate
                      mobileNo:(NSString*)mobileNo
                    verifyCode:(NSString*)verifyCode;
-
-- (NSString *)getToken;
 
 @end
