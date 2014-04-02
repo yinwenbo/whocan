@@ -45,6 +45,11 @@
 
 - (void)setupView
 {
+    _userHead = [[UIImageView alloc]initWithFrame:CGRectZero];
+    [self.contentView addSubview:_userHead];
+    _headMask = [[UIImageView alloc]initWithFrame:CGRectZero];
+    [self.contentView addSubview:_headMask];
+    
     _bubbleBg =[[UIImageView alloc]initWithFrame:CGRectZero];
     [self.contentView addSubview:_bubbleBg];
     
@@ -64,6 +69,11 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    [_userHead setImage:[[UIImage imageNamed:@"256"]stretchableImageWithLeftCapWidth:20 topCapHeight:30]];
+    [_userHead setFrame:CGRectMake(CELL_WIDTH-INSETS-HEAD_SIZE, INSETS,HEAD_SIZE , HEAD_SIZE)];
+
+
+    
     [_messageConent setHidden:NO];
     CGRect msgReact = [WHCMessageCell getTextRect:_messageConent.text];
 
@@ -72,7 +82,7 @@
                                         (CELL_HEIGHT - textSize.height) / 2,
                                         textSize.width,
                                         textSize.height + 8)];
-    [_bubbleBg setImage:[[UIImage imageNamed:@"SenderTextNodeBkg"] stretchableImageWithLeftCapWidth:20 topCapHeight:30]];
+    [_bubbleBg setImage:[[UIImage imageNamed:@"SenderText"] stretchableImageWithLeftCapWidth:20 topCapHeight:30]];
     _bubbleBg.frame=CGRectMake(_messageConent.frame.origin.x - 12, _messageConent.frame.origin.y-6, textSize.width+30, textSize.height+30);
     [_bubbleBg setHidden:NO];
 

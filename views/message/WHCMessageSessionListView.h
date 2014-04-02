@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "MessageSession.h"
 
+#import "ClientInfo.h"
+
 #import "WHCAllMessageSessionAPI.h"
 #import "WHCAddUserToSessionAPI.h"
 

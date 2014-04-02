@@ -12,7 +12,7 @@
 
 @protocol WHCHttpAPIDelegate <NSObject>
 
-- (void) onHttpRequestFinished:(WHCHttpAPI *)api;
+- (void)onHttpRequestFinished:(WHCHttpAPI *)api;
 
 @end
 

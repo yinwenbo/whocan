@@ -31,11 +31,7 @@
 - (void)parseResponseJson
 {
     hasException = YES;
-    if ([self hasError]){
-        [self showAlert:[self getErrorMessage]];
-        return;
-    }
-
+ 
     NSString *json = [NSString stringWithFormat:@"var result = %@", [self getResponseText]];
     JSContext *context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
 
@@ -49,11 +45,6 @@
         hasException = NO;
         return;
     }
-    if ([@"TokenDisableException" isEqualToString:code]) {
-        [self showSignInView];
-        return;
-    }
-    [self showAlert:[NSString stringWithFormat:@"%@(%@)", msg, code]];
 }
 
 - (BOOL)isSuccess
@@ -61,11 +52,21 @@
     return !hasException && !super.hasError;
 }
 
+- (BOOL)isAccessRefuse
+{
+    return [@"TokenDisableException" isEqualToString:code];
+}
 - (void)onHttpRequestFinished:(WHCHttpAPI *)api
 {
-    [self parseResponseJson];
-    if (!self.hasException){
+    if (![super hasError]) {
+        [self parseResponseJson];
+    }
+    if ([self isSuccess]) {
         [self successJsonResult];
+    } else if ([self isAccessRefuse]) {
+        [self processAccessRefuse];
+    } else {
+        [self processFailed];
     }
     [_delegate onJsonParseFinished:self];
 }
@@ -74,6 +75,34 @@
 {
     
 }
+
+- (void)processAccessRefuse
+{
+    if ([_delegate isKindOfClass:[UIViewController class]]) {
+        [self showSignInView:(UIViewController*)_delegate];
+    } else {
+        [self showAlert:@"登录超时"];
+    }
+}
+
+- (void)processFailed
+{
+    if ([_delegate respondsToSelector:@selector(onRequestIsFailed:)]) {
+        [_delegate onRequestIsFailed:self];
+    }else {
+        [self showAlert:[self getErrorMessage]];
+    }
+}
+
+- (NSString *)getErrorMessage
+{
+    if ([super hasError]) {
+        return [super getErrorMessage];
+    }
+    return [NSString stringWithFormat:@"%@(%@)", msg, code];
+}
+
+#pragma mark - Utils Method
 
 - (NSDate *)getDate:(NSString *)key
 {
@@ -109,13 +138,10 @@
     return [result stringValue];
 }
 
-- (void)showSignInView
+- (void)showSignInView:(UIViewController*)view;
 {
-    if([_delegate isKindOfClass:[UIViewController class]]){
-        UIViewController *vc = (UIViewController*)_delegate;
-        UIViewController *signInVc = [vc.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
-        [vc presentViewController:signInVc animated:YES completion:nil];
-    }
+    UIViewController *signInVc = [view.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
+    [view presentViewController:signInVc animated:YES completion:nil];
 }
 
 - (void)showAlert:(NSString*)message

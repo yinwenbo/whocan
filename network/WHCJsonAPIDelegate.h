@@ -12,6 +12,9 @@
 
 @protocol WHCJsonAPIDelegate <NSObject>
 
--(void) onJsonParseFinished:(WHCJsonAPI*)api;
+- (void)onJsonParseFinished:(WHCJsonAPI*)api;
+
+@optional
+- (void)onRequestIsFailed:(WHCHttpAPI*)api;
 
 @end

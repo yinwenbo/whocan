@@ -28,6 +28,7 @@
 + (AppContact *)createAppContact;
 + (AppContact *)findAppContactByABId:(int32_t)recordId;
 + (AppContact *)findAppContactByMobileNo:(NSString*)mobileNo;
++ (AppContact *)findMySelf;
 
 + (NSArray *)getAppUsers;
 + (NSArray *)getNotAppUser;
@@ -47,4 +48,6 @@
 - (BOOL)isMyInvite;
 - (BOOL)isInviteMe;
 - (BOOL)isAppUser;
+- (void)setToMine;
+
 @end

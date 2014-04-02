@@ -15,7 +15,7 @@
 #define STATUS_NOT_FRIEND @"NOT_FRIEND"
 #define STATUS_MY_INVITE @"MY_INVITE"
 #define STATUS_INVITE_ME @"INVITE_ME"
-
+#define STATUS_MINE @"MINE"
 
 @implementation AppContact
 
@@ -83,7 +83,15 @@
     }
     return nil;
 }
-
++ (AppContact *)findMySelf
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"status = %@", STATUS_MINE];
+    NSArray *results = [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
+    if ([results count] >0 ){
+        return [results objectAtIndex:0];
+    }
+    return nil;
+}
 + (NSString*)buildAppIdParam:(NSArray *)appContacts
 {
     if ([appContacts count] == 0){
@@ -189,5 +197,10 @@
 - (BOOL)isAppUser
 {
     return (self.appId != nil);
+}
+
+- (void)setToMine
+{
+    self.status = STATUS_MINE;
 }
 @end

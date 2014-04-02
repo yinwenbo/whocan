@@ -27,6 +27,12 @@
 - (NSString *)getString:(NSDictionary*)dict key:(NSString *)key;
 
 
-- (void)parseResponseJson;
+- (BOOL)isAccessRefuse;
+
 - (void)successJsonResult;
+- (void)showAlert:(NSString*)message;
+
+- (void)processAccessRefuse;
+- (void)showSignInView:(UIViewController*)view;
+
 @end

@@ -43,7 +43,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
+    if ([ClientInfo isSignIn]) {
+        [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
+    }
 }
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api

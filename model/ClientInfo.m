@@ -11,6 +11,11 @@
 @implementation ClientInfo
 
 
++ (BOOL)isSignIn
+{
+    return [self getToken] != nil && [AppContact findMySelf] != nil;
+}
+
 + (NSString *)getToken
 {
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];

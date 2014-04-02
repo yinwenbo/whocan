@@ -27,16 +27,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if([self hasToken]){
+    if([ClientInfo isSignIn]){
         [[WHCUploadContactsAPI getInstance:self] asynchronize];
     }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-//    UIViewController * view = [[[self storyboard] instantiateViewControllerWithIdentifier:@"SignInVC"];
-//    [self.navigationController pushViewController:view animated:YES];
-    if(![self hasToken]){
+    if(![ClientInfo isSignIn]){
         UIViewController *signInVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
         [self presentViewController:signInVc animated:YES completion:nil];
     }
@@ -47,12 +45,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (BOOL)hasToken
-{
-    NSString *token = [ClientInfo getToken];
-    return token != nil;
-}
-
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
     

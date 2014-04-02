@@ -19,6 +19,5 @@
 
 @property (nonatomic, retain) NSString * message;
 
-+ (CGRect)getTextRect:(NSString*)text;
 + (CGFloat)getCellHeight:(NSString*)text;
 @end

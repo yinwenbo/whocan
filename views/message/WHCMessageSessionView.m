@@ -107,6 +107,10 @@
     }
 }
 
+- (void)onRequestIsFailed:(WHCHttpAPI *)api
+{
+}
+
 - (void)beginReloadTimer
 {
     if (_timer) {
@@ -183,16 +187,26 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WHCMessageCell *cell = (WHCMessageCell*)[tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     Message * message = [_messages objectAtIndex:[indexPath row]];
-    cell.message = message.content;
+    UITableViewCell *cell = nil;
+    if ([message isSystemMessage]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"SystemMessageCell" forIndexPath:indexPath];
+        cell.textLabel.text = message.content;
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
+        ((WHCMessageCell*)cell).message = message.content;
+    }
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message * message = [_messages objectAtIndex:[indexPath row]];
-    return [WHCMessageCell getCellHeight:message.content];
+    if ([message isSystemMessage]) {
+        return [WHCSystemMessageCell getCellHeight:message.content];
+    } else {
+        return [WHCMessageCell getCellHeight:message.content];
+    }
 }
 
 @end

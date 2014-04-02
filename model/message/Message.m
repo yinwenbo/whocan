@@ -19,4 +19,8 @@
 @dynamic sessionId;
 @dynamic status;
 
+-(BOOL)isSystemMessage
+{
+    return [self.senderId isEqualToString:@"SYSTEM"];
+}
 @end

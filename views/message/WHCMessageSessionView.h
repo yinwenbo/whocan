@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WHCMessageCell.h"
+#import "WHCSystemMessageCell.h"
 
 #import "AppContact.h"
 #import "MessageSession.h"

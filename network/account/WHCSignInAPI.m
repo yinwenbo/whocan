@@ -28,6 +28,15 @@
 - (void)successJsonResult
 {
     [ClientInfo setToken:[self getString:@"userToken"]];
+    AppContact *mine = [AppContact findMySelf];
+    if (mine == nil){
+        mine = [AppContact createAppContact];
+        mine.mobileNo = [self getString:@"phoneNo"];
+        [mine setToMine];
+    }
 
+    mine.appId = [self getString:@"userId"];
+    mine.appName = [self getString:@"userName"];
+    [AppContact saveContext];
 }
 @end

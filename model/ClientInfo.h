@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AppContact.h"
+
 @interface ClientInfo : NSObject
 
++ (BOOL)isSignIn;
 
 + (NSString *)getToken;
 + (void)setToken:(NSString *)token;
