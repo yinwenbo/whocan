@@ -17,6 +17,7 @@
                   verifyCode:(NSString *)verifyCode
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [ClientInfo getDeviceToken], @"deviceToken",
                             mobileNo, @"phoneNo",
                             verifyCode, @"authCode", nil];
     return [[WHCSignInAPI alloc] initWithJsonDelegate:SIGN_IN_PATH

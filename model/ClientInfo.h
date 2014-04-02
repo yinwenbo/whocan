@@ -14,4 +14,7 @@
 + (NSString *)getToken;
 + (void)setToken:(NSString *)token;
 
++ (NSString *)getDeviceToken;
++ (void)setDeviceToken:(NSString *)deviceToken;
+
 @end

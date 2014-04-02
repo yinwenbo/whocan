@@ -126,7 +126,7 @@
                                                           sessionId:_session.sessionId
                                                             content:inputText.text];
     [_messages addObject:sendMessage.message];
-    [sendMessage synchronize];
+    [sendMessage asynchronize];
     
     [_tableView reloadData];
     inputText.text = @"";

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AddressBookUtil.h"
 #import "AppContact.h"
+#import "ClientInfo.h"
 
 @interface WHCAppDelegate : UIResponder <UIApplicationDelegate>
 

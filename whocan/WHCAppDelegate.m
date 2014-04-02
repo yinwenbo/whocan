@@ -52,6 +52,12 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    NSString *tokenDesc = [deviceToken description];
+    NSMutableString *token =[NSMutableString stringWithString:tokenDesc];
+    [ClientInfo setDeviceToken:[token stringByReplacingOccurrencesOfString:@"[<>\\s]"
+                                                                withString:@""
+                                                                   options:NSRegularExpressionSearch
+                                                                     range:(NSRange){0, tokenDesc.length}]];
     NSLog(@"registe success: %@", deviceToken);
 }
 

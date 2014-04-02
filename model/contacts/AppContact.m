@@ -156,7 +156,7 @@
 
 + (NSString *) getNameIndex:(NSString*)name
 {
-    if (name == nil){
+    if (name == nil || [name isEqual: @""]){
         return @"!";
     }
     NSString *firstnames = @"曾解仇朴查能乐单";

@@ -23,4 +23,18 @@
     [defaults setObject:token forKey:@"token"];
     [defaults synchronize];
 }
+
++ (NSString *)getDeviceToken
+{
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"deviceToken"];
+
+}
++ (void)setDeviceToken:(NSString*)deviceToken
+{
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    [defaults setObject:deviceToken forKey:@"deviceToken"];
+    [defaults synchronize];
+}
+
 @end

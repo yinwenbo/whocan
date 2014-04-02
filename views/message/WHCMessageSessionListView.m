@@ -43,7 +43,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self initMessageSessions];
+    [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
 }
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
