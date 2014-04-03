@@ -29,6 +29,7 @@
     if ([self.data isKindOfClass:[NSNull class]]) {
         return ;
     }
+    AppContact *me = [AppContact findMySelf];
     for (NSDictionary *dict in self.data) {
         NSString *messageId = [self getString:dict key:@"messageId"];
         Message *message = [MessageSession getMessage:self.sessionId messageId:messageId];
@@ -37,11 +38,16 @@
             message.messageId = messageId;
             message.sessionId = self.sessionId;
             message.content = [self getString:dict key:@"content"];
-            message.senderId = [self getString:dict key:@"userId"];
-
         }
-        if (![message.status isEqualToString:MESSAGE_STATUS_SUCCESS]) {
-            message.status = MESSAGE_STATUS_SUCCESS;
+        NSString *senderId = [self getString:dict key:@"userId"];
+        if ([senderId isEqualToString:me.appId]) {
+            [message setSenderIsMe];
+        } else if (message.senderId == nil) {
+            message.senderId = senderId;
+        }
+
+        if ([message isSendFailed] || [message isSending]) {
+            [message setStatusToSuccess];
         }
         if (message.time == nil){
             message.time = [self getDate:dict key:@"createTime"];

@@ -51,7 +51,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSString*)getMobileNo
@@ -75,28 +74,15 @@
 
 - (IBAction)onSendVrifyPush:(id)sender
 {
+//    [MBProgressHUD showHUDAddedTo:self animated:YES];
     [self.btnSendVerifyCode setEnabled:NO];
     [self.txtVerifyCode becomeFirstResponder];
     NSString *mobileNo = self.txtMobileNo.text;
     _sendVerifyCode = [WHCSendVerifyCodeAPI getInstance:self
                                                mobileNo:mobileNo];
-    [_sendVerifyCode asynchronize];
+    [_sendVerifyCode synchronize];
     [self.btnSendVerifyCode setEnabled:YES];
-}
-
-- (void)handleTimer
-{
-    NSString *title;
-    if(--_counter <= 0){
-        title = @"获取";
-        [_timer invalidate];
-        _timer = nil;
-        [self.btnSendVerifyCode setEnabled:YES];
-    }else{
-        title = [NSString stringWithFormat:@"%li", (long)_counter];
-    }
-    self.btnSendVerifyCode.titleLabel.text = title;
-    self.btnSendVerifyCode.titleLabel.textAlignment = NSTextAlignmentCenter;
+//    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (IBAction)onVerifyCodeChange:(id)sender
@@ -119,24 +105,43 @@
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
     if ([api isKindOfClass: [WHCSignInAPI class]]){
-        if ([ClientInfo getToken]) {
+        if ([ClientInfo isSignIn]) {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
-    } else if([api isKindOfClass:[WHCSendVerifyCodeAPI class]]){
-        [self onVerfyCodeSendFinished];
+        return;
+    }
+    if([api isKindOfClass:[WHCSendVerifyCodeAPI class]]){
+        if ([api isSuccess]) {
+            [self onVerfyCodeSendFinished];
+        }
     }
 }
 
 - (void)onVerfyCodeSendFinished
 {
     _counter = 60;
+    [self sendVerifyCodeCountDown];
     _timer = [NSTimer scheduledTimerWithTimeInterval: 1
                                               target: self
-                                            selector: @selector(handleTimer)
+                                            selector: @selector(sendVerifyCodeCountDown)
                                             userInfo: nil
                                              repeats: YES];
-    [self.btnSendVerifyCode setEnabled:NO];
 }
 
+- (void)sendVerifyCodeCountDown
+{
+    NSString *title;
+    if(--_counter <= 0){
+        title = @"获取";
+        [_timer invalidate];
+        _timer = nil;
+        [self.btnSendVerifyCode setEnabled:YES];
+    } else {
+        title = [NSString stringWithFormat:@"%li", (long)_counter];
+        [self.btnSendVerifyCode setEnabled:NO];
+    }
+    self.btnSendVerifyCode.titleLabel.text = title;
+    self.btnSendVerifyCode.titleLabel.textAlignment = NSTextAlignmentCenter;
+}
 
 @end

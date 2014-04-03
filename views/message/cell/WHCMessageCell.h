@@ -8,16 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCMessageCell : UITableViewCell {
-    UIImageView *_userHead;
-    UIImageView *_bubbleBg;
-    UIImageView *_headMask;
-    UIImageView *_chatImage;
-    UILabel *_messageConent;
+@interface WHCMessageCell : UITableViewCell 
 
-}
+- (void)sendMessage:(UIImage*)icon content:(UIView*)content;
+- (void)receiveMessage:(UIImage*)icon content:(UIView*)content;
 
-@property (nonatomic, retain) NSString * message;
-
-+ (CGFloat)getCellHeight:(NSString*)text;
 @end

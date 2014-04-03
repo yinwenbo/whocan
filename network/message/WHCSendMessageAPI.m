@@ -19,7 +19,8 @@
     message.sessionId = sessionId;
     message.content = content;
     message.messageId = [[[NSUUID alloc] init] UUIDString];
-    message.status = MESSAGE_STATUS_SENDING;
+    [message setSenderIsMe];
+    [message setStatusToSending];
     [MessageSession saveContext];
     
     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -37,7 +38,7 @@
 
 - (void)successJsonResult
 {
-    self.message.status = MESSAGE_STATUS_SUCCESS;
+    [self.message setStatusToSuccess];
     [MessageSession saveContext];
 }
 

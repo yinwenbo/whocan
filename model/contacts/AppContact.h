@@ -20,8 +20,11 @@
 @property (nonatomic, retain) NSString * appId;
 @property (nonatomic, retain) NSString * appName;
 @property (nonatomic, retain) NSString * appNameIndex;
+@property (nonatomic, retain) NSString * icon;
+@property (nonatomic, retain) NSString * gender;
 @property (nonatomic, retain) NSString * mobileNo;
 @property (nonatomic, retain) NSString * status;
+@property (nonatomic, retain) NSString * token;
 @property (nonatomic, retain) NSString * messageSessionId;
 
 
@@ -44,6 +47,7 @@
 
 + (void)exportPhoneABToAppContacts;
 
+- (BOOL)isMySelf;
 - (BOOL)isMyFriend;
 - (BOOL)isMyInvite;
 - (BOOL)isInviteMe;

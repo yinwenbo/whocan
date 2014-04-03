@@ -8,7 +8,7 @@
 
 #import "WHCHttpAPI.h"
 
-#define HTTP_DOMAIN @"http://www.weijinrong100.com/wei100/pm/"
+#define HTTP_DOMAIN @"http://www.weijinrong100.com/whocan/"
 
 @interface WHCHttpAPI(){
     ASIFormDataRequest *_request;

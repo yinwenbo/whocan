@@ -27,18 +27,18 @@
 {
     NSLog(@"%@", self.data);
     for (NSDictionary *dict in self.data){
-        NSString * mobileNo = [dict valueForKey:@"phoneNo"];
+        NSString * mobileNo = [self getString:dict key:@"phoneNo"];
         AppContact *contact = [AppContact findAppContactByMobileNo:mobileNo];
         if (contact == nil){
             contact = [AppContact createAppContact];
             contact.mobileNo = mobileNo;
         }
-        contact.appId = [dict valueForKey:@"userId"];
-        NSString * name = [dict valueForKey:@"userName"];
-        if (![name isKindOfClass:[NSNull class]]){
-            contact.appName = [dict valueForKey:@"userName"];
+        contact.gender = [self getString:dict key:@"gender"];
+        contact.appId = [self getString:dict key:@"userId"];
+        contact.appName = [self getString:dict key:@"userName"];
+        if (![contact isMySelf]) {
+            contact.status = [self getString:dict key:@"status"];
         }
-        contact.status = [dict valueForKey:@"status"];
     }
     [AppContact saveContext];
 }

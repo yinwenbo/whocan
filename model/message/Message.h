@@ -9,10 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#define MESSAGE_STATUS_SENDING @"SENDING"
-#define MESSAGE_STATUS_SUCCESS @"SUCCESS"
-#define MESSAGE_STATUS_FAILED  @"FAILED"
-
 
 @interface Message : NSManagedObject
 
@@ -25,5 +21,16 @@
 @property (nonatomic, retain) NSString * status;
 
 - (BOOL)isSystemMessage;
+- (BOOL)isMySend;
+
+- (BOOL)isSending;
+- (BOOL)isSendFailed;
+- (BOOL)isSendSuccess;
+
+- (void)setStatusToSending;
+- (void)setStatusToSuccess;
+- (void)setStatusToFailed;
+
+- (void)setSenderIsMe;
 
 @end

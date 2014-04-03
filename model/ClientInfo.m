@@ -13,28 +13,28 @@
 
 + (BOOL)isSignIn
 {
-    return [self getToken] != nil && [AppContact findMySelf] != nil;
+    return [ClientInfo getToken] != nil;
 }
 
 + (NSString *)getToken
 {
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    return [defaults objectForKey:@"token"];
-}
-
-+ (void)setToken:(NSString *)token
-{
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    [defaults setObject:token forKey:@"token"];
-    [defaults synchronize];
+    AppContact *mine = [AppContact findMySelf];
+    if (mine == nil) {
+        return nil;
+    }
+    return mine.token;
 }
 
 + (NSString *)getDeviceToken
 {
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    return [defaults objectForKey:@"deviceToken"];
-
+    NSString *token = [defaults objectForKey:@"deviceToken"];
+    if (token) {
+        return token;
+    }
+    return @"";
 }
+
 + (void)setDeviceToken:(NSString*)deviceToken
 {
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];

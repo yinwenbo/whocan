@@ -128,7 +128,13 @@
 
 - (NSString *)getString:(NSDictionary*)dict key:(NSString*)key
 {
+    if (![dict isKindOfClass:[NSDictionary class]]) {
+        return nil;
+    }
     id result = [dict objectForKey:key];
+    if (result == nil){
+        return nil;
+    }
     if ([result isKindOfClass:[NSNull class]]){
         return @"";
     }

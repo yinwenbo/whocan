@@ -7,6 +7,8 @@
 //
 
 #import "WHCMessageSessionView.h"
+#import "WHCTextMessageCell.h"
+#import "WHCSystemMessageCell.h"
 
 @interface WHCMessageSessionView () {
     MessageSession * _session;
@@ -34,6 +36,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(onKeyboardChangeFrame:)
                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
+    [_tableView registerClass:[WHCTextMessageCell class] forCellReuseIdentifier:@"TextMessageCell"];
+    [_tableView registerClass:[WHCSystemMessageCell class] forCellReuseIdentifier:@"SystemMessageCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self loadMessages];
@@ -188,14 +192,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message * message = [_messages objectAtIndex:[indexPath row]];
-    UITableViewCell *cell = nil;
     if ([message isSystemMessage]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SystemMessageCell" forIndexPath:indexPath];
+        WHCSystemMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SystemMessageCell" forIndexPath:indexPath];
         cell.textLabel.text = message.content;
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
-        ((WHCMessageCell*)cell).message = message.content;
+        return cell;
     }
+    WHCTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextMessageCell" forIndexPath:indexPath];
+    UIImage *icon = [UIImage imageNamed:@"icon_monsterinc_256"];
+    if ([message isMySend]) {
+        [cell sendTextMessage:icon content:message.content];
+    } else {
+        [cell receiveTextMessage:icon content:message.content];
+    }
+    
     return cell;
 }
 
@@ -205,7 +214,7 @@
     if ([message isSystemMessage]) {
         return [WHCSystemMessageCell getCellHeight:message.content];
     } else {
-        return [WHCMessageCell getCellHeight:message.content];
+        return [WHCTextMessageCell getCellHeight:message.content];
     }
 }
 

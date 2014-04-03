@@ -24,9 +24,12 @@
 @dynamic phoneABNameIndex;
 @dynamic appId;
 @dynamic appName;
+@dynamic icon;
+@dynamic gender;
 @dynamic appNameIndex;
 @dynamic mobileNo;
 @dynamic status;
+@dynamic token;
 @dynamic messageSessionId;
 
 
@@ -52,7 +55,7 @@
 }
 + (NSArray *) getAppUsers
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId != NULL"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId != NULL and status != %@", STATUS_MINE];
     
     NSArray *sort = [[NSArray alloc]initWithObjects:
                      [[NSSortDescriptor alloc] initWithKey:@"phoneABNameIndex" ascending:YES],
@@ -177,6 +180,11 @@
         }
     }
     return [[NSString stringWithFormat:@"%c",pinyinFirstLetter(firstname)] uppercaseString];
+}
+
+- (BOOL)isMySelf
+{
+    return [STATUS_MINE isEqualToString:self.status];
 }
 
 - (BOOL)isMyFriend

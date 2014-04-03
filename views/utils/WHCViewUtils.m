@@ -54,7 +54,7 @@
         
         WHCSmsSendController * controller = [[WHCSmsSendController alloc]init];
         controller.recipients = [NSArray arrayWithObjects:mobileNo, nil];
-        controller.body = @"我正在使用[互看]来做项目，请加入进来，以便沟通。下载：https://raw.githubusercontent.com/yinwenbo/whocan/master/whocan.ipa";
+        controller.body = @"我正在使用[互看]来做项目，请加入进来，以便沟通。下载：http://www.weijinrong100.com/whocan/static/download.html";
         controller.messageComposeDelegate = controller;
         return controller;
     }else{
