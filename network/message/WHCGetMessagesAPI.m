@@ -30,6 +30,7 @@
         return ;
     }
     AppContact *me = [AppContact findMySelf];
+    NSInteger unread = 0;
     for (NSDictionary *dict in self.data) {
         NSString *messageId = [self getString:dict key:@"messageId"];
         Message *message = [MessageSession getMessage:self.sessionId messageId:messageId];
@@ -38,6 +39,7 @@
             message.messageId = messageId;
             message.sessionId = self.sessionId;
             message.content = [self getString:dict key:@"content"];
+            unread++;
         }
         NSString *senderId = [self getString:dict key:@"userId"];
         if ([senderId isEqualToString:me.appId]) {

@@ -8,11 +8,15 @@
 
 #import "WHCIconSettingView.h"
 
-@interface WHCIconSettingView ()
+@interface WHCIconSettingView () {
+    UICollectionViewCell * _selectedCell;
+}
 
 @end
 
 @implementation WHCIconSettingView
+
+@synthesize iconName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,10 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [iconsView setBackgroundColor:[UIColor clearColor]];
     [iconsView setDataSource:self];
     [iconsView setDelegate:self];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,17 +54,33 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSString *imageName = [NSString stringWithFormat:@"icon_monsterinc_%li", 256 + [indexPath row]];
-    UIImageView *image = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:20
-                                                                                                                topCapHeight:30]];
+    NSString *imageName = [self getIconName:[indexPath row]];
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    UIImageView *selectedBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_light_select"]];
+    [cell setSelectedBackgroundView: selectedBG];
+    [image setFrame:CGRectMake(0, 0, 54, 54)];
     [cell addSubview:image];
-    [image setFrame:CGRectMake(0, 0, 50, 50)];
-
+    if ([imageName isEqualToString:iconName]){
+        [cell setSelected:YES];
+        _selectedCell = cell;
+    }
     return cell;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_selectedCell) {
+        [_selectedCell setSelected:NO];
+    }
+    _selectedCell = [collectionView cellForItemAtIndexPath:indexPath];
+    iconName = [self getIconName:[indexPath row]];
+    return YES;
+}
 
-
+- (NSString *)getIconName:(NSInteger)index
+{
+    return [NSString stringWithFormat:@"icon_monsterinc_%li", 256 + index];
+}
 /*
 #pragma mark - Navigation
 

@@ -83,6 +83,11 @@
 		4C3282F118C73247007F69B7 /* WHCModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3282F018C73247007F69B7 /* WHCModelStore.m */; };
 		4C63705718ED39E300E7AE10 /* WHCIconSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63705618ED39E300E7AE10 /* WHCIconSettingView.m */; };
 		4C63705A18ED544C00E7AE10 /* WHCTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63705918ED544C00E7AE10 /* WHCTextMessageCell.m */; };
+		4C63706118EE496D00E7AE10 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63706018EE496D00E7AE10 /* MBProgressHUD.m */; };
+		4C63706418EE956600E7AE10 /* WHCSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63706318EE956600E7AE10 /* WHCSettingView.m */; };
+		4C63706818EE9A3C00E7AE10 /* WHCTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63706718EE9A3C00E7AE10 /* WHCTextEditView.m */; };
+		4C63706B18EEA55A00E7AE10 /* WHCSingleSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63706A18EEA55A00E7AE10 /* WHCSingleSelectView.m */; };
+		4C63706E18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63706D18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m */; };
 		4C71606E18BF534F00C02D99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71606D18BF534F00C02D99 /* Foundation.framework */; };
 		4C71607018BF534F00C02D99 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71606F18BF534F00C02D99 /* CoreGraphics.framework */; };
 		4C71607218BF534F00C02D99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71607118BF534F00C02D99 /* UIKit.framework */; };
@@ -257,6 +262,16 @@
 		4C63705618ED39E300E7AE10 /* WHCIconSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCIconSettingView.m; sourceTree = "<group>"; };
 		4C63705818ED544C00E7AE10 /* WHCTextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCTextMessageCell.h; sourceTree = "<group>"; };
 		4C63705918ED544C00E7AE10 /* WHCTextMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCTextMessageCell.m; sourceTree = "<group>"; };
+		4C63705F18EE496D00E7AE10 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		4C63706018EE496D00E7AE10 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		4C63706218EE956600E7AE10 /* WHCSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCSettingView.h; sourceTree = "<group>"; };
+		4C63706318EE956600E7AE10 /* WHCSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCSettingView.m; sourceTree = "<group>"; };
+		4C63706618EE9A3C00E7AE10 /* WHCTextEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCTextEditView.h; path = views/utils/editViews/WHCTextEditView.h; sourceTree = "<group>"; };
+		4C63706718EE9A3C00E7AE10 /* WHCTextEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCTextEditView.m; path = views/utils/editViews/WHCTextEditView.m; sourceTree = "<group>"; };
+		4C63706918EEA55A00E7AE10 /* WHCSingleSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCSingleSelectView.h; path = views/utils/editViews/WHCSingleSelectView.h; sourceTree = "<group>"; };
+		4C63706A18EEA55A00E7AE10 /* WHCSingleSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCSingleSelectView.m; path = views/utils/editViews/WHCSingleSelectView.m; sourceTree = "<group>"; };
+		4C63706C18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCUpdateAccountAPI.h; sourceTree = "<group>"; };
+		4C63706D18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCUpdateAccountAPI.m; sourceTree = "<group>"; };
 		4C71606A18BF534F00C02D99 /* whocan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whocan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C71606D18BF534F00C02D99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C71606F18BF534F00C02D99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -333,6 +348,7 @@
 		4C174F1118D7096300DFFDC7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				4C63705E18EE496D00E7AE10 /* Progress */,
 				4C17500E18E112B700DFFDC7 /* utils */,
 				4C174F7A18D963AF00DFFDC7 /* ASIHTTPRequest */,
 			);
@@ -502,6 +518,8 @@
 				4C174FF318DAF3F900DFFDC7 /* WHCSignInAPI.m */,
 				4C174FF518DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.h */,
 				4C174FF618DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m */,
+				4C63706C18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.h */,
+				4C63706D18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m */,
 			);
 			name = account;
 			path = network/account;
@@ -510,6 +528,7 @@
 		4C17500718E0447B00DFFDC7 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				4C63706518EE99F400E7AE10 /* editViews */,
 				4C17500818E044AE00DFFDC7 /* WHCSmsSendController.h */,
 				4C17500918E044AE00DFFDC7 /* WHCSmsSendController.m */,
 				4C17500A18E044AE00DFFDC7 /* WHCViewUtils.h */,
@@ -612,10 +631,10 @@
 		4C3282F518C852C5007F69B7 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				4C63705418ED39E300E7AE10 /* setting */,
 				4C17500718E0447B00DFFDC7 /* utils */,
 				4C174FD218D9900800DFFDC7 /* main */,
 				4C174F0218D6C6AD00DFFDC7 /* contacts */,
+				4C63705418ED39E300E7AE10 /* setting */,
 				4C174FD118D98FA500DFFDC7 /* project */,
 				4C17502B18E3C8C100DFFDC7 /* message */,
 			);
@@ -625,11 +644,34 @@
 		4C63705418ED39E300E7AE10 /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				4C63706218EE956600E7AE10 /* WHCSettingView.h */,
+				4C63706318EE956600E7AE10 /* WHCSettingView.m */,
 				4C63705518ED39E300E7AE10 /* WHCIconSettingView.h */,
 				4C63705618ED39E300E7AE10 /* WHCIconSettingView.m */,
 			);
 			name = setting;
 			path = views/setting;
+			sourceTree = "<group>";
+		};
+		4C63705E18EE496D00E7AE10 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				4C63705F18EE496D00E7AE10 /* MBProgressHUD.h */,
+				4C63706018EE496D00E7AE10 /* MBProgressHUD.m */,
+			);
+			name = Progress;
+			path = 3rd/Progress;
+			sourceTree = "<group>";
+		};
+		4C63706518EE99F400E7AE10 /* editViews */ = {
+			isa = PBXGroup;
+			children = (
+				4C63706618EE9A3C00E7AE10 /* WHCTextEditView.h */,
+				4C63706718EE9A3C00E7AE10 /* WHCTextEditView.m */,
+				4C63706918EEA55A00E7AE10 /* WHCSingleSelectView.h */,
+				4C63706A18EEA55A00E7AE10 /* WHCSingleSelectView.m */,
+			);
+			name = editViews;
 			sourceTree = "<group>";
 		};
 		4C71606118BF534F00C02D99 = {
@@ -823,9 +865,11 @@
 				4C17502418E2F6EE00DFFDC7 /* WHCContactEditView.m in Sources */,
 				4C2BE1B518EA66C2008E1FEB /* WHCGetMessagesAPI.m in Sources */,
 				4C174F1018D6F2C600DFFDC7 /* WHCContactPickerView.m in Sources */,
+				4C63706418EE956600E7AE10 /* WHCSettingView.m in Sources */,
 				4C17503118E407A900DFFDC7 /* WHCMessageSessionView.m in Sources */,
 				4C174FF418DAF3F900DFFDC7 /* WHCSignInAPI.m in Sources */,
 				4C3282C418C45EFA007F69B7 /* Model.xcdatamodeld in Sources */,
+				4C63706118EE496D00E7AE10 /* MBProgressHUD.m in Sources */,
 				4C174FC518D963AF00DFFDC7 /* ASIS3BucketRequest.m in Sources */,
 				4C174FF018DAF3D700DFFDC7 /* WHCHttpAPI.m in Sources */,
 				4C174FF718DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m in Sources */,
@@ -845,6 +889,7 @@
 				4C174F7918D85E4200DFFDC7 /* AppContact.m in Sources */,
 				4C174FB318D963AF00DFFDC7 /* ASIDataCompressor.m in Sources */,
 				4C174FC118D963AF00DFFDC7 /* ASICloudFilesRequest.m in Sources */,
+				4C63706818EE9A3C00E7AE10 /* WHCTextEditView.m in Sources */,
 				4C174F0C18D6F21E00DFFDC7 /* WHCContactsView.m in Sources */,
 				4C174FBC18D963AF00DFFDC7 /* ASICloudFilesContainer.m in Sources */,
 				4C174F7618D8468400DFFDC7 /* WHCContactCell.m in Sources */,
@@ -858,7 +903,9 @@
 				4C71607A18BF534F00C02D99 /* main.m in Sources */,
 				4C2BE1B218E90EC0008E1FEB /* WHCAddUserToSessionAPI.m in Sources */,
 				4C71607E18BF534F00C02D99 /* WHCAppDelegate.m in Sources */,
+				4C63706B18EEA55A00E7AE10 /* WHCSingleSelectView.m in Sources */,
 				4C174FB718D963AF00DFFDC7 /* ASIHTTPRequest.m in Sources */,
+				4C63706E18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m in Sources */,
 				4C174FC718D963AF00DFFDC7 /* ASIS3Request.m in Sources */,
 				4C2BE1AF18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m in Sources */,
 				4C17500C18E044AE00DFFDC7 /* WHCSmsSendController.m in Sources */,

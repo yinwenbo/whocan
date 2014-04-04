@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "WHCHttpAPI.h"
 #import "WHCJsonAPIDelegate.h"
+
 #import "ClientInfo.h"
+
+#import "MBProgressHUD.h"
 
 @interface WHCJsonAPI : WHCHttpAPI <WHCHttpAPIDelegate>
 

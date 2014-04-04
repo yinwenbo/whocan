@@ -68,6 +68,16 @@
     return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
 }
 
++ (AppContact *)findAppContactByAppId:(NSString *)appId
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = %i", appId];
+    NSArray *results = [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
+    if ([results count] >0 ){
+        return [results objectAtIndex:0];
+    }
+    return nil;
+}
+
 + (AppContact *) findAppContactByABId:(int32_t)recordId
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"phoneABId = %i", recordId];

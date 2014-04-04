@@ -74,15 +74,12 @@
 
 - (IBAction)onSendVrifyPush:(id)sender
 {
-//    [MBProgressHUD showHUDAddedTo:self animated:YES];
     [self.btnSendVerifyCode setEnabled:NO];
     [self.txtVerifyCode becomeFirstResponder];
     NSString *mobileNo = self.txtMobileNo.text;
     _sendVerifyCode = [WHCSendVerifyCodeAPI getInstance:self
                                                mobileNo:mobileNo];
     [_sendVerifyCode synchronize];
-    [self.btnSendVerifyCode setEnabled:YES];
-//    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (IBAction)onVerifyCodeChange:(id)sender
@@ -113,6 +110,8 @@
     if([api isKindOfClass:[WHCSendVerifyCodeAPI class]]){
         if ([api isSuccess]) {
             [self onVerfyCodeSendFinished];
+        } else {
+            [self.btnSendVerifyCode setEnabled:YES];
         }
     }
 }

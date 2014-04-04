@@ -169,7 +169,7 @@
     
     NSLog(@"deltaY:%f",deltaY);
     [CATransaction begin];
-    [UIView animateWithDuration:0.4f
+    [UIView animateWithDuration:0.2f
                      animations:^{
         [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY, self.view.frame.size.width, self.view.frame.size.height)];
         [_tableView setContentInset:UIEdgeInsetsMake(_tableView.contentInset.top-deltaY, 0, 0, 0)];
@@ -198,7 +198,14 @@
         return cell;
     }
     WHCTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextMessageCell" forIndexPath:indexPath];
-    UIImage *icon = [UIImage imageNamed:@"icon_monsterinc_256"];
+    
+    AppContact *sender = [self findSender:message];
+    UIImage *icon;
+    if (sender.icon) {
+        icon = [UIImage imageNamed:sender.icon];
+    } else {
+        icon = [UIImage imageNamed:@"icon_monsterinc_256"];
+    }
     if ([message isMySend]) {
         [cell sendTextMessage:icon content:message.content];
     } else {
@@ -218,4 +225,11 @@
     }
 }
 
+- (AppContact *)findSender:(Message *)message
+{
+    if ([message isMySend]){
+        return [AppContact findMySelf];
+    }
+    return [AppContact findAppContactByAppId:message.senderId];
+}
 @end

@@ -12,4 +12,6 @@
     IBOutlet UICollectionView *iconsView;
 }
 
+@property (nonatomic, retain) NSString * iconName;
+
 @end

@@ -88,9 +88,7 @@ static bool abAccessPerission;
         CFStringRef label = ABMultiValueCopyLabelAtIndex(phones, i);
         NSString *localLabel = (NSString *)CFBridgingRelease(ABAddressBookCopyLocalizedLabel(label));
         NSLog(@"phone %@ %@", value, localLabel);
-        if([localLabel isEqualToString:@"mobile"] || [localLabel isEqualToString:@"iPhone"]){
-            [result addObject:[AddressBookUtil formatMobileNo:(NSString *)CFBridgingRelease(value)]];
-        }
+        [result addObject:[AddressBookUtil formatMobileNo:(NSString *)CFBridgingRelease(value)]];
         if(value) CFRelease(value);
         if(label) CFRelease(label);
     }

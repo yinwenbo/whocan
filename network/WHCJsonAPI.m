@@ -99,7 +99,7 @@
     if ([super hasError]) {
         return [super getErrorMessage];
     }
-    return [NSString stringWithFormat:@"%@(%@)", msg, code];
+    return [NSString stringWithFormat:@"%@(%@, %@)", msg, code, data];
 }
 
 #pragma mark - Utils Method
@@ -142,6 +142,47 @@
         return (NSString*)result;
     }
     return [result stringValue];
+}
+
+#pragma mark - View Utils
+
+- (void)synchronize
+{
+//    [self showProgress];
+    [super synchronize];
+//    sleep(10);
+//    [self hideProgress];
+}
+
+- (void)showProgress
+{
+    UIView *view = [self getTopView];
+    if (view) {
+        MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
+        [view addSubview:hud];
+        [hud show:YES];
+//        [MBProgressHUD showHUDAddedTo:view animated:YES];
+    }
+}
+
+- (void)hideProgress
+{
+    UIView *view = [self getTopView];
+    if (view) {
+//        [MBProgressHUD hideHUDForView:view animated:YES];
+    }
+}
+
+- (UIView *)getTopView
+{
+    if ([_delegate isKindOfClass:[UIViewController class]]) {
+        UIViewController *vc = (UIViewController *)_delegate;
+        if ([vc navigationController]) {
+            return [[[vc navigationController] topViewController] view];
+        }
+        return vc.view;
+    }
+    return nil;
 }
 
 - (void)showSignInView:(UIViewController*)view;

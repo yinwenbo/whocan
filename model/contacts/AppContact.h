@@ -29,8 +29,9 @@
 
 
 + (AppContact *)createAppContact;
++ (AppContact *)findAppContactByAppId:(NSString *)appId;
 + (AppContact *)findAppContactByABId:(int32_t)recordId;
-+ (AppContact *)findAppContactByMobileNo:(NSString*)mobileNo;
++ (AppContact *)findAppContactByMobileNo:(NSString *)mobileNo;
 + (AppContact *)findMySelf;
 
 + (NSArray *)getAppUsers;
@@ -38,12 +39,12 @@
 + (NSArray *)getAppContactsInPhone;
 + (NSArray *)getFriends;
 
-+ (NSString *)buildMobileNoParam:(NSArray*)appContacts;
-+ (NSString *)buildAppIdParam:(NSArray*)appContacts;
++ (NSString *)buildMobileNoParam:(NSArray *)appContacts;
++ (NSString *)buildAppIdParam:(NSArray *)appContacts;
 
 + (void)saveContext;
 
-+ (void)savePhoneAB:(NSString*)name mobileNo:(NSString*)mobile recordId:(int32_t)recordId;
++ (void)savePhoneAB:(NSString *)name mobileNo:(NSString *)mobile recordId:(int32_t)recordId;
 
 + (void)exportPhoneABToAppContacts;
 
