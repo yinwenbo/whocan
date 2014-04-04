@@ -17,6 +17,7 @@
 @property (nonatomic, retain) IBOutlet UILabel * lblName;
 @property (nonatomic, retain) IBOutlet UILabel * lblId;
 @property (nonatomic, retain) IBOutlet UILabel * lblNickname;
+@property (nonatomic, retain) IBOutlet UIImageView * iconView;
 
 @property (nonatomic, retain) IBOutlet UILabel * lblMobileNo;
 

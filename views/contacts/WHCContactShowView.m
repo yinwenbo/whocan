@@ -14,7 +14,7 @@
 
 @implementation WHCContactShowView
 
-@synthesize appContact, btnMainAction, lblName, lblId, lblMobileNo, lblNickname;
+@synthesize appContact, btnMainAction, lblName, lblId, lblMobileNo, lblNickname, iconView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,6 +45,9 @@
         btnMainAction.titleLabel.text = @"加为好友";
     } else {
         btnMainAction.titleLabel.text = @"发送邀请";
+    }
+    if (self.appContact.icon){
+        [iconView setImage:[UIImage imageNamed:self.appContact.icon]];
     }
     lblName.text = self.appContact.phoneABName;
     if (self.appContact.appId == nil) {
