@@ -7,21 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "WHCMessageListView.h"
+#import "WHCProjectTaskListView.h"
+
 #import "WHCMessageCell.h"
 #import "WHCSystemMessageCell.h"
 
 #import "AppContact.h"
-#import "MessageSession.h"
 
+#import "MessageSession.h"
 #import "WHCGetMessageSessionAPI.h"
 #import "WHCGetMessagesAPI.h"
 #import "WHCSendMessageAPI.h"
 
-@interface WHCMessageSessionView : UIViewController <UITableViewDataSource, UITableViewDelegate, WHCJsonAPIDelegate> {
-    IBOutlet UITextField *inputText;
-    IBOutlet UITableView * _tableView;
-    IBOutlet UIView * _inputBarView;
-
+@interface WHCMessageSessionView : WHCMessageListView <WHCJsonAPIDelegate> {
 }
 
 

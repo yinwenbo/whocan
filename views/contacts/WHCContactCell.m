@@ -43,6 +43,7 @@
 - (void)initView
 {
     AppContact *appContact = _appContact;
+
     NSString * name = appContact.appName;
     if (name == nil) {
         name = appContact.phoneABName;

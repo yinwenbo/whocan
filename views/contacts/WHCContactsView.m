@@ -231,6 +231,11 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 - (void)sendInvite:(AppContact*)appContact
 {
+//    NSString *message = @"The Farm";
+//    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+//                                             initWithActivityItems:  [NSArray arrayWithObjects:message, nil]
+//                                             applicationActivities:nil];
+//    [self presentViewController:activityVC animated:YES completion:nil];
     WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:appContact.mobileNo];
     [self presentViewController:smsView animated:YES completion:nil];
 }

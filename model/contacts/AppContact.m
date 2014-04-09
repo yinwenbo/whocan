@@ -50,7 +50,7 @@
 }
 + (NSArray *) getNotAppUser
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId == NULL"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = NULL"];
     return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
 }
 + (NSArray *) getAppUsers
@@ -64,13 +64,13 @@
 }
 + (NSArray *) getFriends
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"status == %@", STATUS_FRIEND];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"status = %@", STATUS_FRIEND];
     return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
 }
 
 + (AppContact *)findAppContactByAppId:(NSString *)appId
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = %i", appId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = %@", appId];
     NSArray *results = [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
     if ([results count] >0 ){
         return [results objectAtIndex:0];

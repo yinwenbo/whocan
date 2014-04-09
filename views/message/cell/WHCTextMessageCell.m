@@ -8,6 +8,8 @@
 
 #import "WHCTextMessageCell.h"
 
+#define CELL_MIN_HEIGHT 40.0f
+
 @implementation WHCTextMessageCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -59,8 +61,11 @@
 
 + (CGFloat)getCellHeight:(NSString*)text
 {
-    CGRect rect = [self getTextRect:text];
-    return rect.size.height + 30;
+    CGFloat height = [self getTextRect:text].size.height;
+    if ( height < CELL_MIN_HEIGHT ) {
+        return CELL_MIN_HEIGHT + 30;
+    }
+    return height + 30;
 }
 
 @end

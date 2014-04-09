@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "MessageSession.h"
 
+#import "WHCMessageSessionView.h"
+#import "WHCContactPickerView.h"
+
+#import "MessageSession.h"
 #import "ClientInfo.h"
 
 #import "WHCAllMessageSessionAPI.h"

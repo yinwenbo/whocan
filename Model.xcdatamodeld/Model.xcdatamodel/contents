@@ -36,10 +36,23 @@
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ProjectTasks" representedClassName="ProjectTasks" syncable="YES">
+        <attribute name="createTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="creatorId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deadline" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="AppContact" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Message" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="MessageSession" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="MessageUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AppContact" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="Message" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="MessageSession" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="MessageUser" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ProjectTasks" positionX="0" positionY="99" width="128" height="195"/>
     </elements>
 </model>

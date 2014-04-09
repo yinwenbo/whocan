@@ -74,6 +74,11 @@ static WHCModelStore *modelStore = nil;
              
              abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
              */
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"保存失败"
+                                                             message:[NSString stringWithFormat:@"%@", error]
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
     }

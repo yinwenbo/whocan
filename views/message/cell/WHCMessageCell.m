@@ -65,7 +65,7 @@
 {
     CGRect iconFrame = CGRectMake(CELL_WIDTH - INSETS - ICON_SIZE, INSETS, ICON_SIZE, ICON_SIZE);
     
-    CGFloat contentX = CELL_WIDTH - (INSETS * 2) - ICON_SIZE - CONTENT_WIDTH;
+    CGFloat contentX = CELL_WIDTH - (INSETS * 3) - ICON_SIZE - CONTENT_WIDTH;
     CGFloat contentY = (CELL_HEIGHT - CONTENT_HEIGHT) / 2;
     CGRect contentFrame = CGRectMake(contentX, contentY, CONTENT_WIDTH, CONTENT_HEIGHT + 8);
     

@@ -1,16 +1,14 @@
 //
-//  WHCIconLabelViewCell.m
+//  WHCDateEditor.m
 //  whocan
 //
-//  Created by Yin Wenbo on 14-3-14.
+//  Created by Yin Wenbo on 14-4-8.
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCIconLabelViewCell.h"
+#import "WHCDateEditor.h"
 
-@implementation WHCIconLabelViewCell
-
-@synthesize label;
+@implementation WHCDateEditor
 
 - (id)initWithFrame:(CGRect)frame
 {

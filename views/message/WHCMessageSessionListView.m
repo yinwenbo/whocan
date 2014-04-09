@@ -7,7 +7,7 @@
 //
 
 #import "WHCMessageSessionListView.h"
-#import "WHCProjectViewController.h"
+
 
 #import "WHCModelStore.h"
 
