@@ -1268,11 +1268,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417518904.505898"
+            timestampString = "418812329.488406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-setSelected:animated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1284,7 +1284,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417518904.505898"
+            timestampString = "418812329.488406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -1300,7 +1300,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417518904.505898"
+            timestampString = "418812329.488406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -1316,7 +1316,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417518904.505898"
+            timestampString = "418812329.488406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -1426,11 +1426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "model/contacts/AppContact.m"
-            timestampString = "418295583.431664"
+            timestampString = "418803240.88261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "-setToMine"
             landmarkType = "5">
          </BreakpointContent>
@@ -1442,11 +1442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "model/contacts/AppContact.m"
-            timestampString = "418295583.431664"
+            timestampString = "418803240.88261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "-setToMine"
             landmarkType = "5">
          </BreakpointContent>
@@ -1505,28 +1505,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418013768.450688"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-getContactCell:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417518904.505898"
+            timestampString = "418812329.488406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "-setAppContact:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1537,56 +1521,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417959197.381414"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-accessoryButtonTapped:withEvent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417959197.381414"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-accessoryButtonTapped:withEvent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418013768.450688"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "-tableView:accessoryButtonTappedForRowWithIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300569.382064"
+            timestampString = "418811828.763775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -1602,7 +1538,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300569.382064"
+            timestampString = "418811828.763775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -1618,7 +1554,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300569.382064"
+            timestampString = "418811828.763775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -1634,7 +1570,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300569.382064"
+            timestampString = "418811828.763775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -1682,7 +1618,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300569.382064"
+            timestampString = "418811828.763775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -1698,7 +1634,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300569.382064"
+            timestampString = "418811828.763775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -1825,22 +1761,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418013768.450688"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "-sendMessage:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "network/WHCJsonAPI.m"
             timestampString = "418198875.619269"
             startingColumnNumber = "9223372036854775807"
@@ -1889,28 +1809,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418013768.450688"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "@implementation WHCContactsView"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactPickerView.m"
-            timestampString = "417961819.307967"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1922,11 +1826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactPickerView.m"
-            timestampString = "417961819.307967"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-tableView:didDeselectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1938,11 +1842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactPickerView.m"
-            timestampString = "417961819.307967"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1954,11 +1858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418013768.450688"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "-tableView:willSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1970,11 +1874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418013768.450688"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "-tableView:willSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1986,7 +1890,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactCell.m"
-            timestampString = "417959747.665363"
+            timestampString = "418812329.488406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -2002,11 +1906,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactPickerView.m"
-            timestampString = "417961819.307967"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-tableView:didDeselectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2018,28 +1922,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactPickerView.m"
-            timestampString = "417961819.307967"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418630380.173964"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2066,11 +1954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/contacts/WHCContactsView.m"
-            timestampString = "418027830.239592"
+            timestampString = "418812770.540048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-getTotalCell:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2434,11 +2322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/message/WHCMessageSessionView.m"
-            timestampString = "418646367.329209"
+            timestampString = "418803466.645221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2450,27 +2338,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/message/WHCMessageSessionView.m"
-            timestampString = "418646367.329209"
+            timestampString = "418803466.645221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "views/message/WHCMessageSessionView.m"
-            timestampString = "418646367.329209"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2705,22 +2577,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "views/contacts/WHCContactShowView.m"
-            timestampString = "418300664.034134"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-initView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "network/social/WHCGetFriendsAPI.m"
             timestampString = "418300734.155264"
             startingColumnNumber = "9223372036854775807"
@@ -2728,22 +2584,6 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "-successJsonResult"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "views/message/WHCMessageSessionView.m"
-            timestampString = "418646367.329209"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2818,11 +2658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/project/WHCProjectTaskListView.m"
-            timestampString = "418648218.37904"
+            timestampString = "418736865.026326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-moreActions:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2834,11 +2674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/project/WHCProjectTaskListView.m"
-            timestampString = "418648218.37904"
+            timestampString = "418736865.026326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-createTask:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2898,11 +2738,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "views/project/WHCProjectTaskListView.m"
-            timestampString = "418648218.37904"
+            timestampString = "418736865.026326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-setProjectId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2951,8 +2791,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "@implementation WHCProjectTaskView"
-            landmarkType = "3">
+            landmarkName = "-tableView:willSelectRowAtIndexPath:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2967,8 +2807,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "194"
             endingLineNumber = "194"
-            landmarkName = "@implementation WHCProjectTaskView"
-            landmarkType = "3">
+            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3145,6 +2985,118 @@
             endingLineNumber = "97"
             landmarkName = "@implementation WHCProjectTaskView"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/project/WHCProjectTaskListView.m"
+            timestampString = "418736865.026326"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-tableView:willSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/utils/WHCButton.m"
+            timestampString = "418806947.053052"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-initWithFrame:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/utils/WHCButton.m"
+            timestampString = "418806955.401132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-initView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/contacts/WHCContactCell.m"
+            timestampString = "418812329.488406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-initWithStyle:reuseIdentifier:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/contacts/WHCContactCell.m"
+            timestampString = "418812329.488406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-awakeFromNib"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/contacts/WHCContactsView.m"
+            timestampString = "418812770.540048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-onCellButtionAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "views/contacts/WHCFriendsView.m"
+            timestampString = "418811279.201966"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-getCellIdentifier:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

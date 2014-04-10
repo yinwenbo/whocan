@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ProjectTasks.h"
+#import "AppContact.h"
+
 @interface WHCProjectTaskCell : UITableViewCell
+
+@property (nonatomic, retain) ProjectTasks * task;
 
 @property (nonatomic, retain) IBOutlet UIImageView * icon;
 @property (nonatomic, retain) IBOutlet UILabel * title;

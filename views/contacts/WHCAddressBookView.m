@@ -38,4 +38,25 @@
     return nil;
 }
 
+- (NSString *)getCellIdentifier:(NSIndexPath *)indexPath
+{
+    if ([indexPath row] == [_appContacts count]) {
+        return @"SumCell";
+    }
+    AppContact *appContact = [_appContacts objectAtIndex:[indexPath row]];
+    if (![appContact isAppUser]) {
+        return @"ContactCell";
+    }
+    if ([appContact isMyFriend]) {
+        return @"FriendCell";
+    }
+    if ([appContact isMyInvite]) {
+        return @"MyInviteCell";
+    }
+    if ([appContact isInviteMe]) {
+        return @"InviteMeCell";
+    }
+    return @"NotFriendCell";
+}
+
 @end

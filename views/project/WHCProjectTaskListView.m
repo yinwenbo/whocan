@@ -78,17 +78,24 @@
     static NSString *CellIdentifier = @"Cell";
     WHCProjectTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     ProjectTasks * task = [_tasks objectAtIndex:[indexPath row]];
-    AppContact * owner = [AppContact findAppContactByAppId:task.ownerId];
-    [cell setIcon:[UIImage imageNamed:owner.icon]];
-    [cell setTitle:task.title];
-    [cell setDetail: [NSString stringWithFormat:@"%@", task.createTime]];
+    [cell setTask:task];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0f;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedTask = [_tasks objectAtIndex:[indexPath row]];
     return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)initTasks

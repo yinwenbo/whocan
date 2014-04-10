@@ -46,9 +46,8 @@
     } else {
         btnMainAction.titleLabel.text = @"发送邀请";
     }
-    if (self.appContact.icon){
-        [iconView setImage:[UIImage imageNamed:self.appContact.icon]];
-    }
+    [iconView setImage:[appContact getIcon]];
+
     lblName.text = self.appContact.phoneABName;
     if (self.appContact.appId == nil) {
         lblId.text = @"";
@@ -74,10 +73,11 @@
 
 - (IBAction)onMainAction:(id)sender
 {
-    if (self.appContact.isMyFriend) {
-//        btnMainAction.titleLabel.text = @"发送消息";
-        
-    } else if (self.appContact.isAppUser) {
+    if (appContact.isMyFriend) {
+        WHCMessageSessionView * view = [self.storyboard instantiateViewControllerWithIdentifier:@"MessageSession"];
+        [view setAppContact:appContact];
+        [self.navigationController pushViewController:view animated:YES];
+    } else if (appContact.isAppUser) {
 //        btnMainAction.titleLabel.text = @"加为好友";
 //            [[WHCAddFriendAPI getInstance:self userId:appContact.appId] asynchronize];
     } else {

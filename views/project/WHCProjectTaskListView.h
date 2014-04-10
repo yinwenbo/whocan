@@ -10,6 +10,7 @@
 
 #import "WHCProjectTaskView.h"
 #import "WHCProjectTaskCell.h"
+#import "WHCViewUtils.h"
 
 #import "ProjectTasks.h"
 #import "AppContact.h"

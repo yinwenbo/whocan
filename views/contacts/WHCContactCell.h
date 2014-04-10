@@ -12,6 +12,11 @@
 
 @interface WHCContactCell : UITableViewCell
 
+@property (nonatomic, retain) IBOutlet UIImageView * icon;
+@property (nonatomic, retain) IBOutlet UILabel * title;
+@property (nonatomic, retain) IBOutlet UIButton * button;
+
 @property (nonatomic, retain) AppContact * appContact;
+
 
 @end

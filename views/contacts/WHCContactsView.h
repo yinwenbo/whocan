@@ -22,11 +22,10 @@
 - (UITableViewCell *)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
 - (UITableViewCell *)getTotalCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
 
-- (BOOL)showAccessoryButton;
-
 - (BOOL)hasRefesh;
 - (BOOL)hasTotalCell;
 
+- (NSString *)getCellIdentifier:(NSIndexPath *)indexPath;
 - (NSInteger)topFixCellCount;
 - (UITableViewCell *)getTopFixCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;
 

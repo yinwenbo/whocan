@@ -192,6 +192,29 @@
     return [[NSString stringWithFormat:@"%c",pinyinFirstLetter(firstname)] uppercaseString];
 }
 
+- (NSString *)getName
+{
+    if (self.phoneABName && self.appName) {
+        if ([self.phoneABName isEqualToString:self.appName]) {
+            return [NSString stringWithFormat:@"%@(%@)", self.appName, self.phoneABName];
+        }
+    }
+    if (self.phoneABName) {
+        return self.phoneABName;
+    }
+    if (self.appName) {
+        return self.appName;
+    }
+    return self.mobileNo;
+}
+
+- (UIImage *)getIcon
+{
+    if (self.icon) {
+        return [UIImage imageNamed:self.icon];
+    }
+    return [UIImage imageNamed:@"icon_default"];
+}
 - (BOOL)isMySelf
 {
     return [STATUS_MINE isEqualToString:self.status];

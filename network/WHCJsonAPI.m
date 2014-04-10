@@ -136,7 +136,7 @@
         return nil;
     }
     if ([result isKindOfClass:[NSNull class]]){
-        return @"";
+        return nil;
     }
     if ([result isKindOfClass:[NSString class]]){
         return (NSString*)result;

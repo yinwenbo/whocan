@@ -10,8 +10,6 @@
 
 @interface WHCContactsView (){
     NSArray * _appContacts;
-    AppContact * _selectedContact;
-    UINavigationController * _messageNC;
 }
 
 @end
@@ -61,11 +59,6 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return _appContacts;
 }
 
-- (BOOL)showAccessoryButton
-{
-    return YES;
-}
-
 - (BOOL)hasRefesh
 {
     return YES;
@@ -112,15 +105,6 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return 1;
 }
 
--(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    NSMutableArray * arr = [[NSMutableArray alloc]init];
-    for(int i = 0; i < xx.length; i++){
-        [arr addObject:[NSString stringWithFormat:@"%c", [xx characterAtIndex:i]]];
-    }
-    return arr;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([self hasTopFixCellSection] && section == 0) {
@@ -144,6 +128,12 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return [self getContactCell:tableView cellForRowAtIndexPath:indexPath];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:[self getCellIdentifier:indexPath]];
+    return cell.bounds.size.height;
+}
+
 #pragma mark - Cell Init
 
 - (BOOL)hasTopFixCellSection{
@@ -155,25 +145,38 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return 1;
 }
 
+- (NSString *)getCellIdentifier:(NSIndexPath *)indexPath
+{
+    NSInteger section = [indexPath section];
+    if ([self hasTopFixCellSection] && section == 0){
+        return @"NewFriendCell";
+    }
+    if ([self hasTotalCell] && ([indexPath row] == [[self getAppContacts] count])) {
+        return @"SumCell";
+    }
+    return @"ContactCell";
+}
+
 - (UITableViewCell *)getTopFixCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"NewFriendCell" forIndexPath:indexPath];
+    return [tableView dequeueReusableCellWithIdentifier:[self getCellIdentifier:indexPath] forIndexPath:indexPath];
 }
 
 - (UITableViewCell *)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    WHCContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
+    WHCContactCell *cell = [tableView dequeueReusableCellWithIdentifier:[self getCellIdentifier:indexPath] forIndexPath:indexPath];
     AppContact *contact = [[self getAppContacts] objectAtIndex:[indexPath row]];
-    if (![self showAccessoryButton]){
-        cell.accessoryType = UITableViewCellAccessoryNone;
+    [cell setAppContact:contact];
+    if (cell.button) {
+        cell.button.tag = [indexPath row];
+        [cell.button addTarget:self action:@selector(onCellButtionAction:) forControlEvents:UIControlEventTouchUpInside];
     }
-    cell.appContact = contact;
     return cell;
 }
 
 - (UITableViewCell *)getTotalCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SumCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self getCellIdentifier:indexPath] forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"通讯录共 %li 条记录", (long)[[self getAppContacts] count]];
     return cell;
 }
@@ -183,14 +186,28 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[WHCContactCell class]]){
-        _selectedContact = ((WHCContactCell*)cell).appContact;
+        WHCContactShowView * view = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactShowView"];
+        [view setAppContact:((WHCContactCell*)cell).appContact];
+        [self.navigationController pushViewController:view animated:YES];
     }
     return indexPath;
 }
 
-#pragma mark - Section Title
+#pragma mark - Section Index
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return nil;
+    /*
+    NSMutableArray * arr = [[NSMutableArray alloc]init];
+    for(int i = 0; i < xx.length; i++){
+        [arr addObject:[NSString stringWithFormat:@"%c", [xx characterAtIndex:i]]];
+    }
+    return arr;
+     */
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if( section == 0 ){
         return nil;
@@ -198,35 +215,27 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     return [self getSectionTitle:section];
 }
 
--(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
     return [xx rangeOfString:title].location + 1;
 }
 
--(NSString *)getSectionTitle:(NSInteger)section
+- (NSString *)getSectionTitle:(NSInteger)section
 {
     return [NSString stringWithFormat:@"%c",[xx characterAtIndex:(section - 1)]];
 }
 
-#pragma mark - Accessory Button Event
+#pragma mark - Button Event
 
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+- (void)onCellButtionAction:(id)sender
 {
-    AppContact *appContact = [[self getAppContacts] objectAtIndex:[indexPath row]];
-    if (appContact.isMyFriend) {
-        [self sendMessage:appContact];
-    } else if (appContact.isAppUser) {
+    UIButton *btn = (UIButton*)sender;
+    AppContact *appContact = [[self getAppContacts] objectAtIndex:btn.tag];
+    if (appContact.isAppUser) {
         [self addToFriend:appContact];
     } else {
         [self sendInvite:appContact];
     }
-}
-
-- (void)sendMessage:(AppContact*)appContact
-{
-    WHCMessageSessionView * view = [self.storyboard instantiateViewControllerWithIdentifier:@"MessageSession"];
-    [view setAppContact:appContact];
-    [self.navigationController pushViewController:view animated:YES];
 }
 
 - (void)sendInvite:(AppContact*)appContact
@@ -289,20 +298,11 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    UIViewController * vc = [segue destinationViewController];
-    if ([vc isKindOfClass:[WHCContactShowView class]]) {
-        WHCContactShowView * contactVC = (WHCContactShowView*)vc;
-        contactVC.appContact = _selectedContact;
-    }
-}
-
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (viewController == self){
-        [self.tableView reloadData];
-    }
+//    if (viewController == self){
+//        [self.tableView reloadData];
+//    }
 }
 
 

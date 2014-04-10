@@ -48,6 +48,9 @@
 
 + (void)exportPhoneABToAppContacts;
 
+- (NSString *)getName;
+- (UIImage *)getIcon;
+
 - (BOOL)isMySelf;
 - (BOOL)isMyFriend;
 - (BOOL)isMyInvite;

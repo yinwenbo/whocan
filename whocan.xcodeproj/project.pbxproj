@@ -104,6 +104,7 @@
 		4C71609218BF535000C02D99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71607118BF534F00C02D99 /* UIKit.framework */; };
 		4C71609A18BF535000C02D99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C71609818BF535000C02D99 /* InfoPlist.strings */; };
 		4C71609C18BF535000C02D99 /* whocanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C71609B18BF535000C02D99 /* whocanTests.m */; };
+		4C76E20E18F670D200BF2D89 /* WHCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76E20D18F670D200BF2D89 /* WHCButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +301,8 @@
 		4C71609718BF535000C02D99 /* whocanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "whocanTests-Info.plist"; sourceTree = "<group>"; };
 		4C71609918BF535000C02D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C71609B18BF535000C02D99 /* whocanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whocanTests.m; sourceTree = "<group>"; };
+		4C76E20C18F670D200BF2D89 /* WHCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCButton.h; path = views/utils/WHCButton.h; sourceTree = "<group>"; };
+		4C76E20D18F670D200BF2D89 /* WHCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCButton.m; path = views/utils/WHCButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +553,8 @@
 				4C17500B18E044AE00DFFDC7 /* WHCViewUtils.m */,
 				4C17502518E2FCAF00DFFDC7 /* WHCBarButtonSave.h */,
 				4C17502618E2FCAF00DFFDC7 /* WHCBarButtonSave.m */,
+				4C76E20C18F670D200BF2D89 /* WHCButton.h */,
+				4C76E20D18F670D200BF2D89 /* WHCButton.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -926,6 +931,7 @@
 				4C174FBE18D963AF00DFFDC7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				4C174FDE18DAD15300DFFDC7 /* WHCContactShowView.m in Sources */,
 				4C174FE118DAD66000DFFDC7 /* WHCMainView.m in Sources */,
+				4C76E20E18F670D200BF2D89 /* WHCButton.m in Sources */,
 				4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */,
 				4C174F7918D85E4200DFFDC7 /* AppContact.m in Sources */,
 				4C174FB318D963AF00DFFDC7 /* ASIDataCompressor.m in Sources */,

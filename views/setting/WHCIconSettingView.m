@@ -79,7 +79,7 @@
 
 - (NSString *)getIconName:(NSInteger)index
 {
-    return [NSString stringWithFormat:@"icon_monsterinc_%li", 256 + index];
+    return [NSString stringWithFormat:@"icon_monsterinc_%li", 256l + index];
 }
 /*
 #pragma mark - Navigation

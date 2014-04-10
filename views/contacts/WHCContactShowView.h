@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WHCViewUtils.h"
 #import "WHCContactEditView.h"
+#import "WHCMessageSessionView.h"
 #import "AppContact.h"
 
 @interface WHCContactShowView : UITableViewController

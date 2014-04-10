@@ -172,16 +172,10 @@
     WHCTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextMessageCell" forIndexPath:indexPath];
     
     AppContact *sender = [self findSender:message];
-    UIImage *icon;
-    if (sender.icon) {
-        icon = [UIImage imageNamed:sender.icon];
-    } else {
-        icon = [UIImage imageNamed:@"icon_monsterinc_256"];
-    }
     if ([message isMySend]) {
-        [cell sendTextMessage:icon content:message.content];
+        [cell sendTextMessage:[sender getIcon] content:message.content];
     } else {
-        [cell receiveTextMessage:icon content:message.content];
+        [cell receiveTextMessage:[sender getIcon] content:message.content];
     }
     
     return cell;

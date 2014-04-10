@@ -56,7 +56,7 @@
 {
     [self initTaskTitleEditor];
     [self initDeadlineEditor];
-    [_finished setOn:_task.finished animated:YES];
+    [_finished setOn:[_task.finished boolValue]animated:YES];
     [_remark setText:_task.remark];
 }
 
