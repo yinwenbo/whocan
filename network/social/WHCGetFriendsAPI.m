@@ -41,6 +41,7 @@
         contact.gender = [self getString:dict key:@"gender"];
         contact.appId = [self getString:dict key:@"userId"];
         contact.appName = [self getString:dict key:@"userName"];
+        contact.status = [self getString:dict key:@"status"];
     }
     [AppContact saveContext];
 }
