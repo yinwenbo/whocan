@@ -30,6 +30,9 @@
     for (NSDictionary *dict in self.data){
         NSString * mobileNo = [self getString:dict key:@"phoneNo"];
         AppContact *contact = [AppContact findAppContactByMobileNo:mobileNo];
+        if (contact == mine) {
+            break;
+        }
         if (contact == nil){
             contact = [AppContact createAppContact];
             contact.mobileNo = mobileNo;
@@ -38,11 +41,6 @@
         contact.gender = [self getString:dict key:@"gender"];
         contact.appId = [self getString:dict key:@"userId"];
         contact.appName = [self getString:dict key:@"userName"];
-        if ([mine.appId isEqualToString:contact.appId]) {
-            [contact setToMine];
-        } else {
-            contact.status = [self getString:dict key:@"status"];
-        }
     }
     [AppContact saveContext];
 }
