@@ -35,9 +35,11 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self loadMessages];
-    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
-                      atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
+    if ([_messages count] > 1) {
+        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
+                          atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
