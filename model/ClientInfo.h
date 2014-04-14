@@ -13,6 +13,7 @@
 @interface ClientInfo : NSObject
 
 + (BOOL)isSignIn;
++ (BOOL)needUpdateUserInfo;
 
 + (NSString *)getToken;
 

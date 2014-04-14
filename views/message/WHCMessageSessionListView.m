@@ -8,11 +8,10 @@
 
 #import "WHCMessageSessionListView.h"
 
-
 #import "WHCModelStore.h"
 
 @interface WHCMessageSessionListView (){
-    NSArray * _messageSessions;
+    NSMutableArray * _messageSessions;
     MessageSession * _selectedSession;
 }
 
@@ -33,6 +32,7 @@
 {
     [super viewDidLoad];
     [self initRefreshControl];
+    _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,15 +44,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     if ([ClientInfo isSignIn]) {
-        [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
+        [[WHCNewMessageAPI getInstance:self] asynchronize];
+//        [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
     }
 }
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
-    if ([api isKindOfClass:[WHCAllMessageSessionAPI class]]) {
+    if ([api isKindOfClass:[WHCNewMessageAPI class]]) {
         [self finishedRefresh];
     }
+    
 }
 #pragma mark - Refresh Control
 
@@ -68,7 +70,7 @@
 - (void)pullToRefresh
 {
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新中"];
-    [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
+    [[WHCNewMessageAPI getInstance:self] asynchronize];
 }
 
 - (void)finishedRefresh
@@ -94,11 +96,41 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    WHCMessageSessionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     MessageSession * session = [_messageSessions objectAtIndex:[indexPath row]];
-    [cell.textLabel setText:session.title];
-    [cell.detailTextLabel setText:session.detail];
+    if ( session.unread && [session.unread intValue] > 0l) {
+        cell.badgeColor = [UIColor colorWithRed:0.792 green:0.197 blue:0.219 alpha:1.000];
+        cell.badge.fontSize = 12;
+        cell.badgeLeftOffset = 8;
+        cell.badgeRightOffset = 40;
+        cell.badgeString = [session.unread stringValue];
+    }
+    
+    [cell.title setText:session.title];
+    [cell.detail setText:session.detail];
+//    [cell.icon setImage:[self addImage:session]];
     return cell;
+}
+
+- (UIImage *)addImage:(MessageSession *)session {
+    NSArray * users = [MessageSession getAllUser:session.sessionId];
+    if ([users count] == 1) {
+        MessageUser * messageUser = [users objectAtIndex:0];
+        return [[AppContact findAppContactByAppId: messageUser.userId] getIcon];
+    }
+    
+    UIGraphicsBeginImageContext(CGSizeMake(200, 200));
+    
+    for (int i = 0 ; i < [users count]; i++) {
+        MessageUser * messageUser = [users objectAtIndex:i];
+        UIImage * icon = [[AppContact findAppContactByAppId: messageUser.userId] getIcon];
+        [icon drawInRect: CGRectMake(1 + (i % 3 * 16), 1 + (i % 3 * 16), 64, 64)];
+    }
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,8 +153,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [_messageSessions removeObjectAtIndex:[indexPath row]];
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+        MessageSession * session = [_messageSessions objectAtIndex:[indexPath row]];
+        [_messageSessions removeObject:session];
+        [MessageSession deleteSession:session];
+        [MessageSession saveContext];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
     }
 }
 
@@ -167,7 +202,7 @@
 
 -(void)initMessageSessions
 {
-    _messageSessions = [MessageSession getAllSession];
+    _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
     [self.tableView reloadData];
 }
 

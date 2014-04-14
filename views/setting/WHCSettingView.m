@@ -56,7 +56,7 @@
     AppContact *me = [AppContact findMySelf];
     UIViewController *vc = [segue destinationViewController];
     if ([vc isKindOfClass:[WHCIconSettingView class]]) {
-        ((WHCIconSettingView*)vc).iconName = me.icon;
+        [((WHCIconSettingView*)vc) setIconName:me.icon];
         return;
     }
     if ([vc isKindOfClass:[WHCTextEditView class]]) {
@@ -78,7 +78,7 @@
     AppContact *me = [AppContact findMySelf];
     if ([fromViewController isKindOfClass:[WHCIconSettingView class]]) {
         WHCIconSettingView *iconVC = (WHCIconSettingView *)fromViewController;
-        NSString * value = iconVC.iconName;
+        NSString * value = [iconVC getIconName];
         if (value == nil || value.length == 0){
             return NO;
         }

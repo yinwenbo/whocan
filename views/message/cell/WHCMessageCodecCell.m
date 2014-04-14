@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageCell.h"
+#import "WHCMessageCodecCell.h"
 
 #define CELL_HEIGHT self.contentView.frame.size.height
 #define CELL_WIDTH self.contentView.frame.size.width
@@ -20,7 +20,7 @@
 //间距
 #define INSETS 8.0f
 
-@implementation WHCMessageCell
+@implementation WHCMessageCodecCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

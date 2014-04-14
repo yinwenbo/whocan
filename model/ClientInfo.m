@@ -16,6 +16,12 @@
     return [ClientInfo getToken] != nil;
 }
 
++ (BOOL)needUpdateUserInfo
+{
+    AppContact * mine = [AppContact findMySelf];
+    return mine.appName == nil || [mine.appName isEqualToString:mine.mobileNo] || mine.icon == nil;
+}
+
 + (NSString *)getToken
 {
     AppContact *mine = [AppContact findMySelf];

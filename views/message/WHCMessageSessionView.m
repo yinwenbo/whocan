@@ -32,12 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [_tableView registerClass:[WHCTextMessageCell class] forCellReuseIdentifier:@"TextMessageCell"];
-    [_tableView registerClass:[WHCSystemMessageCell class] forCellReuseIdentifier:@"SystemMessageCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self loadMessages];
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
+                      atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -164,31 +164,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message * message = [_messages objectAtIndex:[indexPath row]];
-    if ([message isSystemMessage]) {
-        WHCSystemMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SystemMessageCell" forIndexPath:indexPath];
-        cell.textLabel.text = message.content;
-        return cell;
-    }
-    WHCTextMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextMessageCell" forIndexPath:indexPath];
-    
-    AppContact *sender = [self findSender:message];
-    if ([message isMySend]) {
-        [cell sendTextMessage:[sender getIcon] content:message.content];
+    WHCMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:[self getCellIndentifierWithMessage:message]
+                                                           forIndexPath:indexPath];
+    if ([message isSystemMessage]){
+        [cell setContent:message.content icon:nil];
     } else {
-        [cell receiveTextMessage:[sender getIcon] content:message.content];
+        AppContact *sender = [self findSender:message];
+        [cell setContent:message.content icon:[sender getIcon]];
     }
-    
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message * message = [_messages objectAtIndex:[indexPath row]];
+
+    WHCMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:[self getCellIndentifierWithMessage:message]];
+    return [cell getCellHeight:message.content];
+
+}
+
+- (NSString *)getCellIndentifierWithMessage:(Message *)message
+{
     if ([message isSystemMessage]) {
-        return [WHCSystemMessageCell getCellHeight:message.content];
-    } else {
-        return [WHCTextMessageCell getCellHeight:message.content];
+        return @"SystemMessageCell";
     }
+    if ([message isMySend]) {
+        return @"SenderCell";
+    }
+    return @"ReceiverCell";
 }
 
 - (AppContact *)findSender:(Message *)message

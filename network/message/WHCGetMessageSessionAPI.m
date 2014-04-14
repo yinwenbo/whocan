@@ -26,8 +26,13 @@
 {
     self.sessionId = [self getString:@"sessionId"];
     self.title = [self getString:@"sessionName"];
-    MessageSession *session = [MessageSession createSession];
-    session.sessionId = self.sessionId;
+    
+    MessageSession *session = [MessageSession getSession:self.sessionId];
+    if (session == nil) {
+        session = [MessageSession createSession];
+        session.sessionId = self.sessionId;
+    }
+
     session.title = self.title;
     /*
     for (NSDictionary *user in [self.data objectForKey:@"userList"]){

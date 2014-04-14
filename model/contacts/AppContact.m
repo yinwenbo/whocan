@@ -213,7 +213,7 @@
     if (self.icon) {
         return [UIImage imageNamed:self.icon];
     }
-    return [UIImage imageNamed:@"icon_default"];
+    return [UIImage imageNamed:@"icon_monsterinc_256"];
 }
 - (BOOL)isMySelf
 {

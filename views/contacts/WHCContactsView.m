@@ -240,18 +240,14 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 - (void)sendInvite:(AppContact*)appContact
 {
-//    NSString *message = @"The Farm";
-//    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
-//                                             initWithActivityItems:  [NSArray arrayWithObjects:message, nil]
-//                                             applicationActivities:nil];
-//    [self presentViewController:activityVC animated:YES completion:nil];
     WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:appContact.mobileNo];
     [self presentViewController:smsView animated:YES completion:nil];
 }
 
 - (void)addToFriend:(AppContact*)appContact;
 {
-    [[WHCAddFriendAPI getInstance:self userId:appContact.appId] asynchronize];
+    [[WHCAddFriendAPI getInstance:self userId:appContact.appId] synchronize];
+    [[WHCGetFriendsAPI getInstance:self] synchronize];
 }
 
 #pragma mark - Table Edit

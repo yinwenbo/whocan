@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCMessageCell : UITableViewCell 
+@interface WHCMessageCodecCell : UITableViewCell 
 
 - (void)sendMessage:(UIImage*)icon content:(UIView*)content;
 - (void)receiveMessage:(UIImage*)icon content:(UIView*)content;

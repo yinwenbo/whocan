@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageCell.h"
+#import "WHCMessageCodecCell.h"
 
-@interface WHCTextMessageCell : WHCMessageCell
+@interface WHCTextMessageCell : WHCMessageCodecCell
 
 + (CGFloat)getCellHeight:(NSString *)text;
 

@@ -28,6 +28,12 @@ static WHCModelStore *modelStore = nil;
     return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
 }
 
++(void)deleteEntity:(id)entity
+{
+    NSManagedObjectContext *context = [WHCModelStore getInstance].managedObjectContext;
+    [context deleteObject:entity];
+}
+
 + (NSArray *)queryEntitys:(NSString*)entityName predicate:(NSPredicate*)predicate sort:(NSArray*)sort
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];

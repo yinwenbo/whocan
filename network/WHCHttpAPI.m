@@ -29,6 +29,7 @@
         _request = [ASIFormDataRequest requestWithURL:url];
         [_request setRequestMethod:@"POST"];
         [_request setDelegate:self];
+        [_request setTimeOutSeconds:30];
         _delegate = delegate;
         NSLog(@"post url: %@", url);
         NSLog(@"post form: %@", params);

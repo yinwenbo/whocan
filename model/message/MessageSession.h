@@ -24,6 +24,8 @@
 @property (nonatomic, retain) NSNumber * unread;
 
 + (MessageSession *)createSession;
++ (void)deleteSession:(MessageSession *)session;
+
 + (MessageUser *)createUser;
 + (Message *)createMessage;
 

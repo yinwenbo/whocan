@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCIconSettingView : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource> {
-    IBOutlet UICollectionView *iconsView;
-}
+#import "WHCIconView.h"
 
-@property (nonatomic, retain) NSString * iconName;
+@interface WHCIconSettingView : UIViewController
+
+- (void)setIconName:(NSString *)iconName;
+- (NSString *)getIconName;
 
 @end

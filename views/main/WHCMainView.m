@@ -30,6 +30,7 @@
     if([ClientInfo isSignIn]){
         [[WHCUploadContactsAPI getInstance:self] asynchronize];
     }
+//    [self setSelectedIndex:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -38,6 +39,11 @@
         UIViewController *signInVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
         [self presentViewController:signInVc animated:YES completion:nil];
     }
+    if([ClientInfo needUpdateUserInfo]) {
+        UIViewController *signInVc = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
+        [self presentViewController:signInVc animated:YES completion:nil];        
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

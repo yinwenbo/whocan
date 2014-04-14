@@ -8,6 +8,8 @@
 
 #import "WHCAppDelegate.h"
 
+#import "WHCNewMessageAPI.h"
+
 @interface WHCAppDelegate()
 
 @end
@@ -67,6 +69,9 @@
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+//    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+//    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:10];
+    [[WHCNewMessageAPI getInstance:nil] asynchronize];
     NSLog(@"receive : %@", userInfo);
 }
 

@@ -12,6 +12,7 @@
 #import "WHCProjectTaskListView.h"
 
 #import "WHCMessageCell.h"
+#import "WHCMessageCodecCell.h"
 #import "WHCSystemMessageCell.h"
 
 #import "AppContact.h"

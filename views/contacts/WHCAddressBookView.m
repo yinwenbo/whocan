@@ -56,7 +56,20 @@
     if ([appContact isInviteMe]) {
         return @"InviteMeCell";
     }
+    if ([appContact isMySelf]) {
+        return @"MySelfCell";
+    }
     return @"NotFriendCell";
+}
+
+- (IBAction)sendInvite:(id)sender
+{
+    NSString *message = @"我正在使用[互看]来做项目，请加入进来，以便沟通。下载：http://www.weijinrong100.com/whocan/static/download.html";
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                            initWithActivityItems: [NSArray arrayWithObjects:message, nil]
+                                            applicationActivities:nil];
+
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 @end

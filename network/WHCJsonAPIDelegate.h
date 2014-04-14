@@ -15,6 +15,7 @@
 - (void)onJsonParseFinished:(WHCJsonAPI*)api;
 
 @optional
+
 - (void)onRequestIsFailed:(WHCHttpAPI*)api;
 
 @end

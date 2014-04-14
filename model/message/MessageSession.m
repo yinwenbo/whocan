@@ -25,6 +25,11 @@
     return [WHCModelStore insertEntity:MESSAGE_SESSION_NAME];
 }
 
++ (void)deleteSession:(MessageSession *)session
+{
+    [WHCModelStore deleteEntity:session];
+}
+
 + (MessageUser *)createUser
 {
     return [WHCModelStore insertEntity:MESSAGE_USER_NAME];
