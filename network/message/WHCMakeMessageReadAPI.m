@@ -31,6 +31,7 @@
 
 - (void)successJsonResult
 {
+    [UIApplication sharedApplication].applicationIconBadgeNumber -= unread;
     MessageSession *session =  [MessageSession getSession:sessionId];
     session.unread = [NSNumber numberWithInteger:[session.unread intValue] - unread];
     [MessageSession saveContext];

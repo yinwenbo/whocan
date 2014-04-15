@@ -115,9 +115,8 @@
         cell.badgeLeftOffset = 8;
         cell.badgeRightOffset = 40;
         cell.badgeString = [session.unread stringValue];
-        [cell.badge setHidden:NO];
     } else {
-        [cell.badge setHidden:YES];
+        cell.badgeString = nil;
     }
     
     [cell.title setText:session.title];

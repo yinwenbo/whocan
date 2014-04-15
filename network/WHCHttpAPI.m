@@ -75,6 +75,7 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+    NSLog(@"response code %d", [request responseStatusCode]);
     self.hasError = ([_request responseStatusCode] != 200);
     [_delegate onHttpRequestFinished:self];
 }
