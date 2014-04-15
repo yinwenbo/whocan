@@ -11,6 +11,7 @@
 #define MESSAGE_STATUS_SENDING @"SENDING"
 #define MESSAGE_STATUS_SUCCESS @"SUCCESS"
 #define MESSAGE_STATUS_FAILED  @"FAILED"
+#define MESSAGE_STATUS_UNREAD  @"UNREAD"
 
 #define MESSAGE_SENDER_SYSTEM @"SYSTEM"
 #define MESSAGE_SENDER_ME @"ME"
@@ -32,7 +33,7 @@
 
 - (BOOL)isMySend
 {
-    return [self.senderId isEqualToString:MESSAGE_SENDER_ME];
+    return [self.senderId isEqualToString:[AppContact findMySelf].appId];
 }
 
 - (BOOL)isSending
@@ -50,6 +51,11 @@
     return [self.status isEqualToString:MESSAGE_STATUS_FAILED];
 }
 
+- (BOOL)isUnread
+{
+    return [self.status isEqualToString:MESSAGE_STATUS_UNREAD];
+}
+
 - (void)setStatusToSending
 {
     self.status = MESSAGE_STATUS_SENDING;
@@ -65,8 +71,13 @@
     self.status = MESSAGE_STATUS_FAILED;
 }
 
+- (void)setStatusToUnread
+{
+    self.status = MESSAGE_STATUS_UNREAD;
+}
+
 - (void)setSenderIsMe
 {
-    self.senderId = MESSAGE_SENDER_ME;
+//    self.senderId = MESSAGE_SENDER_ME;
 }
 @end

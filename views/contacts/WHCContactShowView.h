@@ -11,7 +11,7 @@
 #import "WHCSmsSendView.h"
 #import "WHCContactEditView.h"
 #import "WHCMessageView.h"
-#import "WHCBarButtonSave.h"
+#import "WHCSaveBarButton.h"
 
 #import "WHCAddFriendAPI.h"
 #import "AppContact.h"

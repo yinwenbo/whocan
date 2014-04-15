@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "AppContact.h"
 
 @interface Message : NSManagedObject
 
@@ -26,10 +27,12 @@
 - (BOOL)isSending;
 - (BOOL)isSendFailed;
 - (BOOL)isSendSuccess;
+- (BOOL)isUnread;
 
 - (void)setStatusToSending;
 - (void)setStatusToSuccess;
 - (void)setStatusToFailed;
+- (void)setStatusToUnread;
 
 - (void)setSenderIsMe;
 

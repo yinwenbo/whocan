@@ -17,6 +17,7 @@
 #import "ClientInfo.h"
 
 #import "WHCAllMessageSessionAPI.h"
+#import "WHCMakeMessageReadAPI.h"
 #import "WHCNewMessageAPI.h"
 #import "WHCAddUserToSessionAPI.h"
 

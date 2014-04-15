@@ -32,6 +32,7 @@
 + (MessageSession *)getSession:(NSString *)sessionId;
 + (NSArray *)getAllSession;
 
++ (Message *)getLastMessage:(NSString *)sessionId;
 + (Message *)getMessage:(NSString *)sessionId messageId:(NSString *)messageId;
 + (NSArray *)getMessages:(NSString *)sessionId;
 

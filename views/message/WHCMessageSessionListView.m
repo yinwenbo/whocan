@@ -31,6 +31,7 @@
     [super viewDidLoad];
     [self initRefreshControl];
     _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
+    [WHCNewMessageAPI registerNotify:self callback:@selector(onReceiveMessage)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +45,19 @@
     if ([ClientInfo isSignIn]) {
         [[WHCNewMessageAPI getInstance:self] asynchronize];
     }
+    [WHCNewMessageAPI registerNotify:self callback:@selector(onReceiveMessage)];
+    _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];    
+    [self.tableView reloadData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCNewMessageAPI removeNotify:self];
+}
+
+- (void)onReceiveMessage
+{
+    [self initMessageSessions];
 }
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
@@ -101,10 +115,14 @@
         cell.badgeLeftOffset = 8;
         cell.badgeRightOffset = 40;
         cell.badgeString = [session.unread stringValue];
+        [cell.badge setHidden:NO];
+    } else {
+        [cell.badge setHidden:YES];
     }
     
     [cell.title setText:session.title];
-    [cell.detail setText:session.detail];
+    Message * message = [MessageSession getLastMessage:session.sessionId];
+    [cell.detail setText:message.content];
 //    [cell.icon setImage:[self addImage:session]];
     return cell;
 }
@@ -170,6 +188,7 @@
     if([viewController isKindOfClass:[WHCMessageView class]]){
         WHCMessageView *sessionView = (WHCMessageView *)viewController;
         [sessionView setMessageSession:_selectedSession];
+        [[WHCMakeMessageReadAPI getInstance:self sessionId:_selectedSession.sessionId] asynchronize];
     }
 }
 

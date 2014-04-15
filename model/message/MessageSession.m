@@ -27,6 +27,10 @@
 
 + (void)deleteSession:(MessageSession *)session
 {
+    for (Message *message in [MessageSession getMessages:session.sessionId]){
+        [WHCModelStore deleteEntity:message];
+    }
+
     [WHCModelStore deleteEntity:session];
 }
 
@@ -55,6 +59,18 @@
     NSArray *sort = [[NSArray alloc]initWithObjects:
                      [[NSSortDescriptor alloc] initWithKey:@"lastupdate" ascending:NO], nil];
     return [WHCModelStore queryEntitys:MESSAGE_SESSION_NAME predicate:nil sort:sort];
+}
+
++ (Message *)getLastMessage:(NSString *)sessionId
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@", sessionId];
+    NSArray *sort = [[NSArray alloc]initWithObjects:
+                     [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO], nil];
+    NSArray * list = [WHCModelStore queryEntitys:MESSAGE_NAME predicate:predicate sort:sort];
+    if ([list count] > 0) {
+        return [list objectAtIndex:0];
+    }
+    return nil;
 }
 
 + (Message *)getMessage:(NSString *)sessionId messageId:(NSString *)messageId

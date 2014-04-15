@@ -111,7 +111,7 @@
 - (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
 {
     if ( [fromViewController isKindOfClass:[WHCContactEditView class]]
-        && [sender isKindOfClass:[WHCBarButtonSave class]]){
+        && [sender isKindOfClass:[WHCSaveBarButton class]]){
         WHCContactEditView *editView = (WHCContactEditView*)fromViewController;
         appContact.phoneABName = editView.txtName.text;
         [AppContact saveContext];

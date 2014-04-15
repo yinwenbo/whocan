@@ -36,6 +36,7 @@
                           atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
     }
+    [WHCNewMessageAPI registerNotify:self callback:@selector(onMessageReceive)];    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +47,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [WHCNewMessageAPI registerNotify:self callback:@selector(onMessageReceive)];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -56,12 +57,19 @@
 
 - (void)onMessageReceive
 {
-    [self refreshTableView];
-    if ([_messages count] > 1) {
-        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
-                          atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
+    NSArray *messages = [MessageSession getMessages:_session.sessionId];
+    
+    for ( long long i = [_messages count]; i < [messages count]; i++) {
+        [_messages addObject:[messages objectAtIndex:i]];
+        [_tableView beginUpdates];
+        [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationFade];
+        [_tableView endUpdates];
     }
+
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
+                    atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
 }
 
 - (void)setMessageSession:(MessageSession *)session
@@ -124,26 +132,26 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     UIViewController *view = [segue destinationViewController];
     if ([view isKindOfClass:[WHCProjectTaskListView class]]) {
         [((WHCProjectTaskListView *)view) setProjectId:_session.sessionId];
     }
 }
 
+#pragma mark - tableview 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_messages count];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message * message = [_messages objectAtIndex:[indexPath row]];
