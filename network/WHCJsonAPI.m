@@ -80,8 +80,11 @@
 {
     if ([_delegate isKindOfClass:[UIViewController class]]) {
         [self showSignInView:(UIViewController*)_delegate];
-    } else {
-        [self showAlert:@"登录超时"];
+        return;
+    }
+    if ([self isSynchronize]) {
+        [self showAlert:[self getErrorMessage]];
+        return;
     }
 }
 
@@ -89,8 +92,11 @@
 {
     if ([_delegate respondsToSelector:@selector(onRequestIsFailed:)]) {
         [_delegate onRequestIsFailed:self];
-    }else {
+        return;
+    }
+    if ([self isSynchronize]) {
         [self showAlert:[self getErrorMessage]];
+        return;
     }
 }
 

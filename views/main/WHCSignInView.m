@@ -34,9 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [WHCViewUtils setButton:self.btnSignIn];
-    [WHCViewUtils setButton:self.btnSendVerifyCode];
 }
 
 - (void)viewDidAppear:(BOOL)animated

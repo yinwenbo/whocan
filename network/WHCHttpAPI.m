@@ -13,6 +13,7 @@
 @interface WHCHttpAPI(){
     ASIFormDataRequest *_request;
     id<WHCHttpAPIDelegate> _delegate;
+    BOOL _isSynchronize;
 }
 
 @end
@@ -40,8 +41,14 @@
     return self;
 }
 
+- (BOOL)isSynchronize
+{
+    return _isSynchronize;
+}
+
 - (void)synchronize
 {
+    _isSynchronize = YES;
     [_request startSynchronous];
 }
 

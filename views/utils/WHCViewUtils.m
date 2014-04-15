@@ -10,44 +10,6 @@
 
 @implementation WHCViewUtils
 
-+ (UIView *)findSuperView:(UIView *)view type:(Class)type
-{
-    UIView * superview = [view superview];
-    if (superview == nil) {
-        return nil;
-    }
-    if ([superview isKindOfClass:type]){
-        return superview;
-    }
-    return [self findSuperView:superview type:type];
-}
-
-+ (UIView *)findSubView:(UIView *)view type:(Class)type
-{
-    NSArray * subviews = [view subviews];
-    for (UIView * view in subviews) {
-        if ([view isKindOfClass:type]){
-            return view;
-        }
-    }
-    for (UIView * view in subviews){
-        UIView * result = [self findSubView:view type:type];
-        if (result != nil) {
-            return result;
-        }
-    }
-    return nil;
-}
-
-+ (void)setButton:(UIButton* )button
-{
-    [button.layer setBorderWidth:1];
-    [button.layer setCornerRadius:4];
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.83f, 0.83f, 0.83f, 0.8f});
-    [button.layer setBorderColor:beginColor];
-}
-
 + (WHCSmsSendController *)getInviteSMSView:(NSString*)mobileNo;
 {
     if( [MFMessageComposeViewController canSendText] ){

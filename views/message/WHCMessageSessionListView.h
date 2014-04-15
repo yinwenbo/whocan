@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-#import "WHCMessageSessionView.h"
+#import "WHCMessageView.h"
 #import "WHCContactPickerView.h"
 #import "WHCMessageSessionCell.h"
 

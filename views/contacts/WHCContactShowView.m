@@ -63,7 +63,6 @@
     }else{
         lblNickname.text = [NSString stringWithFormat:@"昵称: %@", self.appContact.appName];
     }
-    [WHCViewUtils setButton:btnMainAction];
     [self.tableView setSectionHeaderHeight:0];
     
 }
@@ -77,7 +76,7 @@
 - (IBAction)onMainAction:(id)sender
 {
     if (appContact.isMyFriend) {
-        WHCMessageSessionView * view = [self.storyboard instantiateViewControllerWithIdentifier:@"MessageSession"];
+        WHCMessageView * view = [self.storyboard instantiateViewControllerWithIdentifier:@"MessageSession"];
         [view setAppContact:appContact];
         [self.navigationController pushViewController:view animated:YES];
     } else if (appContact.isAppUser) {

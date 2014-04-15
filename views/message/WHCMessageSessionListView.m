@@ -8,8 +8,6 @@
 
 #import "WHCMessageSessionListView.h"
 
-#import "WHCModelStore.h"
-
 @interface WHCMessageSessionListView (){
     NSMutableArray * _messageSessions;
     MessageSession * _selectedSession;
@@ -45,7 +43,6 @@
 {
     if ([ClientInfo isSignIn]) {
         [[WHCNewMessageAPI getInstance:self] asynchronize];
-//        [[WHCAllMessageSessionAPI getInstance:self] asynchronize];
     }
 }
 
@@ -170,8 +167,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController *viewController = [segue destinationViewController];
-    if([viewController isKindOfClass:[WHCMessageSessionView class]]){
-        WHCMessageSessionView *sessionView = (WHCMessageSessionView *)viewController;
+    if([viewController isKindOfClass:[WHCMessageView class]]){
+        WHCMessageView *sessionView = (WHCMessageView *)viewController;
         [sessionView setMessageSession:_selectedSession];
     }
 }

@@ -10,7 +10,7 @@
 
 #import "WHCContactCell.h"
 #import "WHCContactShowView.h"
-#import "WHCMessageSessionView.h"
+#import "WHCMessageView.h"
 
 #import "WHCGetFriendsAPI.h"
 #import "WHCAddFriendAPI.h"

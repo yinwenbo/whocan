@@ -22,6 +22,7 @@
 - (void)synchronize;
 - (void)asynchronize;
 
+- (BOOL)isSynchronize;
 - (BOOL)isSuccess;
 - (NSString *)getResponseText;
 - (NSString *)getErrorMessage;

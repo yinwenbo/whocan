@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageListView.h"
+#import "WHCInputListView.h"
 
-@interface WHCMessageListView ()
+@interface WHCInputListView ()
 
 @end
 
-@implementation WHCMessageListView
+@implementation WHCInputListView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

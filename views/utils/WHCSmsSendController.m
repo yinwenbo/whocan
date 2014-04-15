@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[[[self viewControllers] lastObject] navigationItem] setTitle:@"测试短信"];
+    [[[[self viewControllers] lastObject] navigationItem] setTitle:@"邀请短信"];
 }
 
 - (void)didReceiveMemoryWarning

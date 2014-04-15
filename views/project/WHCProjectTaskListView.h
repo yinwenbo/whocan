@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageListView.h"
+#import "WHCInputListView.h"
 
 #import "WHCProjectTaskView.h"
 #import "WHCProjectTaskCell.h"
@@ -16,7 +16,7 @@
 #import "AppContact.h"
 
 
-@interface WHCProjectTaskListView : WHCMessageListView <UIActionSheetDelegate>
+@interface WHCProjectTaskListView : WHCInputListView <UIActionSheetDelegate>
 
 - (void)setProjectId:(NSString *)projectId;
 

@@ -15,4 +15,7 @@
 
 + (WHCNewMessageAPI*)getInstance:(id<WHCJsonAPIDelegate>)delegate;
 
++ (void)registerNotify:(NSObject*)observer callback:(SEL)callback;
++ (void)removeNotify:(NSObject *)observer;
+
 @end

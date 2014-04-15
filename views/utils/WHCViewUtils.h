@@ -12,12 +12,6 @@
 
 @interface WHCViewUtils : NSObject
 
-+ (UIView *)findSuperView:(UIView *)view type:(Class)type;
-
-+ (UIView *)findSubView:(UIView *)view type:(Class)type;
-
-+ (void)setButton:(UIButton *)button;
-
 + (WHCSmsSendController *)getInviteSMSView:(NSString*)mobileNo;
 
 @end

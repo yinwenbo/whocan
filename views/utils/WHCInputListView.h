@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCMessageListView : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface WHCInputListView : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITextField * _inputText;
     IBOutlet UITableView * _tableView;
     IBOutlet UIView * _inputBarView;

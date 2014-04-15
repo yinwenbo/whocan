@@ -8,6 +8,8 @@
 
 #import "WHCNewMessageAPI.h"
 
+#define MESSAGE_RECEIVED_NOTIFY_NAME @"MESSAGE_RECIEVED"
+
 @implementation WHCNewMessageAPI
 
 + (WHCNewMessageAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
@@ -18,6 +20,19 @@
                                                           params:params
                                                         delegate:delegate];
 
+}
+
++ (void)registerNotify:(NSObject*)observer callback:(SEL)callback
+{
+    [[NSNotificationCenter defaultCenter] addObserver:observer
+                                             selector:callback
+                                                 name:MESSAGE_RECEIVED_NOTIFY_NAME
+                                               object:nil];
+}
+
++ (void)removeNotify:(NSObject *)observer
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:observer];
 }
 
 - (void)successJsonResult
@@ -61,6 +76,7 @@
         }
     }
     [MessageSession saveContext];
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_RECEIVED_NOTIFY_NAME object:self];
 }
+
 @end

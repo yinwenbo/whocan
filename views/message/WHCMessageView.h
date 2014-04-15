@@ -8,21 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WHCMessageListView.h"
+#import "WHCInputListView.h"
 #import "WHCProjectTaskListView.h"
 
 #import "WHCMessageCell.h"
-#import "WHCMessageCodecCell.h"
-#import "WHCSystemMessageCell.h"
 
 #import "AppContact.h"
 
 #import "MessageSession.h"
+#import "WHCNewMessageAPI.h"
 #import "WHCGetMessageSessionAPI.h"
 #import "WHCGetMessagesAPI.h"
 #import "WHCSendMessageAPI.h"
 
-@interface WHCMessageSessionView : WHCMessageListView <WHCJsonAPIDelegate> {
+@interface WHCMessageView : WHCInputListView <WHCJsonAPIDelegate> {
 }
 
 

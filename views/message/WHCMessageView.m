@@ -6,19 +6,16 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCMessageSessionView.h"
-#import "WHCTextMessageCell.h"
-#import "WHCSystemMessageCell.h"
+#import "WHCMessageView.h"
 
-@interface WHCMessageSessionView () {
+@interface WHCMessageView () {
     MessageSession * _session;
     NSMutableArray * _messages;
-    NSTimer * _timer;
 }
 
 @end
 
-@implementation WHCMessageSessionView
+@implementation WHCMessageView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +31,6 @@
     [super viewDidLoad];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [self loadMessages];
     if ([_messages count] > 1) {
         [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
                           atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -50,20 +46,22 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+    [WHCNewMessageAPI registerNotify:self callback:@selector(onMessageReceive)];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
+    [WHCNewMessageAPI removeNotify:self];
 }
 
-- (void)loadMessages
+- (void)onMessageReceive
 {
-    [[WHCGetMessagesAPI getInstance:self sessionId:_session.sessionId] asynchronize];
+    [self refreshTableView];
+    if ([_messages count] > 1) {
+        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
+                          atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
+    }
 }
 
 - (void)setMessageSession:(MessageSession *)session
@@ -104,27 +102,11 @@
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
-    if ([api isKindOfClass:[WHCGetMessagesAPI class]]) {
-        [self refreshTableView];
-        [self beginReloadTimer];
-    }
+
 }
 
 - (void)onRequestIsFailed:(WHCHttpAPI *)api
 {
-}
-
-- (void)beginReloadTimer
-{
-    if (_timer) {
-        [_timer invalidate];
-    }
-    _timer = [NSTimer scheduledTimerWithTimeInterval:10
-                                              target:self
-                                            selector:@selector(loadMessages)
-                                            userInfo:nil
-                                             repeats:NO];
-    
 }
 
 - (IBAction)sendMessage:(id)sender
@@ -137,7 +119,6 @@
     
     [_tableView reloadData];
     _inputText.text = @"";
-//    [_tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 
