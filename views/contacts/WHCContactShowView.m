@@ -83,7 +83,7 @@
         btnMainAction.titleLabel.text = @"加为好友";
         [[WHCAddFriendAPI getInstance:self userId:appContact.appId] synchronize];
     } else {
-        WHCSmsSendController * smsView = [WHCViewUtils getInviteSMSView:self.appContact.mobileNo];
+        WHCSmsSendView * smsView = [WHCSmsSendView initWithInvite:self.appContact.mobileNo];
         [self presentViewController:smsView animated:YES completion:nil];
 
     }

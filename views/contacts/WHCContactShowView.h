@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WHCViewUtils.h"
+
+#import "WHCSmsSendView.h"
 #import "WHCContactEditView.h"
 #import "WHCMessageView.h"
+#import "WHCBarButtonSave.h"
 
 #import "WHCAddFriendAPI.h"
 #import "AppContact.h"

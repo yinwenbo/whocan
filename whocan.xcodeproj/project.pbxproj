@@ -51,8 +51,7 @@
 		4C174FF718DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FF618DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m */; };
 		4C174FFA18DAFCFE00DFFDC7 /* WHCJsonAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FF918DAFCFE00DFFDC7 /* WHCJsonAPI.m */; };
 		4C17500018DC591D00DFFDC7 /* ClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174FFF18DC591D00DFFDC7 /* ClientInfo.m */; };
-		4C17500C18E044AE00DFFDC7 /* WHCSmsSendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500918E044AE00DFFDC7 /* WHCSmsSendController.m */; };
-		4C17500D18E044AE00DFFDC7 /* WHCViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500B18E044AE00DFFDC7 /* WHCViewUtils.m */; };
+		4C17500C18E044AE00DFFDC7 /* WHCSmsSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500918E044AE00DFFDC7 /* WHCSmsSendView.m */; };
 		4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 4C17500F18E1130B00DFFDC7 /* pinyin.c */; };
 		4C17501518E18CF800DFFDC7 /* WHCFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17501418E18CF800DFFDC7 /* WHCFriendsView.m */; };
 		4C17501B18E1953B00DFFDC7 /* WHCUploadContactsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17501A18E1953B00DFFDC7 /* WHCUploadContactsAPI.m */; };
@@ -210,10 +209,8 @@
 		4C174FFE18DC591D00DFFDC7 /* ClientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientInfo.h; path = model/ClientInfo.h; sourceTree = "<group>"; };
 		4C174FFF18DC591D00DFFDC7 /* ClientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientInfo.m; path = model/ClientInfo.m; sourceTree = "<group>"; };
 		4C17500118DC8EB300DFFDC7 /* WHCHttpAPIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHCHttpAPIDelegate.h; path = network/WHCHttpAPIDelegate.h; sourceTree = "<group>"; };
-		4C17500818E044AE00DFFDC7 /* WHCSmsSendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCSmsSendController.h; path = views/utils/WHCSmsSendController.h; sourceTree = "<group>"; };
-		4C17500918E044AE00DFFDC7 /* WHCSmsSendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCSmsSendController.m; path = views/utils/WHCSmsSendController.m; sourceTree = "<group>"; };
-		4C17500A18E044AE00DFFDC7 /* WHCViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCViewUtils.h; path = views/utils/WHCViewUtils.h; sourceTree = "<group>"; };
-		4C17500B18E044AE00DFFDC7 /* WHCViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCViewUtils.m; path = views/utils/WHCViewUtils.m; sourceTree = "<group>"; };
+		4C17500818E044AE00DFFDC7 /* WHCSmsSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCSmsSendView.h; path = views/utils/WHCSmsSendView.h; sourceTree = "<group>"; };
+		4C17500918E044AE00DFFDC7 /* WHCSmsSendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCSmsSendView.m; path = views/utils/WHCSmsSendView.m; sourceTree = "<group>"; };
 		4C17500F18E1130B00DFFDC7 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pinyin.c; path = 3rd/utils/pinyin.c; sourceTree = "<group>"; };
 		4C17501018E1130B00DFFDC7 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pinyin.h; path = 3rd/utils/pinyin.h; sourceTree = "<group>"; };
 		4C17501218E16C6300DFFDC7 /* WHCJsonAPIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WHCJsonAPIDelegate.h; path = network/WHCJsonAPIDelegate.h; sourceTree = "<group>"; };
@@ -561,10 +558,8 @@
 			children = (
 				4CDA4F2918FCF66A00057419 /* WHCInputListView.h */,
 				4CDA4F2A18FCF66A00057419 /* WHCInputListView.m */,
-				4C17500818E044AE00DFFDC7 /* WHCSmsSendController.h */,
-				4C17500918E044AE00DFFDC7 /* WHCSmsSendController.m */,
-				4C17500A18E044AE00DFFDC7 /* WHCViewUtils.h */,
-				4C17500B18E044AE00DFFDC7 /* WHCViewUtils.m */,
+				4C17500818E044AE00DFFDC7 /* WHCSmsSendView.h */,
+				4C17500918E044AE00DFFDC7 /* WHCSmsSendView.m */,
 				4C17502518E2FCAF00DFFDC7 /* WHCBarButtonSave.h */,
 				4C17502618E2FCAF00DFFDC7 /* WHCBarButtonSave.m */,
 				4C76E20C18F670D200BF2D89 /* WHCButton.h */,
@@ -917,7 +912,6 @@
 				4C174FF018DAF3D700DFFDC7 /* WHCHttpAPI.m in Sources */,
 				4C174FF718DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m in Sources */,
 				4C17501518E18CF800DFFDC7 /* WHCFriendsView.m in Sources */,
-				4C17500D18E044AE00DFFDC7 /* WHCViewUtils.m in Sources */,
 				4CDA4F1118FCD14100057419 /* WHCSingleSelectView.m in Sources */,
 				4C2314E318F39D05000CDAE7 /* WHCProjectTaskListView.m in Sources */,
 				4C2BE1BF18EBDD85008E1FEB /* MessageUser.m in Sources */,
@@ -957,7 +951,7 @@
 				4C63706E18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m in Sources */,
 				4C174FC718D963AF00DFFDC7 /* ASIS3Request.m in Sources */,
 				4C2BE1AF18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m in Sources */,
-				4C17500C18E044AE00DFFDC7 /* WHCSmsSendController.m in Sources */,
+				4C17500C18E044AE00DFFDC7 /* WHCSmsSendView.m in Sources */,
 				4C174FBD18D963AF00DFFDC7 /* ASICloudFilesContainerRequest.m in Sources */,
 				4C2BBF0D18FBE1E300CFF820 /* WHCMessageSessionCell.m in Sources */,
 				4C174F6018D70FA900DFFDC7 /* AddressBookUtil.m in Sources */,

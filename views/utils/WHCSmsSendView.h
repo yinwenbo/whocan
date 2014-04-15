@@ -8,6 +8,8 @@
 
 #import <MessageUI/MessageUI.h>
 
-@interface WHCSmsSendController : MFMessageComposeViewController<MFMessageComposeViewControllerDelegate>
+@interface WHCSmsSendView : MFMessageComposeViewController<MFMessageComposeViewControllerDelegate>
+
++ (WHCSmsSendView *)initWithInvite:(NSString *)mobileNo;
 
 @end

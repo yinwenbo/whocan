@@ -240,12 +240,10 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 - (void)sendInvite:(AppContact*)appContact
 {
-    WHCSmsSendController * controller = [[WHCSmsSendController alloc]init];
-    controller.recipients = [NSArray arrayWithObjects:appContact.mobileNo, nil];
-    controller.body = @"我正在使用[互看]来做项目，请加入进来，以便沟通。下载：http://www.weijinrong100.com/whocan/static/download.html";
-    controller.messageComposeDelegate = controller;
-    [self presentViewController:controller animated:YES completion:nil];
-
+    WHCSmsSendView * controller = [WHCSmsSendView initWithInvite:appContact.mobileNo];
+    if (controller) {
+        [self presentViewController:controller animated:YES completion:nil];
+    }
 }
 
 - (void)addToFriend:(AppContact*)appContact;

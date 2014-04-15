@@ -6,14 +6,29 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCSmsSendController.h"
+#import "WHCSmsSendView.h"
 
-@interface WHCSmsSendController ()
+@interface WHCSmsSendView ()
 
 @end
 
-@implementation WHCSmsSendController
+@implementation WHCSmsSendView
 
++ (WHCSmsSendView *)initWithInvite:(NSString *)mobileNo
+{
+    if( [MFMessageComposeViewController canSendText] ){
+        WHCSmsSendView * controller = [[WHCSmsSendView alloc]init];
+        controller.recipients = [NSArray arrayWithObjects:mobileNo, nil];
+        controller.body = @"我正在使用[互看]来做项目，请加入进来，以便沟通。下载：http://www.weijinrong100.com/whocan/static/download.html";
+        controller.messageComposeDelegate = controller;
+        return controller;
+    }else{
+        
+        return nil;
+        //        [self alertWithTitle:@"提示信息" msg:@"设备没有短信功能"];
+    }
+
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

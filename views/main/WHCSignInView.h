@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WHCViewUtils.h"
 #import "ClientInfo.h"
 #import "WHCSignInAPI.h"
 

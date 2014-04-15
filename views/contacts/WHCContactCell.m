@@ -7,7 +7,6 @@
 //
 
 #import "WHCContactCell.h"
-#import "WHCViewUtils.h"
 
 @implementation WHCContactCell
 

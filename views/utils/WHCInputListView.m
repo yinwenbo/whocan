@@ -28,8 +28,8 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(onKeyboardChangeFrame:)
-                                                name:UIKeyboardWillChangeFrameNotification object:nil];
-
+                                                name:UIKeyboardWillChangeFrameNotification
+                                              object:nil];
 }
 
 - (void)didReceiveMemoryWarning
