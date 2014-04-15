@@ -19,7 +19,7 @@
     message.sessionId = sessionId;
     message.content = content;
     message.messageId = [[[NSUUID alloc] init] UUIDString];
-    [message setSenderIsMe];
+    message.senderId = [AppContact findMySelf].appId;
     [message setStatusToSending];
     [MessageSession saveContext];
     

@@ -124,8 +124,14 @@
                                                             content:_inputText.text];
     [_messages addObject:sendMessage.message];
     [sendMessage asynchronize];
+    [_tableView beginUpdates];
+    [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]]
+                      withRowAnimation:UITableViewRowAnimationFade];
+    [_tableView endUpdates];
     
-    [_tableView reloadData];
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]
+                  atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
     _inputText.text = @"";
 }
 

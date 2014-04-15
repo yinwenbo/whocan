@@ -31,10 +31,18 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5l-6f-f3N">
+                                            <rect key="frame" x="78" y="34" width="170" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="detail" destination="z5l-6f-f3N" id="leo-pV-1f9"/>
                                     <outlet property="icon" destination="Y9X-gN-vqS" id="fve-Le-XVV"/>
                                     <outlet property="title" destination="oPa-HM-iiz" id="zCe-Is-qzc"/>
                                     <segue destination="G8N-gq-agu" kind="push" identifier="MessageSessionSegue" id="xZf-wY-T6O"/>
