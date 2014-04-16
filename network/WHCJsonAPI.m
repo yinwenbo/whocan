@@ -18,6 +18,11 @@
 
 @synthesize code, msg, data, hasException;
 
++ (NSMutableDictionary *)createParameter
+{
+    return [[NSMutableDictionary alloc] initWithObjectsAndKeys: [ClientInfo getToken], @"token", nil];
+}
+
 - (id)initWithJsonDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCJsonAPIDelegate>)delegate
 {
     self = [super initWithHttpDelegate:[NSString stringWithFormat:@"%@.json", path]
@@ -37,14 +42,30 @@
 
     [context evaluateScript: json];
     NSDictionary *result = [context[@"result"] toDictionary];
-    code = [result objectForKey:@"code"];
-    msg = [result objectForKey:@"msg"];
+    code = [result getString:@"code"];
+    msg = [result getString:@"msg"];
     data = [result objectForKey:@"data"];
-    
+
     if ([@"0000" isEqualToString:code]){
         hasException = NO;
         return;
     }
+}
+
+- (NSArray *)getArrayData
+{
+    if ([data isKindOfClass:[NSArray class]]) {
+        return (NSArray *)data;
+    }
+    return [NSArray arrayWithObject:data];
+}
+
+- (NSDictionary *)getDictionaryData
+{
+    if ([data isKindOfClass:[NSDictionary class]]) {
+        return (NSDictionary *)data;
+    }
+    return [NSDictionary dictionaryWithObjectsAndKeys:data, @"data", nil];
 }
 
 - (BOOL)isSuccess
@@ -54,7 +75,7 @@
 
 - (BOOL)isAccessRefuse
 {
-    return [@"TokenDisableException" isEqualToString:code];
+    return [@"TokenDisableException" isEqualToString:code] || [@"TokenErrorException" isEqualToString:code];
 }
 - (void)onHttpRequestFinished:(WHCHttpAPI *)api
 {
@@ -82,7 +103,7 @@
         [self showSignInView:(UIViewController*)_delegate];
         return;
     }
-    if ([self isSynchronize]) {
+    if ([self isSynchronize] || ![self hasError]) {
         [self showAlert:[self getErrorMessage]];
         return;
     }
@@ -94,7 +115,7 @@
         [_delegate onRequestIsFailed:self];
         return;
     }
-    if ([self isSynchronize]) {
+    if ([self isSynchronize] || ![self hasError]) {
         [self showAlert:[self getErrorMessage]];
         return;
     }
@@ -107,49 +128,6 @@
     }
     return [NSString stringWithFormat:@"%@(%@, %@)", msg, code, data];
 }
-
-#pragma mark - Utils Method
-
-- (NSDate *)getDate:(NSString *)key
-{
-    return [self getDate:self.data key:key];
-}
-
-- (NSDate *)getDate:(NSDictionary*)dict key:(NSString*)key
-{
-    NSString *value = [self getString:dict key:key];
-    NSDate *result = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]/1000];
-    /*
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"'公元前/后:'G  '年份:'u'='yyyy'='yy '季度:'q'='qqq'='qqqq '月份:'M'='MMM'='MMMM '今天是今年第几周:'w '今天是本月第几周:'W  '今天是今天第几天:'D '今天是本月第几天:'d '星期:'c'='ccc'='cccc '上午/下午:'a '小时:'h'='H '分钟:'m '秒:'s '毫秒:'SSS  '这一天已过多少毫秒:'A  '时区名称:'zzzz'='vvvv '时区编号:'Z "];
-    NSLog(@"%@", [dateFormatter stringFromDate:result]);
-    */
-    return result;
-}
-
-- (NSString *)getString:(NSString *)key
-{
-    return [self getString:self.data key:key];
-}
-
-- (NSString *)getString:(NSDictionary*)dict key:(NSString*)key
-{
-    if (![dict isKindOfClass:[NSDictionary class]]) {
-        return nil;
-    }
-    id result = [dict objectForKey:key];
-    if (result == nil){
-        return nil;
-    }
-    if ([result isKindOfClass:[NSNull class]]){
-        return nil;
-    }
-    if ([result isKindOfClass:[NSString class]]){
-        return (NSString*)result;
-    }
-    return [result stringValue];
-}
-
 #pragma mark - View Utils
 
 - (void)synchronize

@@ -13,13 +13,11 @@
 + (WHCSendInviteAPI*) getInstance:(id<WHCJsonAPIDelegate>)delegate
                          mobileNo:(NSString*)mobileNo
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            mobileNo, @"phoneNo", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:mobileNo forKey:@"phoneNo"];
     return [[WHCSendInviteAPI alloc] initWithJsonDelegate:@"social/addFriendNoRegister"
                                                    params:params
                                                  delegate:delegate];
-   
 }
 
 @end

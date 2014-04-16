@@ -14,13 +14,11 @@
 + (WHCAddFriendAPI*) getInstance:(id<WHCJsonAPIDelegate>)delegate
                           userId:(NSString*)appUserId
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            appUserId, @"friendId", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:appUserId forKey:@"friendId"];
     return [[WHCAddFriendAPI alloc] initWithJsonDelegate:@"social/addFriendRegister"
                                                    params:params
-                                                 delegate:delegate];
-    
+                                                 delegate:delegate];    
 }
 
 

@@ -28,7 +28,7 @@
 
 - (BOOL)isSystemMessage
 {
-    return [self.senderId isEqualToString:MESSAGE_SENDER_SYSTEM];
+    return [self.type isEqualToString:MESSAGE_SENDER_SYSTEM];
 }
 
 - (BOOL)isMySend

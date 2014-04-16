@@ -15,7 +15,9 @@
 + (WHCSendVerifyCodeAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
                              mobileNo:(NSString *)mobileNo
 {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:mobileNo, @"phoneNo", nil];
+    
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:mobileNo forKey:@"phoneNo"];
     return [[WHCSendVerifyCodeAPI alloc] initWithJsonDelegate:SEND_VERIFY_CODE_PATH
                                                        params:params
                                                      delegate:delegate];

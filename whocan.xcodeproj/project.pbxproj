@@ -68,7 +68,6 @@
 		4C2BBF0D18FBE1E300CFF820 /* WHCMessageSessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BBF0C18FBE1E300CFF820 /* WHCMessageSessionCell.m */; };
 		4C2BE1A918E55C0E008E1FEB /* WHCMessageSessionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1A818E55C0E008E1FEB /* WHCMessageSessionListView.m */; };
 		4C2BE1AC18E90B6C008E1FEB /* WHCSendMessageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */; };
-		4C2BE1AF18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1AE18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m */; };
 		4C2BE1B218E90EC0008E1FEB /* WHCAddUserToSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSessionAPI.m */; };
 		4C2BE1B518EA66C2008E1FEB /* WHCGetMessagesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1B418EA66C2008E1FEB /* WHCGetMessagesAPI.m */; };
 		4C2BE1BD18EBDD85008E1FEB /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BE1B818EBDD85008E1FEB /* Message.m */; };
@@ -108,6 +107,7 @@
 		4CDA4F3718FCFD5B00057419 /* WHCSaveBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3218FCFD5B00057419 /* WHCSaveBarButton.m */; };
 		4CDA4F3818FCFD5B00057419 /* WHCSmsSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3418FCFD5B00057419 /* WHCSmsSendView.m */; };
 		4CDA4F3B18FD2BD700057419 /* WHCMakeMessageReadAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3A18FD2BD700057419 /* WHCMakeMessageReadAPI.m */; };
+		4CDA4F3F18FE58BF00057419 /* NSDictionary+Getter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3E18FE58BF00057419 /* NSDictionary+Getter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,8 +245,6 @@
 		4C2BE1A818E55C0E008E1FEB /* WHCMessageSessionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCMessageSessionListView.m; path = views/message/WHCMessageSessionListView.m; sourceTree = "<group>"; };
 		4C2BE1AA18E90B6C008E1FEB /* WHCSendMessageAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCSendMessageAPI.h; path = network/message/WHCSendMessageAPI.h; sourceTree = "<group>"; };
 		4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCSendMessageAPI.m; path = network/message/WHCSendMessageAPI.m; sourceTree = "<group>"; };
-		4C2BE1AD18E90E9D008E1FEB /* WHCAllMessageSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAllMessageSessionAPI.h; path = network/message/WHCAllMessageSessionAPI.h; sourceTree = "<group>"; };
-		4C2BE1AE18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAllMessageSessionAPI.m; path = network/message/WHCAllMessageSessionAPI.m; sourceTree = "<group>"; };
 		4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCAddUserToSessionAPI.h; path = network/message/WHCAddUserToSessionAPI.h; sourceTree = "<group>"; };
 		4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCAddUserToSessionAPI.m; path = network/message/WHCAddUserToSessionAPI.m; sourceTree = "<group>"; };
 		4C2BE1B318EA66C2008E1FEB /* WHCGetMessagesAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCGetMessagesAPI.h; path = network/message/WHCGetMessagesAPI.h; sourceTree = "<group>"; };
@@ -312,6 +310,8 @@
 		4CDA4F3418FCFD5B00057419 /* WHCSmsSendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCSmsSendView.m; sourceTree = "<group>"; };
 		4CDA4F3918FD2BD700057419 /* WHCMakeMessageReadAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCMakeMessageReadAPI.h; path = network/message/WHCMakeMessageReadAPI.h; sourceTree = "<group>"; };
 		4CDA4F3A18FD2BD700057419 /* WHCMakeMessageReadAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCMakeMessageReadAPI.m; path = network/message/WHCMakeMessageReadAPI.m; sourceTree = "<group>"; };
+		4CDA4F3D18FE58BF00057419 /* NSDictionary+Getter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Getter.h"; path = "network/NSDictionary+Getter.h"; sourceTree = "<group>"; };
+		4CDA4F3E18FE58BF00057419 /* NSDictionary+Getter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Getter.m"; path = "network/NSDictionary+Getter.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +494,8 @@
 				4C174FF918DAFCFE00DFFDC7 /* WHCJsonAPI.m */,
 				4C17500118DC8EB300DFFDC7 /* WHCHttpAPIDelegate.h */,
 				4C17501218E16C6300DFFDC7 /* WHCJsonAPIDelegate.h */,
+				4CDA4F3D18FE58BF00057419 /* NSDictionary+Getter.h */,
+				4CDA4F3E18FE58BF00057419 /* NSDictionary+Getter.m */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -589,8 +591,6 @@
 				4C17503318E509FF00DFFDC7 /* WHCGetMessageSessionAPI.m */,
 				4C2BE1AA18E90B6C008E1FEB /* WHCSendMessageAPI.h */,
 				4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */,
-				4C2BE1AD18E90E9D008E1FEB /* WHCAllMessageSessionAPI.h */,
-				4C2BE1AE18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m */,
 				4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSessionAPI.h */,
 				4C2BE1B118E90EC0008E1FEB /* WHCAddUserToSessionAPI.m */,
 				4C2BE1B318EA66C2008E1FEB /* WHCGetMessagesAPI.h */,
@@ -927,6 +927,7 @@
 				4C3282F118C73247007F69B7 /* WHCModelStore.m in Sources */,
 				4C174FC618D963AF00DFFDC7 /* ASIS3ObjectRequest.m in Sources */,
 				4C17501B18E1953B00DFFDC7 /* WHCUploadContactsAPI.m in Sources */,
+				4CDA4F3F18FE58BF00057419 /* NSDictionary+Getter.m in Sources */,
 				4C2BE1A918E55C0E008E1FEB /* WHCMessageSessionListView.m in Sources */,
 				4C174FBE18D963AF00DFFDC7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				4C174FDE18DAD15300DFFDC7 /* WHCContactShowView.m in Sources */,
@@ -955,7 +956,6 @@
 				4C174FB718D963AF00DFFDC7 /* ASIHTTPRequest.m in Sources */,
 				4C63706E18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m in Sources */,
 				4C174FC718D963AF00DFFDC7 /* ASIS3Request.m in Sources */,
-				4C2BE1AF18E90E9D008E1FEB /* WHCAllMessageSessionAPI.m in Sources */,
 				4C174FBD18D963AF00DFFDC7 /* ASICloudFilesContainerRequest.m in Sources */,
 				4C2BBF0D18FBE1E300CFF820 /* WHCMessageSessionCell.m in Sources */,
 				4C174F6018D70FA900DFFDC7 /* AddressBookUtil.m in Sources */,

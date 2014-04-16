@@ -14,9 +14,8 @@
 
 + (WHCGetMessageSessionAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate toUserId:(NSString *)toUserId
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            toUserId, @"friendId", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:toUserId forKey:@"friendId"];
     return [[WHCGetMessageSessionAPI alloc] initWithJsonDelegate:@"session/findPrivate"
                                                    params:params
                                                  delegate:delegate];
@@ -24,8 +23,9 @@
 
 - (void)successJsonResult
 {
-    self.sessionId = [self getString:@"sessionId"];
-    self.title = [self getString:@"sessionName"];
+    NSDictionary *result = [self getDictionaryData];
+    self.sessionId = [result getString:@"sessionId"];
+    self.title = [result getString:@"sessionName"];
     
     MessageSession *session = [MessageSession getSession:self.sessionId];
     if (session == nil) {

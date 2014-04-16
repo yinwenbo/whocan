@@ -23,12 +23,11 @@
     [message setStatusToSending];
     [MessageSession saveContext];
     
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            message.sessionId, @"sessionId",
-                            message.messageId, @"messageId",
-                            message.content, @"content", nil];
-    
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:message.sessionId forKey:@"sessionId"];
+    [params setObject:message.messageId forKey:@"messageId"];
+    [params setObject:message.content forKey:@"content"];
+        
     WHCSendMessageAPI *result = [[WHCSendMessageAPI alloc] initWithJsonDelegate:@"session/sendMessage"
                                                                          params:params
                                                                         delegate:delegate];

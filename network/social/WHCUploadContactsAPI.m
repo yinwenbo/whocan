@@ -16,9 +16,8 @@
 {
     NSArray *contacts = [AppContact getNotAppUser];
     NSString *phones = [AppContact buildMobileNoParam:contacts];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                   [ClientInfo getToken], @"token",
-                                   phones, @"phones", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:phones forKey:@"phones"];
     return [[WHCUploadContactsAPI alloc] initWithJsonDelegate:@"social/uploadLinkman"
                                                    params:params
                                                  delegate:delegate];

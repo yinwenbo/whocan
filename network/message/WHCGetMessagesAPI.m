@@ -14,9 +14,8 @@
 
 + (WHCGetMessagesAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate sessionId:(id)sessionId
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            sessionId, @"sessionId", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:sessionId forKey:sessionId];
     WHCGetMessagesAPI *result = [[WHCGetMessagesAPI alloc] initWithJsonDelegate:@"session/findMessage"
                                                                          params:params
                                                                        delegate:delegate];
@@ -31,17 +30,17 @@
     }
     AppContact *me = [AppContact findMySelf];
     NSInteger unread = 0;
-    for (NSDictionary *dict in self.data) {
-        NSString *messageId = [self getString:dict key:@"messageId"];
+    for (NSDictionary *dict in [self getDictionaryData]) {
+        NSString *messageId = [dict getString:@"messageId"];
         Message *message = [MessageSession getMessage:self.sessionId messageId:messageId];
         if (message == nil) {
             message = [MessageSession createMessage];
             message.messageId = messageId;
             message.sessionId = self.sessionId;
-            message.content = [self getString:dict key:@"content"];
+            message.content = [dict getString:@"content"];
             unread++;
         }
-        NSString *senderId = [self getString:dict key:@"userId"];
+        NSString *senderId = [dict getString:@"userId"];
         if ([senderId isEqualToString:me.appId]) {
             [message setSenderIsMe];
         } else if (message.senderId == nil) {
@@ -52,7 +51,7 @@
             [message setStatusToSuccess];
         }
         if (message.time == nil){
-            message.time = [self getDate:dict key:@"createTime"];
+            message.time = [dict getDate:@"createTime"];
         }
     }
     [MessageSession saveContext];

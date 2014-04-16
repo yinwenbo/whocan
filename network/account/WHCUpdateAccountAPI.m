@@ -13,13 +13,13 @@
 + (WHCUpdateAccountAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
                           appContact:(AppContact *)appContact
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                   [ClientInfo getToken], @"token",
-                                   appContact.appName, @"userName",
-                                   appContact.icon, @"portrait",
-                                   appContact.gender, @"gender",
-                                   nil];
-
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:appContact.appName forKey:@"userName"];
+    [params setObject:appContact.icon forKey:@"portrait"];
+    if (appContact.gender == nil) {
+        appContact.gender = @"男";
+    }
+    [params setObject:appContact.gender forKey:@"gender"];
     return [[WHCUpdateAccountAPI alloc] initWithJsonDelegate:@"user/modify"
                                                        params:params
                                                      delegate:delegate];

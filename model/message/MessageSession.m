@@ -30,7 +30,9 @@
     for (Message *message in [MessageSession getMessages:session.sessionId]){
         [WHCModelStore deleteEntity:message];
     }
-
+    for (MessageUser *user in [MessageSession getAllUser:session.sessionId]){
+        [WHCModelStore deleteEntity:user];
+    }
     [WHCModelStore deleteEntity:session];
 }
 
@@ -87,9 +89,9 @@
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessionId == %@", sessionId];
     
-    NSArray *sort = [[NSArray alloc]initWithObjects:
-                     [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES], nil];
-    return [WHCModelStore queryEntitys:MESSAGE_NAME predicate:predicate sort:sort];
+//    NSArray *sort = [[NSArray alloc]initWithObjects:
+//                     [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES], nil];
+    return [WHCModelStore queryEntitys:MESSAGE_NAME predicate:predicate sort:nil];
 }
 
 + (MessageUser *)getUser:(NSString *)sessionId userId:(NSString *)userId

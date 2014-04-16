@@ -17,7 +17,7 @@
 
 +(WHCGetFriendsAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:[ClientInfo getToken], @"token", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
     return [[WHCGetFriendsAPI alloc] initWithJsonDelegate:@"social/findAll"
                                                    params:params
                                                  delegate:delegate];
@@ -25,10 +25,11 @@
 
 -(void)successJsonResult
 {
-    NSLog(@"%@", self.data);
+    NSArray * result = [self getArrayData];
     AppContact *mine = [AppContact findMySelf];
-    for (NSDictionary *dict in self.data){
-        NSString * mobileNo = [self getString:dict key:@"phoneNo"];
+    
+    for (NSDictionary *dict in result){
+        NSString * mobileNo = [dict getString:@"phoneNo"];
         AppContact *contact = [AppContact findAppContactByMobileNo:mobileNo];
         if (contact == mine) {
             break;
@@ -37,11 +38,11 @@
             contact = [AppContact createAppContact];
             contact.mobileNo = mobileNo;
         }
-        contact.icon = [self getString:dict key:@"portrait"];
-        contact.gender = [self getString:dict key:@"gender"];
-        contact.appId = [self getString:dict key:@"userId"];
-        contact.appName = [self getString:dict key:@"userName"];
-        contact.status = [self getString:dict key:@"status"];
+        contact.icon = [dict getString:@"portrait"];
+        contact.gender = [dict getString:@"gender"];
+        contact.appId = [dict getString:@"userId"];
+        contact.appName = [dict getString:@"userName"];
+        contact.status = [dict getString:@"status"];
     }
     [AppContact saveContext];
 }

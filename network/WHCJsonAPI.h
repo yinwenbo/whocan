@@ -14,22 +14,21 @@
 #import "ClientInfo.h"
 
 #import "MBProgressHUD.h"
+#import "NSDictionary+Getter.h"
 
 @interface WHCJsonAPI : WHCHttpAPI <WHCHttpAPIDelegate>
 
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, retain) NSString * msg;
-@property (nonatomic, retain) NSDictionary * data;
+@property (nonatomic, retain) NSObject * data;
 @property (nonatomic) BOOL hasException;
+
++ (NSMutableDictionary *)createParameter;
 
 - (id)initWithJsonDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCJsonAPIDelegate>)delegate;
 
-- (NSData *)getDate:(NSString *)key;
-- (NSDate *)getDate:(NSDictionary*)dict key:(NSString*)key;
-
-- (NSString *)getString:(NSString*)key;
-- (NSString *)getString:(NSDictionary*)dict key:(NSString *)key;
-
+- (NSArray *)getArrayData;
+- (NSDictionary *)getDictionaryData;
 
 - (BOOL)isAccessRefuse;
 

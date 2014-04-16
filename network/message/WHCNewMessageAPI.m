@@ -15,12 +15,9 @@
 
 + (WHCNewMessageAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token", nil];
     return [[WHCNewMessageAPI alloc] initWithJsonDelegate:@"session/findNewMessage"
-                                                          params:params
-                                                        delegate:delegate];
-
+                                                   params:[WHCJsonAPI createParameter]
+                                                 delegate:delegate];
 }
 
 + (void)registerNotify:(NSObject*)observer callback:(SEL)callback
@@ -39,12 +36,10 @@
 
 - (void)successJsonResult
 {
-    if ([self.data isKindOfClass:[NSNull class]]) {
-        return ;
-    }
-    
-    for (NSDictionary * dict in self.data[@"sessionUserInfos"]) {
-        [self processSession:dict messages:self.data[@"messages"]];
+    NSDictionary * result = [self getDictionaryData];
+    NSArray * messages = [result getArray:@"messages"];
+    for (NSDictionary * dict in [result getArray:@"sessionUserInfos"]) {
+        [self processSession:dict messages:messages];
     }
     [MessageSession saveContext];
     
@@ -53,14 +48,14 @@
 
 - (void)processSession:(NSDictionary *)dict messages:(NSArray *)messages
 {
-    NSString *sessionId = [self getString:dict key:@"sessionId"];
+    NSString *sessionId = [dict getString:@"sessionId"];
     MessageSession *session = [MessageSession getSession:sessionId];
     if (session == nil) {
         session = [MessageSession createSession];
         session.sessionId = sessionId;
     }
-    session.title = [self getString:dict key:@"sessionName"];
-    NSArray * userList = dict[@"userList"];
+    session.title = [dict getString:@"sessionName"];
+    NSArray * userList = [dict getArray:@"userList"];
     for (NSDictionary * user in userList) {
         AppContact * appContact = [self processUser:user];
         MessageUser * user = [MessageSession getUser:sessionId userId:appContact.appId];
@@ -70,9 +65,8 @@
             user.userId = appContact.appId;
         }
     }
-
     for (NSDictionary * message in messages) {
-        if ([session.sessionId isEqualToString:[self getString:message key:@"sessionId"]]){
+        if ([session.sessionId isEqualToString:[message getString:@"sessionId"]]){
             [self processMessage:message session:session];
         }
     }
@@ -80,39 +74,39 @@
 
 - (AppContact *)processUser:(NSDictionary *)dict
 {
-    NSString * userId = [self getString:dict key:@"userId"];
+    NSString * userId = [dict getString:@"userId"];
     AppContact * result = [AppContact findAppContactByAppId:userId];
     if (result == nil) {
         result = [AppContact createAppContact];
         result.appId = userId;
     }
-    result.appName = [self getString:dict key:@"userName"];
-    result.gender = [self getString:dict key:@"gender"];
-    result.icon = [self getString:dict key:@"portrait"];
+    result.appName = [dict getString:@"userName"];
+    result.gender = [dict getString:@"gender"];
+    result.icon = [dict getString:@"portrait"];
     return result;
 }
 
 - (void)processMessage:(NSDictionary *)dict session:(MessageSession *)session
 {
-    NSString *messageId = [self getString:dict key:@"messageId"];
+    NSString *messageId = [dict getString:@"messageId"];
     NSString *sessionId = session.sessionId;
     Message *message = [MessageSession getMessage:sessionId messageId:messageId];
     if (message == nil) {
         message = [MessageSession createMessage];
         message.messageId = messageId;
         message.sessionId = sessionId;
-        message.content = [self getString:dict key:@"content"];
-        message.senderId = [self getString:dict key:@"userId"];
+        message.content = [dict getString:@"content"];
+        message.senderId = [dict getString:@"fromUser"];
+        message.type = [dict getString:@"msgType"];
         session.unread = [NSNumber numberWithLongLong:[session.unread longLongValue] + 1];
-        session.lastupdate = [self getDate:dict key:@"createTime"];
+        session.lastupdate = [dict getDate:@"createTime"];
     }
     if ([message isSendFailed] || [message isSending]) {
         [message setStatusToSuccess];
     }
     if (message.time == nil){
-        message.time = [self getDate:dict key:@"createTime"];
+        message.time = [dict getDate:@"createTime"];
     }
-
 }
 
 @end

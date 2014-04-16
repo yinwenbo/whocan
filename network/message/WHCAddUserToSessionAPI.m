@@ -15,9 +15,8 @@
 + (WHCAddUserToSessionAPI *)getInstance:(id<WHCJsonAPIDelegate>)delegate
                           appContact:(AppContact*)appContact
 {
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            appContact.appId, @"friendId", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:appContact.appId forKey:@"friendId"];
     return [[WHCAddUserToSessionAPI alloc] initWithJsonDelegate:@"session/findPrivate"
                                                          params:params
                                                        delegate:delegate];
@@ -27,26 +26,26 @@
                            sessionId:(NSString*)sessionId
                                 list:(NSArray*)appContactList
 {
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
     NSString *userIds = [AppContact buildAppIdParam:appContactList];
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            userIds, @"userIds", nil];
+    [params setObject:userIds forKey:@"userIds"];
     return [[WHCAddUserToSessionAPI alloc] initWithJsonDelegate:@"session/addUser"
                                                       params:params
                                                     delegate:delegate];
 }
 - (void)successJsonResult
 {
-    self.sessionId = [self getString:@"sessionId"];
-    self.title = [self getString:@"sessionName"];
+    NSDictionary *result = [self getDictionaryData];
+    self.sessionId = [result getString:@"sessionId"];
+    self.title = [result getString:@"sessionName"];
     MessageSession *session = [MessageSession createSession];
     session.sessionId = self.sessionId;
     session.title = self.title;
     
-    for (NSDictionary *user in [self.data objectForKey:@"userList"]){
+    for (NSDictionary *user in [result getArray:@"userList"]){
         MessageUser *messageUser = [MessageSession createUser];
-        messageUser.userId = [user objectForKey:@"userId"];
-        messageUser.userName = [user objectForKey:@"userName"];
+        messageUser.userId = [user getString:@"userId"];
+        messageUser.userName = [user getString:@"userName"];
     }
     
     [MessageSession saveContext];

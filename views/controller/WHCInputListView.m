@@ -54,6 +54,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews
+{
+    
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

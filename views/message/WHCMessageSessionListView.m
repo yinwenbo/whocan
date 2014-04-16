@@ -127,7 +127,13 @@
 }
 
 - (UIImage *)addImage:(MessageSession *)session {
-    NSArray * users = [MessageSession getAllUser:session.sessionId];
+    NSMutableArray * users = [NSMutableArray arrayWithArray:[MessageSession getAllUser:session.sessionId]];
+    AppContact * mine = [AppContact findMySelf];
+    for (MessageUser *user in users) {
+        if ([user.userId isEqualToString:mine.appId]) {
+            [users removeObject:user];
+        }
+    }
     if ([users count] == 1) {
         MessageUser * messageUser = [users objectAtIndex:0];
         return [[AppContact findAppContactByAppId: messageUser.userId] getIcon];

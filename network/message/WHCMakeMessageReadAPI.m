@@ -16,9 +16,8 @@
 {
     NSString *lastMessageId = [MessageSession getLastMessage:sessionId].messageId;
     
-    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [ClientInfo getToken], @"token",
-                            lastMessageId, @"readTag", nil];
+    NSMutableDictionary *params = [WHCJsonAPI createParameter];
+    [params setObject:lastMessageId forKey:@"readTag"];
     WHCMakeMessageReadAPI *request = [[WHCMakeMessageReadAPI alloc] initWithJsonDelegate:@"session/sendAck"
                                                                                   params:params
                                                                                 delegate:delegate];
