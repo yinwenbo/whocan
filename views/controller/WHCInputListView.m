@@ -32,11 +32,28 @@
                                               object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(onKeyboardChangeFrame:)
+                                                name:UIKeyboardWillChangeFrameNotification
+                                              object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self
+                                                   name:UIKeyboardWillChangeFrameNotification
+                                                 object:nil];
+    [_inputText resignFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -51,30 +68,31 @@
 #pragma mark ----键盘高度变化------
 -(void)onKeyboardChangeFrame:(NSNotification *)aNotifacation
 {
-    //获取到键盘frame 变化之前的frame
-    NSValue *keyboardBeginBounds=[[aNotifacation userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect beginRect=[keyboardBeginBounds CGRectValue];
+    NSDictionary *info = [aNotifacation userInfo];
+    CGRect beginKeyboardRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect endKeyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    //获取到键盘frame变化之后的frame
-    NSValue *keyboardEndBounds=[[aNotifacation userInfo]objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat yOffset = endKeyboardRect.origin.y - beginKeyboardRect.origin.y;
     
-    CGRect endRect=[keyboardEndBounds CGRectValue];
+    CGRect inputFieldRect = self.view.frame;
     
-    CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
+    if (yOffset < 0) {
+        inputFieldRect.origin.y += yOffset;
+    } else if (yOffset == 0) {
+        inputFieldRect.origin.y =  - endKeyboardRect.size.height;
+    } else {
+        inputFieldRect.origin.y = 0;
+    }
+    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];    
+    [UIView animateWithDuration:duration animations:^{
+        [self.view setFrame:inputFieldRect];
+    }];
+
+
     //拿frame变化之后的origin.y-变化之前的origin.y，其差值(带正负号)就是我们self.view的y方向上的增量
-    
-    NSLog(@"deltaY:%f",deltaY);
-    [CATransaction begin];
-    [UIView animateWithDuration:0.2f
-                     animations:^{
-                         [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY, self.view.frame.size.width, self.view.frame.size.height)];
-                         [_tableView setContentInset:UIEdgeInsetsMake(_tableView.contentInset.top-deltaY, 0, 0, 0)];
-                         
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }];
-    [CATransaction commit];
+    NSLog(@"%@", [aNotifacation userInfo]);
+    NSLog(@"input view: %@", NSStringFromCGRect(self.inputView.frame));
+    NSLog(@"deltaY:%f",yOffset);
 }
 
 /*
