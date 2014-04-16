@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "NSDictionary+Getter.h"
+#import "NSDictionary+JsonParser.h"
 
-@implementation NSDictionary (Getter)
+@implementation NSDictionary (JsonParser)
 
 /*
  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];

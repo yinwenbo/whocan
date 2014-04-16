@@ -14,7 +14,7 @@
 #import "ClientInfo.h"
 
 #import "MBProgressHUD.h"
-#import "NSDictionary+Getter.h"
+#import "NSDictionary+JsonParser.h"
 
 @interface WHCJsonAPI : WHCHttpAPI <WHCHttpAPIDelegate>
 

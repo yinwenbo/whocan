@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (Getter)
+@interface NSDictionary (JsonParser)
 
 - (NSDictionary *)getDictionary:(NSString *)key;
 - (NSString *)getString:(NSString *)key;
