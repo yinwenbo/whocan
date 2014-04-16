@@ -31,7 +31,7 @@
     for (NSDictionary *dict in result){
         NSString * mobileNo = [dict getString:@"phoneNo"];
         AppContact *contact = [AppContact findAppContactByMobileNo:mobileNo];
-        if (contact == mine) {
+        if ([mobileNo isEqualToString:mine.mobileNo]) {
             break;
         }
         if (contact == nil){

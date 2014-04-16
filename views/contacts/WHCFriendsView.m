@@ -49,6 +49,9 @@
     if ([appContact isInviteMe]) {
         return @"InviteMeCell";
     }
+    if ([appContact isMySelf]) {
+        return @"MySelfCell";
+    }
     return @"NotFriendCell";
 }
 

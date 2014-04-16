@@ -43,6 +43,7 @@
     AppContact *mine = [AppContact findMySelf];
     mine.appName = _name.text;
     mine.icon = _iconView.iconName;
+    mine.gender = @"男";
     WHCUpdateAccountAPI *updateApi = [WHCUpdateAccountAPI getInstance:self appContact:mine];
     [updateApi synchronize];
     if ([updateApi isSuccess]) {

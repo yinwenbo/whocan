@@ -32,8 +32,8 @@
     if (mine == nil){
         mine = [AppContact createAppContact];
         mine.mobileNo = [result getString:@"phoneNo"];
-        [mine setToMine];
     }
+    [mine setToMine];    
     mine.gender = [result getString:@"gender"];
     mine.token = [result getString:@"userToken"];
     mine.appId = [result getString:@"userId"];
