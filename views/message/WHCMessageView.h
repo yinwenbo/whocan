@@ -17,8 +17,6 @@
 
 #import "MessageSession.h"
 #import "WHCNewMessageAPI.h"
-#import "WHCGetMessageSessionAPI.h"
-#import "WHCGetMessagesAPI.h"
 #import "WHCSendMessageAPI.h"
 
 @interface WHCMessageView : WHCInputListView <WHCJsonAPIDelegate> {

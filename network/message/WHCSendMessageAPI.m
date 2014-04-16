@@ -15,11 +15,13 @@
 + (WHCSendMessageAPI*)getInstance:(id<WHCJsonAPIDelegate>)delegate
                         sessionId:(NSString*)sessionId
                           content:(NSString*)content {
+    MessageSession *session = [MessageSession getSession:sessionId];
     Message *message = [MessageSession createMessage];
     message.sessionId = sessionId;
     message.content = content;
     message.messageId = [[[NSUUID alloc] init] UUIDString];
     message.senderId = [AppContact findMySelf].appId;
+    session.detail = content;
     [message setStatusToSending];
     [MessageSession saveContext];
     

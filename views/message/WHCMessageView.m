@@ -10,6 +10,7 @@
 
 @interface WHCMessageView () {
     MessageSession * _session;
+    AppContact * _friend;
     NSMutableArray * _messages;
 }
 
@@ -78,9 +79,18 @@
     [self refreshTableView];
 }
 
+- (void)setAppContact:(AppContact *)appContact
+{
+    _friend = appContact;
+    [self setMessageSession:[MessageSession getSession:appContact.appId]];
+}
+
 - (void)refreshTableView
 {
-    NSArray *messages = [MessageSession getMessages:_session.sessionId];
+    NSArray *messages = nil;
+    if (_session) {
+        messages = [MessageSession getMessages:_session.sessionId];
+    }
     if (messages) {
         _messages = [NSMutableArray arrayWithArray:messages];
     } else {
@@ -89,39 +99,29 @@
     [_tableView reloadData];
 }
 
-- (void)setAppContact:(AppContact *)appContact
-{
-    MessageSession *session = nil;
-    if (appContact.messageSessionId == nil){
-        WHCGetMessageSessionAPI * sessionApi =[WHCGetMessageSessionAPI getInstance:self
-                                                                          toUserId:appContact.appId];
-        [sessionApi synchronize];
-        appContact.messageSessionId = sessionApi.sessionId;
-        [AppContact saveContext];
-    }
-    
-    session = [MessageSession getSession:appContact.messageSessionId];
-    if (session == nil) {
-        
-    }
-    
-    [self setMessageSession:session];
-}
 
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
 
 }
 
-- (void)onRequestIsFailed:(WHCHttpAPI *)api
-{
-}
-
 - (IBAction)sendMessage:(id)sender
 {
+    NSString * content = _inputText.text;
+    if (content.length == 0) {
+        return;
+    }
+    if (_session == nil) {
+        _session = [MessageSession createSession];
+        _session.sessionId = _friend.appId;
+        _session.title = _friend.appName;
+        _session.detail = content;
+        [MessageSession saveContext];
+    }
+    
     WHCSendMessageAPI *sendMessage = [WHCSendMessageAPI getInstance:self
                                                           sessionId:_session.sessionId
-                                                            content:_inputText.text];
+                                                            content:content];
     [_messages addObject:sendMessage.message];
     [sendMessage asynchronize];
     [_tableView beginUpdates];
@@ -155,7 +155,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_messages count];
+    if (_messages) {
+        return [_messages count];
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

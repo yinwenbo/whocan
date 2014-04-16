@@ -58,7 +58,6 @@
 		4C17502118E1A3F800DFFDC7 /* WHCAddFriendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502018E1A3F800DFFDC7 /* WHCAddFriendAPI.m */; };
 		4C17502418E2F6EE00DFFDC7 /* WHCContactEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17502318E2F6EE00DFFDC7 /* WHCContactEditView.m */; };
 		4C17503118E407A900DFFDC7 /* WHCMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17503018E407A900DFFDC7 /* WHCMessageView.m */; };
-		4C17503418E509FF00DFFDC7 /* WHCGetMessageSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C17503318E509FF00DFFDC7 /* WHCGetMessageSessionAPI.m */; };
 		4C2314E318F39D05000CDAE7 /* WHCProjectTaskListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2314E218F39D05000CDAE7 /* WHCProjectTaskListView.m */; };
 		4C2314E618F3D493000CDAE7 /* ProjectTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2314E518F3D493000CDAE7 /* ProjectTasks.m */; };
 		4C2314EA18F40316000CDAE7 /* WHCProjectTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2314E918F40316000CDAE7 /* WHCProjectTaskCell.m */; };
@@ -225,8 +224,6 @@
 		4C17502318E2F6EE00DFFDC7 /* WHCContactEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCContactEditView.m; path = views/contacts/WHCContactEditView.m; sourceTree = "<group>"; };
 		4C17502F18E407A900DFFDC7 /* WHCMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCMessageView.h; path = views/message/WHCMessageView.h; sourceTree = "<group>"; };
 		4C17503018E407A900DFFDC7 /* WHCMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCMessageView.m; path = views/message/WHCMessageView.m; sourceTree = "<group>"; };
-		4C17503218E509FF00DFFDC7 /* WHCGetMessageSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCGetMessageSessionAPI.h; path = network/message/WHCGetMessageSessionAPI.h; sourceTree = "<group>"; };
-		4C17503318E509FF00DFFDC7 /* WHCGetMessageSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCGetMessageSessionAPI.m; path = network/message/WHCGetMessageSessionAPI.m; sourceTree = "<group>"; };
 		4C2314E118F39D05000CDAE7 /* WHCProjectTaskListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCProjectTaskListView.h; path = views/project/WHCProjectTaskListView.h; sourceTree = "<group>"; };
 		4C2314E218F39D05000CDAE7 /* WHCProjectTaskListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCProjectTaskListView.m; path = views/project/WHCProjectTaskListView.m; sourceTree = "<group>"; };
 		4C2314E418F3D493000CDAE7 /* ProjectTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectTasks.h; path = model/project/ProjectTasks.h; sourceTree = "<group>"; };
@@ -587,8 +584,6 @@
 			children = (
 				4C2BBF0418FBD25700CFF820 /* WHCNewMessageAPI.h */,
 				4C2BBF0518FBD25700CFF820 /* WHCNewMessageAPI.m */,
-				4C17503218E509FF00DFFDC7 /* WHCGetMessageSessionAPI.h */,
-				4C17503318E509FF00DFFDC7 /* WHCGetMessageSessionAPI.m */,
 				4C2BE1AA18E90B6C008E1FEB /* WHCSendMessageAPI.h */,
 				4C2BE1AB18E90B6C008E1FEB /* WHCSendMessageAPI.m */,
 				4C2BE1B018E90EC0008E1FEB /* WHCAddUserToSessionAPI.h */,
@@ -970,7 +965,6 @@
 				4C2BE1BE18EBDD85008E1FEB /* MessageSession.m in Sources */,
 				4CDA4F1218FCD14100057419 /* WHCTextEditView.m in Sources */,
 				4C174FB518D963AF00DFFDC7 /* ASIDownloadCache.m in Sources */,
-				4C17503418E509FF00DFFDC7 /* WHCGetMessageSessionAPI.m in Sources */,
 				4C174FFA18DAFCFE00DFFDC7 /* WHCJsonAPI.m in Sources */,
 				4C2314ED18F40CD0000CDAE7 /* WHCProjectTaskView.m in Sources */,
 				4C174FC318D963AF00DFFDC7 /* ASIS3Bucket.m in Sources */,

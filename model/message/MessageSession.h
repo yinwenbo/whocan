@@ -40,4 +40,6 @@
 + (NSArray *)getAllUser:(NSString *)sessionId;
 
 + (void)saveContext;
+
+- (UIImage *)getIcon;
 @end

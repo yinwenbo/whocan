@@ -115,4 +115,38 @@
     [WHCModelStore saveContext];
 }
 
+- (UIImage *)getIcon
+{
+    AppContact * user = [AppContact findAppContactByAppId:self.sessionId];
+    if (user) {
+        return [user getIcon];
+    }
+    return [self getSessionIcon];
+}
+
+- (UIImage *)getSessionIcon
+{
+    return nil;
+    NSMutableArray * users = [NSMutableArray arrayWithArray:[MessageSession getAllUser:self.sessionId]];
+    AppContact * mine = [AppContact findMySelf];
+    for (MessageUser *user in users) {
+        if ([user.userId isEqualToString:mine.appId]) {
+            [users removeObject:user];
+        }
+    }
+    
+    UIGraphicsBeginImageContext(CGSizeMake(200, 200));
+    
+    for (int i = 0 ; i < [users count]; i++) {
+        MessageUser * messageUser = [users objectAtIndex:i];
+        UIImage * icon = [[AppContact findAppContactByAppId: messageUser.userId] getIcon];
+        [icon drawInRect: CGRectMake(1 + (i % 3 * 16), 1 + (i % 3 * 16), 64, 64)];
+    }
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
+}
+
 @end

@@ -37,16 +37,21 @@
 - (void)successJsonResult
 {
     NSDictionary * result = [self getDictionaryData];
-    NSArray * messages = [result getArray:@"messages"];
     for (NSDictionary * dict in [result getArray:@"sessionUserInfos"]) {
-        [self processSession:dict messages:messages];
+        [self processSession:dict];
     }
+    [MessageSession saveContext];
+    NSArray * messages = [result getArray:@"messages"];
+    for (NSDictionary * message in messages) {
+        [self processMessage:message];
+    }
+
     [MessageSession saveContext];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_RECEIVED_NOTIFY_NAME object:nil];
 }
 
-- (void)processSession:(NSDictionary *)dict messages:(NSArray *)messages
+- (void)processSession:(NSDictionary *)dict
 {
     NSString *sessionId = [dict getString:@"sessionId"];
     MessageSession *session = [MessageSession getSession:sessionId];
@@ -65,11 +70,6 @@
             user.userId = appContact.appId;
         }
     }
-    for (NSDictionary * message in messages) {
-        if ([session.sessionId isEqualToString:[message getString:@"sessionId"]]){
-            [self processMessage:message session:session];
-        }
-    }
 }
 
 - (AppContact *)processUser:(NSDictionary *)dict
@@ -86,17 +86,30 @@
     return result;
 }
 
-- (void)processMessage:(NSDictionary *)dict session:(MessageSession *)session
+- (void)processMessage:(NSDictionary *)dict
 {
     NSString *messageId = [dict getString:@"messageId"];
-    NSString *sessionId = session.sessionId;
+    NSString *sessionId = [dict getString:@"sessionId"];
+    NSString *senderId = [dict getString:@"fromUser"];
+    MessageSession *session = [MessageSession getSession:sessionId];
+    if (session == nil) {
+        AppContact *appContact = [AppContact findAppContactByAppId:sessionId];
+        if (appContact) {
+            session = [MessageSession createSession];
+            session.sessionId = sessionId;
+            session.title = appContact.appName;
+            [MessageSession saveContext];
+        } else {
+            return;
+        }
+    }
     Message *message = [MessageSession getMessage:sessionId messageId:messageId];
     if (message == nil) {
         message = [MessageSession createMessage];
         message.messageId = messageId;
         message.sessionId = sessionId;
         message.content = [dict getString:@"content"];
-        message.senderId = [dict getString:@"fromUser"];
+        message.senderId = senderId;
         message.type = [dict getString:@"msgType"];
         session.unread = [NSNumber numberWithLongLong:[session.unread longLongValue] + 1];
         session.lastupdate = [dict getDate:@"createTime"];

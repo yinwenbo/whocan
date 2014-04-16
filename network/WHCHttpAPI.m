@@ -32,8 +32,6 @@
         [_request setDelegate:self];
         [_request setTimeOutSeconds:30];
         _delegate = delegate;
-        NSLog(@"post url: %@", url);
-        NSLog(@"post form: %@", params);
         for(NSString *key in params){
             [_request setPostValue:params[key] forKey:key];
         }
@@ -75,6 +73,8 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+    NSLog(@"post url: %@", request.url);
+    NSLog(@"post form: %@", [[NSString alloc] initWithData:request.postBody encoding:NSUTF8StringEncoding]);
     NSLog(@"response code %d", [request responseStatusCode]);
     self.hasError = ([_request responseStatusCode] != 200);
     [_delegate onHttpRequestFinished:self];

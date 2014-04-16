@@ -120,37 +120,9 @@
     }
     
     [cell.title setText:session.title];
-    Message * message = [MessageSession getLastMessage:session.sessionId];
-    [cell.detail setText:message.content];
-//    [cell.icon setImage:[self addImage:session]];
+    [cell.detail setText:session.detail];
+    [cell.icon setImage:[session getIcon]];
     return cell;
-}
-
-- (UIImage *)addImage:(MessageSession *)session {
-    NSMutableArray * users = [NSMutableArray arrayWithArray:[MessageSession getAllUser:session.sessionId]];
-    AppContact * mine = [AppContact findMySelf];
-    for (MessageUser *user in users) {
-        if ([user.userId isEqualToString:mine.appId]) {
-            [users removeObject:user];
-        }
-    }
-    if ([users count] == 1) {
-        MessageUser * messageUser = [users objectAtIndex:0];
-        return [[AppContact findAppContactByAppId: messageUser.userId] getIcon];
-    }
-    
-    UIGraphicsBeginImageContext(CGSizeMake(200, 200));
-    
-    for (int i = 0 ; i < [users count]; i++) {
-        MessageUser * messageUser = [users objectAtIndex:i];
-        UIImage * icon = [[AppContact findAppContactByAppId: messageUser.userId] getIcon];
-        [icon drawInRect: CGRectMake(1 + (i % 3 * 16), 1 + (i % 3 * 16), 64, 64)];
-    }
-    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return resultingImage;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
