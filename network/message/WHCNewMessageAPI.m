@@ -111,6 +111,7 @@
         message.content = [dict getString:@"content"];
         message.senderId = senderId;
         message.type = [dict getString:@"msgType"];
+        session.detail = message.content;
         session.unread = [NSNumber numberWithLongLong:[session.unread longLongValue] + 1];
         session.lastupdate = [dict getDate:@"createTime"];
     }
