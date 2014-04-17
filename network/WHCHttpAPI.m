@@ -47,11 +47,13 @@
 - (void)synchronize
 {
     _isSynchronize = YES;
+    [[BaiduMobStat defaultStat] eventStart:@"net_delay" eventLabel:[[self class] description]];
     [_request startSynchronous];
 }
 
 - (void)asynchronize
 {
+    [[BaiduMobStat defaultStat] eventStart:@"net_delay" eventLabel:[[self class] description]];
     [_request startAsynchronous];
 }
 
@@ -73,6 +75,7 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+    [[BaiduMobStat defaultStat] eventEnd:@"net_delay" eventLabel:[[self class] description]];
     NSLog(@"post url: %@", request.url);
     NSLog(@"post form: %@", [[NSString alloc] initWithData:request.postBody encoding:NSUTF8StringEncoding]);
     NSLog(@"response code %d", [request responseStatusCode]);
@@ -82,8 +85,20 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    [[BaiduMobStat defaultStat] eventEnd:@"net_delay" eventLabel:[[self class] description]];
     self.hasError = ([_request responseStatusCode] != 200);
     [_delegate onHttpRequestFinished:self];
+}
+
+- (void)recordErrorLog
+{
+    if (hasError) {
+        NSString *name = [NSString stringWithFormat:@"%@ %d %@",
+                          [[self class] description],
+                          [_request responseStatusCode],
+                          [self getErrorMessage]];
+        [[BaiduMobStat defaultStat] logEvent:@"net_error" eventLabel:name];
+    }
 }
 
 - (NSString *)getResponseText

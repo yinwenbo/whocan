@@ -60,7 +60,7 @@
 {
     NSArray *messages = [MessageSession getMessages:_session.sessionId];
     
-    for ( long long i = [_messages count]; i < [messages count]; i++) {
+    for ( NSInteger i = [_messages count]; i < [messages count]; i++) {
         [_messages addObject:[messages objectAtIndex:i]];
         [_tableView beginUpdates];
         [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[_messages count] - 1 inSection:0]]

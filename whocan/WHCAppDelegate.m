@@ -10,6 +10,8 @@
 
 #import "WHCNewMessageAPI.h"
 
+#import "BaiduMobStat.h"
+
 @interface WHCAppDelegate()
 
 @end
@@ -22,6 +24,17 @@
     [AppContact exportPhoneABToAppContacts];
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+    
+    BaiduMobStat * statTracker = [BaiduMobStat defaultStat];
+    statTracker.enableExceptionLog = YES;
+    statTracker.channelId = @"dev";
+    statTracker.logStrategy = BaiduMobStatLogStrategyAppLaunch;
+    statTracker.logSendInterval = 1;
+    statTracker.logSendWifiOnly = NO;
+    statTracker.sessionResumeInterval = 60;
+    statTracker.enableDebugOn = YES;
+    [statTracker startWithAppId:@"0f35e341b8"];
+    
     return YES;
 }
 							

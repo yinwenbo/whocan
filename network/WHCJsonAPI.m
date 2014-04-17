@@ -49,6 +49,9 @@
     if ([@"0000" isEqualToString:code]){
         hasException = NO;
         return;
+    } else {
+        NSString *name = [NSString stringWithFormat:@"%@ %@", code, msg];
+        [[BaiduMobStat defaultStat] logEvent:@"net_exception" eventLabel:name];
     }
 }
 

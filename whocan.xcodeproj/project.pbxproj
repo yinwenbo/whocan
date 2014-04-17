@@ -13,7 +13,6 @@
 		4C174F6018D70FA900DFFDC7 /* AddressBookUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F5F18D70FA900DFFDC7 /* AddressBookUtil.m */; };
 		4C174F6518D71C0C00DFFDC7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */; };
 		4C174F6718D71C4F00DFFDC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6618D71C4F00DFFDC7 /* SystemConfiguration.framework */; };
-		4C174F6B18D71CED00DFFDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6A18D71CED00DFFDC7 /* libz.dylib */; };
 		4C174F6D18D71D2300DFFDC7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6C18D71D2300DFFDC7 /* MobileCoreServices.framework */; };
 		4C174F7618D8468400DFFDC7 /* WHCContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F7518D8468400DFFDC7 /* WHCContactCell.m */; };
 		4C174F7918D85E4200DFFDC7 /* AppContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C174F7818D85E4200DFFDC7 /* AppContact.m */; };
@@ -107,6 +106,22 @@
 		4CDA4F3818FCFD5B00057419 /* WHCSmsSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3418FCFD5B00057419 /* WHCSmsSendView.m */; };
 		4CDA4F3B18FD2BD700057419 /* WHCMakeMessageReadAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3A18FD2BD700057419 /* WHCMakeMessageReadAPI.m */; };
 		4CDA4F3F18FE58BF00057419 /* NSDictionary+JsonParserr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F3E18FE58BF00057419 /* NSDictionary+JsonParserr.m */; };
+		4CDA4F6418FFB00B00057419 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F4918FFB00B00057419 /* CDataScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6518FFB00B00057419 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F4C18FFB00B00057419 /* CFilteringJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6618FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F4E18FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6718FFB00B00057419 /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5018FFB00B00057419 /* CJSONSerialization.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6818FFB00B00057419 /* CJSONSerializedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5218FFB00B00057419 /* CJSONSerializedData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6918FFB00B00057419 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5518FFB00B00057419 /* CDataScanner_Extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6A18FFB00B00057419 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5718FFB00B00057419 /* NSDictionary_JSONExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6B18FFB00B00057419 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5A18FFB00B00057419 /* CJSONDeserializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6C18FFB00B00057419 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5C18FFB00B00057419 /* CJSONScanner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F6D18FFB00B00057419 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F5E18FFB00B00057419 /* CJSONSerializer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4CDA4F7018FFB14000057419 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F6F18FFB14000057419 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4CDA4F8718FFBA0000057419 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8618FFBA0000057419 /* Security.framework */; };
+		4CDA4F8918FFBA2700057419 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8818FFBA2700057419 /* libstdc++.dylib */; };
+		4CDA4F8B18FFBA3600057419 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8A18FFBA3600057419 /* libz.1.2.5.dylib */; };
+		4CDA4F9118FFBCB500057419 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8218FFB70F00057419 /* libBaiduMobStat.a */; };
+		4CDA4F9318FFBCEB00057419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +324,37 @@
 		4CDA4F3A18FD2BD700057419 /* WHCMakeMessageReadAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCMakeMessageReadAPI.m; path = network/message/WHCMakeMessageReadAPI.m; sourceTree = "<group>"; };
 		4CDA4F3D18FE58BF00057419 /* NSDictionary+JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JsonParser.h"; path = "network/NSDictionary+JsonParser.h"; sourceTree = "<group>"; };
 		4CDA4F3E18FE58BF00057419 /* NSDictionary+JsonParserr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JsonParserr.m"; path = "network/NSDictionary+JsonParserr.m"; sourceTree = "<group>"; };
+		4CDA4F4818FFB00B00057419 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		4CDA4F4918FFB00B00057419 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		4CDA4F4B18FFB00B00057419 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
+		4CDA4F4C18FFB00B00057419 /* CFilteringJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFilteringJSONSerializer.m; sourceTree = "<group>"; };
+		4CDA4F4D18FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer_BlocksExtensions.h; sourceTree = "<group>"; };
+		4CDA4F4E18FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer_BlocksExtensions.m; sourceTree = "<group>"; };
+		4CDA4F4F18FFB00B00057419 /* CJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerialization.h; sourceTree = "<group>"; };
+		4CDA4F5018FFB00B00057419 /* CJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerialization.m; sourceTree = "<group>"; };
+		4CDA4F5118FFB00B00057419 /* CJSONSerializedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializedData.h; sourceTree = "<group>"; };
+		4CDA4F5218FFB00B00057419 /* CJSONSerializedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializedData.m; sourceTree = "<group>"; };
+		4CDA4F5418FFB00B00057419 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		4CDA4F5518FFB00B00057419 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		4CDA4F5618FFB00B00057419 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		4CDA4F5718FFB00B00057419 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		4CDA4F5918FFB00B00057419 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		4CDA4F5A18FFB00B00057419 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		4CDA4F5B18FFB00B00057419 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		4CDA4F5C18FFB00B00057419 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		4CDA4F5D18FFB00B00057419 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		4CDA4F5E18FFB00B00057419 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		4CDA4F5F18FFB00B00057419 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		4CDA4F6F18FFB14000057419 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		4CDA4F7A18FFB6AF00057419 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaiduMobStat.a; path = "3rd/baidu/Release-iphoneos/libBaiduMobStat.a"; sourceTree = "<group>"; };
+		4CDA4F8118FFB70F00057419 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
+		4CDA4F8218FFB70F00057419 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
+		4CDA4F8418FFB9D000057419 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		4CDA4F8618FFBA0000057419 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4CDA4F8818FFBA2700057419 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		4CDA4F8A18FFBA3600057419 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		4CDA4F8F18FFBBB400057419 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaiduMobStat.a; path = "3rd/baidu/universal-bin/libBaiduMobStat.a"; sourceTree = "<group>"; };
+		4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,12 +362,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDA4F9318FFBCEB00057419 /* CoreLocation.framework in Frameworks */,
+				4CDA4F9118FFBCB500057419 /* libBaiduMobStat.a in Frameworks */,
+				4CDA4F7018FFB14000057419 /* AdSupport.framework in Frameworks */,
+				4CDA4F8718FFBA0000057419 /* Security.framework in Frameworks */,
 				4C174FE918DAE1E300DFFDC7 /* CoreTelephony.framework in Frameworks */,
 				4C174FCA18D965E400DFFDC7 /* libxml2.dylib in Frameworks */,
 				4C71607018BF534F00C02D99 /* CoreGraphics.framework in Frameworks */,
 				4C174F6D18D71D2300DFFDC7 /* MobileCoreServices.framework in Frameworks */,
-				4C174F6B18D71CED00DFFDC7 /* libz.dylib in Frameworks */,
 				4C174F6718D71C4F00DFFDC7 /* SystemConfiguration.framework in Frameworks */,
+				4CDA4F8B18FFBA3600057419 /* libz.1.2.5.dylib in Frameworks */,
+				4CDA4F8918FFBA2700057419 /* libstdc++.dylib in Frameworks */,
 				4C174F6518D71C0C00DFFDC7 /* CFNetwork.framework in Frameworks */,
 				4C3282D418C570CA007F69B7 /* AddressBook.framework in Frameworks */,
 				4C3282D518C570CA007F69B7 /* AddressBookUI.framework in Frameworks */,
@@ -369,6 +420,7 @@
 		4C174F1118D7096300DFFDC7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				4CDA4F4018FFB00B00057419 /* baidu */,
 				4C2BBF0718FBD64100CFF820 /* Controllers */,
 				4C63705E18EE496D00E7AE10 /* Progress */,
 				4C17500E18E112B700DFFDC7 /* utils */,
@@ -721,6 +773,14 @@
 		4C71606C18BF534F00C02D99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */,
+				4CDA4F8F18FFBBB400057419 /* libBaiduMobStat.a */,
+				4CDA4F8A18FFBA3600057419 /* libz.1.2.5.dylib */,
+				4CDA4F8818FFBA2700057419 /* libstdc++.dylib */,
+				4CDA4F8618FFBA0000057419 /* Security.framework */,
+				4CDA4F8418FFB9D000057419 /* libc++.dylib */,
+				4CDA4F7A18FFB6AF00057419 /* libBaiduMobStat.a */,
+				4CDA4F6F18FFB14000057419 /* AdSupport.framework */,
 				4C174FE818DAE1E300DFFDC7 /* CoreTelephony.framework */,
 				4C174FC918D965E400DFFDC7 /* libxml2.dylib */,
 				4C174F6C18D71D2300DFFDC7 /* MobileCoreServices.framework */,
@@ -794,6 +854,77 @@
 			);
 			name = controller;
 			path = views/controller;
+			sourceTree = "<group>";
+		};
+		4CDA4F4018FFB00B00057419 /* baidu */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA4F8018FFB70F00057419 /* Release-iphoneos */,
+				4CDA4F4718FFB00B00057419 /* TouchJSON */,
+			);
+			name = baidu;
+			path = 3rd/baidu;
+			sourceTree = "<group>";
+		};
+		4CDA4F4718FFB00B00057419 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA4F4818FFB00B00057419 /* CDataScanner.h */,
+				4CDA4F4918FFB00B00057419 /* CDataScanner.m */,
+				4CDA4F4A18FFB00B00057419 /* Experimental */,
+				4CDA4F5318FFB00B00057419 /* Extensions */,
+				4CDA4F5818FFB00B00057419 /* JSON */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		4CDA4F4A18FFB00B00057419 /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA4F4B18FFB00B00057419 /* CFilteringJSONSerializer.h */,
+				4CDA4F4C18FFB00B00057419 /* CFilteringJSONSerializer.m */,
+				4CDA4F4D18FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.h */,
+				4CDA4F4E18FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m */,
+				4CDA4F4F18FFB00B00057419 /* CJSONSerialization.h */,
+				4CDA4F5018FFB00B00057419 /* CJSONSerialization.m */,
+				4CDA4F5118FFB00B00057419 /* CJSONSerializedData.h */,
+				4CDA4F5218FFB00B00057419 /* CJSONSerializedData.m */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		4CDA4F5318FFB00B00057419 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA4F5418FFB00B00057419 /* CDataScanner_Extensions.h */,
+				4CDA4F5518FFB00B00057419 /* CDataScanner_Extensions.m */,
+				4CDA4F5618FFB00B00057419 /* NSDictionary_JSONExtensions.h */,
+				4CDA4F5718FFB00B00057419 /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4CDA4F5818FFB00B00057419 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA4F5918FFB00B00057419 /* CJSONDeserializer.h */,
+				4CDA4F5A18FFB00B00057419 /* CJSONDeserializer.m */,
+				4CDA4F5B18FFB00B00057419 /* CJSONScanner.h */,
+				4CDA4F5C18FFB00B00057419 /* CJSONScanner.m */,
+				4CDA4F5D18FFB00B00057419 /* CJSONSerializer.h */,
+				4CDA4F5E18FFB00B00057419 /* CJSONSerializer.m */,
+				4CDA4F5F18FFB00B00057419 /* JSONRepresentation.h */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		4CDA4F8018FFB70F00057419 /* Release-iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA4F8118FFB70F00057419 /* BaiduMobStat.h */,
+				4CDA4F8218FFB70F00057419 /* libBaiduMobStat.a */,
+			);
+			path = "Release-iphoneos";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -910,11 +1041,14 @@
 				4C3282C418C45EFA007F69B7 /* Model.xcdatamodeld in Sources */,
 				4C63706118EE496D00E7AE10 /* MBProgressHUD.m in Sources */,
 				4CDA4F3518FCFD5B00057419 /* WHCButton.m in Sources */,
+				4CDA4F6518FFB00B00057419 /* CFilteringJSONSerializer.m in Sources */,
 				4C174FC518D963AF00DFFDC7 /* ASIS3BucketRequest.m in Sources */,
 				4C174FF018DAF3D700DFFDC7 /* WHCHttpAPI.m in Sources */,
 				4C174FF718DAF64E00DFFDC7 /* WHCSendVerifyCodeAPI.m in Sources */,
 				4C17501518E18CF800DFFDC7 /* WHCFriendsView.m in Sources */,
+				4CDA4F6B18FFB00B00057419 /* CJSONDeserializer.m in Sources */,
 				4CDA4F1118FCD14100057419 /* WHCSingleSelectView.m in Sources */,
+				4CDA4F6918FFB00B00057419 /* CDataScanner_Extensions.m in Sources */,
 				4C2314E318F39D05000CDAE7 /* WHCProjectTaskListView.m in Sources */,
 				4C2BE1BF18EBDD85008E1FEB /* MessageUser.m in Sources */,
 				4C76E21A18F7CACF00BF2D89 /* WHCMessageCell.m in Sources */,
@@ -930,6 +1064,7 @@
 				4CDA4F2718FCD17F00057419 /* WHCBarInputView.m in Sources */,
 				4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */,
 				4C76E21118F6A8B100BF2D89 /* WHCIconView.m in Sources */,
+				4CDA4F6618FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m in Sources */,
 				4C174F7918D85E4200DFFDC7 /* AppContact.m in Sources */,
 				4C174FB318D963AF00DFFDC7 /* ASIDataCompressor.m in Sources */,
 				4C174FC118D963AF00DFFDC7 /* ASICloudFilesRequest.m in Sources */,
@@ -942,6 +1077,7 @@
 				4C174FC218D963AF00DFFDC7 /* Reachability.m in Sources */,
 				4C76E21418F6B5BF00BF2D89 /* WHCRegisterView.m in Sources */,
 				4CDA4F3618FCFD5B00057419 /* WHCInputListView.m in Sources */,
+				4CDA4F6818FFB00B00057419 /* CJSONSerializedData.m in Sources */,
 				4C174FCD18D9893000DFFDC7 /* WHCGetFriendsAPI.m in Sources */,
 				4C2BBF0618FBD25700CFF820 /* WHCNewMessageAPI.m in Sources */,
 				4C174FBF18D963AF00DFFDC7 /* ASICloudFilesObject.m in Sources */,
@@ -950,7 +1086,9 @@
 				4C71607E18BF534F00C02D99 /* WHCAppDelegate.m in Sources */,
 				4C174FB718D963AF00DFFDC7 /* ASIHTTPRequest.m in Sources */,
 				4C63706E18EEB8BC00E7AE10 /* WHCUpdateAccountAPI.m in Sources */,
+				4CDA4F6D18FFB00B00057419 /* CJSONSerializer.m in Sources */,
 				4C174FC718D963AF00DFFDC7 /* ASIS3Request.m in Sources */,
+				4CDA4F6A18FFB00B00057419 /* NSDictionary_JSONExtensions.m in Sources */,
 				4C174FBD18D963AF00DFFDC7 /* ASICloudFilesContainerRequest.m in Sources */,
 				4C2BBF0D18FBE1E300CFF820 /* WHCMessageSessionCell.m in Sources */,
 				4C174F6018D70FA900DFFDC7 /* AddressBookUtil.m in Sources */,
@@ -961,7 +1099,9 @@
 				4C174F0D18D6F21E00DFFDC7 /* WHCAddressBookView.m in Sources */,
 				4C174FB818D963AF00DFFDC7 /* ASIInputStream.m in Sources */,
 				4C17502118E1A3F800DFFDC7 /* WHCAddFriendAPI.m in Sources */,
+				4CDA4F6418FFB00B00057419 /* CDataScanner.m in Sources */,
 				4C17501E18E1A3B000DFFDC7 /* WHCSendInviteAPI.m in Sources */,
+				4CDA4F6718FFB00B00057419 /* CJSONSerialization.m in Sources */,
 				4C2BE1BE18EBDD85008E1FEB /* MessageSession.m in Sources */,
 				4CDA4F1218FCD14100057419 /* WHCTextEditView.m in Sources */,
 				4C174FB518D963AF00DFFDC7 /* ASIDownloadCache.m in Sources */,
@@ -969,6 +1109,7 @@
 				4C2314ED18F40CD0000CDAE7 /* WHCProjectTaskView.m in Sources */,
 				4C174FC318D963AF00DFFDC7 /* ASIS3Bucket.m in Sources */,
 				4C174FC018D963AF00DFFDC7 /* ASICloudFilesObjectRequest.m in Sources */,
+				4CDA4F6C18FFB00B00057419 /* CJSONScanner.m in Sources */,
 				4C174FC818D963AF00DFFDC7 /* ASIS3ServiceRequest.m in Sources */,
 				4C174FC418D963AF00DFFDC7 /* ASIS3BucketObject.m in Sources */,
 				4CDA4F3818FCFD5B00057419 /* WHCSmsSendView.m in Sources */,
@@ -1098,6 +1239,7 @@
 		4C7160A018BF535000C02D99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1111,9 +1253,16 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "whocan/whocan-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
+					"$(PROJECT_DIR)/3rd/baidu/Release-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1121,6 +1270,7 @@
 		4C7160A118BF535000C02D99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1134,9 +1284,16 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "whocan/whocan-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
+					"$(PROJECT_DIR)/3rd/baidu/Release-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
