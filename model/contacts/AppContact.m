@@ -50,8 +50,8 @@
 }
 + (NSArray *) getNotAppUser
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = NULL"];
-    return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = NULL"];
+    return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:nil sort:nil];
 }
 + (NSArray *) getAppUsers
 {

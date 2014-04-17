@@ -100,6 +100,7 @@
 {
     if ([api isKindOfClass: [WHCSignInAPI class]]){
         if ([ClientInfo isSignIn]) {
+            [[WHCUploadContactsAPI getInstance:self] asynchronize];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         return;
