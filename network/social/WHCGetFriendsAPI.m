@@ -32,7 +32,7 @@
         NSString * mobileNo = [dict getString:@"phoneNo"];
         AppContact *contact = [AppContact findAppContactByMobileNo:mobileNo];
         if ([mobileNo isEqualToString:mine.mobileNo]) {
-            break;
+            continue;
         }
         if (contact == nil){
             contact = [AppContact createAppContact];
