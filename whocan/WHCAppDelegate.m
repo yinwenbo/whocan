@@ -32,7 +32,7 @@
     statTracker.logSendInterval = 1;
     statTracker.logSendWifiOnly = NO;
     statTracker.sessionResumeInterval = 60;
-    statTracker.enableDebugOn = YES;
+//    statTracker.enableDebugOn = YES;
     [statTracker startWithAppId:@"0f35e341b8"];
     
     return YES;
