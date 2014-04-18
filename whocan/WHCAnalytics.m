@@ -31,22 +31,16 @@ static NSString * netApiException = @"net_exception";
     [baiduStat startWithAppId:@"0f35e341b8"];
     
 //
+//    [MobClick startWithAppkey:@"5350cd0f56240bc9bc0c1e97" reportPolicy:REALTIME channelId:channelId];
     [MobClick startWithAppkey:@"5350cd0f56240bc9bc0c1e97" reportPolicy:SEND_INTERVAL channelId:channelId];
-
+//    [MobClick setLogEnabled:YES];
 }
 
-+ (void)startApi:(id)api
++ (void)apiEvent:(id)api duration:(int)duration
 {
     NSString * label = [[api class] description];
-    [[BaiduMobStat defaultStat] eventStart:netApiEvent eventLabel:label];
-    [MobClick beginEvent:netApiEvent label:label];
-}
-
-+ (void)endApi:(id)api
-{
-    NSString * label = [[api class] description];
-    [[BaiduMobStat defaultStat] eventEnd:netApiEvent eventLabel:label];
-    [MobClick endEvent:netApiEvent label:label];
+    [[BaiduMobStat defaultStat] logEventWithDurationTime:netApiEvent eventLabel:label durationTime:duration];
+    [MobClick event:netApiEvent label:label durations:duration];
 }
 
 + (void)apiError:(id)api message:(NSString *)message

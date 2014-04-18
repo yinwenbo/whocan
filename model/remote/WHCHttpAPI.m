@@ -14,6 +14,8 @@
     ASIFormDataRequest *_request;
     id<WHCHttpAPIDelegate> _delegate;
     BOOL _isSynchronize;
+    NSDate * _beginTime;
+    int _duration;
 }
 
 @end
@@ -46,14 +48,15 @@
 
 - (void)synchronize
 {
+    _beginTime = [NSDate date];
     _isSynchronize = YES;
-    [WHCAnalytics startApi:self];
     [_request startSynchronous];
 }
 
 - (void)asynchronize
 {
-    [WHCAnalytics endApi:self];
+    _beginTime = [NSDate date];
+    _isSynchronize = NO;
     [_request startAsynchronous];
 }
 
@@ -65,6 +68,11 @@
 - (BOOL)hasError
 {
     return [_request responseStatusCode] != 200;
+}
+
+- (int)duration
+{
+    return _duration;
 }
 
 - (NSString*)getErrorMessage
@@ -80,19 +88,18 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    [WHCAnalytics endApi:self];
     NSLog(@"post url: %@", request.url);
     NSLog(@"post form: %@", [[NSString alloc] initWithData:request.postBody encoding:NSUTF8StringEncoding]);
     NSLog(@"response code %d", [request responseStatusCode]);
     [self recordErrorLog];
+    _duration = [[NSDate date] timeIntervalSinceDate:_beginTime];
+    [WHCAnalytics apiEvent:self duration:_duration];
     [_delegate onHttpRequestFinished:self];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [WHCAnalytics endApi:self];
-    [self recordErrorLog];
-    [_delegate onHttpRequestFinished:self];
+    [self requestFinished:request];
 }
 
 - (void)recordErrorLog

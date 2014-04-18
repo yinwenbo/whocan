@@ -12,9 +12,7 @@
 
 + (void)start;
 
-+ (void)startApi:(id)api;
-+ (void)endApi:(id)api;
-
++ (void)apiEvent:(id)api duration:(int)duration;
 + (void)apiError:(id)api message:(NSString *)message;
 + (void)apiException:(id)api message:(NSString *)message;
 

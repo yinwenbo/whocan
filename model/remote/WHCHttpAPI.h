@@ -27,6 +27,7 @@
 - (BOOL)isSuccess;
 - (NSString *)getResponseText;
 - (NSString *)getErrorMessage;
+- (int)duration;
 
 @end
 
