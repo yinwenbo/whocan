@@ -1761,10 +1761,10 @@
             </objects>
             <point key="canvasLocation" x="468" y="1433"/>
         </scene>
-        <!--Main View - 主页面-->
+        <!--Tab Bar Controller - 主页面-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController title="主页面" hidesBottomBarWhenPushed="YES" id="8YX-ce-x5E" customClass="WHCMainView" sceneMemberID="viewController">
+                <tabBarController title="主页面" hidesBottomBarWhenPushed="YES" id="8YX-ce-x5E" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>

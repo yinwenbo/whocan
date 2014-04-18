@@ -30,8 +30,14 @@
 {
     [super viewDidLoad];
     [self initRefreshControl];
-    _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
     [WHCNewMessageAPI registerNotify:self callback:@selector(onReceiveMessage)];
+    if(![ClientInfo isSignIn]){
+        UIViewController *signInVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
+        [self presentViewController:signInVc animated:YES completion:nil];
+        return;
+    }
+    [[WHCUploadContactsAPI getInstance:self] asynchronize];    
+    _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
 }
 
 - (void)didReceiveMemoryWarning

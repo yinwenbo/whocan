@@ -30,7 +30,6 @@
     if([ClientInfo isSignIn]){
         [[WHCUploadContactsAPI getInstance:self] asynchronize];
     }
-//    [self setSelectedIndex:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated

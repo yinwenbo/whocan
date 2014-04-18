@@ -38,6 +38,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    if([ClientInfo isSignIn] && [ClientInfo needUpdateUserInfo]) {
+        UIViewController *registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
+        [self presentViewController:registerView animated:YES completion:nil];
+    } else if ([ClientInfo isSignIn]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
     if([self.txtMobileNo isEnabled]){
         [self.txtMobileNo becomeFirstResponder];
     }else if([self.txtVerifyCode isEnabled]){
@@ -99,8 +106,14 @@
 - (void)onJsonParseFinished:(WHCJsonAPI *)api
 {
     if ([api isKindOfClass: [WHCSignInAPI class]]){
-        if ([ClientInfo isSignIn]) {
-            [[WHCUploadContactsAPI getInstance:self] asynchronize];
+        if (![ClientInfo isSignIn]) {
+            return;
+        }
+        [[WHCUploadContactsAPI getInstance:self] asynchronize];
+        if([ClientInfo needUpdateUserInfo]) {
+            UIViewController *registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
+            [self presentViewController:registerView animated:YES completion:nil];
+        } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         return;
