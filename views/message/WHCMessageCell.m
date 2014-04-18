@@ -58,7 +58,7 @@
     _lblText = [[UILabel alloc] initWithFrame:label.frame];
     [_lblText setNumberOfLines:0];
     [_lblText setFont:label.font];
-    [_lblText setTextAlignment:label.textAlignment];
+//    [_lblText setTextAlignment:label.textAlignment];
     
     [self addSubview:_lblText];
     [_lblText setHidden:NO];
