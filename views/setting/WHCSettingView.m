@@ -34,6 +34,16 @@
     [self updateShowView:[AppContact findMySelf]];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [WHCAnalytics viewIn:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCAnalytics viewOut:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

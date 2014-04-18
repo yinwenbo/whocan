@@ -10,7 +10,7 @@
 
 @interface WHCRegisterView () {
     IBOutlet UITextField * _name;
-    IBOutlet WHCIconView * _iconView;
+    IBOutlet WHCIconCollection * _iconView;
 }
 
 
@@ -30,6 +30,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [WHCAnalytics viewIn:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCAnalytics viewOut:self];
 }
 
 - (void)didReceiveMemoryWarning

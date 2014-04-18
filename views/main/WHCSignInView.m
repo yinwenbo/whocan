@@ -38,6 +38,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [WHCAnalytics viewIn:self];
     if([ClientInfo isSignIn] && [ClientInfo needUpdateUserInfo]) {
         UIViewController *registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
         [self presentViewController:registerView animated:YES completion:nil];
@@ -52,6 +53,10 @@
     }
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCAnalytics viewOut:self];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

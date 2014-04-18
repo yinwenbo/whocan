@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCIconView.h"
+#import "WHCIconCollection.h"
 
-@implementation WHCIconView
+@implementation WHCIconCollection
 
 @synthesize iconName;
 

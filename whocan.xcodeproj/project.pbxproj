@@ -93,7 +93,7 @@
 		4C71609218BF535000C02D99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71607118BF534F00C02D99 /* UIKit.framework */; };
 		4C71609A18BF535000C02D99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C71609818BF535000C02D99 /* InfoPlist.strings */; };
 		4C71609C18BF535000C02D99 /* whocanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C71609B18BF535000C02D99 /* whocanTests.m */; };
-		4C76E21118F6A8B100BF2D89 /* WHCIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76E21018F6A8B100BF2D89 /* WHCIconView.m */; };
+		4C76E21118F6A8B100BF2D89 /* WHCIconCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76E21018F6A8B100BF2D89 /* WHCIconCollection.m */; };
 		4C76E21418F6B5BF00BF2D89 /* WHCRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76E21318F6B5BF00BF2D89 /* WHCRegisterView.m */; };
 		4C76E21A18F7CACF00BF2D89 /* WHCMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76E21918F7CACF00BF2D89 /* WHCMessageCell.m */; };
 		4CDA4F1118FCD14100057419 /* WHCSingleSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4F0E18FCD14100057419 /* WHCSingleSelectView.m */; };
@@ -121,6 +121,7 @@
 		4CDA4F8B18FFBA3600057419 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8A18FFBA3600057419 /* libz.1.2.5.dylib */; };
 		4CDA4F9118FFBCB500057419 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8218FFB70F00057419 /* libBaiduMobStat.a */; };
 		4CDA4F9318FFBCEB00057419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */; };
+		4CDA50211900F17900057419 /* WHCAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA50201900F17900057419 /* WHCAnalytics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,8 +298,8 @@
 		4C71609718BF535000C02D99 /* whocanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "whocanTests-Info.plist"; sourceTree = "<group>"; };
 		4C71609918BF535000C02D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C71609B18BF535000C02D99 /* whocanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whocanTests.m; sourceTree = "<group>"; };
-		4C76E20F18F6A8B100BF2D89 /* WHCIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCIconView.h; sourceTree = "<group>"; };
-		4C76E21018F6A8B100BF2D89 /* WHCIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCIconView.m; sourceTree = "<group>"; };
+		4C76E20F18F6A8B100BF2D89 /* WHCIconCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCIconCollection.h; sourceTree = "<group>"; };
+		4C76E21018F6A8B100BF2D89 /* WHCIconCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCIconCollection.m; sourceTree = "<group>"; };
 		4C76E21218F6B5BF00BF2D89 /* WHCRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCRegisterView.h; sourceTree = "<group>"; };
 		4C76E21318F6B5BF00BF2D89 /* WHCRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCRegisterView.m; sourceTree = "<group>"; };
 		4C76E21818F7CACF00BF2D89 /* WHCMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCMessageCell.h; path = views/message/WHCMessageCell.h; sourceTree = "<group>"; };
@@ -352,6 +353,8 @@
 		4CDA4F8A18FFBA3600057419 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		4CDA4F8F18FFBBB400057419 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBaiduMobStat.a; path = "3rd/baidu/universal-bin/libBaiduMobStat.a"; sourceTree = "<group>"; };
 		4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4CDA501F1900F17900057419 /* WHCAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCAnalytics.h; sourceTree = "<group>"; };
+		4CDA50201900F17900057419 /* WHCAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCAnalytics.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,8 +727,8 @@
 				4C63706318EE956600E7AE10 /* WHCSettingView.m */,
 				4C63705518ED39E300E7AE10 /* WHCIconSettingView.h */,
 				4C63705618ED39E300E7AE10 /* WHCIconSettingView.m */,
-				4C76E20F18F6A8B100BF2D89 /* WHCIconView.h */,
-				4C76E21018F6A8B100BF2D89 /* WHCIconView.m */,
+				4C76E20F18F6A8B100BF2D89 /* WHCIconCollection.h */,
+				4C76E21018F6A8B100BF2D89 /* WHCIconCollection.m */,
 			);
 			name = setting;
 			path = views/setting;
@@ -800,6 +803,8 @@
 			children = (
 				4C71607C18BF534F00C02D99 /* WHCAppDelegate.h */,
 				4C71607D18BF534F00C02D99 /* WHCAppDelegate.m */,
+				4CDA501F1900F17900057419 /* WHCAnalytics.h */,
+				4CDA50201900F17900057419 /* WHCAnalytics.m */,
 				4C71608818BF534F00C02D99 /* Images.xcassets */,
 				4C71607418BF534F00C02D99 /* Supporting Files */,
 			);
@@ -1057,7 +1062,7 @@
 				4C174FDE18DAD15300DFFDC7 /* WHCContactShowView.m in Sources */,
 				4CDA4F2718FCD17F00057419 /* WHCBarInputView.m in Sources */,
 				4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */,
-				4C76E21118F6A8B100BF2D89 /* WHCIconView.m in Sources */,
+				4C76E21118F6A8B100BF2D89 /* WHCIconCollection.m in Sources */,
 				4CDA4F6618FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m in Sources */,
 				4C174F7918D85E4200DFFDC7 /* AppContact.m in Sources */,
 				4C174FB318D963AF00DFFDC7 /* ASIDataCompressor.m in Sources */,
@@ -1068,6 +1073,7 @@
 				4C174FB618D963AF00DFFDC7 /* ASIFormDataRequest.m in Sources */,
 				4C174FB418D963AF00DFFDC7 /* ASIDataDecompressor.m in Sources */,
 				4C2BE1AC18E90B6C008E1FEB /* WHCSendMessageAPI.m in Sources */,
+				4CDA50211900F17900057419 /* WHCAnalytics.m in Sources */,
 				4C174FC218D963AF00DFFDC7 /* Reachability.m in Sources */,
 				4C76E21418F6B5BF00BF2D89 /* WHCRegisterView.m in Sources */,
 				4CDA4F3618FCFD5B00057419 /* WHCInputListView.m in Sources */,

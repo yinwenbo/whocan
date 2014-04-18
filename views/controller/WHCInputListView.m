@@ -26,10 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(onKeyboardChangeFrame:)
-                                                name:UIKeyboardWillChangeFrameNotification
-                                              object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -90,6 +86,8 @@
     CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];    
     [UIView animateWithDuration:duration animations:^{
         [self.view setFrame:inputFieldRect];
+        [_tableView setContentInset:UIEdgeInsetsMake(_tableView.contentInset.top-yOffset, 0, 0, 0)];
+
     }];
 
 

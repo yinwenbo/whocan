@@ -12,7 +12,7 @@
 
 #import "WHCUpdateAccountAPI.h"
 
-#import "WHCIconView.h"
+#import "WHCIconCollection.h"
 
 
 @interface WHCRegisterView : UITableViewController<WHCJsonAPIDelegate>

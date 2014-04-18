@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WHCAnalytics.h"
 
 @interface WHCSingleSelectView : UITableViewController
 

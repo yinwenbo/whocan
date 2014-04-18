@@ -18,10 +18,20 @@
 
 @synthesize textField;
 
--(void)viewDidLoad
+- (void)viewDidLoad
 {
     [textField setText:_text];
     [textField setPlaceholder:_text];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [WHCAnalytics viewIn:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCAnalytics viewOut:self];
 }
 
 - (void)setText:(NSString *)text

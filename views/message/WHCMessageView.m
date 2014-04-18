@@ -48,11 +48,12 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [WHCNewMessageAPI removeNotify:self];
 }
 

@@ -50,8 +50,8 @@
         hasException = NO;
         return;
     } else {
-        NSString *name = [NSString stringWithFormat:@"%@ %@", code, msg];
-        [[BaiduMobStat defaultStat] logEvent:@"net_exception" eventLabel:name];
+        NSString *message = [NSString stringWithFormat:@"%@ %@ %@", [self.class description], code, msg];
+        [WHCAnalytics apiException:self message:message];
     }
 }
 

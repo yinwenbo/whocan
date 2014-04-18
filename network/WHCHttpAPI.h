@@ -10,8 +10,8 @@
 #import "ASIFormDataRequest.h"
 #import "WHCHttpAPIDelegate.h"
 
-#import "BaiduMobStat.h"
-#define HttpRequestCallback void(^)()
+#import "WHCAnalytics.h"
+
 
 @interface WHCHttpAPI : NSObject
 

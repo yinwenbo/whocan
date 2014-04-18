@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WHCIconView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface WHCIconCollection : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, retain) NSString * iconName;
 

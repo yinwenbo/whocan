@@ -9,7 +9,7 @@
 #import "WHCIconSettingView.h"
 
 @interface WHCIconSettingView() {
-    IBOutlet WHCIconView * _iconView;
+    IBOutlet WHCIconCollection * _iconView;
     NSString * _iconName;
 }
 
@@ -29,6 +29,16 @@
 {
     [super viewDidLoad];
     [_iconView setIconName:_iconName];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [WHCAnalytics viewIn:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCAnalytics viewOut:self];
 }
 
 - (void)didReceiveMemoryWarning

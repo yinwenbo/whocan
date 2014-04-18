@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "WHCAnalytics.h"
+
 @interface WHCTextEditView : UITableViewController
 
 @property (nonatomic, retain) IBOutlet UITextField * textField;

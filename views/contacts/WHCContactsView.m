@@ -38,6 +38,15 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     [[WHCGetFriendsAPI getInstance:self] asynchronize];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [WHCAnalytics viewIn:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [WHCAnalytics viewOut:self];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

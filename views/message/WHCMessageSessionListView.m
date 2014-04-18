@@ -48,6 +48,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [WHCAnalytics viewIn:self];
     if ([ClientInfo isSignIn]) {
         [[WHCNewMessageAPI getInstance:self] asynchronize];
     }
@@ -58,6 +59,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [WHCAnalytics viewOut:self];
     [WHCNewMessageAPI removeNotify:self];
 }
 

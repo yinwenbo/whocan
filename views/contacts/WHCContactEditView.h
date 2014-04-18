@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppContact.h"
+#import "WHCAnalytics.h"
 
 @interface WHCContactEditView : UITableViewController
 

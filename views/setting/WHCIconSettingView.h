@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WHCIconView.h"
+#import "WHCAnalytics.h"
+#import "WHCIconCollection.h"
 
 @interface WHCIconSettingView : UIViewController
 
