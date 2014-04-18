@@ -30,13 +30,13 @@
 {
     [super viewDidLoad];
     [self initRefreshControl];
-    [WHCNewMessageAPI registerNotify:self callback:@selector(onReceiveMessage)];
     if(![ClientInfo isSignIn]){
         UIViewController *signInVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
         [self presentViewController:signInVc animated:YES completion:nil];
         return;
     }
-    [[WHCUploadContactsAPI getInstance:self] asynchronize];    
+    [[WHCUploadContactsAPI getInstance:self] asynchronize];
+    [[WHCNewMessageAPI getInstance:self] asynchronize];
     _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
 }
 
@@ -50,6 +50,7 @@
 {
     [WHCAnalytics viewIn:self];
     [WHCNewMessageAPI registerNotify:self callback:@selector(onReceiveMessage)];
+    [self initMessageSessions];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

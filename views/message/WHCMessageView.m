@@ -37,7 +37,6 @@
                           atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         [_tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX) animated:YES];
     }
-    [WHCNewMessageAPI registerNotify:self callback:@selector(onMessageReceive)];    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,11 +48,14 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [WHCAnalytics viewIn:self];
+    [WHCNewMessageAPI registerNotify:self callback:@selector(onMessageReceive)];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [WHCAnalytics viewOut:self];
     [WHCNewMessageAPI removeNotify:self];
 }
 
