@@ -9,6 +9,7 @@
 #import "WHCAnalytics.h"
 
 #import "BaiduMobStat.h"
+#import "MobClick.h"
 
 @implementation WHCAnalytics
 
@@ -23,36 +24,54 @@
     statTracker.sessionResumeInterval = 60;
     statTracker.enableDebugOn = YES;
     [statTracker startWithAppId:@"0f35e341b8"];
+    
+//
+    [MobClick startWithAppkey:@"5350cd0f56240bc9bc0c1e97" reportPolicy:SEND_INTERVAL channelId:@"dev"];
+
 }
 
 + (void)startApi:(id)api
 {
-    [[BaiduMobStat defaultStat] eventStart:@"net_delay" eventLabel:[[api class] description]];
+    NSString * event = @"net_delay";
+    NSString * label = [[api class] description];
+    [[BaiduMobStat defaultStat] eventStart:event eventLabel:label];
+    [MobClick beginEvent:event label:label];
 }
 
 + (void)endApi:(id)api
 {
-    [[BaiduMobStat defaultStat] eventEnd:@"net_delay" eventLabel:[[api class] description]];
+    NSString * event = @"net_delay";
+    NSString * label = [[api class] description];
+    [[BaiduMobStat defaultStat] eventEnd:event eventLabel:label];
+    [MobClick endEvent:event label:label];
 }
 
 + (void)apiError:(id)api message:(NSString *)message
 {
-    [[BaiduMobStat defaultStat] logEvent:@"net_error" eventLabel:message];
+    NSString * event = @"net_error";
+    [[BaiduMobStat defaultStat] logEvent:event eventLabel:message];
+    [MobClick event:event label:message];
 }
 
 + (void)apiException:(id)api message:(NSString *)message
 {
-    [[BaiduMobStat defaultStat] logEvent:@"net_exception" eventLabel:message];
+    NSString * event = @"net_exception";
+    [[BaiduMobStat defaultStat] logEvent:event eventLabel:message];
+    [MobClick event:event label:message];
 }
 
 + (void)viewIn:(id)view
 {
-    [[BaiduMobStat defaultStat] pageviewStartWithName:[[view class] description]];
+    NSString * viewName = [[view class] description];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:viewName];
+    [MobClick beginLogPageView:viewName];
 }
 
 + (void)viewOut:(id)view
 {
-    [[BaiduMobStat defaultStat] pageviewEndWithName:[[view class] description]];
+    NSString * viewName = [[view class] description];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:viewName];
+    [MobClick endLogPageView:viewName];
 }
 
 @end

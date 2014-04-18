@@ -50,9 +50,17 @@
 
 - (IBAction)save:(id)sender
 {
+    NSString *name = _name.text;
+    NSString *icon = _iconView.iconName;
+    if (name == nil || name.length == 0) {
+        return;
+    }
+    if (icon == nil || icon.length == 0){
+        return;
+    }
     AppContact *mine = [AppContact findMySelf];
-    mine.appName = _name.text;
-    mine.icon = _iconView.iconName;
+    mine.appName = name;
+    mine.icon = icon;
     mine.gender = @"男";
     WHCUpdateAccountAPI *updateApi = [WHCUpdateAccountAPI getInstance:self appContact:mine];
     [updateApi synchronize];

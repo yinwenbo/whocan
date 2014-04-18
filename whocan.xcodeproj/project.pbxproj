@@ -122,6 +122,7 @@
 		4CDA4F9118FFBCB500057419 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F8218FFB70F00057419 /* libBaiduMobStat.a */; };
 		4CDA4F9318FFBCEB00057419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */; };
 		4CDA50211900F17900057419 /* WHCAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA50201900F17900057419 /* WHCAnalytics.m */; };
+		4CDA50251901043200057419 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA50231901043200057419 /* libMobClickLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,6 +356,8 @@
 		4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4CDA501F1900F17900057419 /* WHCAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCAnalytics.h; sourceTree = "<group>"; };
 		4CDA50201900F17900057419 /* WHCAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCAnalytics.m; sourceTree = "<group>"; };
+		4CDA50231901043200057419 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		4CDA50241901043200057419 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDA50251901043200057419 /* libMobClickLibrary.a in Frameworks */,
 				4CDA4F9318FFBCEB00057419 /* CoreLocation.framework in Frameworks */,
 				4CDA4F9118FFBCB500057419 /* libBaiduMobStat.a in Frameworks */,
 				4CDA4F7018FFB14000057419 /* AdSupport.framework in Frameworks */,
@@ -420,6 +424,7 @@
 		4C174F1118D7096300DFFDC7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				4CDA50221901043200057419 /* umeng */,
 				4CDA4F4018FFB00B00057419 /* baidu */,
 				4C2BBF0718FBD64100CFF820 /* Controllers */,
 				4C63705E18EE496D00E7AE10 /* Progress */,
@@ -927,6 +932,16 @@
 			path = "Release-iphoneos";
 			sourceTree = "<group>";
 		};
+		4CDA50221901043200057419 /* umeng */ = {
+			isa = PBXGroup;
+			children = (
+				4CDA50231901043200057419 /* libMobClickLibrary.a */,
+				4CDA50241901043200057419 /* MobClick.h */,
+			);
+			name = umeng;
+			path = 3rd/umeng;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1257,6 +1272,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
 					"$(PROJECT_DIR)/3rd/baidu/Release-iphoneos",
+					"$(PROJECT_DIR)/3rd/umeng",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
@@ -1288,6 +1304,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
 					"$(PROJECT_DIR)/3rd/baidu/Release-iphoneos",
+					"$(PROJECT_DIR)/3rd/umeng",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
