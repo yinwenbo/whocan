@@ -49,12 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [WHCAnalytics viewIn:self];
-    if ([ClientInfo isSignIn]) {
-        [[WHCNewMessageAPI getInstance:self] asynchronize];
-    }
     [WHCNewMessageAPI registerNotify:self callback:@selector(onReceiveMessage)];
-    _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];    
-    [self.tableView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

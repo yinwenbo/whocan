@@ -13,51 +13,52 @@
 
 @implementation WHCAnalytics
 
+static NSString * channelId = @"dev";
+static NSString * netApiEvent = @"net_delay";
+static NSString * netApiError = @"net_error";
+static NSString * netApiException = @"net_exception";
+
 + (void)start
 {
-    BaiduMobStat * statTracker = [BaiduMobStat defaultStat];
-    statTracker.enableExceptionLog = YES;
-    statTracker.channelId = @"dev";
-    statTracker.logStrategy = BaiduMobStatLogStrategyAppLaunch;
-    statTracker.logSendInterval = 1;
-    statTracker.logSendWifiOnly = NO;
-    statTracker.sessionResumeInterval = 60;
-    statTracker.enableDebugOn = YES;
-    [statTracker startWithAppId:@"0f35e341b8"];
+    BaiduMobStat * baiduStat = [BaiduMobStat defaultStat];
+    baiduStat.enableExceptionLog = YES;
+    baiduStat.channelId = channelId;
+    baiduStat.logStrategy = BaiduMobStatLogStrategyAppLaunch;
+    baiduStat.logSendInterval = 1;
+    baiduStat.logSendWifiOnly = NO;
+    baiduStat.sessionResumeInterval = 60;
+//    statTracker.enableDebugOn = YES;
+    [baiduStat startWithAppId:@"0f35e341b8"];
     
 //
-    [MobClick startWithAppkey:@"5350cd0f56240bc9bc0c1e97" reportPolicy:SEND_INTERVAL channelId:@"dev"];
+    [MobClick startWithAppkey:@"5350cd0f56240bc9bc0c1e97" reportPolicy:SEND_INTERVAL channelId:channelId];
 
 }
 
 + (void)startApi:(id)api
 {
-    NSString * event = @"net_delay";
     NSString * label = [[api class] description];
-    [[BaiduMobStat defaultStat] eventStart:event eventLabel:label];
-    [MobClick beginEvent:event label:label];
+    [[BaiduMobStat defaultStat] eventStart:netApiEvent eventLabel:label];
+    [MobClick beginEvent:netApiEvent label:label];
 }
 
 + (void)endApi:(id)api
 {
-    NSString * event = @"net_delay";
     NSString * label = [[api class] description];
-    [[BaiduMobStat defaultStat] eventEnd:event eventLabel:label];
-    [MobClick endEvent:event label:label];
+    [[BaiduMobStat defaultStat] eventEnd:netApiEvent eventLabel:label];
+    [MobClick endEvent:netApiEvent label:label];
 }
 
 + (void)apiError:(id)api message:(NSString *)message
 {
-    NSString * event = @"net_error";
-    [[BaiduMobStat defaultStat] logEvent:event eventLabel:message];
-    [MobClick event:event label:message];
+    [[BaiduMobStat defaultStat] logEvent:netApiError eventLabel:message];
+    [MobClick event:netApiError label:message];
 }
 
 + (void)apiException:(id)api message:(NSString *)message
 {
-    NSString * event = @"net_exception";
-    [[BaiduMobStat defaultStat] logEvent:event eventLabel:message];
-    [MobClick event:event label:message];
+    [[BaiduMobStat defaultStat] logEvent:netApiException eventLabel:message];
+    [MobClick event:netApiException label:message];
 }
 
 + (void)viewIn:(id)view
