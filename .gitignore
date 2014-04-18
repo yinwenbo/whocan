@@ -1,4 +1,2 @@
-*.xcodeproj
-*.xcuserdated
-*.xcuserstate
-/xcuserdata
+/whocan.xcodeproj/xcuserdata
+/whocan.xcodeproj/project.xcworkspace/xcuserdata
