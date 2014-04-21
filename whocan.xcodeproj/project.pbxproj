@@ -102,7 +102,6 @@
 		4CDA505619011EF000057419 /* WHCSignInAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA502C19011EEF00057419 /* WHCSignInAPI.m */; };
 		4CDA505719011EF000057419 /* WHCUpdateAccountAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA502E19011EEF00057419 /* WHCUpdateAccountAPI.m */; };
 		4CDA505819011EF000057419 /* WHCAddUserToSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA503119011EF000057419 /* WHCAddUserToSessionAPI.m */; };
-		4CDA505919011EF000057419 /* WHCGetMessagesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA503319011EF000057419 /* WHCGetMessagesAPI.m */; };
 		4CDA505A19011EF000057419 /* WHCMakeMessageReadAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA503519011EF000057419 /* WHCMakeMessageReadAPI.m */; };
 		4CDA505B19011EF000057419 /* WHCNewMessageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA503719011EF000057419 /* WHCNewMessageAPI.m */; };
 		4CDA505C19011EF000057419 /* WHCSendMessageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA503919011EF000057419 /* WHCSendMessageAPI.m */; };
@@ -316,8 +315,6 @@
 		4CDA502E19011EEF00057419 /* WHCUpdateAccountAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCUpdateAccountAPI.m; sourceTree = "<group>"; };
 		4CDA503019011EEF00057419 /* WHCAddUserToSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCAddUserToSessionAPI.h; sourceTree = "<group>"; };
 		4CDA503119011EF000057419 /* WHCAddUserToSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCAddUserToSessionAPI.m; sourceTree = "<group>"; };
-		4CDA503219011EF000057419 /* WHCGetMessagesAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCGetMessagesAPI.h; sourceTree = "<group>"; };
-		4CDA503319011EF000057419 /* WHCGetMessagesAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCGetMessagesAPI.m; sourceTree = "<group>"; };
 		4CDA503419011EF000057419 /* WHCMakeMessageReadAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCMakeMessageReadAPI.h; sourceTree = "<group>"; };
 		4CDA503519011EF000057419 /* WHCMakeMessageReadAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCMakeMessageReadAPI.m; sourceTree = "<group>"; };
 		4CDA503619011EF000057419 /* WHCNewMessageAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCNewMessageAPI.h; sourceTree = "<group>"; };
@@ -882,8 +879,6 @@
 			children = (
 				4CDA503019011EEF00057419 /* WHCAddUserToSessionAPI.h */,
 				4CDA503119011EF000057419 /* WHCAddUserToSessionAPI.m */,
-				4CDA503219011EF000057419 /* WHCGetMessagesAPI.h */,
-				4CDA503319011EF000057419 /* WHCGetMessagesAPI.m */,
 				4CDA503419011EF000057419 /* WHCMakeMessageReadAPI.h */,
 				4CDA503519011EF000057419 /* WHCMakeMessageReadAPI.m */,
 				4CDA503619011EF000057419 /* WHCNewMessageAPI.h */,
@@ -1057,7 +1052,6 @@
 				4C63706418EE956600E7AE10 /* WHCSettingView.m in Sources */,
 				4C2BBF0A18FBD64100CFF820 /* TDBadgedCell.m in Sources */,
 				4CDA507F19011F0800057419 /* Message.m in Sources */,
-				4CDA505919011EF000057419 /* WHCGetMessagesAPI.m in Sources */,
 				4C17503118E407A900DFFDC7 /* WHCMessageView.m in Sources */,
 				4CDA506719011EF000057419 /* WHCHttpAPI.m in Sources */,
 				4C63706118EE496D00E7AE10 /* MBProgressHUD.m in Sources */,
