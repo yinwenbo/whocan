@@ -77,7 +77,7 @@ static WHCSyncTask * __syncTask;
     if ([api hasError]) {
         [self runTimer:10 selector:_currentExcute];
     } else {
-        [self runTimer:10 selector:next];
+        [self runTimer:5 selector:next];
     }
 }
 

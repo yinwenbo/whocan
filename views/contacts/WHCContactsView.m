@@ -35,18 +35,20 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
         [self initRefreshControl];
     }
     self.navigationController.delegate = self;
-    [[WHCGetFriendsAPI getInstance:self] asynchronize];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [WHCAnalytics viewIn:self];
+    [WHCGetFriendsAPI registerNotify:self callback:@selector(finishedRefresh)];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [WHCAnalytics viewOut:self];
+    [WHCGetFriendsAPI removeNotify:self];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
