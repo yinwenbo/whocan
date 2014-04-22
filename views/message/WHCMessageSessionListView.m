@@ -36,7 +36,6 @@
         return;
     }
     [[WHCUploadContactsAPI getInstance:self] asynchronize];
-    [[WHCNewMessageAPI getInstance:self] asynchronize];
     _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
 }
 

@@ -20,20 +20,6 @@
                                                  delegate:delegate];
 }
 
-+ (void)registerNotify:(NSObject*)observer callback:(SEL)callback
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:MESSAGE_RECEIVED_NOTIFY_NAME object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:observer
-                                             selector:callback
-                                                 name:MESSAGE_RECEIVED_NOTIFY_NAME
-                                               object:nil];
-}
-
-+ (void)removeNotify:(NSObject *)observer
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:MESSAGE_RECEIVED_NOTIFY_NAME object:nil];
-}
-
 - (void)successJsonResult
 {
     NSDictionary * result = [self getDictionaryData];
@@ -46,9 +32,7 @@
         [self processMessage:message];
     }
 
-    [MessageSession saveContext];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:MESSAGE_RECEIVED_NOTIFY_NAME object:nil];
+    [MessageSession saveContext];    
 }
 
 - (void)processSession:(NSDictionary *)dict

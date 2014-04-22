@@ -10,6 +10,7 @@
 #import "AddressBookUtil.h"
 #import "AppContact.h"
 #import "ClientInfo.h"
+#import "WHCSyncTask.h"
 
 @interface WHCAppDelegate : UIResponder <UIApplicationDelegate>
 

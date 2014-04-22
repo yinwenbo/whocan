@@ -18,6 +18,24 @@
 
 @synthesize code, msg, data, hasException;
 
++ (void)registerNotify:(NSObject*)observer callback:(SEL)callback
+{
+    NSString * name = [self description];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:name object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer
+                                             selector:callback
+                                                 name:name
+                                               object:nil];
+}
+
++ (void)removeNotify:(NSObject *)observer
+{
+    NSString * name = [self description];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:name object:nil];
+}
+
+
+
 + (NSMutableDictionary *)createParameter
 {
     return [[NSMutableDictionary alloc] initWithObjectsAndKeys: [ClientInfo getToken], @"token", nil];
@@ -39,7 +57,7 @@
  
     NSString *json = [NSString stringWithFormat:@"var result = %@", [self getResponseText]];
     JSContext *context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
-
+    
     [context evaluateScript: json];
     NSDictionary *result = [context[@"result"] toDictionary];
     code = [result getString:@"code"];
@@ -93,6 +111,8 @@
         [self processFailed];
     }
     [_delegate onJsonParseFinished:self];
+    NSString * name = [[self class ]description];
+    [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil];
 }
 
 - (void)successJsonResult

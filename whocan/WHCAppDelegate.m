@@ -25,6 +25,7 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
     [WHCAnalytics start];
+    [WHCSyncTask start];
     return YES;
 }
 							
@@ -76,7 +77,7 @@
 {
 //    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 //    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:10];
-    [[WHCNewMessageAPI getInstance:nil] asynchronize];
+//    [[WHCNewMessageAPI getInstance:nil] asynchronize];
     NSLog(@"receive : %@", userInfo);
 }
 

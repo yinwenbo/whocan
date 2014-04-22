@@ -25,6 +25,10 @@
 
 + (NSMutableDictionary *)createParameter;
 
++ (void)registerNotify:(NSObject*)observer callback:(SEL)callback;
++ (void)removeNotify:(NSObject *)observer;
+
+
 - (id)initWithJsonDelegate:(NSString*)path params:(NSDictionary*)params delegate:(id<WHCJsonAPIDelegate>)delegate;
 
 - (NSArray *)getArrayData;
