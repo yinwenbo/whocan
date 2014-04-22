@@ -12,7 +12,7 @@
 
 #import "ProjectTasks.h"
 
-@interface WHCProjectTaskView : UITableViewController
+@interface WHCTaskView : UITableViewController
 
 - (void)setTaskId:(NSString *)taskId;
 

@@ -144,8 +144,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UIViewController *view = [segue destinationViewController];
-    if ([view isKindOfClass:[WHCProjectTaskListView class]]) {
-        [((WHCProjectTaskListView *)view) setProjectId:_session.sessionId];
+    if ([view isKindOfClass:[WHCTaskListView class]]) {
+        [((WHCTaskListView *)view) setProjectId:_session.sessionId];
     }
 }
 

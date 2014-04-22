@@ -172,7 +172,7 @@
     }
 }
 
-- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
+- (IBAction)unwindToMessageSessionList:(UIStoryboardSegue *)unwindSegue
 {
 }
 

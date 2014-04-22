@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "WHCInputListView.h"
-#import "WHCProjectTaskListView.h"
+#import "WHCTaskListView.h"
 
 #import "WHCMessageCell.h"
 

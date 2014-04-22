@@ -8,14 +8,14 @@
 
 #import "WHCInputListView.h"
 
-#import "WHCProjectTaskView.h"
-#import "WHCProjectTaskCell.h"
+#import "WHCTaskView.h"
+#import "WHCTaskListCell.h"
 
 #import "ProjectTasks.h"
 #import "AppContact.h"
 
 
-@interface WHCProjectTaskListView : WHCInputListView <UIActionSheetDelegate>
+@interface WHCTaskListView : WHCInputListView <UIActionSheetDelegate>
 
 - (void)setProjectId:(NSString *)projectId;
 

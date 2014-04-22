@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCProjectTaskCell.h"
+#import "WHCTaskListCell.h"
 
-@implementation WHCProjectTaskCell
+@implementation WHCTaskListCell
 
 @synthesize task = _task;
 
@@ -25,6 +25,7 @@
     [icon setImage:[UIImage imageNamed:owner.icon]];
     [title setText:task.title];
     [detail setText: [NSString stringWithFormat:@"%@", task.createTime]];
+//    [checkedIcon setHighlighted: [task.finished boolValue]];
     [checked setSelected: [task.finished boolValue]];
     [checked addTarget:self action:@selector(onTaskFinishedChange) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -34,7 +35,9 @@
     BOOL finished = !checked.selected;
     _task.finished = [NSNumber numberWithBool:finished];
     [ProjectTasks saveContext];
+
     [checked setSelected:finished];
+//    [checkedIcon setHighlighted:finished];
 }
 
 @end

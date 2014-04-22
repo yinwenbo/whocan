@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCProjectTaskListView.h"
+#import "WHCTaskListView.h"
 
-@interface WHCProjectTaskListView () {
+@interface WHCTaskListView () {
     IBOutlet UIBarButtonItem * _moreAction;
     NSString * _projectId;
     ProjectTasks * _selectedTask;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation WHCProjectTaskListView
+@implementation WHCTaskListView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,8 +55,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UIViewController *view = [segue destinationViewController];
-    if ([view isKindOfClass:[WHCProjectTaskView class]]) {
-        [((WHCProjectTaskView*)view) setTaskId: _selectedTask.taskId];
+    if ([view isKindOfClass:[WHCTaskView class]]) {
+        [((WHCTaskView*)view) setTaskId: _selectedTask.taskId];
     }
 }
 
@@ -76,7 +76,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    WHCProjectTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    WHCTaskListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     ProjectTasks * task = [_tasks objectAtIndex:[indexPath row]];
     [cell setTask:task];
     return cell;
@@ -132,11 +132,11 @@
 
 - (IBAction)moreActions:(id)sender
 {
-    UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:@"标题"
+    UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:nil
                                                             delegate:self
-                                                   cancelButtonTitle:@"取消键"
-                                              destructiveButtonTitle:@"毁灭键"
-                                                   otherButtonTitles:@"额外加键", nil];
+                                                   cancelButtonTitle:@"取消"
+                                              destructiveButtonTitle:@"全部"
+                                                   otherButtonTitles:@"已完成任务", @"未分配任务", @"进行中的任务", nil];
         //这样就创建了一个UIActionSheet对象，如果要多加按钮的话在nil前面直接加就行，记得用逗号隔开。
         //下面是显示，注意ActioinSheet是出现在底部的，是附加在当前的View上的，所以我们用showInView方法
 //    [myActionSheet showInView:self.view];

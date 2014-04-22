@@ -11,7 +11,7 @@
 #import "ProjectTasks.h"
 #import "AppContact.h"
 
-@interface WHCProjectTaskCell : UITableViewCell
+@interface WHCTaskListCell : UITableViewCell
 
 @property (nonatomic, retain) ProjectTasks * task;
 
