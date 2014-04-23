@@ -31,7 +31,14 @@
     [mask setAlpha:0.3f];
     [mask setFrame:CGRectMake(0, 0, svc.view.frame.size.width, svc.view.frame.size.height)];
     [svc.view addSubview:mask];
-
+/*
+    CALayer *_maskingLayer = [CALayer layer];
+    [_maskingLayer setFrame:CGRectMake(0, 0, 112, svc.view.frame.size.height)];
+    [_maskingLayer setBackgroundColor:CGColorCreateCopyWithAlpha([_maskingLayer backgroundColor], 0.3)];
+//    [_maskingLayer setBackgroundColor:[UIColor grayColor]];
+//    [_maskingLayer setContents:(id)[_maskingImage CGImage]];
+    [svc.view.layer setMask:_maskingLayer];
+*/    
 
     dvc.view.frame = CGRectMake(svc.view.frame.size.width, 0, 0, svc.view.frame.size.height);
     [svc addChildViewController:dvc];

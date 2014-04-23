@@ -1142,6 +1142,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="消息" id="jeW-1u-c2Y">
                         <barButtonItem key="rightBarButtonItem" title="任务" id="Lcg-0S-952">
                             <connections>
@@ -1149,6 +1150,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_inputBarView" destination="Zi8-b5-oe2" id="RME-jv-RrZ"/>
                         <outlet property="_inputText" destination="k7D-bj-hWU" id="Rxv-H0-Xcz"/>
