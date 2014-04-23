@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomUI.h"
 
 @interface WHCTaskDeadlineView : UITableViewController
+
+@property (nonatomic, retain) NSDate * value;
 
 @end

@@ -14,15 +14,16 @@
     ProjectTasks * _task;
     UITableViewCell * _deadlineCell;
     IBOutlet UITextField * _taskTitle;
-    IBOutlet UITextField * _deadline;
+    IBOutlet UILabel * _deadline;
     IBOutlet UISwitch * _finished;
     IBOutlet UITextView * _remark;
-    IBOutlet UITextField * _owner;
+    IBOutlet UILabel * _owner;
 }
 
 @end
 
 @implementation WHCTaskView
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,6 +51,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)setTaskId:(NSString *)taskId
 {
     _task = [ProjectTasks findTask:taskId];
@@ -57,7 +59,6 @@
 
 - (void)initView
 {
-    [self initDeadlineEditor];
     [_finished setOn:[_task.finished boolValue]animated:YES];
     [_remark setText:_task.remark];
 }
@@ -79,7 +80,7 @@
                                                               action:nil];
     [view setView:dp leftButton:cancel rightButton:done];
 //    _deadline = [[UITextField alloc] init];
-    [_deadline setInputView:view];
+//    [_deadline setInputView:view];
 
 }
 
@@ -93,6 +94,22 @@
 
 - (IBAction)unwindToTaskView:(UIStoryboardSegue *)unwindSegue
 {
+    UIViewController * vc = unwindSegue.sourceViewController;
+    if ([vc isKindOfClass:[WHCTaskDeadlineView class]]) {
+        NSDate * value = ((WHCTaskDeadlineView *)vc).value;
+        if (value) {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+            [dateFormatter setDateFormat:@"MMMd'日' cccc"];
+            [_deadline setText:[dateFormatter stringFromDate:value]];
+        } else {
+            [_deadline setText:@"已完成"];
+        }
+    }
+    for (UIView *view in [self.view subviews]){
+        if ([view isKindOfClass:[CUISemiView class]]) {
+            [((CUISemiView*) view) closeSemiView];
+        }
+    }
 }
 
 
