@@ -77,7 +77,7 @@
 
 - (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
 {
-    if ([fromViewController isKindOfClass:[WHCTaskView class]]) {
+    if ([fromViewController isKindOfClass:[WHCTaskView class]] && [sender tag] == 1) {
         return [((WHCTaskView *)fromViewController) save];
     }
     return YES;

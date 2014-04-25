@@ -127,6 +127,7 @@
 		4CDA50211900F17900057419 /* WHCAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA50201900F17900057419 /* WHCAnalytics.m */; };
 		4CDA50251901043200057419 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA50231901043200057419 /* libMobClickLibrary.a */; };
 		4CE04FDD190A5C5B0081EDD0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE04FDB190A5C5B0081EDD0 /* Model.xcdatamodeld */; };
+		4CE04FE0190A6C710081EDD0 /* WHCTaskOwnerPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE04FDF190A6C710081EDD0 /* WHCTaskOwnerPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -371,6 +372,8 @@
 		4CDA50231901043200057419 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		4CDA50241901043200057419 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		4CE04FDC190A5C5B0081EDD0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4CE04FDE190A6C710081EDD0 /* WHCTaskOwnerPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCTaskOwnerPickerView.h; sourceTree = "<group>"; };
+		4CE04FDF190A6C710081EDD0 /* WHCTaskOwnerPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCTaskOwnerPickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -748,6 +751,8 @@
 				4CAD3DF2190767B800B719FB /* WHCTaskListView.m */,
 				4CAD3DF3190767B800B719FB /* WHCTaskView.h */,
 				4CAD3DF4190767B800B719FB /* WHCTaskView.m */,
+				4CE04FDE190A6C710081EDD0 /* WHCTaskOwnerPickerView.h */,
+				4CE04FDF190A6C710081EDD0 /* WHCTaskOwnerPickerView.m */,
 			);
 			path = Tasklist;
 			sourceTree = "<group>";
@@ -1150,6 +1155,7 @@
 				4C174FB218D963AF00DFFDC7 /* ASIAuthenticationDialog.m in Sources */,
 				4CAD3E09190767B800B719FB /* WHCSettingView.m in Sources */,
 				4CAD3E0A190767B800B719FB /* WHCSingleSelectView.m in Sources */,
+				4CE04FE0190A6C710081EDD0 /* WHCTaskOwnerPickerView.m in Sources */,
 				4C174FB818D963AF00DFFDC7 /* ASIInputStream.m in Sources */,
 				4CAD3E521907687000B719FB /* MessageSession.m in Sources */,
 				4CDA4F6418FFB00B00057419 /* CDataScanner.m in Sources */,
