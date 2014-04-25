@@ -22,6 +22,7 @@
 @dynamic ownerId;
 @dynamic creatorId;
 @dynamic createTime;
+@dynamic priority;
 
 + (void)saveContext
 {
@@ -46,7 +47,7 @@
 
 + (NSArray *)findTasksByProjectId:(NSString *)projectId
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId = %@ and parentId = %@", projectId, projectId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"projectId = %@ and parentId = NULL", projectId];
     
     NSArray *sort = [[NSArray alloc]initWithObjects:
                      [[NSSortDescriptor alloc] initWithKey:@"createTime" ascending:YES], nil];

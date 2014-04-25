@@ -36,7 +36,7 @@
     [self initTasks];
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
-
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     // Do any additional setup after loading the view.
 }
 
@@ -55,11 +55,33 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UIViewController *view = [segue destinationViewController];
+    if ([view isKindOfClass:[UINavigationController class]]) {
+        view = ((UINavigationController*)view).topViewController;
+    }
     if ([view isKindOfClass:[WHCTaskView class]]) {
-        [((WHCTaskView*)view) setTaskId: _selectedTask.taskId];
+        WHCTaskView * taskView = (WHCTaskView*)view;
+        if ([sender isKindOfClass:[UITableViewCell class]]) {
+            taskView.task = _selectedTask;
+        }else {
+            taskView.taskGroupId = _projectId;
+            taskView.task = nil;
+        }
+        
     }
 }
 
+- (IBAction)unwindToTaskListView:(UIStoryboardSegue *)unwindSegue
+{
+    [self initTasks];
+}
+
+- (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
+{
+    if ([fromViewController isKindOfClass:[WHCTaskView class]]) {
+        return [((WHCTaskView *)fromViewController) save];
+    }
+    return YES;
+}
 
 #pragma mark - Table Delegate
 
@@ -108,26 +130,6 @@
 {
     _projectId = projectId;
     [self initTasks];
-}
-
-- (IBAction)createTask:(id)sender
-{
-    UITextField *text = (UITextField *)sender;
-    if (text.text.length == 0){
-        return;
-    }
-    
-    ProjectTasks *task = [ProjectTasks createTask];
-    task.taskId = [[[NSUUID alloc] init] UUIDString];
-    task.projectId = _projectId;
-    task.parentId = _projectId;
-    task.ownerId = _mine.appId;
-    task.creatorId = _mine.appId;
-    task.title = text.text;
-    task.createTime = [[NSDate alloc] init];
-    [ProjectTasks saveContext];
-    [self initTasks];
-    text.text = @"";
 }
 
 - (IBAction)moreActions:(id)sender

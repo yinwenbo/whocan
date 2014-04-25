@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSString * ownerId;
 @property (nonatomic, retain) NSString * creatorId;
 @property (nonatomic, retain) NSDate * createTime;
-
+@property (nonatomic, retain) NSNumber * priority;
 
 + (void)saveContext;
 

@@ -11,19 +11,23 @@
 #import "WHCIconCollection.h"
 
 @interface WHCTaskView () {
-    ProjectTasks * _task;
-    UITableViewCell * _deadlineCell;
     IBOutlet UITextField * _taskTitle;
     IBOutlet UILabel * _deadline;
-    IBOutlet UISwitch * _finished;
     IBOutlet UITextView * _remark;
     IBOutlet UILabel * _owner;
+    IBOutlet UISegmentedControl * _priority;
+    
+    NSDate * _templateDeadline;
+    AppContact * _templateOwner;
+    BOOL isFinished;
 }
 
 @end
 
 @implementation WHCTaskView
 
+@synthesize task = _task;
+@synthesize taskGroupId;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -51,18 +55,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)setTaskId:(NSString *)taskId
-{
-    _task = [ProjectTasks findTask:taskId];
-}
-
 - (void)initView
 {
-    [_finished setOn:[_task.finished boolValue]animated:YES];
-    [_remark setText:_task.remark];
+    if (_task) {
+        [_taskTitle setText:_task.title];
+        [_remark setText:_task.remark];
+        if (_task.deadline || [_task.finished boolValue] == YES) {
+            [_deadline setText:[self getDeadlineLabel:_task.deadline]];
+        }
+
+    }
+    if (_task.priority) {
+        [_priority setSelectedSegmentIndex:[_task.priority integerValue]];
+    }
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+/*
 - (void)initDeadlineEditor
 {
     UIDatePicker *dp = [[UIDatePicker alloc]init];
@@ -89,28 +98,84 @@
     UIDatePicker *dp = (UIDatePicker*)sender;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
-    [[_deadlineCell detailTextLabel] setText:[df stringFromDate:[dp date]]];
+//    [[_deadlineCell detailTextLabel] setText:[df stringFromDate:[dp date]]];
+}
+*/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+
 }
 
 - (IBAction)unwindToTaskView:(UIStoryboardSegue *)unwindSegue
 {
     UIViewController * vc = unwindSegue.sourceViewController;
     if ([vc isKindOfClass:[WHCTaskDeadlineView class]]) {
-        NSDate * value = ((WHCTaskDeadlineView *)vc).value;
-        if (value) {
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-            [dateFormatter setDateFormat:@"MMMd'日' cccc"];
-            [_deadline setText:[dateFormatter stringFromDate:value]];
-        } else {
-            [_deadline setText:@"已完成"];
-        }
+        _templateDeadline = ((WHCTaskDeadlineView *)vc).value;
+        isFinished = (_templateDeadline == nil);
+        [_deadline setText:[self getDeadlineLabel:_templateDeadline]];
     }
     for (UIView *view in [self.view subviews]){
         if ([view isKindOfClass:[CUISemiView class]]) {
             [((CUISemiView*) view) closeSemiView];
+            
         }
     }
 }
 
+- (NSString *)getDeadlineLabel:(NSDate *)deadline;
+{
+    if (deadline == nil) {
+        return @"已完成";
+    }
+    NSArray * DayLabels = @[@"今天", @"明天", @"后天"];
+    
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+                 interval:NULL forDate:[NSDate date]];
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+                 interval:NULL forDate:deadline];
+    NSInteger day = [[NSCalendar currentCalendar] components:NSDayCalendarUnit
+                                                    fromDate:fromDate
+                                                      toDate:toDate
+                                                     options:0].day;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"MMMd'日' cccc"];
+    NSString * dateLabel = [dateFormatter stringFromDate:deadline];
+    
+    if (day >= 0 && day < [DayLabels count]) {
+        return [NSString stringWithFormat:@"%@ %@", [DayLabels objectAtIndex:day], dateLabel];
+    }
+
+    return dateLabel;
+}
+
+- (BOOL)save
+{
+    if (_task == nil) {
+        _task = [ProjectTasks createTask];
+        _task.taskId = [[[NSUUID alloc] init] UUIDString];
+        _task.projectId = taskGroupId;
+        _task.parentId = nil;
+        _task.ownerId = nil;
+        _task.createTime = [NSDate date];
+//        _task.creatorId = _mine.appId;
+    }
+
+    _task.title = _taskTitle.text;
+    _task.priority = [NSNumber numberWithInteger:[_priority selectedSegmentIndex]];
+    _task.remark = _remark.text;
+    _task.deadline = _templateDeadline;
+    _task.ownerId = _templateOwner.appId;
+    [ProjectTasks saveContext];
+
+    return YES;
+}
 
 @end

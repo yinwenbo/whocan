@@ -87,7 +87,6 @@
 		4CAD3E511907687000B719FB /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E1D1907687000B719FB /* Message.m */; };
 		4CAD3E521907687000B719FB /* MessageSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E1F1907687000B719FB /* MessageSession.m */; };
 		4CAD3E531907687000B719FB /* MessageUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E211907687000B719FB /* MessageUser.m */; };
-		4CAD3E541907687000B719FB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E221907687000B719FB /* Model.xcdatamodeld */; };
 		4CAD3E551907687000B719FB /* ProjectTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E261907687000B719FB /* ProjectTasks.m */; };
 		4CAD3E561907687000B719FB /* WHCModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E281907687000B719FB /* WHCModelStore.m */; };
 		4CAD3E571907687000B719FB /* WHCSendVerifyCodeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E2C1907687000B719FB /* WHCSendVerifyCodeAPI.m */; };
@@ -127,6 +126,7 @@
 		4CDA4F9318FFBCEB00057419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA4F9218FFBCEB00057419 /* CoreLocation.framework */; };
 		4CDA50211900F17900057419 /* WHCAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA50201900F17900057419 /* WHCAnalytics.m */; };
 		4CDA50251901043200057419 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA50231901043200057419 /* libMobClickLibrary.a */; };
+		4CE04FDD190A5C5B0081EDD0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CE04FDB190A5C5B0081EDD0 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,7 +289,6 @@
 		4CAD3E1F1907687000B719FB /* MessageSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSession.m; sourceTree = "<group>"; };
 		4CAD3E201907687000B719FB /* MessageUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageUser.h; sourceTree = "<group>"; };
 		4CAD3E211907687000B719FB /* MessageUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageUser.m; sourceTree = "<group>"; };
-		4CAD3E231907687000B719FB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4CAD3E251907687000B719FB /* ProjectTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTasks.h; sourceTree = "<group>"; };
 		4CAD3E261907687000B719FB /* ProjectTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTasks.m; sourceTree = "<group>"; };
 		4CAD3E271907687000B719FB /* WHCModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCModelStore.h; sourceTree = "<group>"; };
@@ -371,6 +370,7 @@
 		4CDA50201900F17900057419 /* WHCAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCAnalytics.m; sourceTree = "<group>"; };
 		4CDA50231901043200057419 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		4CDA50241901043200057419 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		4CE04FDC190A5C5B0081EDD0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -766,7 +766,7 @@
 		4CAD3E131907687000B719FB /* LocalModel */ = {
 			isa = PBXGroup;
 			children = (
-				4CAD3E221907687000B719FB /* Model.xcdatamodeld */,
+				4CE04FDB190A5C5B0081EDD0 /* Model.xcdatamodeld */,
 				4CAD3E161907687000B719FB /* Contact */,
 				4CAD3E1B1907687000B719FB /* Message */,
 				4CAD3E241907687000B719FB /* Tasklist */,
@@ -1104,12 +1104,12 @@
 				4C174FC618D963AF00DFFDC7 /* ASIS3ObjectRequest.m in Sources */,
 				4CAD3E01190767B800B719FB /* WHCSignInView.m in Sources */,
 				4C174FBE18D963AF00DFFDC7 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
+				4CE04FDD190A5C5B0081EDD0 /* Model.xcdatamodeld in Sources */,
 				4CAD3E07190767B800B719FB /* WHCIconCollection.m in Sources */,
 				4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */,
 				4CAD3E791907BE1600B719FB /* WHCBarInputView.m in Sources */,
 				4CAD3DF8190767B800B719FB /* WHCContactPickerView.m in Sources */,
 				4CAD3E5C1907687000B719FB /* WHCNewMessageAPI.m in Sources */,
-				4CAD3E541907687000B719FB /* Model.xcdatamodeld in Sources */,
 				4CAD3E611907687000B719FB /* WHCSendInviteAPI.m in Sources */,
 				4CDA4F6618FFB00B00057419 /* CJSONDeserializer_BlocksExtensions.m in Sources */,
 				4CAD3E08190767B800B719FB /* WHCIconSettingView.m in Sources */,
@@ -1425,12 +1425,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4CAD3E221907687000B719FB /* Model.xcdatamodeld */ = {
+		4CE04FDB190A5C5B0081EDD0 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4CAD3E231907687000B719FB /* Model.xcdatamodel */,
+				4CE04FDC190A5C5B0081EDD0 /* Model.xcdatamodel */,
 			);
-			currentVersion = 4CAD3E231907687000B719FB /* Model.xcdatamodel */;
+			currentVersion = 4CE04FDC190A5C5B0081EDD0 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

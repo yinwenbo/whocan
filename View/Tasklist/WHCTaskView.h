@@ -15,9 +15,13 @@
 #import "WHCBarInputView.h"
 
 #import "ProjectTasks.h"
+#import "AppContact.h"
 
 @interface WHCTaskView : UITableViewController
 
-- (void)setTaskId:(NSString *)taskId;
+@property (nonatomic, retain) NSString * taskGroupId;
+@property (nonatomic, retain) ProjectTasks * task;
+
+- (BOOL)save;
 
 @end
