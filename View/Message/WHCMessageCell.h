@@ -13,6 +13,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView * icon;
 @property (nonatomic, retain) IBOutlet UILabel * text;
 @property (nonatomic, retain) IBOutlet UIImageView * background;
+@property (nonatomic, retain) IBOutlet UILabel * name;
 
 - (void)setContent:(NSString *)content icon:(UIImage*)icon;
 - (CGFloat)getCellHeight:(NSString *)content;

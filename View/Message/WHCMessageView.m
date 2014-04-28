@@ -174,6 +174,7 @@
     } else {
         AppContact *sender = [self findSender:message];
         [cell setContent:message.content icon:[sender getIcon]];
+        [cell.name setText:sender.appName];
     }
     return cell;
 }

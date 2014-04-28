@@ -18,7 +18,9 @@ static WHCModelStore *modelStore = nil;
 
 @implementation WHCModelStore
 
-@synthesize managedObjectModel=_managedObjectModel, managedObjectContext=_managedObjectContext, persistentStoreCoordinator=_persistentStoreCoordinator;
+@synthesize managedObjectModel=_managedObjectModel;
+@synthesize managedObjectContext=_managedObjectContext;
+@synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
 
 #pragma utils
 

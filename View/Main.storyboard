@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -346,7 +346,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tr-VQ-ac8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kbh-1m-pPb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2424" y="-1080"/>
+            <point key="canvasLocation" x="2373" y="-1080"/>
         </scene>
         <!--Friends View - 新的朋友-->
         <scene sceneID="cZ3-Ou-gA7">
@@ -1083,14 +1083,21 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SenderText" highlightedImage="SenderTextHL" translatesAutoresizingMaskIntoConstraints="NO" id="i5K-6x-O0Z">
-                                                    <rect key="frame" x="62" y="10" width="204" height="60"/>
+                                                    <rect key="frame" x="62" y="14" width="204" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <rect key="contentStretch" x="0.29999999999999999" y="0.5499999999999996" width="0.19999999999999968" height="0.10000000000000001"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="走自己的路" textAlignment="right" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="168" translatesAutoresizingMaskIntoConstraints="NO" id="lN9-zW-vnu">
-                                                    <rect key="frame" x="76" y="26" width="168" height="18"/>
+                                                    <rect key="frame" x="76" y="30" width="168" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="张三" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-h0-TLi">
+                                                    <rect key="frame" x="62" y="0.0" width="204" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1098,6 +1105,7 @@
                                         <connections>
                                             <outlet property="background" destination="i5K-6x-O0Z" id="qry-jZ-M8m"/>
                                             <outlet property="icon" destination="Hin-id-ItC" id="s7N-60-6nD"/>
+                                            <outlet property="name" destination="0Dn-h0-TLi" id="Edd-jJ-SMK"/>
                                             <outlet property="text" destination="lN9-zW-vnu" id="zBX-Po-DWE"/>
                                         </connections>
                                     </tableViewCell>
@@ -1113,14 +1121,21 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ReceiverText" highlightedImage="ReceiverTextHL" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-55-a9f">
-                                                    <rect key="frame" x="58" y="10" width="204" height="60"/>
+                                                    <rect key="frame" x="58" y="13" width="204" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <rect key="contentStretch" x="0.29999999999999999" y="0.54999999999999993" width="0.20000000000000001" height="0.10000000000000002"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您体格好啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="168" translatesAutoresizingMaskIntoConstraints="NO" id="Ed5-Sd-qgn">
-                                                    <rect key="frame" x="76" y="26" width="168" height="18"/>
+                                                    <rect key="frame" x="76" y="29" width="168" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="张三" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQa-TD-Nkz">
+                                                    <rect key="frame" x="58" y="1" width="204" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1129,6 +1144,7 @@
                                         <connections>
                                             <outlet property="background" destination="DDU-55-a9f" id="9Da-qd-WP4"/>
                                             <outlet property="icon" destination="0Ka-DC-xlu" id="dDc-gv-EtG"/>
+                                            <outlet property="name" destination="eQa-TD-Nkz" id="Wnm-1a-JIX"/>
                                             <outlet property="text" destination="Ed5-Sd-qgn" id="w59-WN-jFu"/>
                                         </connections>
                                     </tableViewCell>
@@ -1170,7 +1186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NeE-AP-6Vw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="-1080"/>
+            <point key="canvasLocation" x="934" y="-1080"/>
         </scene>
         <!--Task List View - 任务列表-->
         <scene sceneID="9vO-BK-gDy">
@@ -1240,6 +1256,7 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
+                                    <barButtonItem title="筛选" id="7gF-sD-JwH"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ACm-WC-2uj"/>
                                     <barButtonItem title="新建" id="DXB-wl-i7L">
                                         <connections>
@@ -1251,15 +1268,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="任务列表" id="70O-CY-Bf2">
-                        <barButtonItem key="rightBarButtonItem" title="筛选" id="cdx-as-4WS">
-                            <connections>
-                                <action selector="moreActions:" destination="qM8-t0-Ozk" id="C6A-pl-BWJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="任务列表" id="70O-CY-Bf2"/>
                     <connections>
-                        <outlet property="_moreAction" destination="cdx-as-4WS" id="x2q-iC-jhM"/>
                         <outlet property="_tableView" destination="2sU-JL-hSW" id="wDh-hL-OVD"/>
                     </connections>
                 </viewController>
