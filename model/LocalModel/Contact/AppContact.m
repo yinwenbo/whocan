@@ -68,6 +68,12 @@
     return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
 }
 
++ (NSArray *) getAppUsersByIds:(NSArray *)ids
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId IN %@", ids];
+    return [WHCModelStore queryEntitys:APP_CONTACT_NAME predicate:predicate sort:nil];
+}
+
 + (AppContact *)findAppContactByAppId:(NSString *)appId
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appId = %@", appId];

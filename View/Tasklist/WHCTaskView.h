@@ -11,7 +11,7 @@
 #import "CustomUI.h"
 
 #import "WHCTaskDeadlineView.h"
-
+#import "WHCTaskOwnerPickerView.h"
 #import "WHCBarInputView.h"
 
 #import "ProjectTasks.h"

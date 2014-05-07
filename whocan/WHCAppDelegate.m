@@ -23,6 +23,8 @@
     [AppContact exportPhoneABToAppContacts];
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+//    [UITabBarItem.appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor purpleColor] }
+//                                           forState:UIControlStateSelected];
     
     [WHCAnalytics start];
 //    [WHCSyncTask start];

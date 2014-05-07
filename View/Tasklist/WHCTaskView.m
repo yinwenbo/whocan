@@ -104,8 +104,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    UIViewController * view = segue.destinationViewController;
+    if ([view isKindOfClass:[WHCTaskOwnerPickerView class]]) {
+        WHCTaskOwnerPickerView *picker = (WHCTaskOwnerPickerView *)view;
+        picker.taskGroupId = taskGroupId;
+    }
 
 }
 
@@ -116,12 +120,16 @@
         _templateDeadline = ((WHCTaskDeadlineView *)vc).value;
         isFinished = (_templateDeadline == nil);
         [_deadline setText:[self getDeadlineLabel:_templateDeadline]];
+    } else if ([vc isKindOfClass:[WHCTaskOwnerPickerView class]]) {
+        _templateOwner = ((WHCTaskOwnerPickerView *)vc).selected;
+        [_owner setText:_templateOwner.appName];
     }
     for (UIView *view in [self.view subviews]){
         if ([view isKindOfClass:[CUISemiView class]]) {
             [((CUISemiView*) view) closeSemiView];
             
         }
+        
     }
 }
 

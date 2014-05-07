@@ -39,6 +39,8 @@
 + (MessageUser *)getUser:(NSString *)sessionId userId:(NSString *)userId;
 + (NSArray *)getAllUser:(NSString *)sessionId;
 
++ (NSArray *)getAppContacts:(NSString *)sessionId;
+
 + (void)saveContext;
 
 - (UIImage *)getIcon;

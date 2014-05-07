@@ -110,6 +110,15 @@
     return [WHCModelStore queryEntitys:MESSAGE_USER_NAME predicate:predicate sort:nil];
 }
 
++ (NSArray *)getAppContacts:(NSString *)sessionId
+{
+    NSMutableArray * ids = [NSMutableArray array];
+    for (MessageUser * mu in [self getAllUser:sessionId]) {
+        [ids addObject:mu.userId];
+    }
+    return [AppContact getAppUsersByIds:ids];
+}
+
 + (void)saveContext
 {
     [WHCModelStore saveContext];

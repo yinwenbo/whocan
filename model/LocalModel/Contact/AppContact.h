@@ -38,6 +38,7 @@
 + (NSArray *)getNotAppUser;
 + (NSArray *)getAppContactsInPhone;
 + (NSArray *)getFriends;
++ (NSArray *)getAppUsersByIds:(NSArray *)ids;
 
 + (NSString *)buildMobileNoParam:(NSArray *)appContacts;
 + (NSString *)buildAppIdParam:(NSArray *)appContacts;

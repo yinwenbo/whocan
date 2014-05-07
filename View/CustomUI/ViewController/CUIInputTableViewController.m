@@ -1,23 +1,18 @@
 //
-//  WHCTaskOwnerPickerView.m
+//  CUIInputTableViewController.m
 //  whocan
 //
-//  Created by Yin Wenbo on 14-4-29.
+//  Created by Yin Wenbo on 14-5-7.
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCTaskOwnerPickerView.h"
+#import "CUIInputTableViewController.h"
 
-@interface WHCTaskOwnerPickerView () {
-    NSArray * _appContacts;
-}
+@interface CUIInputTableViewController ()
 
 @end
 
-@implementation WHCTaskOwnerPickerView
-
-@synthesize taskGroupId;
-@synthesize selected;
+@implementation CUIInputTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _appContacts = [MessageSession getAppContacts:taskGroupId];
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -45,34 +39,34 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_appContacts count];
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
-
-
+*/
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WHCContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    [cell setAppContact:[_appContacts objectAtIndex:[indexPath row]]];
+    // Configure the cell...
     
     return cell;
 }
+*/
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    selected = [_appContacts objectAtIndex:[indexPath row]];
-    return indexPath;
-}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
