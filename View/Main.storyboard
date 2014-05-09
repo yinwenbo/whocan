@@ -3475,7 +3475,7 @@
         <scene sceneID="D2T-03-aS9">
             <objects>
                 <navigationController storyboardIdentifier="Discovery" title="发现" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fs7-Ik-Ifa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="互助" image="tabbar_table" id="7oF-MB-wvW"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="求助" image="tabbar_table" id="7oF-MB-wvW"/>
                     <navigationItem key="navigationItem" id="qBc-OC-waH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VR2-8p-uUC">
                         <autoresizingMask key="autoresizingMask"/>
