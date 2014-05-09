@@ -8,7 +8,13 @@
 
 #import "CUIInputTableViewController.h"
 
-@interface CUIInputTableViewController ()
+@interface CUIInputTableViewController () {
+    CGRect _tabBarFrame;
+    CGRect _navBarFrame;
+    CGRect _tableViewFrame;
+    CGPoint _lastScrollLocation;
+    BOOL _barIsHide;
+}
 
 @end
 
@@ -26,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _tabBarFrame = self.tabBarController.tabBar.frame;
+    _navBarFrame = self.navigationController.navigationBar.frame;
+    _tableViewFrame = self.tableView.frame;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,6 +49,102 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+//    NSLog(@"offset %@", NSStringFromCGPoint(scrollView.contentOffset));
+    if ([scrollView isDecelerating]) {
+        return;
+    }
+//    [self hideBars];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    _lastScrollLocation = [scrollView contentOffset];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    NSLog(@"content size %@", NSStringFromCGSize(scrollView.contentSize));
+    CGPoint contentOffset = scrollView.contentOffset;
+    CGSize contentSize = scrollView.contentSize;
+    NSLog(@"last offset %@ offset %@ decelerate %hhd",
+          NSStringFromCGPoint(_lastScrollLocation),
+          NSStringFromCGPoint(contentOffset),
+          decelerate);
+    if (_lastScrollLocation.y < contentOffset.y
+        && contentSize.height > _tabBarFrame.origin.y + _tabBarFrame.size.height) {
+        [self hideBars];
+    } else {
+        [self showBars];
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+//    [self showBars];
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    
+}
+
+- (void)showBars
+{
+    if (!_barIsHide) {
+        return;
+    }
+    [UIView animateWithDuration:0.3f
+                     animations:^(){
+                         [self.tabBarController.tabBar setFrame:_tabBarFrame];
+                         [self.navigationController.navigationBar setFrame:_navBarFrame];
+                         [self.tableView setFrame:_tableViewFrame];
+                     }
+                     completion:^(BOOL finished) {
+                         _barIsHide = NO;
+                     }];
+}
+
+- (void)hideBars
+{
+    if (_barIsHide) {
+        return;
+    }
+
+    CGRect tabBarHideFarme = CGRectMake(_tabBarFrame.origin.x,
+                                        _tabBarFrame.origin.y + _tabBarFrame.size.height,
+                                        _tabBarFrame.size.width,
+                                        _tabBarFrame.size.height);
+    CGRect navBarHideFarme = CGRectMake(_navBarFrame.origin.x,
+                                        -_navBarFrame.size.height,
+                                        _navBarFrame.size.width,
+                                        _navBarFrame.size.height);
+    CGRect tableFrame = CGRectMake(_tableViewFrame.origin.x,
+                                   _tableViewFrame.origin.y - navBarHideFarme.origin.y - navBarHideFarme.size.height,
+                                   _tableViewFrame.size.width,
+                                   _tableViewFrame.size.height + _tabBarFrame.size.height);
+    
+    [UIView animateWithDuration:0.3f
+                     animations:^(){
+                         [self.tabBarController.tabBar setFrame:tabBarHideFarme];
+                         [self.navigationController.navigationBar setFrame:navBarHideFarme];
+                         [self.tableView setFrame:tableFrame];
+                     }
+                     completion:^(BOOL finished) {
+                         _barIsHide = YES;
+                     }];
+    
+    
+}
+/*
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 20;
+    }
+    return 40;
+}
+ */
 /*
 #pragma mark - Table view data source
 
@@ -106,15 +211,14 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self showBars];
 }
-*/
+
 
 @end

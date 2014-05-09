@@ -29,6 +29,7 @@
 {
     NSString *value = [self getString:key];
     NSDate *result = [NSDate dateWithTimeIntervalSince1970:[value doubleValue]/1000];
+
     return result;
 }
 

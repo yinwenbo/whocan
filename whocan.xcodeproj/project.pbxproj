@@ -10,6 +10,7 @@
 		4C01B86D190FBED000D86D78 /* WHCTaskCreateAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C01B86C190FBED000D86D78 /* WHCTaskCreateAPI.m */; };
 		4C01B8B41917A26B00D86D78 /* WHCMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C01B8B31917A26B00D86D78 /* WHCMainView.m */; };
 		4C11977B1919D358000FBC13 /* CUIInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11977A1919D358000FBC13 /* CUIInputTableViewController.m */; };
+		4C11977F191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11977E191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m */; };
 		4C174F6518D71C0C00DFFDC7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */; };
 		4C174F6718D71C4F00DFFDC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6618D71C4F00DFFDC7 /* SystemConfiguration.framework */; };
 		4C174F6D18D71D2300DFFDC7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6C18D71D2300DFFDC7 /* MobileCoreServices.framework */; };
@@ -150,6 +151,8 @@
 		4C01B8B31917A26B00D86D78 /* WHCMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCMainView.m; sourceTree = "<group>"; };
 		4C1197791919D358000FBC13 /* CUIInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIInputTableViewController.h; sourceTree = "<group>"; };
 		4C11977A1919D358000FBC13 /* CUIInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIInputTableViewController.m; sourceTree = "<group>"; };
+		4C11977D191A2A21000FBC13 /* WHCCategorySemiLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCCategorySemiLeftSegue.h; path = Publish/WHCCategorySemiLeftSegue.h; sourceTree = "<group>"; };
+		4C11977E191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCCategorySemiLeftSegue.m; path = Publish/WHCCategorySemiLeftSegue.m; sourceTree = "<group>"; };
 		4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4C174F6618D71C4F00DFFDC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4C174F6818D71C8D00DFFDC7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -434,6 +437,15 @@
 			name = Tasklist;
 			sourceTree = "<group>";
 		};
+		4C11977C191A299A000FBC13 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				4C11977D191A2A21000FBC13 /* WHCCategorySemiLeftSegue.h */,
+				4C11977E191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m */,
+			);
+			name = Publish;
+			sourceTree = "<group>";
+		};
 		4C174F1118D7096300DFFDC7 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +682,7 @@
 				4CAD3DD4190767B800B719FB /* Message */,
 				4CAD3DE8190767B800B719FB /* Tasklist */,
 				4CAD3DB5190767B800B719FB /* Contact */,
+				4C11977C191A299A000FBC13 /* Publish */,
 				4CAD3DDD190767B800B719FB /* Setting */,
 			);
 			path = View;
@@ -1167,6 +1180,7 @@
 				4C174FB718D963AF00DFFDC7 /* ASIHTTPRequest.m in Sources */,
 				4CAD3E581907687000B719FB /* WHCSignInAPI.m in Sources */,
 				4CAD3DF7190767B800B719FB /* WHCContactEditView.m in Sources */,
+				4C11977F191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m in Sources */,
 				4CAD3E04190767B800B719FB /* WHCMessageSessionCell.m in Sources */,
 				4CDA4F6D18FFB00B00057419 /* CJSONSerializer.m in Sources */,
 				4C174FC718D963AF00DFFDC7 /* ASIS3Request.m in Sources */,
@@ -1337,6 +1351,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "whocan/whocan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
@@ -1369,6 +1384,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "whocan/whocan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3rd/baidu/universal-bin",

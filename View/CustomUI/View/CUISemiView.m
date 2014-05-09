@@ -59,12 +59,17 @@
 - (void)showOnLeftSemi:(UIViewController *)vc
 {
     [self closeSemiView];
+    
+    CGRect navBarFrame = _parentVC.navigationController.navigationBar.frame;
+    CGFloat navHeight =  navBarFrame.origin.y + navBarFrame.size.height;
     CGRect frame = _parentVC.view.frame;
     CGFloat width = [self getSemiWidth];
-    _semiBeginRect = CGRectMake(-width, frame.origin.y, width, frame.size.height);
-    _semiEndRect = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height);
-    _maskRect = CGRectMake(width, frame.origin.y, frame.size.width - width, frame.size.height);
+    _semiBeginRect = CGRectMake(-width, frame.origin.y, width, frame.size.height - navHeight);
+    _semiEndRect = CGRectMake(frame.origin.x, frame.origin.y, width, frame.size.height - navHeight);
+    _maskRect = CGRectMake(width, frame.origin.y, frame.size.width - width, frame.size.height - navHeight);
     _semiVC = vc;
+
+//    [_parentVC.parentViewController.parentViewController.view setFrame:CGRectMake(width, frame.origin.y, frame.size.width, frame.size.height)];
     [self showSemiView];
     
 }
@@ -72,11 +77,13 @@
 - (void)showOnRightSemi:(UIViewController *)vc
 {
     [self closeSemiView];
+    CGRect navBarFrame = _parentVC.navigationController.navigationBar.frame;
+    CGFloat navHeight =  navBarFrame.origin.y + navBarFrame.size.height;
     CGRect frame = _parentVC.view.frame;
     CGFloat width = [self getSemiWidth];
-    _semiBeginRect = CGRectMake(frame.size.width, frame.origin.y, width, frame.size.height);
-    _semiEndRect = CGRectMake(frame.size.width - width, frame.origin.y, width, frame.size.height);
-    _maskRect = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width - width, frame.size.height);
+    _semiBeginRect = CGRectMake(frame.size.width, frame.origin.y, width, frame.size.height - navHeight);
+    _semiEndRect = CGRectMake(frame.size.width - width, frame.origin.y, width, frame.size.height - navHeight);
+    _maskRect = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width - width, frame.size.height - navHeight);
     _semiVC = vc;
     [self showSemiView];
 }
@@ -102,6 +109,7 @@
 
 - (void)closeSemiView
 {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     if (_semiVC) {
         [UIView animateWithDuration:0.3f animations:^{
             [_semiVC.view setFrame:_semiBeginRect];
