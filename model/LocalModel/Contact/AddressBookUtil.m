@@ -19,6 +19,7 @@ static bool abAccessPerission;
     if(error){
         NSLog(@"get phone address book error: %@", error);
     }
+    CFRelease(addressBook);
     return addressBook;
 }
 
@@ -38,6 +39,7 @@ static bool abAccessPerission;
             NSLog(@"get address book granted error %@", error);
         }
     });
+    CFRelease(addressBook);    
 //    [AddressBookUtil releaseRef:addressBook];
     return abAccessPerission;
 }
@@ -45,7 +47,7 @@ static bool abAccessPerission;
 + (NSInteger) getPhoneABCount
 {
     ABAddressBookRef addressBook = [AddressBookUtil getAddressBookRef];
-    NSInteger result = ABAddressBookGetPersonCount(addressBook);
+    CFIndex result = ABAddressBookGetPersonCount(addressBook);
 //    [AddressBookUtil releaseRef:addressBook];
     return result;
 }
@@ -89,10 +91,9 @@ static bool abAccessPerission;
         NSString *localLabel = (NSString *)CFBridgingRelease(ABAddressBookCopyLocalizedLabel(label));
         NSLog(@"phone %@ %@", value, localLabel);
         [result addObject:[AddressBookUtil formatMobileNo:(NSString *)CFBridgingRelease(value)]];
-        if(value) CFRelease(value);
         if(label) CFRelease(label);
     }
-
+    CFRelease(phones);
     return result;
 }
 
@@ -100,7 +101,8 @@ static bool abAccessPerission;
 {
     NSString *phone = nil;
     CFTypeRef phones = ABRecordCopyValue(record, kABPersonPhoneProperty);
-    for(long i = 0; i < ABMultiValueGetCount(phones); i++){
+    CFIndex count = ABMultiValueGetCount(phones);
+    for(CFIndex i = 0; i < count; i++){
         CFStringRef value = ABMultiValueCopyValueAtIndex(phones, i);
         CFStringRef label = ABMultiValueCopyLabelAtIndex(phones, i);
         
@@ -108,14 +110,12 @@ static bool abAccessPerission;
         NSLog(@"%@ (%@, %@)", value, label, localLabel);
         if([localLabel isEqualToString:@"mobile"]){
             phone = (NSString *)CFBridgingRelease(value);
-            CFRelease(value);
             CFRelease(label);
             break;
         }
         
         if([localLabel isEqualToString:@"work"]){
             phone = (NSString *)CFBridgingRelease(value);
-            CFRelease(value);
             CFRelease(label);
             break;
         }
@@ -126,6 +126,7 @@ static bool abAccessPerission;
     } else {
         phone = [AddressBookUtil formatMobileNo:phone];
     }
+    CFRelease(phones);
     return phone;
 
 }
@@ -163,6 +164,7 @@ static bool abAccessPerission;
     if(mail == nil){
         mail = @"";
     }
+    CFRelease(mails);
     return mail;
 
 }

@@ -31,6 +31,13 @@
     return mine.token;
 }
 
++ (void)cleanToken
+{
+    AppContact *mine = [AppContact findMySelf];
+    [mine setToken:nil];
+    [AppContact saveContext];
+}
+
 + (NSString *)getDeviceToken
 {
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];

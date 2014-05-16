@@ -34,7 +34,8 @@
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.83f, 0.83f, 0.83f, 0.8f});
     [self.layer setBorderColor:beginColor];
-
+    CFRelease(beginColor);
+    CFRelease(colorSpaceRef);
 }
 
 

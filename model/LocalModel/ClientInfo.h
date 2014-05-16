@@ -16,6 +16,7 @@
 + (BOOL)needUpdateUserInfo;
 
 + (NSString *)getToken;
++ (void)cleanToken;
 
 + (NSString *)getDeviceToken;
 + (void)setDeviceToken:(NSString *)deviceToken;

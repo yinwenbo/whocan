@@ -123,6 +123,7 @@
 - (void)processAccessRefuse
 {
     if ([_delegate isKindOfClass:[UIViewController class]]) {
+        [ClientInfo cleanToken];
         [self showSignInView:(UIViewController*)_delegate];
         return;
     }
