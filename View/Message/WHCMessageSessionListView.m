@@ -35,7 +35,7 @@
         [self presentViewController:signInVc animated:YES completion:nil];
         return;
     }
-    [[WHCUploadContactsAPI getInstance:self] asynchronize];
+    [SocialDelegate uploadContactsInBackground];
     _messageSessions = [NSMutableArray arrayWithArray:[MessageSession getAllSession]];
 }
 

@@ -14,6 +14,7 @@
     ProjectTasks * _selectedTask;
     NSArray * _tasks;
     AppContact * _mine;
+    HttpJsonAPI * _findTasklistApi;
 }
 
 @end
@@ -40,12 +41,21 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    _findTasklistApi = [TasklistDelegate findTasklistByGroupId:_projectId];
+    [_findTasklistApi startAsynchronize:^(HttpJsonAPI *api) {
+        [TasklistDelegate updateTasklistByAPIResult:[api getResult]];
+        [self initTasks];
+        _findTasklistApi = nil;
+    } showProgressOn:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - Navigation
 

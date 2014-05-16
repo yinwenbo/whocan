@@ -10,6 +10,7 @@
 
 @interface WHCContactsView (){
     NSArray * _appContacts;
+    HttpJsonAPI * _getFriendsAPI;
 }
 
 @end
@@ -40,26 +41,17 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 - (void)viewDidAppear:(BOOL)animated
 {
     [WHCAnalytics viewIn:self];
-    [WHCGetFriendsAPI registerNotify:self callback:@selector(finishedRefresh)];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [WHCAnalytics viewOut:self];
-    [WHCGetFriendsAPI removeNotify:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)onJsonParseFinished:(WHCJsonAPI *)api
-{
-    if([api isKindOfClass:[WHCGetFriendsAPI class]]){
-        [self finishedRefresh];
-    }
 }
 
 - (NSArray*)getAppContacts
@@ -94,7 +86,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 - (void)pullToRefresh
 {
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新中"];
-    [[WHCGetFriendsAPI getInstance:self] asynchronize];
+    [self refreshFriends];
 }
 
 - (void)finishedRefresh
@@ -104,6 +96,15 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
     _appContacts = nil;
     [self.tableView reloadData];
 
+}
+
+- (void)refreshFriends
+{
+    _getFriendsAPI = [SocialDelegate getFriends];
+    [_getFriendsAPI startAsynchronize:^(HttpJsonAPI *api) {
+        _getFriendsAPI = nil;
+        [self finishedRefresh];
+    } showProgressOn:nil];    
 }
 
 #pragma mark - Table view data source
@@ -260,7 +261,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 - (void)addToFriend:(AppContact*)appContact;
 {
     [[WHCAddFriendAPI getInstance:self userId:appContact.appId] synchronize];
-    [[WHCGetFriendsAPI getInstance:self] synchronize];
+    [self refreshFriends];
 }
 
 #pragma mark - Table Edit

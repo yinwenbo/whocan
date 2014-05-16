@@ -64,4 +64,35 @@
 
 }
 
+- (NSString *)getDeadlineLabel
+{
+    if (self.deadline == nil) {
+        return @"已完成";
+    }
+    NSArray * DayLabels = @[@"今天", @"明天", @"后天"];
+    
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+                 interval:NULL forDate:[NSDate date]];
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+                 interval:NULL forDate:self.deadline];
+    NSInteger day = [[NSCalendar currentCalendar] components:NSDayCalendarUnit
+                                                    fromDate:fromDate
+                                                      toDate:toDate
+                                                     options:0].day;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"MMMd'日' cccc"];
+    NSString * dateLabel = [dateFormatter stringFromDate:self.deadline];
+    
+    if (day >= 0 && day < [DayLabels count]) {
+        return [NSString stringWithFormat:@"%@ %@", [DayLabels objectAtIndex:day], dateLabel];
+    }
+    
+    return dateLabel;
+}
+
 @end

@@ -1710,7 +1710,7 @@
                                                     <rect key="frame" x="55" y="28" width="180" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWM-Ik-Bu2">
@@ -1739,7 +1739,11 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="筛选" id="7gF-sD-JwH"/>
+                                    <barButtonItem title="筛选" id="7gF-sD-JwH">
+                                        <connections>
+                                            <action selector="moreActions:" destination="qM8-t0-Ozk" id="f2m-8p-bFC"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ACm-WC-2uj"/>
                                     <barButtonItem title="新建" id="DXB-wl-i7L">
                                         <connections>
@@ -1753,6 +1757,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="任务列表" id="70O-CY-Bf2"/>
                     <connections>
+                        <outlet property="_moreAction" destination="7gF-sD-JwH" id="ufR-rP-zGD"/>
                         <outlet property="_tableView" destination="2sU-JL-hSW" id="wDh-hL-OVD"/>
                     </connections>
                 </viewController>

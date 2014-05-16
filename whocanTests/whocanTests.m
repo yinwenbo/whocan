@@ -28,7 +28,12 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSMutableDictionary *params = [HttpJsonAPI paramsWithToken];
+    [params setObject:@"1" forKey:@"groupId"];
+    HttpJsonAPI * api = [[HttpJsonAPI alloc] initWithParams:params url:api_tasklist_find_by_group_id];
+    [api startSynchronize];
+
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

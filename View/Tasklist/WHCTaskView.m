@@ -166,6 +166,16 @@
 
 - (BOOL)save
 {
+    HttpJsonAPI *api = [TasklistDelegate createTask:taskGroupId
+                                              title:_taskTitle.text
+                                        description:_remark.text
+                                               rate:[_priority selectedSegmentIndex]
+                                                top:0
+                                              owner:_templateOwner.appId
+                                           deadline:_templateDeadline
+                                             status:@"" parentId:@"" type:@""];
+    [api startSynchronize];
+    /*
     if (_task == nil) {
         _task = [ProjectTasks createTask];
         _task.taskId = [[[NSUUID alloc] init] UUIDString];
@@ -182,7 +192,7 @@
     _task.deadline = _templateDeadline;
     _task.ownerId = _templateOwner.appId;
     [ProjectTasks saveContext];
-
+     */
     return YES;
 }
 

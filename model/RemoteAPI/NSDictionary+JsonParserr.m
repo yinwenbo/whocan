@@ -47,12 +47,25 @@
     NSObject * result = [self getObject:key];
     
     if ([result isKindOfClass:[NSString class]]){
-        return (NSString*)result;
+        return (NSString *)result;
     }
     return [NSString stringWithFormat:@"%@", result];
 
 }
 
+- (NSNumber *)getNumber:(NSString *)key
+{
+    NSObject * result = [self getObject:key];
+    if ([result isKindOfClass:[NSNumber class]]){
+        return (NSNumber *)result;
+    }
+    if ([result isKindOfClass:[NSString class]]) {
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterNoStyle];
+        return [f numberFromString:(NSString *)result];
+    }
+    return nil;
+}
 - (NSObject *)getObject:(NSString *)key
 {
     id result = [self objectForKey:key];

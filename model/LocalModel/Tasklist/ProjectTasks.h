@@ -34,5 +34,6 @@
 + (NSArray *)findTasksByProjectId:(NSString *)projectId;
 + (NSArray *)findTasksByParentId:(NSString *)parentId;
 
+- (NSString *)getDeadlineLabel;
 
 @end

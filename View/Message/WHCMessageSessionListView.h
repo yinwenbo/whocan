@@ -19,7 +19,6 @@
 #import "WHCMakeMessageReadAPI.h"
 #import "WHCNewMessageAPI.h"
 #import "WHCAddUserToSessionAPI.h"
-#import "WHCUploadContactsAPI.h"
 
 @interface WHCMessageSessionListView : UITableViewController<WHCJsonAPIDelegate>
 

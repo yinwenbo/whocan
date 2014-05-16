@@ -114,7 +114,7 @@
         if (![ClientInfo isSignIn]) {
             return;
         }
-        [[WHCUploadContactsAPI getInstance:self] asynchronize];
+        [SocialDelegate uploadContactsInBackground];
         if([ClientInfo needUpdateUserInfo]) {
             UIViewController *registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
             [self presentViewController:registerView animated:YES completion:nil];

@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C01B86D190FBED000D86D78 /* WHCTaskCreateAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C01B86C190FBED000D86D78 /* WHCTaskCreateAPI.m */; };
 		4C01B8B41917A26B00D86D78 /* WHCMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C01B8B31917A26B00D86D78 /* WHCMainView.m */; };
 		4C11977B1919D358000FBC13 /* CUIInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11977A1919D358000FBC13 /* CUIInputTableViewController.m */; };
 		4C11977F191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11977E191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m */; };
+		4C1197F219234EF3000FBC13 /* HttpJsonAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1197F019234EF3000FBC13 /* HttpJsonAPI.m */; };
+		4C1197F519235138000FBC13 /* MessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1197F419235138000FBC13 /* MessageDelegate.m */; };
+		4C11980519245920000FBC13 /* SocialDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11980419245920000FBC13 /* SocialDelegate.m */; };
+		4C119808192492C4000FBC13 /* JsonAPIResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C119807192492C4000FBC13 /* JsonAPIResult.m */; };
+		4C11980B1924C0C3000FBC13 /* TasklistDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C11980A1924C0C3000FBC13 /* TasklistDelegate.m */; };
 		4C174F6518D71C0C00DFFDC7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */; };
 		4C174F6718D71C4F00DFFDC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6618D71C4F00DFFDC7 /* SystemConfiguration.framework */; };
 		4C174F6D18D71D2300DFFDC7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C174F6C18D71D2300DFFDC7 /* MobileCoreServices.framework */; };
@@ -105,7 +109,6 @@
 		4CAD3E5F1907687000B719FB /* WHCAddFriendAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E3E1907687000B719FB /* WHCAddFriendAPI.m */; };
 		4CAD3E601907687000B719FB /* WHCGetFriendsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E401907687000B719FB /* WHCGetFriendsAPI.m */; };
 		4CAD3E611907687000B719FB /* WHCSendInviteAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E421907687000B719FB /* WHCSendInviteAPI.m */; };
-		4CAD3E621907687000B719FB /* WHCUploadContactsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E441907687000B719FB /* WHCUploadContactsAPI.m */; };
 		4CAD3E631907687000B719FB /* WHCHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E461907687000B719FB /* WHCHttpAPI.m */; };
 		4CAD3E641907687000B719FB /* WHCJsonAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E491907687000B719FB /* WHCJsonAPI.m */; };
 		4CAD3E651907687000B719FB /* WHCSyncTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E4D1907687000B719FB /* WHCSyncTask.m */; };
@@ -145,14 +148,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C01B86B190FBED000D86D78 /* WHCTaskCreateAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCTaskCreateAPI.h; path = Tasklist/WHCTaskCreateAPI.h; sourceTree = "<group>"; };
-		4C01B86C190FBED000D86D78 /* WHCTaskCreateAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCTaskCreateAPI.m; path = Tasklist/WHCTaskCreateAPI.m; sourceTree = "<group>"; };
 		4C01B8B21917A26B00D86D78 /* WHCMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCMainView.h; sourceTree = "<group>"; };
 		4C01B8B31917A26B00D86D78 /* WHCMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCMainView.m; sourceTree = "<group>"; };
 		4C1197791919D358000FBC13 /* CUIInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIInputTableViewController.h; sourceTree = "<group>"; };
 		4C11977A1919D358000FBC13 /* CUIInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIInputTableViewController.m; sourceTree = "<group>"; };
 		4C11977D191A2A21000FBC13 /* WHCCategorySemiLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHCCategorySemiLeftSegue.h; path = Publish/WHCCategorySemiLeftSegue.h; sourceTree = "<group>"; };
 		4C11977E191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WHCCategorySemiLeftSegue.m; path = Publish/WHCCategorySemiLeftSegue.m; sourceTree = "<group>"; };
+		4C1197EF19234EF3000FBC13 /* HttpJsonAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpJsonAPI.h; sourceTree = "<group>"; };
+		4C1197F019234EF3000FBC13 /* HttpJsonAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpJsonAPI.m; sourceTree = "<group>"; };
+		4C1197F119234EF3000FBC13 /* HttpJsonAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpJsonAPIDelegate.h; sourceTree = "<group>"; };
+		4C1197F319235138000FBC13 /* MessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDelegate.h; sourceTree = "<group>"; };
+		4C1197F419235138000FBC13 /* MessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDelegate.m; sourceTree = "<group>"; };
+		4C11980319245920000FBC13 /* SocialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialDelegate.h; path = Model/SocialDelegate.h; sourceTree = SOURCE_ROOT; };
+		4C11980419245920000FBC13 /* SocialDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialDelegate.m; path = Model/SocialDelegate.m; sourceTree = SOURCE_ROOT; };
+		4C119806192492C4000FBC13 /* JsonAPIResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonAPIResult.h; sourceTree = "<group>"; };
+		4C119807192492C4000FBC13 /* JsonAPIResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonAPIResult.m; sourceTree = "<group>"; };
+		4C1198091924C0C3000FBC13 /* TasklistDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasklistDelegate.h; sourceTree = "<group>"; };
+		4C11980A1924C0C3000FBC13 /* TasklistDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasklistDelegate.m; sourceTree = "<group>"; };
 		4C174F6418D71C0C00DFFDC7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4C174F6618D71C4F00DFFDC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4C174F6818D71C8D00DFFDC7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -330,8 +342,6 @@
 		4CAD3E401907687000B719FB /* WHCGetFriendsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCGetFriendsAPI.m; sourceTree = "<group>"; };
 		4CAD3E411907687000B719FB /* WHCSendInviteAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCSendInviteAPI.h; sourceTree = "<group>"; };
 		4CAD3E421907687000B719FB /* WHCSendInviteAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCSendInviteAPI.m; sourceTree = "<group>"; };
-		4CAD3E431907687000B719FB /* WHCUploadContactsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCUploadContactsAPI.h; sourceTree = "<group>"; };
-		4CAD3E441907687000B719FB /* WHCUploadContactsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCUploadContactsAPI.m; sourceTree = "<group>"; };
 		4CAD3E451907687000B719FB /* WHCHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCHttpAPI.h; sourceTree = "<group>"; };
 		4CAD3E461907687000B719FB /* WHCHttpAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCHttpAPI.m; sourceTree = "<group>"; };
 		4CAD3E471907687000B719FB /* WHCHttpAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCHttpAPIDelegate.h; sourceTree = "<group>"; };
@@ -428,15 +438,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C01B86A190FBEAA00D86D78 /* Tasklist */ = {
-			isa = PBXGroup;
-			children = (
-				4C01B86B190FBED000D86D78 /* WHCTaskCreateAPI.h */,
-				4C01B86C190FBED000D86D78 /* WHCTaskCreateAPI.m */,
-			);
-			name = Tasklist;
-			sourceTree = "<group>";
-		};
 		4C11977C191A299A000FBC13 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +798,12 @@
 				4CAD3E291907687000B719FB /* RemoteAPI */,
 				4CAD3E4C1907687000B719FB /* WHCSyncTask.h */,
 				4CAD3E4D1907687000B719FB /* WHCSyncTask.m */,
+				4C1197F319235138000FBC13 /* MessageDelegate.h */,
+				4C1197F419235138000FBC13 /* MessageDelegate.m */,
+				4C11980319245920000FBC13 /* SocialDelegate.h */,
+				4C11980419245920000FBC13 /* SocialDelegate.m */,
+				4C1198091924C0C3000FBC13 /* TasklistDelegate.h */,
+				4C11980A1924C0C3000FBC13 /* TasklistDelegate.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -852,7 +859,13 @@
 		4CAD3E291907687000B719FB /* RemoteAPI */ = {
 			isa = PBXGroup;
 			children = (
-				4C01B86A190FBEAA00D86D78 /* Tasklist */,
+				4C1197EF19234EF3000FBC13 /* HttpJsonAPI.h */,
+				4C1197F019234EF3000FBC13 /* HttpJsonAPI.m */,
+				4C1197F119234EF3000FBC13 /* HttpJsonAPIDelegate.h */,
+				4C119806192492C4000FBC13 /* JsonAPIResult.h */,
+				4C119807192492C4000FBC13 /* JsonAPIResult.m */,
+				4CAD3E3A1907687000B719FB /* NSDictionary+JsonParser.h */,
+				4CAD3E3B1907687000B719FB /* NSDictionary+JsonParserr.m */,
 				4CAD3E2A1907687000B719FB /* Account */,
 				4CAD3E311907687000B719FB /* Message */,
 				4CAD3E3C1907687000B719FB /* Social */,
@@ -863,8 +876,6 @@
 				4CAD3E491907687000B719FB /* WHCJsonAPI.m */,
 				4CAD3E4A1907687000B719FB /* WHCJsonAPIDelegate.h */,
 				4CAD3E4B1907687000B719FB /* WHCRemoteAPI.h */,
-				4CAD3E3A1907687000B719FB /* NSDictionary+JsonParser.h */,
-				4CAD3E3B1907687000B719FB /* NSDictionary+JsonParserr.m */,
 			);
 			path = RemoteAPI;
 			sourceTree = "<group>";
@@ -906,8 +917,6 @@
 				4CAD3E401907687000B719FB /* WHCGetFriendsAPI.m */,
 				4CAD3E411907687000B719FB /* WHCSendInviteAPI.h */,
 				4CAD3E421907687000B719FB /* WHCSendInviteAPI.m */,
-				4CAD3E431907687000B719FB /* WHCUploadContactsAPI.h */,
-				4CAD3E441907687000B719FB /* WHCUploadContactsAPI.m */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -1125,11 +1134,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CAD3E621907687000B719FB /* WHCUploadContactsAPI.m in Sources */,
 				4CAD3E5D1907687000B719FB /* WHCSendMessageAPI.m in Sources */,
 				4CAD3E631907687000B719FB /* WHCHttpAPI.m in Sources */,
 				4CAD3E00190767B800B719FB /* WHCRegisterView.m in Sources */,
 				4CAD3DFB190767B800B719FB /* WHCFriendsView.m in Sources */,
+				4C119808192492C4000FBC13 /* JsonAPIResult.m in Sources */,
 				4CAD3DFF190767B800B719FB /* WHCSmsSendView.m in Sources */,
 				4CAD3E641907687000B719FB /* WHCJsonAPI.m in Sources */,
 				4C2BBF0A18FBD64100CFF820 /* TDBadgedCell.m in Sources */,
@@ -1138,6 +1147,7 @@
 				4CAD3E551907687000B719FB /* ProjectTasks.m in Sources */,
 				4CAD3E0F190767B800B719FB /* WHCTaskListCell.m in Sources */,
 				4CDA4F6518FFB00B00057419 /* CFilteringJSONSerializer.m in Sources */,
+				4C11980B1924C0C3000FBC13 /* TasklistDelegate.m in Sources */,
 				4C11977B1919D358000FBC13 /* CUIInputTableViewController.m in Sources */,
 				4C174FC518D963AF00DFFDC7 /* ASIS3BucketRequest.m in Sources */,
 				4CDA4F6B18FFB00B00057419 /* CJSONDeserializer.m in Sources */,
@@ -1149,6 +1159,7 @@
 				4CE04FDD190A5C5B0081EDD0 /* Model.xcdatamodeld in Sources */,
 				4CAD3E07190767B800B719FB /* WHCIconCollection.m in Sources */,
 				4C17501118E1130B00DFFDC7 /* pinyin.c in Sources */,
+				4C1197F519235138000FBC13 /* MessageDelegate.m in Sources */,
 				4CAD3E791907BE1600B719FB /* WHCBarInputView.m in Sources */,
 				4CAD3DF8190767B800B719FB /* WHCContactPickerView.m in Sources */,
 				4CAD3E5C1907687000B719FB /* WHCNewMessageAPI.m in Sources */,
@@ -1193,8 +1204,10 @@
 				4C174FB218D963AF00DFFDC7 /* ASIAuthenticationDialog.m in Sources */,
 				4CAD3E09190767B800B719FB /* WHCSettingView.m in Sources */,
 				4CAD3E0A190767B800B719FB /* WHCSingleSelectView.m in Sources */,
+				4C1197F219234EF3000FBC13 /* HttpJsonAPI.m in Sources */,
 				4C9B2CEA190FB0D8007BBCAA /* WHCTaskOwnerPickerView.m in Sources */,
 				4C174FB818D963AF00DFFDC7 /* ASIInputStream.m in Sources */,
+				4C11980519245920000FBC13 /* SocialDelegate.m in Sources */,
 				4CAD3E521907687000B719FB /* MessageSession.m in Sources */,
 				4CDA4F6418FFB00B00057419 /* CDataScanner.m in Sources */,
 				4CAD3E591907687000B719FB /* WHCUpdateAccountAPI.m in Sources */,
@@ -1216,7 +1229,6 @@
 				4CAD3E651907687000B719FB /* WHCSyncTask.m in Sources */,
 				4C174FC418D963AF00DFFDC7 /* ASIS3BucketObject.m in Sources */,
 				4CAD3E4E1907687000B719FB /* ClientInfo.m in Sources */,
-				4C01B86D190FBED000D86D78 /* WHCTaskCreateAPI.m in Sources */,
 				4CAD3E0B190767B800B719FB /* WHCTextEditView.m in Sources */,
 				4CAD3E571907687000B719FB /* WHCSendVerifyCodeAPI.m in Sources */,
 				4CAD3DF5190767B800B719FB /* WHCAddressBookView.m in Sources */,
@@ -1403,6 +1415,7 @@
 		4C7160A318BF535000C02D99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/whocan.app/whocan";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1425,6 +1438,7 @@
 		4C7160A418BF535000C02D99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/whocan.app/whocan";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

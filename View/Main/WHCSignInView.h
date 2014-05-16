@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ClientInfo.h"
 #import "WHCSignInAPI.h"
-#import "WHCUploadContactsAPI.h"
 
 
 @interface WHCSignInView : UITableViewController<WHCJsonAPIDelegate>

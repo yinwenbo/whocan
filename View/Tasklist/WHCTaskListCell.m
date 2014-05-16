@@ -24,7 +24,7 @@
 
     [icon setImage:[UIImage imageNamed:owner.icon]];
     [title setText:task.title];
-    [detail setText: [NSString stringWithFormat:@"%@", task.createTime]];
+    [detail setText: [task getDeadlineLabel]];
 //    [checkedIcon setHighlighted: [task.finished boolValue]];
     [checked setSelected: [task.finished boolValue]];
     [checked addTarget:self action:@selector(onTaskFinishedChange) forControlEvents:UIControlEventTouchUpInside];

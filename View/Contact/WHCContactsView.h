@@ -11,7 +11,6 @@
 #import "WHCContactCell.h"
 #import "WHCContactShowView.h"
 
-#import "WHCGetFriendsAPI.h"
 #import "WHCAddFriendAPI.h"
 #import "AppContact.h"
 

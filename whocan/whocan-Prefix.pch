@@ -13,4 +13,43 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "HttpJsonAPI.h"
+    #import "SocialDelegate.h"
+    #import "MessageDelegate.h"
+    #import "TasklistDelegate.h"
+    #import "AppContact.h"
+#endif
+
+#define api_host    @"http://www.weijinrong100.com/whocan/"
+
+#define api_social      api_host"social/"
+#define api_social_add_friend           api_social"addFriendRegister.json"
+#define api_social_get_friends          api_social"findAll.json"
+#define api_social_send_invite          api_social"addFriendNoRegister.json"
+#define api_social_upload_contacts      api_social"uploadLinkman.json"
+
+#define api_security    api_host"security/"
+#define api_security_send_verify_code   api_security"sendAuthCode.json"
+#define api_security_sign_in            api_security"loginAuthCode.json"
+
+#define api_account     api_host"user/"
+#define api_account_modify              api_account"modify.json"
+
+#define api_message     api_host"session/"
+#define api_message_find_user           api_message"findPrivate.json"
+#define api_message_group_add_user      api_message"addUser.json"
+#define api_message_make_read           api_message"sendAck.json"
+#define api_message_new_messages        api_message"findNewMessage.json"
+#define api_message_send                api_message"sendMessage.json"
+
+#define api_tasklist    api_host"tasklist/"
+#define api_tasklist_create             api_tasklist"create.json"
+#define api_tasklist_find_by_group_id   api_tasklist"findByGroupId.json"
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s %d", __func__, __LINE__)
+#else
+#define debugLog(...)
+#define debugMethod()
 #endif

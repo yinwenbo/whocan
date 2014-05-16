@@ -14,5 +14,5 @@
 - (NSString *)getString:(NSString *)key;
 - (NSDate *)getDate:(NSString *)key;
 - (NSArray *)getArray:(NSString *)key;
-
+- (NSNumber *)getNumber:(NSString *)key;
 @end

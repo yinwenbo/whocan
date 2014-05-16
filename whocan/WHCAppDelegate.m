@@ -25,7 +25,7 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 //    [UITabBarItem.appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor purpleColor] }
 //                                           forState:UIControlStateSelected];
-    
+
     [WHCAnalytics start];
 //    [WHCSyncTask start];
     return YES;
