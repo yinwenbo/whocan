@@ -19,7 +19,6 @@ static bool abAccessPerission;
     if(error){
         NSLog(@"get phone address book error: %@", error);
     }
-    CFRelease(addressBook);
     return addressBook;
 }
 
@@ -39,7 +38,7 @@ static bool abAccessPerission;
             NSLog(@"get address book granted error %@", error);
         }
     });
-    CFRelease(addressBook);    
+
 //    [AddressBookUtil releaseRef:addressBook];
     return abAccessPerission;
 }

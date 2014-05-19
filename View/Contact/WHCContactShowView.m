@@ -91,7 +91,9 @@
         [self.navigationController pushViewController:view animated:YES];
     } else if (appContact.isAppUser) {
         btnMainAction.titleLabel.text = @"加为好友";
-        [[WHCAddFriendAPI getInstance:self userId:appContact.appId] synchronize];
+        [[SocialDelegate addFriend:appContact.appId] startSynchronizeWithFinishedBlock:^(HttpJsonAPI *api) {
+            
+        } showProgressOn:self.view];
     } else {
         WHCSmsSendView * smsView = [WHCSmsSendView initWithInvite:self.appContact.mobileNo];
         [self presentViewController:smsView animated:YES completion:nil];
@@ -99,10 +101,6 @@
     }
 }
 
-- (void)onJsonParseFinished:(WHCJsonAPI *)api
-{
-    
-}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UINavigationController * nc = (UINavigationController*)[segue destinationViewController];

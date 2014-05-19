@@ -11,10 +11,9 @@
 #import "WHCContactCell.h"
 #import "WHCContactShowView.h"
 
-#import "WHCAddFriendAPI.h"
 #import "AppContact.h"
 
-@interface WHCContactsView : UITableViewController<WHCJsonAPIDelegate, UINavigationControllerDelegate>
+@interface WHCContactsView : UITableViewController<UINavigationControllerDelegate>
 
 - (NSArray *)getAppContacts;
 - (UITableViewCell *)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;

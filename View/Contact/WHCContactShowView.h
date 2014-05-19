@@ -13,10 +13,9 @@
 #import "WHCMessageView.h"
 #import "WHCSaveBarButton.h"
 
-#import "WHCAddFriendAPI.h"
 #import "AppContact.h"
 
-@interface WHCContactShowView : UITableViewController<WHCJsonAPIDelegate>
+@interface WHCContactShowView : UITableViewController
 
 @property (nonatomic, retain) IBOutlet UIButton * btnMainAction;
 @property (nonatomic, retain) IBOutlet UILabel * lblName;

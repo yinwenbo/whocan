@@ -148,7 +148,8 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 #pragma mark - Cell Init
 
-- (BOOL)hasTopFixCellSection{
+- (BOOL)hasTopFixCellSection
+{
     return [self topFixCellCount] > 0;
 }
 
@@ -260,7 +261,9 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
 - (void)addToFriend:(AppContact*)appContact;
 {
-    [[WHCAddFriendAPI getInstance:self userId:appContact.appId] synchronize];
+    [[SocialDelegate addFriend:appContact.appId] startSynchronizeWithFinishedBlock:^(HttpJsonAPI *api) {
+        
+    } showProgressOn:self.view];
     [self refreshFriends];
 }
 

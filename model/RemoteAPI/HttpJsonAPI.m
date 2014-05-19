@@ -10,10 +10,13 @@
 #import "HttpJsonAPI.h"
 #import "ASIFormDataRequest.h"
 #import "ClientInfo.h"
+#import "MBProgressHUD.h"
+
 
 @interface HttpJsonAPI() {
     ASIFormDataRequest * _request;
     id<HttpJsonAPIDelegate> _delegate;
+    NSData * _responseData;
     
     NSString * _url;
     NSDictionary * _params;
@@ -67,7 +70,7 @@
 
 - (void)startAsynchronize
 {
-    [self createRequest];
+    [self beforeStart];
     _isSynchronize = NO;
     [_request startAsynchronous];
 }
@@ -81,32 +84,24 @@
 
 - (void)startSynchronize
 {
-    [self createRequest];
+    [self beforeStart];
     _isSynchronize = YES;
     [_request startSynchronous];
 }
 
-- (void)startSynchronize:(CallbackBlock)onFinished showProgressOn:(UIView *)view
+- (void)startSynchronizeWithFinishedBlock:(CallbackBlock)onFinished showProgressOn:(UIView *)view
 {
     _onFinishedBlock = onFinished;
     _progressBaseView = view;
     [self startSynchronize];
 }
 
-- (void)cancelRequest
+- (void)beforeStart
 {
-    debugLog(@"cancel request %@", _url);
-    [_request clearDelegatesAndCancel];
-}
-
-- (BOOL)isMatchUrl:(NSString *)url
-{
-    return [_url isEqualToString:url];
-}
-
-- (JsonAPIResult *)getResult
-{
-    return _result;
+    if (_progressBaseView) {
+        [MBProgressHUD showHUDAddedTo:_progressBaseView animated:YES];
+    }
+    [self createRequest];
 }
 
 - (void)createRequest
@@ -122,34 +117,89 @@
     
 }
 
-- (void)processResonse:(ASIHTTPRequest *)request
+- (void)cancelRequest
 {
-    NSData *responseData;
-    if (_request.allowCompressedResponse) {
-        responseData = [_request responseData];
-    }else{
-        responseData = [_request rawResponseData];
-    }
-    _result = [JsonAPIResult resultWithJsonData:responseData];
-    
-    debugLog(@"request %@", _url);
-    debugLog(@"params %@", _params);
-    debugLog(@"post body %@", [NSString stringWithUTF8String: [_request.postBody bytes]]);
-    debugLog(@"response %@", [NSString stringWithUTF8String: [responseData bytes]]);
-    if (_onFinishedBlock) {
-        _onFinishedBlock(self);
-    }
-//    [_delegate onJsonParseFinished:self];
+    debugLog(@"cancel request %@", _url);
+    [_request clearDelegatesAndCancel];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    [self processResonse:request];
+    [self afterResponse];
+    [self processSuccess];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [self processResonse:request];
+    [self afterResponse];
+    [self processFailed];
+}
+
+- (void)afterResponse
+{
+    if (_request.allowCompressedResponse) {
+        _responseData = [_request responseData];
+    }else{
+        _responseData = [_request rawResponseData];
+    }
+    if (_progressBaseView) {
+        [MBProgressHUD hideHUDForView:_progressBaseView animated:YES];
+    }
+    debugLog(@"request %@", _url);
+    debugLog(@"params %@", _params);
+    debugLog(@"post body %@", [NSString stringWithUTF8String: [_request.postBody bytes]]);
+    debugLog(@"response %@", [NSString stringWithUTF8String: [_responseData bytes]]);
+}
+
+- (void)processSuccess
+{
+    _result = [JsonAPIResult resultWithJsonData:_responseData];
+    if (_onFinishedBlock) {
+        _onFinishedBlock(self);
+    }
+}
+
+- (void)processFailed
+{
+    NSString *message = [NSString stringWithFormat:@"%@ %d %@",
+                         [self apiUrlShortName],
+                         [_request responseStatusCode],
+                         [self getErrorMessage]];
+    [WHCAnalytics apiError:self message:message];
+    if (_onFinishedBlock) {
+        _onFinishedBlock(self);
+    }
+}
+
+- (BOOL)isMatchUrl:(NSString *)url
+{
+    return [_url isEqualToString:url];
+}
+
+- (JsonAPIResult *)getResult
+{
+    return _result;
+}
+
+- (BOOL)isSuccess
+{
+    return [_request responseStatusCode] == 200;
+}
+
+- (NSString *)getErrorMessage
+{
+    if ([_request responseStatusMessage] != nil){
+        return [_request responseStatusMessage];
+    }
+    if ([_request error] != nil){
+        return [[_request error] localizedDescription];
+    }
+    return @"网络错误";    
+}
+
+- (NSString *)apiUrlShortName
+{
+    return [_url substringFromIndex:[api_host length]];
 }
 /*
  - (void)requestStarted:(ASIHTTPRequest *)request

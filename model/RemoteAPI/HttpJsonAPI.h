@@ -36,12 +36,14 @@ typedef void (^CallbackBlock)(HttpJsonAPI *api);
 - (void)startAsynchronize:(CallbackBlock)onFinished
            showProgressOn:(UIView *)view;
 
-- (void)startSynchronize:(CallbackBlock)onFinished
+- (void)startSynchronizeWithFinishedBlock:(CallbackBlock)onFinished
           showProgressOn:(UIView *)view;
 
 - (void)cancelRequest;
 
 - (BOOL)isMatchUrl:(NSString *)url;
 - (JsonAPIResult *)getResult;
+- (BOOL)isSuccess;
+- (NSString *)getErrorMessage;
 
 @end
