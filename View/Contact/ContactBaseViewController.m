@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Yin Wenbo. All rights reserved.
 //
 
-#import "WHCContactsView.h"
+#import "ContactBaseViewController.h"
 
-@interface WHCContactsView (){
+@interface ContactBaseViewController (){
     NSArray * _appContacts;
     HttpJsonAPI * _getFriendsAPI;
 }
@@ -17,7 +17,7 @@
 
 static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 
-@implementation WHCContactsView
+@implementation ContactBaseViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -102,6 +102,7 @@ static NSString * xx = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ#!";
 {
     _getFriendsAPI = [SocialDelegate getFriends];
     [_getFriendsAPI startAsynchronize:^(HttpJsonAPI *api) {
+        [SocialDelegate saveFriendsByAPIResult:[api getResult]];
         _getFriendsAPI = nil;
         [self finishedRefresh];
     } showProgressOn:nil];    

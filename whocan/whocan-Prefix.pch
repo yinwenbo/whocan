@@ -15,10 +15,12 @@
     #import <Foundation/Foundation.h>
     #import "WHCAnalytics.h"
     #import "HttpJsonAPI.h"
+    #import "AccountDelegate.h"
     #import "SocialDelegate.h"
     #import "MessageDelegate.h"
     #import "TasklistDelegate.h"
     #import "AppContact.h"
+    #import "ClientInfo.h"
 #endif
 
 #define api_host    @"http://www.weijinrong100.com/whocan/"

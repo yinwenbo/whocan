@@ -58,22 +58,17 @@
     if (icon == nil || icon.length == 0){
         return;
     }
-    AppContact *mine = [AppContact findMySelf];
-    mine.appName = name;
-    mine.icon = icon;
-    mine.gender = @"男";
-    WHCUpdateAccountAPI *updateApi = [WHCUpdateAccountAPI getInstance:self appContact:mine];
-    [updateApi synchronize];
-    if ([updateApi isSuccess]) {
-        [AppContact saveContext];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-
-}
-
-- (void)onJsonParseFinished:(WHCJsonAPI *)api
-{
-    
+    HttpJsonAPI * api = [AccountDelegate updateAccountInfo:name icon:icon gender:@"男"];
+    [api startSynchronizeWithFinishedBlock:^(HttpJsonAPI *api) {
+        if ([api isSuccess] && [[api getResult] isSuccess]) {
+            AppContact *mine = [AppContact findMySelf];
+            mine.appName = name;
+            mine.icon = icon;
+            mine.gender = @"男";
+            [AppContact saveContext];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    } showProgressOn:self.view];
 }
 
 @end

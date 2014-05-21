@@ -9,6 +9,7 @@
 #import "WHCTaskView.h"
 
 #import "WHCIconCollection.h"
+#import "CUISemiView.h"
 
 @interface WHCTaskView () {
     IBOutlet UITextField * _taskTitle;

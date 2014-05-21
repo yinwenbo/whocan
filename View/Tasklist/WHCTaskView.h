@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CustomUI.h"
-
 #import "WHCTaskDeadlineView.h"
 #import "WHCTaskOwnerPickerView.h"
 #import "WHCBarInputView.h"

@@ -13,7 +13,7 @@
 
 #import "AppContact.h"
 
-@interface WHCContactsView : UITableViewController<UINavigationControllerDelegate>
+@interface ContactBaseViewController : UITableViewController<UINavigationControllerDelegate>
 
 - (NSArray *)getAppContacts;
 - (UITableViewCell *)getContactCell:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath;

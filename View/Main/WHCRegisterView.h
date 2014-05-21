@@ -10,11 +10,9 @@
 
 #import "AppContact.h"
 
-#import "WHCUpdateAccountAPI.h"
-
 #import "WHCIconCollection.h"
 
 
-@interface WHCRegisterView : UITableViewController<WHCJsonAPIDelegate>
+@interface WHCRegisterView : UITableViewController
 
 @end

@@ -110,20 +110,14 @@
         }
         me.gender = value;
     }
-    
-    WHCUpdateAccountAPI *updateApi = [WHCUpdateAccountAPI getInstance:self appContact:me];
-    [updateApi synchronize];
-    if ([updateApi isSuccess]) {
+    HttpJsonAPI *api = [AccountDelegate updateAccountInfo:me.appName icon:me.icon gender:me.gender];
+    [api startSynchronizeWithFinishedBlock:nil showProgressOn:self.view];
+    if ([api isSuccess] && [[api getResult] isSuccess]) {
         [AppContact saveContext];
         [self updateShowView:me];
         return YES;
     }
     return NO;
-}
-
-- (void)onJsonParseFinished:(WHCJsonAPI *)api
-{
-    
 }
 
 @end

@@ -7,11 +7,8 @@
 //
 
 #import "WHCSignInView.h"
-#import "WHCSignInAPI.h"
-#import "WHCSendVerifyCodeAPI.h"
 
 @interface WHCSignInView () {
-    WHCSendVerifyCodeAPI * _sendVerifyCode;
     NSTimer * _timer;
     NSInteger _counter;
 }
@@ -86,9 +83,14 @@
     [self.btnSendVerifyCode setEnabled:NO];
     [self.txtVerifyCode becomeFirstResponder];
     NSString *mobileNo = self.txtMobileNo.text;
-    _sendVerifyCode = [WHCSendVerifyCodeAPI getInstance:self
-                                               mobileNo:mobileNo];
-    [_sendVerifyCode synchronize];
+    HttpJsonAPI *api = [AccountDelegate sendVerifyCodeToMobile:mobileNo];
+    [api startSynchronizeWithFinishedBlock:^(HttpJsonAPI *api) {
+        if ([api isSuccess] && [[api getResult] isSuccess]) {
+            [self onVerfyCodeSendFinished];
+        } else {
+            [self.btnSendVerifyCode setEnabled:YES];
+        }
+    } showProgressOn:self.view];
 }
 
 - (IBAction)onVerifyCodeChange:(id)sender
@@ -102,34 +104,21 @@
 
 - (IBAction)onSignInPush:(id)sender
 {
-    WHCSignInAPI *signInApi = [WHCSignInAPI getInstance:self
-                                               mobileNo:[self getMobileNo]
-                                             verifyCode:[self getVerifyCode]];
-    [signInApi synchronize];
-}
-
-- (void)onJsonParseFinished:(WHCJsonAPI *)api
-{
-    if ([api isKindOfClass: [WHCSignInAPI class]]){
-        if (![ClientInfo isSignIn]) {
-            return;
-        }
-        [SocialDelegate uploadContactsInBackground];
-        if([ClientInfo needUpdateUserInfo]) {
-            UIViewController *registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
-            [self presentViewController:registerView animated:YES completion:nil];
+    HttpJsonAPI * api = [AccountDelegate signInByMobileVerifyCode:[self getMobileNo] verifyCode:[self getVerifyCode]];
+    [api startSynchronizeWithFinishedBlock:^(HttpJsonAPI *api) {
+        if ([api isSuccess] && [[api getResult] isSuccess]) {
+            [AccountDelegate updateBySignInResult:[api getResult]];
+            [SocialDelegate uploadContactsInBackground];
+            if([ClientInfo needUpdateUserInfo]) {
+                UIViewController *registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
+                [self presentViewController:registerView animated:YES completion:nil];
+            } else {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
         } else {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            
         }
-        return;
-    }
-    if([api isKindOfClass:[WHCSendVerifyCodeAPI class]]){
-        if ([api isSuccess]) {
-            [self onVerfyCodeSendFinished];
-        } else {
-            [self.btnSendVerifyCode setEnabled:YES];
-        }
-    }
+    } showProgressOn:self.view];
 }
 
 - (void)onVerfyCodeSendFinished

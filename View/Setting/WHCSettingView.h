@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AppContact.h"
-
-#import "WHCUpdateAccountAPI.h"
-
 #import "WHCIconSettingView.h"
 #import "WHCTextEditView.h"
 #import "WHCSingleSelectView.h"
 
-@interface WHCSettingView : UITableViewController<WHCJsonAPIDelegate>
+@interface WHCSettingView : UITableViewController
 
 @end

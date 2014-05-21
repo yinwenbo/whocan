@@ -17,5 +17,5 @@
 
 + (void)uploadContactsInBackground;
 
-+ (void)saveFriendsByAPIResult:(NSDictionary *)apiResult;
++ (void)saveFriendsByAPIResult:(JsonAPIResult *)apiResult;
 @end

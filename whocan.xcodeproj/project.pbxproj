@@ -50,6 +50,7 @@
 		4C3282D418C570CA007F69B7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3282D218C570CA007F69B7 /* AddressBook.framework */; };
 		4C3282D518C570CA007F69B7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3282D318C570CA007F69B7 /* AddressBookUI.framework */; };
 		4C63706118EE496D00E7AE10 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C63706018EE496D00E7AE10 /* MBProgressHUD.m */; };
+		4C6FD1F51929F49400686B05 /* AccountDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FD1F41929F49400686B05 /* AccountDelegate.m */; };
 		4C71606E18BF534F00C02D99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71606D18BF534F00C02D99 /* Foundation.framework */; };
 		4C71607018BF534F00C02D99 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71606F18BF534F00C02D99 /* CoreGraphics.framework */; };
 		4C71607218BF534F00C02D99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C71607118BF534F00C02D99 /* UIKit.framework */; };
@@ -68,7 +69,7 @@
 		4CAD3DF7190767B800B719FB /* WHCContactEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DBB190767B800B719FB /* WHCContactEditView.m */; };
 		4CAD3DF8190767B800B719FB /* WHCContactPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DBD190767B800B719FB /* WHCContactPickerView.m */; };
 		4CAD3DF9190767B800B719FB /* WHCContactShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DBF190767B800B719FB /* WHCContactShowView.m */; };
-		4CAD3DFA190767B800B719FB /* WHCContactsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DC1190767B800B719FB /* WHCContactsView.m */; };
+		4CAD3DFA190767B800B719FB /* ContactBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DC1190767B800B719FB /* ContactBaseViewController.m */; };
 		4CAD3DFB190767B800B719FB /* WHCFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DC3190767B800B719FB /* WHCFriendsView.m */; };
 		4CAD3DFC190767B800B719FB /* WHCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DC7190767B800B719FB /* WHCButton.m */; };
 		4CAD3DFD190767B800B719FB /* WHCInputListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3DC9190767B800B719FB /* WHCInputListView.m */; };
@@ -98,9 +99,6 @@
 		4CAD3E531907687000B719FB /* MessageUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E211907687000B719FB /* MessageUser.m */; };
 		4CAD3E551907687000B719FB /* ProjectTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E261907687000B719FB /* ProjectTasks.m */; };
 		4CAD3E561907687000B719FB /* WHCModelStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E281907687000B719FB /* WHCModelStore.m */; };
-		4CAD3E571907687000B719FB /* WHCSendVerifyCodeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E2C1907687000B719FB /* WHCSendVerifyCodeAPI.m */; };
-		4CAD3E581907687000B719FB /* WHCSignInAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E2E1907687000B719FB /* WHCSignInAPI.m */; };
-		4CAD3E591907687000B719FB /* WHCUpdateAccountAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E301907687000B719FB /* WHCUpdateAccountAPI.m */; };
 		4CAD3E5A1907687000B719FB /* WHCAddUserToSessionAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E331907687000B719FB /* WHCAddUserToSessionAPI.m */; };
 		4CAD3E5B1907687000B719FB /* WHCMakeMessageReadAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E351907687000B719FB /* WHCMakeMessageReadAPI.m */; };
 		4CAD3E5C1907687000B719FB /* WHCNewMessageAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD3E371907687000B719FB /* WHCNewMessageAPI.m */; };
@@ -233,6 +231,8 @@
 		4C3282D318C570CA007F69B7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		4C63705F18EE496D00E7AE10 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4C63706018EE496D00E7AE10 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		4C6FD1F31929F49400686B05 /* AccountDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDelegate.h; sourceTree = "<group>"; };
+		4C6FD1F41929F49400686B05 /* AccountDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDelegate.m; sourceTree = "<group>"; };
 		4C71606A18BF534F00C02D99 /* whocan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whocan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C71606D18BF534F00C02D99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C71606F18BF534F00C02D99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -261,8 +261,8 @@
 		4CAD3DBD190767B800B719FB /* WHCContactPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCContactPickerView.m; sourceTree = "<group>"; };
 		4CAD3DBE190767B800B719FB /* WHCContactShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCContactShowView.h; sourceTree = "<group>"; };
 		4CAD3DBF190767B800B719FB /* WHCContactShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCContactShowView.m; sourceTree = "<group>"; };
-		4CAD3DC0190767B800B719FB /* WHCContactsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCContactsView.h; sourceTree = "<group>"; };
-		4CAD3DC1190767B800B719FB /* WHCContactsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCContactsView.m; sourceTree = "<group>"; };
+		4CAD3DC0190767B800B719FB /* ContactBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactBaseViewController.h; sourceTree = "<group>"; };
+		4CAD3DC1190767B800B719FB /* ContactBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactBaseViewController.m; sourceTree = "<group>"; };
 		4CAD3DC2190767B800B719FB /* WHCFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCFriendsView.h; sourceTree = "<group>"; };
 		4CAD3DC3190767B800B719FB /* WHCFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCFriendsView.m; sourceTree = "<group>"; };
 		4CAD3DC6190767B800B719FB /* WHCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCButton.h; sourceTree = "<group>"; };
@@ -320,12 +320,6 @@
 		4CAD3E261907687000B719FB /* ProjectTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTasks.m; sourceTree = "<group>"; };
 		4CAD3E271907687000B719FB /* WHCModelStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCModelStore.h; sourceTree = "<group>"; };
 		4CAD3E281907687000B719FB /* WHCModelStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCModelStore.m; sourceTree = "<group>"; };
-		4CAD3E2B1907687000B719FB /* WHCSendVerifyCodeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCSendVerifyCodeAPI.h; sourceTree = "<group>"; };
-		4CAD3E2C1907687000B719FB /* WHCSendVerifyCodeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCSendVerifyCodeAPI.m; sourceTree = "<group>"; };
-		4CAD3E2D1907687000B719FB /* WHCSignInAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCSignInAPI.h; sourceTree = "<group>"; };
-		4CAD3E2E1907687000B719FB /* WHCSignInAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCSignInAPI.m; sourceTree = "<group>"; };
-		4CAD3E2F1907687000B719FB /* WHCUpdateAccountAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCUpdateAccountAPI.h; sourceTree = "<group>"; };
-		4CAD3E301907687000B719FB /* WHCUpdateAccountAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCUpdateAccountAPI.m; sourceTree = "<group>"; };
 		4CAD3E321907687000B719FB /* WHCAddUserToSessionAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCAddUserToSessionAPI.h; sourceTree = "<group>"; };
 		4CAD3E331907687000B719FB /* WHCAddUserToSessionAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCAddUserToSessionAPI.m; sourceTree = "<group>"; };
 		4CAD3E341907687000B719FB /* WHCMakeMessageReadAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCMakeMessageReadAPI.h; sourceTree = "<group>"; };
@@ -357,7 +351,6 @@
 		4CAD3E741907BE1600B719FB /* CUISemiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUISemiView.m; sourceTree = "<group>"; };
 		4CAD3E751907BE1600B719FB /* WHCBarInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHCBarInputView.h; sourceTree = "<group>"; };
 		4CAD3E761907BE1600B719FB /* WHCBarInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHCBarInputView.m; sourceTree = "<group>"; };
-		4CAD3E811907C42100B719FB /* CustomUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUI.h; sourceTree = "<group>"; };
 		4CAD3E831907C86000B719FB /* CUICustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUICustomCell.h; sourceTree = "<group>"; };
 		4CAD3E841907C86000B719FB /* CUICustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUICustomCell.m; sourceTree = "<group>"; };
 		4CDA4F4818FFB00B00057419 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
@@ -702,8 +695,8 @@
 				4CAD3DBD190767B800B719FB /* WHCContactPickerView.m */,
 				4CAD3DBE190767B800B719FB /* WHCContactShowView.h */,
 				4CAD3DBF190767B800B719FB /* WHCContactShowView.m */,
-				4CAD3DC0190767B800B719FB /* WHCContactsView.h */,
-				4CAD3DC1190767B800B719FB /* WHCContactsView.m */,
+				4CAD3DC0190767B800B719FB /* ContactBaseViewController.h */,
+				4CAD3DC1190767B800B719FB /* ContactBaseViewController.m */,
 				4CAD3DC2190767B800B719FB /* WHCFriendsView.h */,
 				4CAD3DC3190767B800B719FB /* WHCFriendsView.m */,
 			);
@@ -724,7 +717,6 @@
 				4CAD3DCB190767B800B719FB /* WHCSaveBarButton.m */,
 				4CAD3DCC190767B800B719FB /* WHCSmsSendView.h */,
 				4CAD3DCD190767B800B719FB /* WHCSmsSendView.m */,
-				4CAD3E811907C42100B719FB /* CustomUI.h */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -804,6 +796,8 @@
 				4C11980419245920000FBC13 /* SocialDelegate.m */,
 				4C1198091924C0C3000FBC13 /* TasklistDelegate.h */,
 				4C11980A1924C0C3000FBC13 /* TasklistDelegate.m */,
+				4C6FD1F31929F49400686B05 /* AccountDelegate.h */,
+				4C6FD1F41929F49400686B05 /* AccountDelegate.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -866,7 +860,6 @@
 				4C119807192492C4000FBC13 /* JsonAPIResult.m */,
 				4CAD3E3A1907687000B719FB /* NSDictionary+JsonParser.h */,
 				4CAD3E3B1907687000B719FB /* NSDictionary+JsonParserr.m */,
-				4CAD3E2A1907687000B719FB /* Account */,
 				4CAD3E311907687000B719FB /* Message */,
 				4CAD3E3C1907687000B719FB /* Social */,
 				4CAD3E451907687000B719FB /* WHCHttpAPI.h */,
@@ -878,19 +871,6 @@
 				4CAD3E4B1907687000B719FB /* WHCRemoteAPI.h */,
 			);
 			path = RemoteAPI;
-			sourceTree = "<group>";
-		};
-		4CAD3E2A1907687000B719FB /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				4CAD3E2B1907687000B719FB /* WHCSendVerifyCodeAPI.h */,
-				4CAD3E2C1907687000B719FB /* WHCSendVerifyCodeAPI.m */,
-				4CAD3E2D1907687000B719FB /* WHCSignInAPI.h */,
-				4CAD3E2E1907687000B719FB /* WHCSignInAPI.m */,
-				4CAD3E2F1907687000B719FB /* WHCUpdateAccountAPI.h */,
-				4CAD3E301907687000B719FB /* WHCUpdateAccountAPI.m */,
-			);
-			path = Account;
 			sourceTree = "<group>";
 		};
 		4CAD3E311907687000B719FB /* Message */ = {
@@ -1140,6 +1120,7 @@
 				4CAD3DFB190767B800B719FB /* WHCFriendsView.m in Sources */,
 				4C119808192492C4000FBC13 /* JsonAPIResult.m in Sources */,
 				4CAD3DFF190767B800B719FB /* WHCSmsSendView.m in Sources */,
+				4C6FD1F51929F49400686B05 /* AccountDelegate.m in Sources */,
 				4CAD3E641907687000B719FB /* WHCJsonAPI.m in Sources */,
 				4C2BBF0A18FBD64100CFF820 /* TDBadgedCell.m in Sources */,
 				4CAD3E05190767B800B719FB /* WHCMessageSessionListView.m in Sources */,
@@ -1189,7 +1170,6 @@
 				4C71607A18BF534F00C02D99 /* main.m in Sources */,
 				4C71607E18BF534F00C02D99 /* WHCAppDelegate.m in Sources */,
 				4C174FB718D963AF00DFFDC7 /* ASIHTTPRequest.m in Sources */,
-				4CAD3E581907687000B719FB /* WHCSignInAPI.m in Sources */,
 				4CAD3DF7190767B800B719FB /* WHCContactEditView.m in Sources */,
 				4C11977F191A2A21000FBC13 /* WHCCategorySemiLeftSegue.m in Sources */,
 				4CAD3E04190767B800B719FB /* WHCMessageSessionCell.m in Sources */,
@@ -1210,7 +1190,6 @@
 				4C11980519245920000FBC13 /* SocialDelegate.m in Sources */,
 				4CAD3E521907687000B719FB /* MessageSession.m in Sources */,
 				4CDA4F6418FFB00B00057419 /* CDataScanner.m in Sources */,
-				4CAD3E591907687000B719FB /* WHCUpdateAccountAPI.m in Sources */,
 				4CDA4F6718FFB00B00057419 /* CJSONSerialization.m in Sources */,
 				4C174FB518D963AF00DFFDC7 /* ASIDownloadCache.m in Sources */,
 				4CAD3E511907687000B719FB /* Message.m in Sources */,
@@ -1230,11 +1209,10 @@
 				4C174FC418D963AF00DFFDC7 /* ASIS3BucketObject.m in Sources */,
 				4CAD3E4E1907687000B719FB /* ClientInfo.m in Sources */,
 				4CAD3E0B190767B800B719FB /* WHCTextEditView.m in Sources */,
-				4CAD3E571907687000B719FB /* WHCSendVerifyCodeAPI.m in Sources */,
 				4CAD3DF5190767B800B719FB /* WHCAddressBookView.m in Sources */,
 				4C174FB918D963AF00DFFDC7 /* ASINetworkQueue.m in Sources */,
 				4CAD3DFE190767B800B719FB /* WHCSaveBarButton.m in Sources */,
-				4CAD3DFA190767B800B719FB /* WHCContactsView.m in Sources */,
+				4CAD3DFA190767B800B719FB /* ContactBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,7 +1341,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "whocan/whocan-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
@@ -1374,6 +1352,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1396,7 +1375,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "whocan/whocan-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/3rd/baidu/universal-bin",
@@ -1407,6 +1386,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

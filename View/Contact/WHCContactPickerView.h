@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WHCContactsView.h"
+#import "ContactBaseViewController.h"
 
-@interface WHCContactPickerView : WHCContactsView
+@interface WHCContactPickerView : ContactBaseViewController
 
 @property (nonatomic, readwrite) NSMutableArray * selectedContacts;
 
